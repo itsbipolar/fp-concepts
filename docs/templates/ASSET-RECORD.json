@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "asset_id": "REPLACE",
+  "path": "REPLACE with repository-relative path",
+  "style_id": "within-reach-v1",
+  "purpose_and_financial_meaning": "REPLACE",
+  "quantity_encoding": "symbolic OR describe verified scale",
+  "reference_paths": [],
+  "generation": {
+    "created_at": null,
+    "tool": null,
+    "model_if_exposed": null,
+    "seed_if_exposed": null,
+    "exact_prompt_path": null,
+    "request_metadata_path": null,
+    "transparent_background": true,
+    "attempt_count": null
+  },
+  "sha256": null,
+  "dimensions_px": null,
+  "crop_or_alignment_notes": "REPLACE",
+  "review": {
+    "status": "unreviewed",
+    "reviewed_at": null,
+    "scene_screenshot_paths": [],
+    "findings": []
+  },
+  "instructions": "Fill known values after generation; use null for metadata not exposed. Save exact prompt and safe request parameters, never credentials or base64 image data in logs. Record tool edits as well as the initial generation."
+}

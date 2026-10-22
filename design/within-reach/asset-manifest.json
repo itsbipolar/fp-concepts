@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "style_id": "within-reach-v1",
+  "baseline_commit": "d38de7ae86abf3f91452539728a3ca61a6671c25",
+  "policy": "These canonical assets are protected originals. Add new variants and per-lesson records; do not overwrite or update baseline hashes to silence a failure. A deliberate reference revision must document the user-authorized style change.",
+  "provenance": {
+    "tool": "OpenAI image generation",
+    "exact_historical_prompts": null,
+    "generation_model_if_exposed": null,
+    "seed_if_exposed": null,
+    "note": "Historical exact requests were not recovered. docs/templates/IMAGE-PROMPT.md is reconstructed from approved pixels, not a replay of the original requests."
+  },
+  "assets": [
+    {
+      "id": "within-reach-master",
+      "path": "explorations/style-frames/assets/within-reach.png",
+      "role": "active-style-master",
+      "sha256": "bd2361ac40b317cc8f9388cf60286745db8c7890c1b199f85236c19adac88302",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 2351149,
+      "has_alpha_channel": false,
+      "meaning": "Full drawing, material and composition reference; preserve original pixels.",
+      "quantity_encoding": "symbolic",
+      "alignment": "Full scene reference, not an isolated production layer."
+    },
+    {
+      "id": "within-reach-company",
+      "path": "explorations/within-reach/assets/company.png",
+      "role": "active-component",
+      "sha256": "42b86be12b496eb5e93783b65959f95776c9cf409c67f03c3588d3ee12549788",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 1763673,
+      "has_alpha_channel": true,
+      "meaning": "Company layer with fixed decorative cash. Decorative notes encode no amount; keep changing payments separate.",
+      "quantity_encoding": "symbolic",
+      "alignment": "Company and owner share the 1536x1024 composition grid; retain transparent margins for existing placement."
+    },
+    {
+      "id": "within-reach-owner",
+      "path": "explorations/within-reach/assets/owner.png",
+      "role": "active-component",
+      "sha256": "8627753b1493f5ecb0f4af362eab029f2829edc72120b9cffe4338eb1085ae1d",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 1284761,
+      "has_alpha_channel": true,
+      "meaning": "Character, anatomy, gesture and paper texture reference. Preserve identity when changing this character's pose.",
+      "quantity_encoding": "symbolic",
+      "alignment": "Company and owner share the 1536x1024 composition grid; retain transparent margins for existing placement."
+    },
+    {
+      "id": "within-reach-payment",
+      "path": "explorations/within-reach/assets/payment.png",
+      "role": "active-component",
+      "sha256": "93cb5b4422ad3e87d007af3373cac931769ec0d1132cbe90211a19faa3170e08",
+      "dimensions_px": [
+        1774,
+        887
+      ],
+      "bytes": 2578384,
+      "has_alpha_channel": true,
+      "meaning": "One independent symbolic payment. No denomination or numerical value is encoded.",
+      "quantity_encoding": "symbolic",
+      "alignment": "Preserve native aspect ratio; payment is positioned independently."
+    },
+    {
+      "id": "colossus-master",
+      "path": "explorations/style-frames/assets/colossus.png",
+      "role": "preserved-alternative",
+      "sha256": "f3de33f8fd8adc7570b014bf9ffecd3f4aa43b3fafa775546c4c79718b847add",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 2514084,
+      "has_alpha_channel": false,
+      "meaning": "Woodcut direction retained for later; do not mix into Within reach.",
+      "quantity_encoding": "symbolic",
+      "alignment": "Full scene reference, not an isolated production layer."
+    },
+    {
+      "id": "separate-bodies-master",
+      "path": "explorations/style-frames/assets/separate-bodies.png",
+      "role": "preserved-alternative",
+      "sha256": "ce10213a5f662a1aace4cf61c6974a19ed21f6cc1b5e0b20e7d34ebe019a81c1",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "bytes": 2070173,
+      "has_alpha_channel": false,
+      "meaning": "Sculptural direction retained for later; do not mix into Within reach.",
+      "quantity_encoding": "symbolic",
+      "alignment": "Full scene reference, not an isolated production layer."
+    }
+  ]
+}

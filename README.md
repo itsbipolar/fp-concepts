@@ -1,6 +1,26 @@
 # fp-concepts
 
-**Selected direction:** [Within reach](explorations/within-reach/README.md), the cut-paper treatment of company ownership, now has a working interaction. [Download and try it](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/within-reach/within-reach.zip). **The colossus** and **Separate bodies** remain in the [style-frame archive](explorations/style-frames/README.md) for possible future use. [Download all three style frames](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip). The original concept-machine approach below is retained as project history.
+**Selected direction:** [Within reach](explorations/within-reach/README.md), the cut-paper treatment of company ownership, now has a working interaction. [Download and try it](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/within-reach/within-reach.zip). **The colossus** and **Separate bodies** remain in the [style-frame archive](explorations/style-frames/README.md) for possible future use. [Download all three style frames](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip).
+
+## Start a new chat
+
+Attach this repository and use branch `codex`. The repository's [AGENTS.md](AGENTS.md) is the entry point; [project state](docs/PROJECT-STATE.md) carries the compact handoff. A useful opening instruction is:
+
+> Use the fp-visual-build project skill on codex to build [financial concept]. Follow the approved Within reach references and the model-routing workflow. Develop the visual explanation from the financial relationships.
+
+For unfinished work, replace “build [financial concept]” with “continue [lesson path] from its brief and project state.” A chat without repository access cannot retrieve this workflow automatically.
+
+- [Drawing, texture and figure rules](docs/STYLE-SYSTEM.md), [reference assets](design/within-reach/asset-manifest.json) and [style tokens](design/within-reach/style-tokens.json).
+- [Build phases and model routing](docs/BUILD-WORKFLOW.md), [interaction principles](docs/INTERACTION-PRINCIPLES.md) and [project skill](.agents/skills/fp-visual-build/SKILL.md).
+- Templates for [lesson briefs](docs/templates/LESSON-BRIEF.md), [image prompts](docs/templates/IMAGE-PROMPT.md), [asset provenance](docs/templates/ASSET-RECORD.json) and [bounded agent tasks](docs/templates/AGENT-TASK.md).
+
+Recommended main model for routine work: **Sol, medium**. Reserve **Astra high/ultra** for the difficult visual or causal decisions described in the routing guide. The app/user selects the main model; the workflow directs subagents where supported. It does not install or change model settings.
+
+Check the portable kit with `python3 scripts/check_visual_system.py` (no dependencies beyond Python 3.9+). It checks references, hashes, palette anchors and local links; visual fidelity still needs screenshot review. New generated art uses the approved image references and saved prompts; reusing existing assets provides exact visual continuity.
+
+## Historical concept-machine approach
+
+The following records the earlier implementation. Its invented-machine workflow applies to legacy figures; use the current project skill for new work.
 
 
 **Concept machines for Canadian financial planning.** Colourful, hand-inked isometric contraptions you can turn

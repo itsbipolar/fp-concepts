@@ -29,4 +29,4 @@ Composition: familiar full illustration in a roomy stage; stage moves remain bou
 ## Assets
 
 Original style frame: `../style-frames/assets/within-reach.png`.
-Generated cutouts: `assets/company.png`, `assets/owner.png`, `assets/payment.png`. Originals retained in the generation output directory; these files are independent production copies. This is a working teaching prototype, not compliance-approved financial marketing material.
+Generated cutouts: `assets/company.png`, `assets/owner.png`, `assets/payment.png`. These production files and the original style frame are versioned in the repository and catalogued with hashes in `../../design/within-reach/asset-manifest.json`. Historical exact generation requests were not recovered. For future consistent assets, use `../../docs/STYLE-SYSTEM.md` and the reconstructed image prompt template; record exact new requests. This is a working teaching prototype, not compliance-approved financial marketing material.

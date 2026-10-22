@@ -8,6 +8,7 @@
 - [x] Produce layered artwork and the first ownership interaction at `explorations/within-reach/`; browser and offline-package checks passed.
 - [x] Owner endorsed the visual design and drawing style of the ownership interaction.
 - [x] Record the next design requirement: one decision reveals several connected consequences, with quantities integrated into the illustration (`docs/INTERACTION-PRINCIPLES.md`). The assistant originates the visual explanations.
+- [x] Preserve the drawing/texture system, image references and hashes, generation templates, lesson brief, fresh-chat handoff and project skill. Establish explicit economical model routing; verify the portable kit with `scripts/check_visual_system.py`.
 - [ ] For the next lesson, research its causal effects and develop a coherent visual sequence spanning immediate and later outcomes where relevant. The salary/dividend/CPP example is illustrative, not a committed calculator specification.
 
 Earlier roadmap below is historical; the garden direction was rejected.

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "style_id": "within-reach-v1",
+  "authority": "Approved raster references and docs/STYLE-SYSTEM.md",
+  "note": "Nominal colour anchors; textured artwork contains tonal variation. These are reusable authoring tokens, not a runtime dependency of the existing prototype.",
+  "colors": {
+    "ground": {"hex": "#ffdf08", "css_variable": "--yellow", "role": "Lemon scene ground"},
+    "structure": {"hex": "#1244bb", "css_variable": "--blue", "role": "Ultramarine company and major structural subjects"},
+    "ink": {"hex": "#151819", "css_variable": "--ink", "role": "Figure clothing, drawn marks and primary UI text"},
+    "money": {"hex": "#f47b0d", "css_variable": "--orange", "role": "Orange fictional cash and payment subjects"},
+    "paper": {"hex": "#fff9d8", "css_variable": "--ivory", "role": "Ivory paper accents and character highlights"}
+  },
+  "typography": {
+    "ui_family": "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+    "body_px": 16,
+    "supporting_px": 13,
+    "narrative_px": {"min": 23, "max": 34, "phone": 25},
+    "narrative_line_height": 1.2,
+    "rule": "Readable code-rendered labels; illustration carries the visual personality. Do not generate dynamic text in images."
+  },
+  "material": {
+    "surface": "Tactile dyed paper, irregular fibrous grain, creases and scuffed ink",
+    "edge": "Angular hand-cut silhouettes with controlled unevenness",
+    "depth": "Shallow paper overlaps and restrained contact shadows",
+    "marks": "Sparse angular facial marks; expressive silhouette before interior detail"
+  },
+  "composition": {
+    "reference_canvas_px": [1536, 1024],
+    "priority": "One dominant illustrated relationship with space for actions and connected effects",
+    "controls": "Quiet controls adjacent to or below the scene; visible keyboard focus",
+    "responsive": "Recompose while preserving relationships and readable labels; avoid shrinking a desktop dashboard"
+  },
+  "motion": {
+    "intent": "User-triggered movement explains cause, ownership or time; preserve the final state",
+    "reduced_motion": "Apply the same final state immediately with a concise textual account",
+    "prototype_move_ms": 480,
+    "prototype_payment_ms": 1350,
+    "timing_note": "Prototype timings are references, not a prescribed duration for every lesson."
+  }
+}

@@ -10,6 +10,8 @@ The garden, chart-led explanations, overlapping amounts, literal streetscapes, a
 
 **One decision, several connected consequences** is the interaction direction. A click can change immediate cash, related taxes or costs, and future rights or benefits within the same scene. Reveal those effects in a readable sequence and preserve the result for comparison. The assistant owns the research and invention of these visual explanations. See [Interaction principles](INTERACTION-PRINCIPLES.md) for the active design contract. The salary/dividend/CPP example illustrates this ambition; it is not a prescribed money-bag treatment or a calculator task.
 
+For consistent production across new chats, follow the [drawing system](STYLE-SYSTEM.md), use the [protected reference kit](../design/within-reach/asset-manifest.json), and follow the [build and model-routing workflow](BUILD-WORKFLOW.md). The project skill and `AGENTS.md` provide a compact entry point; the owner should not need to repeat the style direction.
+
 The material below records the earlier proposal. Its one-scene/one-idea and physical-analogy constraints do not govern new work.
 
 
