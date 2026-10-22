@@ -14,5 +14,6 @@ figures/<slug>/
 | Fig. | Slug | Catalog ID | Status |
 |---|---|---|---|
 | 00 | `_smoke` | — | toolchain canary, not for publishing |
+| 01 | `oas-clawback` | R1 | verified; awaiting owner review and compliance |
 
 How to make one: `.claude/skills/fp-figures/SKILL.md`; commands: `docs/PIPELINE.md`.

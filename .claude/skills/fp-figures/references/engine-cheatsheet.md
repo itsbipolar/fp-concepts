@@ -80,4 +80,12 @@ fpPage({ note:'...', asOf:'2026' });    // last: disclaimer footer + ?clean / ?b
 6. `mountFigure` replaces `document.body`, so anything added to the page (fpPage) must run after it.
 7. Chrome's `--dump-dom` with `--virtual-time-budget` **hangs while a figure animates** (screenshots don't). `shoot.py
    errors` uses Playwright (Node, `/opt/node-tools/node_modules`) when present, and also prints the stats panel and
-   `window.__st`, which is the quickest numbers check.
+   `window.__st`, which is the quickest numbers check. Screenshots mid-animation hang the same way, so every
+   `shoot.py` mode now batches its shots through one Playwright browser when available (and is much faster).
+8. **Lay a desk machine out along the view diagonal** (screen-x = x - y): parts at the same depth line up left to
+   right without hiding each other. A tall part with its partner "behind" it (smaller x + y) hides the partner
+   (Fig. 01, round 1: the overflow tube vanished behind the column).
+9. A glass tank needs an **open cap** (an even-odd frame), or its top face hides the water from above.
+10. When `xrCallouts` puts every pill on one side (no room on the other), give the far-side parts their own row
+    under the board with `tag()` and computed offsets: see `oaRowTags` in `figures/oas-clawback/figure.html`.
+11. A part that faces you only from some sides (a wall a label points at) should pick its anchor by `facing()`.

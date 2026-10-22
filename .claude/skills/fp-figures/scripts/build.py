@@ -32,5 +32,6 @@ page = page[:dt.end()] + NOTICE + page[dt.end():] if dt else NOTICE + page
 page = page.replace('</head>', HEAD + '</head>', 1) if '</head>' in page else HEAD + page
 i = page.rfind('</body>')
 page = page[:i] + TAIL + page[i:] if i >= 0 else page + TAIL
+os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
 open(out, 'w', encoding='utf-8').write(page)
 print('wrote', out)

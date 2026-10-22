@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OAS clawback</title></head><body>
+<script src="core.js"></script>
+<script src="fp-kit.js"></script>
+<script>
+/* OAS clawback: the overflow line (catalog R1, brief: figures/oas-clawback/BRIEF.md).
+   The rule: OAS recovery tax = 15% x (net income - $95,323) for 2026 income, until the whole OAS is gone at $155,320
+   (ages 65-74). Net income counts OAS itself, CPP, RRIF withdrawals and grossed-up dividends; TFSA withdrawals don't.
+
+   How it really works, as a machine (each button is one real step):
+     RRIF money -> pump -> pipe -> NET INCOME column (glass, $1,500 per unit of height)
+     column fills to the $95,323 crest -> above it, water spills out of the spout -> OVERFLOW tube (same scale)
+     overflow -> float -> rod -> gauge needle; every $3,333 of overflow moves one $500 OAS coin to the TAX plinth
+     TFSA money -> tap -> CASH pail (no pipe to the column: it is not income)
+
+   Parts (each held by another):
+     BOARD    desk board
+     RRIF     base plate . glass jar . water . lid . pump on the lid . riser pipe . pipe over to the column . outlet
+     COLUMN   base plinth (NET INCOME text) . glass walls . water layers . cap ring . crest line ($95,323) . spout
+     OVERFLOW tube base . glass tube . water . red OAS-GONE ring . float + rod (see-through) . gauge cap . dial . needle
+     OAS      plinth (OAS text) . 18 gold coins of $500
+     TAX      grey plinth (TAX text) . coins received . a coin in flight
+     TFSA     base plate (TFSA text) . sealed glass jar . water . lid + seal . tap . nozzle . CASH pail . water . stream
+   Layout (x = depth, y = width, +y = viewer-left): everything sits on the line x ~ 50, spread along y:
+     TAX (y 22) . OAS (y 54) . OVERFLOW (y 78) . COLUMN (y 92-118, RRIF behind it at x 19) . TFSA (y 148). */
+
+const oaR = FP_FACTS.ret, oaT = FP_FACTS.tax;
+const OA_TH = oaR.oasClawThreshold, OA_RATE = oaR.oasClawRate, OA_GONE = oaR.oasGone6574;
+const OA_YEAR = (OA_GONE - OA_TH) * OA_RATE;                       // the OAS fully recovered at $155,320: $8,999.55
+const OA_COIN = 500, OA_NC = Math.round(OA_YEAR / OA_COIN);         // 18 coins
+const OA_AGE = 68, OA_RRIF0 = 880000, OA_RMIN = oaR.rrifMinUnder71(OA_AGE) * OA_RRIF0;   // $40,000
+const OA_CPP = 15000, OA_DIV = 20000, OA_GUP = OA_DIV * oaT.eligGrossUp;                 // gross-up $7,600
+const OA_TFSA0 = 60000, OA_STEP = 10000, OA_RMAX = 80000;
+const OA_SC = 1500;                                                 // dollars per unit of water height
+const oaNet = rx => OA_YEAR + OA_CPP + OA_RMIN + OA_DIV + OA_GUP + rx;
+const oaClaw = net => Math.min(OA_YEAR, Math.max(0, net - OA_TH) * OA_RATE);
+const oaCoins = c => Math.min(OA_NC, Math.round(c / OA_COIN));
+
+// geometry
+const OCX0 = 11, OCX1 = 41, OCY0 = 92, OCY1 = 118, OG0 = 7, OG1 = 77;          // column glass box
+const OCC = (OCX0 + OCX1) / 2, OCYC = (OCY0 + OCY1) / 2;                       // its centre (the inlet)
+const oaZ = v => OG0 + v / OA_SC, OA_ZTH = oaZ(OA_TH);                          // crest height 70.5
+const OTX = 54, OTY = 80, OTR = 6, OT0 = 4, OT1 = 66;                           // overflow tube, in front and to the right
+const oaZT = v => OT0 + v / OA_SC, OA_ZGONE = oaZT(OA_GONE - OA_TH);             // OAS gone ring at 44
+const ORX = 26, ORY = 142, ORR = 10, ORG0 = 8, ORG1 = 50;                       // RRIF jar, left of the column
+const OFX = 36, OFY = 176, OFR = 11, OFG0 = 8, OFG1 = 44;                       // TFSA jar, far left
+const OPX = 60, OPY = 176;                                                      // cash pail
+const OPLX = 56, OAS_Y = 52, TAX_Y = 22;                                        // the OAS and TAX plinths
+const OCOIN_T = 2.1, OCOIN_R = 7;
+const BX0 = 2, BY0 = 6, BX1 = 74, BY1 = 194;                                    // the desk board
+const OWATER = '#8fc4dc', OCRIM = '#e0662a';
+const OLAYERS = [
+  { key:'OAS (COUNTS TOO)', col:'#f2cf63' }, { key:'CPP', col:'#8ec3ea' }, { key:'RRIF MINIMUM', col:'#f59a5a' },
+  { key:'DIVIDENDS', col:'#7cc9a0' }, { key:'GROSS-UP 38%', col:'#c6ead5' }, { key:'RRIF EXTRA', col:'#f9c9a4' } ];
+const oaLayerVals = rx => [OA_YEAR, OA_CPP, OA_RMIN, OA_DIV, OA_GUP, rx];
+const OGLASS = { l:'#e9f5f7', m:'#cfe6eb', d:'#a9cbd3' };
+const OTAP = matOf('#b9c0c3');
+
+/* ---------- helpers ---------- */
+const oaSideFaces = (x0,y0,z0,x1,y1,z1) => [
+  [[0,1,0],  [[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]]], [[1,0,0],  [[x1,y0,z0],[x1,y1,z0],[x1,y1,z1],[x1,y0,z1]]],
+  [[0,-1,0], [[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1]]], [[-1,0,0], [[x0,y0,z0],[x0,y1,z0],[x0,y1,z1],[x0,y0,z1]]] ];
+// glass walls of a box: the far walls faint (before the contents), the near walls (after)
+const oaGlassBack = (...b) => `<g opacity=".45">` + oaSideFaces(...b).filter(([n]) => !vis(n)).map(([n, q]) => fill(pd(q), mix(OGLASS.d, '#f2efe7', .3))).join('') + `</g>`;
+const oaGlassFront = (...b) => `<g opacity=".32">` + oaSideFaces(...b).filter(([n]) => vis(n)).map(([n, q]) => fill(pd(q), toneI(n, OGLASS))).join('') + `</g>`
+  + oaSideFaces(...b).filter(([n]) => vis(n)).map(([n, q]) => ink(pd(q), .8)).join('');
+// glass cylinder: far wall, contents, near wall
+const oaRing = (x, y, z, r, n = 28) => on(PZ(z), ellUV(x, y, r, r, n));
+const oaGlassCyl = (x, y, z0, z1, r, inner) => {
+  const A = oaRing(x, y, z0, r), B = oaRing(x, y, z1, r);
+  return `<g opacity=".45">` + loft(A, B, () => mix(OGLASS.d, '#f2efe7', .3), true) + `</g>` + inner
+    + `<g opacity=".3">` + loft(A, B, n => toneI(n, OGLASS)) + `</g>` + ink(pd(B), .8) + hullInk([...A, ...B], 1.6)
+    + oaStreak(x, y, z0, z1, r); };
+const oaStreak = (x, y, z0, z1, r) => { const a = (YAW + 25) * Math.PI / 180, p = [x + r*1.01*Math.cos(a), y + r*1.01*Math.sin(a)];
+  return `<path d="${pd([[p[0], p[1], z0 + (z1-z0)*.2], [p[0], p[1], z0 + (z1-z0)*.85]], false)}" stroke="#ffffff" stroke-width="1.4" opacity=".5" stroke-linecap="round"/>`; };
+// water as a solid upright cylinder (tone by its own colour)
+const oaWaterCyl = (x, y, z0, z1, r, col) => z1 - z0 < .05 ? '' : cyl(x, y, z0, z1, r, matOf(col), toneI, .5, 28);
+const oaStream = (a, b, col, r = .8) => rod(a, b, r, matOf(col), toneI, .4);
+
+/* ---------- the parts ---------- */
+function oaColumn(st, k, layers, below){
+  let s = box(OCX0 - 1, OCY0 - 1, 3, OCX1 + 1, OCY1 + 1, OG0, PALS.ret, tone, 1.2);
+  if (vis([1,0,0])) s += tx(OCX1 + 1.1, (OCY0 + OCY1)/2, 4.1, 'NET INCOME', 2.5, INK, 800);
+  s += oaGlassBack(OCX0, OCY0, OG0, OCX1, OCY1, OG1);
+  // water: one colour closed; its source layers in see-through. Capped at the crest; the rest has spilled.
+  let z = OG0;
+  for (let i = 0; i < layers.length; i++){ const v = below[i]; if (v <= 0) continue; const z1 = z + v / OA_SC;
+    s += box(OCX0 + .6, OCY0 + .6, z, OCX1 - .6, OCY1 - .6, z1, matOf(mix(OWATER, OLAYERS[i].col, k)), toneI, k > .5 ? .5 : 0); z = z1; }
+  if (z > OG0 + .1) s += ink(pd([[OCX0+.6,OCY0+.6,z],[OCX1-.6,OCY0+.6,z],[OCX1-.6,OCY1-.6,z],[OCX0+.6,OCY1-.6,z]]), .7);
+  // RRIF money pouring in from the outlet
+  if (st.pourR > 0) s += oaStream([OCC, OCYC, 79.5], [OCC, OCYC, z], mix(OWATER, OLAYERS[5].col, k), .9);
+  s += oaGlassFront(OCX0, OCY0, OG0, OCX1, OCY1, OG1);
+  // the crest line at $95,323 on every wall (far walls faint), its value on the front
+  const cr = [[OCX0,OCY0,OA_ZTH],[OCX1,OCY0,OA_ZTH],[OCX1,OCY1,OA_ZTH],[OCX0,OCY1,OA_ZTH]];
+  s += `<path d="${pd(cr)}" fill="none" stroke="${OCRIM}" stroke-width="1.6" stroke-dasharray="3 2"/>`;
+  if (vis([1,0,0])) s += tx(OCX1 + .3, (OCY0 + OCY1)/2, OA_ZTH + 1.3, '$95,323', 2.9, '#b8431a', 800);
+  // scale ticks every $10,000 on the front wall's right edge
+  if (vis([1,0,0])){ let t = ''; for (let v = 10000; v < (OG1 - OG0) * OA_SC; v += 10000) t += pd([[OCX1 + .2, OCY0 + .4, oaZ(v)], [OCX1 + .2, OCY0 + 3, oaZ(v)]], false);
+    s += `<path d="${t}" stroke="${INK}" stroke-width=".7" opacity=".7"/>`; }
+  // cap ring with the inlet
+  // cap: an open frame, so the water shows from above
+  const cq = (x0, y0, x1, y1, z) => [[x0,y0,z],[x1,y0,z],[x1,y1,z],[x0,y1,z]];
+  s += oaSideFaces(OCX0 - 1, OCY0 - 1, OG1, OCX1 + 1, OCY1 + 1, OG1 + 2).filter(([n]) => vis(n)).map(([n, q]) => shape(q, tone(n, PALS.ret), .9)).join('');
+  s += `<path d="${pd(cq(OCX0 - 1, OCY0 - 1, OCX1 + 1, OCY1 + 1, OG1 + 2))}${pd(cq(OCX0 + 1.5, OCY0 + 1.5, OCX1 - 1.5, OCY1 - 1.5, OG1 + 2))}" fill="${PALS.ret.l}" fill-rule="evenodd" stroke="${INK}" stroke-width=".9" stroke-linejoin="round"/>`;
+  s += hullInk([[OCX0-1,OCY0-1,3],[OCX1+1,OCY0-1,3],[OCX1+1,OCY1+1,3],[OCX0-1,OCY1+1,3],[OCX0-1,OCY0-1,OG1+2],[OCX1+1,OCY0-1,OG1+2],[OCX1+1,OCY1+1,OG1+2],[OCX0-1,OCY1+1,OG1+2]], 2.6);
+  return s;
+}
+// the spout runs from the column's right wall near the front, at the crest, to the near side of the tube
+const OA_SPA = [OCX1 - 5, OCY0 - 1, OA_ZTH], OA_SPD = norm([OA_SPA[0] - OTX, OA_SPA[1] - OTY, 0]);
+const OA_SPB = [OTX + OA_SPD[0] * (OTR - .5), OTY + OA_SPD[1] * (OTR - .5), OA_ZTH - 6];
+function oaSpout(st, k, spill){
+  // an open channel leaving the column wall at the crest, sloping down into the side of the overflow tube
+  const a = OA_SPA, b = OA_SPB;
+  let s = rod(a, b, 2, METAL, toneI, 1);
+  if (spill) s += oaStream([a[0], a[1] - .3, a[2] + .6], [b[0], b[1], b[2] + .6], mix(OWATER, OLAYERS[5].col, k), .9);
+  return s;
+}
+function oaTube(st, k, above, claw){
+  let s = cyl(OTX, OTY, 3, OT0, OTR + 1.5, PALS.ret, tone, 1.1);
+  let inner = '', z = OT0;
+  for (let i = 0; i < above.length; i++){ const v = above[i]; if (v <= 0) continue; const z1 = z + v / OA_SC;
+    inner += oaWaterCyl(OTX, OTY, z, z1, OTR - .6, mix(OWATER, OLAYERS[i].col, k)); z = z1; }
+  if (st.pourR > 0 && claw > 0) inner += oaStream([OA_SPB[0], OA_SPB[1], OA_SPB[2] - 1], [OA_SPB[0], OA_SPB[1], z], mix(OWATER, OLAYERS[5].col, k), .8);
+  if (k > 0){   // float on the water, its rod up to the gauge pinion
+    inner += `<g opacity="${f(k)}">` + rod([OTX, OTY, z + 1.5], [OTX, OTY, OT1], .5, METAL, toneI, .5)
+      + cyl(OTX, OTY, z, z + 1.6, 4, CERAMIC, toneI, .7, 20) + `</g>`; }
+  // OAS gone ring: where the whole OAS has been recovered
+  const [a0, a1] = nearHalf();
+  const arcPts = Array.from({ length: 15 }, (_, i) => { const t = (a0 + (a1 - a0) * i / 14) * Math.PI / 180; return [OTX + (OTR + .15) * Math.cos(t), OTY + (OTR + .15) * Math.sin(t), OA_ZGONE]; });
+  s += oaGlassCyl(OTX, OTY, OT0, OT1, OTR, inner) + `<path d="${pd(arcPts, false)}" fill="none" stroke="#d23b30" stroke-width="1.6"/>`;
+  // gauge on top: a cap, a dial face, a needle turned by the float (0 = nothing clawed back, full turn = all of it)
+  s += cyl(OTX, OTY, OT1, OT1 + 3, OTR + 2, PALS.ret, tone, 1.2);
+  const fz = OT1 + 3.05;
+  s += fill(pd(on(PZ(fz), ellUV(OTX, OTY, OTR + .8, OTR + .8, 28))), '#fff4d6') + ink(pd(on(PZ(fz), ellUV(OTX, OTY, OTR + .8, OTR + .8, 28))), .7);
+  const ang = t => (150 - 300 * t) * Math.PI / 180, ux = [Math.cos(YAW * Math.PI / 180), Math.sin(YAW * Math.PI / 180)], uy = [-ux[1], ux[0]];
+  // dial drawn so 0 sits at the viewer's lower left: work in a frame turned with the camera
+  const dp = (r, t) => { const a = ang(t), c = Math.cos(a), sn = Math.sin(a); return [OTX + r * (c * uy[0] - sn * ux[0]), OTY + r * (c * uy[1] - sn * ux[1]), fz]; };
+  let tk = ''; for (let i = 0; i <= 6; i++) tk += pd([dp(OTR - .6, i / 6), dp(OTR + .3, i / 6)], false);
+  s += `<path d="${tk}" stroke="${INK}" stroke-width=".7"/>` + `<path d="${pd([dp(OTR - 1, .985), dp(OTR + .4, .985)], false)}" stroke="#d23b30" stroke-width="1.6"/>`;
+  s += ink(pd([[OTX, OTY, fz], dp(OTR - 1.2, claw / OA_YEAR)], false), 1.6) + fill(pd(on(PZ(fz + .02), ellUV(OTX, OTY, .9, .9, 10))), INK);
+  return s;
+}
+const oaPlinth = (y, m, text) => { let s = box(OPLX - 10, y - 9, 3, OPLX + 10, y + 9, 8, m, tone, 1.1); if (vis([1,0,0])) s += tx(OPLX + 10.2, y, 4.4, text, 3, INK, 800); return s; };
+function oaRrif(st, k){
+  const bal = OA_RRIF0 - OA_RMIN - st.vR, lvl = ORG0 + (ORG1 - ORG0 - 2) * bal / OA_RRIF0;
+  let s = cyl(ORX, ORY, 3, ORG0, ORR + 1.5, PALS.ret, tone, 1.2);
+  if (vis([1,0,0])) s += tx(ORX + ORR + 1.6, ORY, 4.2, 'RRIF', 2.8, INK, 800);
+  s += oaGlassCyl(ORX, ORY, ORG0, ORG1, ORR, oaWaterCyl(ORX, ORY, ORG0, lvl, ORR - .6, '#f7b183'));
+  s += cyl(ORX, ORY, ORG1, ORG1 + 2.5, ORR + 1, PALS.ret, tone, 1.1);
+  s += act('rrif', box(ORX - 3.5, ORY - 4, ORG1 + 2.5, ORX + 3.5, ORY + 4, ORG1 + 8, DARK, toneI, 1));   // pump
+  return s;
+}
+function oaTfsa(st, k){
+  const bal = OA_TFSA0 - st.vT, lvl = OFG0 + (OFG1 - OFG0 - 2) * bal / OA_TFSA0;
+  let s = cyl(OFX, OFY, 3, OFG0, OFR + 1.5, PALS.inv, tone, 1.2);
+  if (vis([1,0,0])) s += tx(OFX + OFR + 1.6, OFY, 4.2, 'TFSA', 2.8, INK, 800);
+  s += oaGlassCyl(OFX, OFY, OFG0, OFG1, OFR, oaWaterCyl(OFX, OFY, OFG0, lvl, OFR - .6, '#86cfc6'));
+  // sealed lid: tax never touches what is inside
+  s += cyl(OFX, OFY, OFG1, OFG1 + 3, OFR + 1, PALS.inv, tone, 1.1) + cyl(OFX, OFY, OFG1 + 3, OFG1 + 4.2, 3, matOf('#e2483d'), toneI, .8, 16);
+  return act('tfsa', s);
+}
+function oaPail(st, k){
+  const A = oaRing(OPX, OPY, 3, 5.5, 22), B = oaRing(OPX, OPY, 10, 6.2, 22);
+  const got = st.vT / OA_TFSA0, wz = 3.4 + 6 * got;
+  let inner = fill(pd(oaRing(OPX, OPY, 3.05, 5.5, 22)), METAL.d);
+  if (got > .01) inner += fill(pd(oaRing(OPX, OPY, wz, 5.5 + .7 * (wz - 3) / 7, 22)), '#86cfc6') + ink(pd(oaRing(OPX, OPY, wz, 5.5 + .7 * (wz - 3) / 7, 22)), .5);
+  if (st.pourT > 0) inner += oaStream([OPX - 2, OPY, 11.2], [OPX - 2, OPY, Math.max(wz, 3.4)], '#86cfc6', .7);
+  return openShell(A, B, n => toneI(n, METAL), inner) + ink(pd(B), 1) + hullInk([...A, ...B], 1.4);
+}
+const oaTap = () => rod([OFX + OFR, OFY, 12.5], [OPX - 2, OFY, 12.5], .9, OTAP, toneI, .8) + rod([OPX - 2, OFY, 12.5], [OPX - 2, OFY, 11.2], .9, OTAP, toneI, .8);
+function oaPipe(){   // from the pump up, then over to the column's inlet
+  return rod([ORX, ORY, ORG1 + 8], [ORX, ORY, 86], 1.4, OTAP, toneI, .9);
+}
+const oaPipeTop = () => rod([ORX, ORY, 86], [OCC, OCYC, 86], 1.4, OTAP, toneI, .9) + rod([OCC, OCYC, 86], [OCC, OCYC, 80], 1.4, OTAP, toneI, .9);
+
+/* ---------- labels for the parts on the right: a row of pills under the board, in left-to-right order, so no leader
+   crosses the machine (the engine's callouts put every pill on the left here: the right side has no room) ---------- */
+function oaRowTags(items){
+  if (!items.length) return '';
+  const k = INK_K, u = window.LBL_U ? LBL_U() : 0, fs = u ? 10*u : 8.6*k, gap = 5*k;
+  const vb = document.getElementById('fig').viewBox.baseVal;
+  const rowY = Math.max(...[[BX0,BY0],[BX1,BY0],[BX1,BY1],[BX0,BY1]].map(([x, y]) => P(x, y, 0)[1])) + 4*k;
+  const its = items.map(it => { const [X, Y] = P(...it.at); return { ...it, X, Y, w: u ? 17*u*1.3 : it.text.length*fs*.62 + fs*1.5 }; }).sort((a, b) => a.X - b.X);
+  let x = -1e9; for (const it of its){ it.px = Math.max(it.X, x + gap + it.w/2); x = it.px + it.w/2; }
+  const over = x - (vb.x + vb.width * (u ? .98 : .85)); if (over > 0) for (const it of its) it.px -= over;   // clear of the zoom chip
+  return its.map(it => tag(it.at, (it.px - it.X)/k, (rowY - it.Y)/k, it.text, it.on)).join('');
+}
+
+/* ---------- scene ---------- */
+function scene(st, m){
+  const k = ease(st.xr || 0), net = oaNet(st.vR), claw = oaClaw(net), lv = oaLayerVals(st.vR);
+  // split the layers at the crest: what sits in the column, what has spilled into the overflow tube
+  const below = [], above = []; let acc = 0;
+  for (const v of lv){ const b = Math.max(0, Math.min(v, OA_TH - acc)); below.push(b); above.push(v - b); acc += v; }
+  const spill = net > OA_TH + 50;
+  const nTax = st.shown, nOas = OA_NC - st.shown - (st.fly >= 0 ? 1 : 0);
+  const bt = boardTop(BX0, BY0, BX1, BY1, 3, 8);
+  let s = board(BX0, BY0, BX1, BY1, 3, 8, BOARD);
+  // shadows, one per object, on the board
+  const sq = (x0, y0, x1, y1, z) => [[x0,y0,z],[x1,y0,z],[x1,y1,z],[x0,y1,z]];
+  const ring = (x, y, r, z) => oaRing(x, y, z, r, 16);
+  s += `<g opacity=".8">` + castShadow([...sq(OCX0-1, OCY0-1, OCX1+1, OCY1+1, 3), ...sq(OCX0-1, OCY0-1, OCX1+1, OCY1+1, OG1 + 2)], 3, bt)
+    + castShadow([...ring(ORX, ORY, ORR + 1.5, 3), ...ring(ORX, ORY, ORR, ORG1 + 8)], 3, bt)
+    + castShadow([...ring(OFX, OFY, OFR + 1.5, 3), ...ring(OFX, OFY, OFR, OFG1 + 4)], 3, bt)
+    + castShadow([...ring(OTX, OTY, OTR + 2, 3), ...ring(OTX, OTY, OTR + 2, OT1 + 3)], 3, bt)
+    + castShadow([...sq(OPLX - 10, OAS_Y - 9, OPLX + 10, OAS_Y + 9, 3), ...ring(OPLX, OAS_Y, OCOIN_R, 8 + Math.max(nOas, 1) * OCOIN_T)], 3, bt)
+    + castShadow([...sq(OPLX - 10, TAX_Y - 9, OPLX + 10, TAX_Y + 9, 3), ...ring(OPLX, TAX_Y, OCOIN_R, 8 + Math.max(nTax, 1) * OCOIN_T)], 3, bt)
+    + castShadow([...ring(OPX, OPY, 6.2, 3), ...ring(OPX, OPY, 6.2, 10)], 3, bt) + `</g>`;
+  const parts = [
+    { box: [[OCX0-1, OCY0-1, 3], [OCX1+1, OCY1+1, OG1 + 2.2]], svg: act('column', oaColumn(st, k, lv, below)) },
+    { box: [[Math.min(OA_SPA[0], OA_SPB[0]) - 2, OA_SPB[1], OA_ZTH - 8], [Math.max(OA_SPA[0], OA_SPB[0]) + 2, OCY0 - 1, OA_ZTH + 2]], svg: oaSpout(st, k, spill) },
+    { box: [[OTX - OTR - 2, OTY - OTR - 2, 3], [OTX + OTR + 2, OTY + OTR + 2, OT1 + 3.2]], svg: oaTube(st, k, above, claw) },
+    { box: [[ORX - ORR - 1.5, ORY - ORR - 1.5, 3], [ORX + ORR + 1.5, ORY + ORR + 1.5, ORG1 + 8]], svg: act('rrif', oaRrif(st, k)) },
+    { box: [[ORX - 1.5, ORY - 1.5, ORG1 + 8], [ORX + 1.5, ORY + 1.5, 87.5]], svg: oaPipe() },
+    { box: [[ORX - 1.5, OCYC - 1.5, 79.4], [ORX + 1.5, ORY + 1.5, 87.5]], svg: oaPipeTop() },
+    { box: [[OPLX - 10, OAS_Y - 9, 3], [OPLX + 10, OAS_Y + 9, 8]], svg: oaPlinth(OAS_Y, PALS.gold, 'OAS') },
+    { box: [[OPLX - OCOIN_R, OAS_Y - OCOIN_R, 8], [OPLX + OCOIN_R, OAS_Y + OCOIN_R, 8 + Math.max(nOas, 1) * OCOIN_T]], svg: fpCoinStack(OPLX, OAS_Y, 8, nOas, OCOIN_R, OCOIN_T) },
+    { box: [[OPLX - 10, TAX_Y - 9, 3], [OPLX + 10, TAX_Y + 9, 8]], svg: oaPlinth(TAX_Y, FP_CRA, 'TAX') },
+    { box: [[OPLX - OCOIN_R, TAX_Y - OCOIN_R, 8], [OPLX + OCOIN_R, TAX_Y + OCOIN_R, 8 + Math.max(nTax, 1) * OCOIN_T]], svg: fpCoinStack(OPLX, TAX_Y, 8, nTax, OCOIN_R, OCOIN_T) },
+    { box: [[OFX - OFR - 1.5, OFY - OFR - 1.5, 3], [OFX + OFR, OFY + OFR + 1.5, OFG1 + 4.2]], svg: oaTfsa(st, k) },
+    { box: [[OFX + OFR, OFY - 1, 10.2], [OPX - 1, OFY + 1, 13.5]], svg: oaTap() },
+    { box: [[OPX - 6.2, OPY - 6.2, 3], [OPX + 6.2, OPY + 6.2, 10]], svg: oaPail(st, k) },
+  ];
+  // a coin hopping from the OAS stack to the TAX plinth: up, across, down
+  if (st.fly >= 0){ const t = ease(Math.min(1, st.fly)), z0 = 8 + (nOas) * OCOIN_T, z1 = 8 + nTax * OCOIN_T;
+    const y = OAS_Y + (TAX_Y - OAS_Y) * t, zz = z0 + (z1 - z0) * t + 16 * Math.sin(Math.PI * t);
+    parts.push({ box: [[OPLX - OCOIN_R, y - OCOIN_R, zz], [OPLX + OCOIN_R, y + OCOIN_R, zz + OCOIN_T]], svg: fpCoinStack(OPLX, y, zz, 1, OCOIN_R, OCOIN_T) }); }
+  s += byDepth(parts);
+
+  // labels: parts on the left in the engine's left column (anchored on the column's left wall), parts on the right in a row
+  const lvl = oaZ(Math.min(net, OA_TH)), ztop = OT0 + Math.max(0, net - OA_TH) / OA_SC;
+  const B = [BX0, BX1, BY0, BY1, 0, 92];
+  if (k > .6){
+    const items = []; let z = OG0;
+    lv.forEach((v, i) => { const b = below[i]; if (b > 0){ items.push({ at: [facing([1,0,0]) ? OCX1 - 3 : OCX0 + 3, facing([0,1,0]) ? OCY1 : OCY0, z + b / OA_SC / 2], text: OLAYERS[i].key, on: i === 5 && st.pourR > 0 }); z += b / OA_SC; } });
+    s += xrCallouts(items, B);
+    s += oaRowTags([
+      ...(spill ? [{ at: [OTX + OTR * .7, OTY - OTR * .7, (OT0 + ztop) / 2], text: 'SPILLED OVER', on: st.pourR > 0 }] : []),
+      { at: [OTX + OTR * .7, OTY + OTR * .7, ztop + 1], text: 'FLOAT', on: st.pourR > 0 && spill },
+      { at: [OTX + OTR, OTY, OA_ZGONE], text: 'OAS GONE AT $155,320', on: claw >= OA_YEAR - 1 } ]);
+  } else {
+    s += xrCallouts([
+      { at: [ORX, ORY + ORR, 30], text: 'RRIF', on: st.pourR > 0 },
+      { at: [OCX1 - 3, OCY1, OG0 + (lvl - OG0) / 2], text: 'NET INCOME', on: st.pourR > 0 },
+      { at: [OCX1, OCY1, OA_ZTH], text: '$95,323 LINE', on: spill },
+      { at: [OFX, OFY + OFR, 30], text: 'TFSA', on: st.pourT > 0 },
+      { at: [OPX, OPY + 6, 8], text: 'CASH', on: st.pourT > 0 } ], B);
+    s += oaRowTags([
+      { at: [OTX + OTR, OTY, Math.max(OT0 + 2, ztop - 2)], text: 'OVERFLOW', on: spill },
+      { at: [OTX + OTR + 2, OTY, OT1 + 1.5], text: 'CLAWBACK GAUGE', on: claw > 0 },
+      { at: [OPLX + OCOIN_R, OAS_Y, 8 + nOas * OCOIN_T * .5], text: 'OAS', on: false },
+      { at: [OPLX + OCOIN_R, TAX_Y, 8 + nTax * OCOIN_T * .5], text: 'TAX', on: nTax > 0 } ]);
+  }
+  return s;
+}
+
+/* ---------- behaviour: one state object, one clock ---------- */
+let ui, oaLoop = false;
+function oaRun(){
+  if (oaLoop) return; oaLoop = true;
+  ui.animate(dt => { const st = ui.st, sp = OA_STEP / .9 * dt;
+    st.vR += Math.sign(st.rx - st.vR) * Math.min(Math.abs(st.rx - st.vR), sp);
+    st.vT += Math.sign(st.tx - st.vT) * Math.min(Math.abs(st.tx - st.vT), sp);
+    if (st.vR === st.rx) st.pourR = Math.max(0, st.pourR - dt * 3);
+    if (st.vT === st.tx) st.pourT = Math.max(0, st.pourT - dt * 3);
+    const target = oaCoins(oaClaw(oaNet(st.vR)));
+    if (st.fly >= 0){ st.fly += dt / .3; if (st.fly >= 1){ st.fly = -1; st.shown++; } }
+    else if (target > st.shown) st.fly = 0;
+    else if (target < st.shown) st.shown = target;
+    const busy = st.vR !== st.rx || st.vT !== st.tx || st.pourR > 0 || st.pourT > 0 || st.fly >= 0 || target !== st.shown;
+    if (!busy) oaLoop = false;
+    return busy; });
+}
+function oaTakeRrif(st){
+  if (st.rx >= OA_RMAX) return ui.flash("That's enough from the RRIF for one year");
+  const before = oaNet(st.rx); st.rx += OA_STEP; st.pourR = 1;
+  if (before <= OA_TH && oaNet(st.rx) > OA_TH) ui.flash('Over the line: 15 cents of OAS goes back for every dollar above $95,323', 2600);
+  else if (oaClaw(before) >= OA_YEAR) ui.flash('The OAS is all gone: there is nothing left to claw back', 2400);
+  oaRun();
+}
+function oaTakeTfsa(st){
+  if (st.tx >= OA_TFSA0) return ui.flash('The TFSA is empty');
+  st.tx += OA_STEP; st.pourT = 1;
+  ui.flash("TFSA withdrawals aren't income: the column doesn't move", 2400);
+  oaRun();
+}
+function oaReset(st){ st.rx = st.vR = 0; st.tx = st.vT = 0; st.shown = 0; st.fly = -1; st.pourR = st.pourT = 0; }
+
+ui = mountFigure({
+  fig: '01', turn: 'full', title: 'OAS clawback', palette: 'ret',
+  size: [74, 194, 92], center: [38, 100],
+  state: { rx: 0, vR: 0, tx: 0, vT: 0, shown: 0, fly: -1, pourR: 0, pourT: 0 },
+  scene,
+  buttons: [
+    { label: 'Take $10k from RRIF', onClick: st => oaTakeRrif(st) },
+    { label: 'Take $10k from TFSA', onClick: st => oaTakeTfsa(st) },
+    { label: 'Start over', onClick: st => oaReset(st) },
+  ],
+  stats: st => { const net = oaNet(st.vR);
+    return [{ label: 'Cash taken', value: fpMoney(st.vR + st.vT) }, { label: 'Net income', value: fpMoney(net), small: true },
+            { label: 'OAS clawback', value: fpMoney(oaClaw(net)), small: true }]; },
+  acts: { rrif: st => oaTakeRrif(st), tfsa: st => oaTakeTfsa(st), column: st => oaTakeRrif(st) },
+  params: (st, q) => {
+    if (q.has('rrif')) st.rx = st.vR = Math.max(0, Math.min(OA_RMAX, +q.get('rrif') || 0));
+    if (q.has('tfsa')) st.tx = st.vT = Math.max(0, Math.min(OA_TFSA0, +q.get('tfsa') || 0));
+    st.shown = oaCoins(oaClaw(oaNet(st.vR)));
+  },
+});
+xrMount(() => ui, () => '');
+fpPage({ note: 'Shows the federal OAS recovery tax for ages 65 to 74 on 2026 net income, with OAS at about $9,000 a year; income tax on the withdrawals and the dividend tax credit are not shown. Fictional retiree: CPP $15,000, RRIF minimum $40,000, $20,000 of eligible dividends.' });
+</script></body></html>

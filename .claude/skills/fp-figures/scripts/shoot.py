@@ -8,9 +8,11 @@
     python3 shoot.py spin    OUT.html shots/ [query]    # 48-frame turntable -> spin.mp4 and spin.gif (needs ffmpeg)
 
 query is extra URL parameters, e.g. "xr=1&labels=1&income=120000". Chrome is found from $CHROME, Playwright's
-/opt/pw-browsers/chromium, google-chrome / chromium on PATH, or the macOS app. Each run gets its own profile dir.
+/opt/pw-browsers/chromium, google-chrome / chromium on PATH, or the macOS app. When Node + Playwright are installed,
+all shots of a run go through one Playwright browser (real-time waits; the Chrome CLI's virtual time can hang while a
+figure animates), otherwise each shot is its own Chrome CLI run with its own profile dir.
 """
-import os, re, shutil, subprocess, sys, tempfile
+import json, os, re, shutil, subprocess, sys, tempfile
 
 def chrome():
     for c in [os.environ.get('CHROME'), '/opt/pw-browsers/chromium', shutil.which('google-chrome'), shutil.which('chromium'),
@@ -53,13 +55,46 @@ def playwright_check(page, query, wait=4000):
     node = shutil.which('node')
     if not node: return False
     url = 'file://' + os.path.abspath(page) + ('?' + query if query else '')
-    env = dict(os.environ)
-    for d in ['/opt/node-tools/node_modules', os.path.expanduser('~/.npm-global/lib/node_modules')]:
-        if os.path.isdir(d): env['NODE_PATH'] = d + os.pathsep + env.get('NODE_PATH', '')
-    r = subprocess.run([node, '-e', PW_JS, url, str(wait)], capture_output=True, text=True, env=env, timeout=120)
+    r = subprocess.run([node, '-e', PW_JS, url, str(wait)], capture_output=True, text=True, env=node_env(), timeout=120)
     if r.returncode == 0: print(r.stdout.strip()); return True
     if 'Cannot find module' not in r.stderr: print('playwright check failed:', r.stderr.strip()[-400:])
     return False
+
+PW_SHOTS = r"""
+const { chromium } = require('playwright');
+(async () => {
+  const jobs = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'));
+  const b = await chromium.launch({ args: ['--no-sandbox'] });
+  for (const j of jobs){
+    const ctx = await b.newContext({ viewport: { width: j.w, height: j.h }, deviceScaleFactor: j.scale });
+    const pg = await ctx.newPage(); await pg.goto(j.url); await pg.waitForTimeout(j.wait);
+    await pg.screenshot({ path: j.out }); await ctx.close();
+  }
+  await b.close();
+})().catch(e => { console.error(e.message); process.exit(2); });
+"""
+
+def node_env():
+    env = dict(os.environ)
+    for d in ['/opt/node-tools/node_modules', os.path.expanduser('~/.npm-global/lib/node_modules')]:
+        if os.path.isdir(d): env['NODE_PATH'] = d + os.pathsep + env.get('NODE_PATH', '')
+    return env
+
+def shots(page, jobs):
+    """jobs: [(query, out, (w, h), scale, wait_ms)]. One Playwright browser for all of them when Playwright is
+    installed (real-time waits: Chrome's CLI with --virtual-time-budget can hang while a figure animates);
+    otherwise one Chrome CLI run per shot."""
+    base = 'file://' + os.path.abspath(page)
+    node = shutil.which('node')
+    if node:
+        spec = [{ 'url': base + ('?' + q if q else ''), 'out': os.path.abspath(o), 'w': sz[0], 'h': sz[1], 'scale': sc, 'wait': w }
+                for q, o, sz, sc, w in jobs]
+        fd, path = tempfile.mkstemp(suffix='.json'); os.write(fd, json.dumps(spec).encode()); os.close(fd)
+        r = subprocess.run([node, '-e', PW_SHOTS, path], capture_output=True, text=True, env=node_env(), timeout=60 + 15*len(jobs))
+        os.remove(path)
+        if r.returncode == 0: return
+        if 'Cannot find module' not in r.stderr: sys.exit('playwright shots failed: ' + r.stderr.strip()[-400:])
+    for q, o, sz, sc, w in jobs: run(page, q, o, size=sz, scale=sc, budget=w)
 
 def slug(q): return re.sub(r'[^A-Za-z0-9]+', '_', q).strip('_') or 'default'
 
@@ -72,16 +107,15 @@ def main():
     j = lambda *a: '&'.join(x for x in a if x)
     if mode == 'verify':
         views = ['yaw=45', 'yaw=110', 'yaw=170', 'yaw=230', 'yaw=300', 'yaw=20&pitch=62', 'yaw=200&pitch=70']
-        for v in views:
-            for xr in ['', 'xr=1&labels=1']:
-                q = j('free=1', v, xr, extra); run(page, q, os.path.join(outd, f'v-{slug(v + xr)}.png'))
-        run(page, j('xr=1&labels=1', extra), os.path.join(outd, 'phone.png'), size=(390, 844), scale=2)
+        jobs = [(j('free=1', v, xr, extra), os.path.join(outd, f'v-{slug(v + xr)}.png'), (900, 800), 2, 2500)
+                for v in views for xr in ['', 'xr=1&labels=1']]
+        jobs.append((j('xr=1&labels=1', extra), os.path.join(outd, 'phone.png'), (390, 844), 2, 2500))
+        shots(page, jobs)
         print('wrote', len(views)*2 + 1, 'shots to', outd)
     elif mode == 'press':
         seq = sys.argv[4]; budgets = sys.argv[5:] or ['1500', '3500', '6000']
-        for b in budgets:
-            for v in ['', 'yaw=225', 'xr=1&labels=1']:
-                run(page, j('free=1', 'press=' + seq, v), os.path.join(outd, f'p-{b}-{slug(v)}.png'), budget=int(b) + 500)
+        shots(page, [(j('free=1', 'press=' + seq, v), os.path.join(outd, f'p-{b}-{slug(v)}.png'), (900, 800), 2, int(b))
+                     for b in budgets for v in ['', 'yaw=225', 'xr=1&labels=1']])
         print('wrote press shots to', outd)
     elif mode == 'errors':
         seq = sys.argv[3] if len(sys.argv) > 3 else ''
@@ -94,13 +128,12 @@ def main():
         print('errors:', m.group(1) if m else 'none'); print('NaN in drawing:', bool(re.search(r'\bNaN\b', art)))
     elif mode == 'social':
         # CSS widths stay above 560 px, where the page switches to its phone layout (numbered label badges)
-        for name, size, sc in [('feed-1080x1350', (600, 750), 1.8), ('square-1080', (600, 600), 1.8), ('wide-1920x1080', (960, 540), 2)]:
-            run(page, j('clean=1', extra), os.path.join(outd, f'{name}.png'), size=size, scale=sc, budget=4000)
+        shots(page, [(j('clean=1', extra), os.path.join(outd, f'{name}.png'), size, sc, 3000)
+                     for name, size, sc in [('feed-1080x1350', (600, 750), 1.8), ('square-1080', (600, 600), 1.8), ('wide-1920x1080', (960, 540), 2)]])
         print('wrote social stills to', outd)
     elif mode == 'spin':
         fr = tempfile.mkdtemp(prefix='fpspin-'); n = 48
-        for i in range(n):
-            run(page, j('free=1&clean=1', f'yaw={45 + 360*i/n:.1f}', extra), os.path.join(fr, f'f{i:03d}.png'), size=(720, 720), scale=1, budget=1500)
+        shots(page, [(j('free=1&clean=1', f'yaw={45 + 360*i/n:.1f}', extra), os.path.join(fr, f'f{i:03d}.png'), (720, 720), 1, 1200) for i in range(n)])
         if not shutil.which('ffmpeg'): sys.exit(f'frames in {fr}; install ffmpeg to join them')
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', '16', '-i', os.path.join(fr, 'f%03d.png'),
                         '-c:v', 'libx264', '-pix_fmt', 'yuv420p', os.path.join(outd, 'spin.mp4')], check=True)

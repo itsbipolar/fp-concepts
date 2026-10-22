@@ -9,9 +9,10 @@
 - [x] Docs: vision, metaphor grammar, concept catalog (51 concepts), fact ledger, sources, compliance, brand,
       pipeline, brief template, decisions.
 
-## v0.1: first figure — next
-- [ ] Owner picks the first concept (recommended: R1 OAS clawback weir).
-- [ ] Brief -> figure -> verify (all angles, numbers check) -> exports.
+## v0.1: first figure — in review
+- [x] Owner picked R1 OAS clawback (2026-10-22).
+- [x] Brief -> figure -> verify (all angles, numbers check) -> exports (`figures/oas-clawback/`).
+- [ ] Re-check the OAS figures against Canada.ca before publishing; compliance approval.
 - [ ] Owner review; capture every lesson in `engine-cheatsheet.md` and the grammar.
 - [ ] Fill the firm details in `BRAND.md` and the house rules in `COMPLIANCE.md`.
 

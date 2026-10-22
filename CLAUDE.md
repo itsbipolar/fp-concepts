@@ -42,6 +42,7 @@ vendor/colorfigures.zip      pristine upstream skill
 - Pages <= 560 CSS px wide switch to the phone layout; marketing stills render wider (shoot.py social).
 
 ## Current status (update me)
-- v0 foundation complete (2026-10-22). No concept figure built yet.
-- Next: owner chooses the first figure (recommended R1 OAS clawback weir), then brief -> build -> verify -> export.
+- v0 foundation complete (2026-10-22).
+- Fig. 01 OAS clawback (`figures/oas-clawback/`) built and verified 2026-10-22; awaiting owner review, the
+  Canada.ca re-check and compliance. Next candidates: R2 RRSP vs TFSA, E2 estate freeze.
 - Open items: firm name/colours (`docs/BRAND.md`), compliance house rules (`docs/COMPLIANCE.md`), v1 sources.
