@@ -1,0 +1,1720 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CFP crash notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F9; --grid:#E3E7ED; --surface:#FFFFFF; --ink:#1A2130; --ink2:#4B5569; --line:#D4DAE3;
+  --trap:#C42B30; --trapbg:#FDEDED; --yes:#1D7F50; --no:#B3261E; --warn:#9A6200; --warnbg:#FFF6E0;
+  --c-fpp:#3A4556; --c-tax:#DC3E44; --c-inv:#0679D6; --c-ret:#E25A00; --c-ins:#8546BF; --c-est:#23895A;
+  --m:var(--c-fpp); --on:#FFFFFF;
+  --f:"Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#10131A; --grid:#1A1F29; --surface:#161A22; --ink:#E6E9EF; --ink2:#A1AABA; --line:#2A313D;
+    --trap:#FF6E72; --trapbg:#361618; --yes:#4CC38A; --no:#FF7B72; --warn:#F5B84A; --warnbg:#33260D;
+    --c-fpp:#93A0B8; --c-tax:#FF6369; --c-inv:#46A6FF; --c-ret:#FF8A3D; --c-ins:#B98AEB; --c-est:#45D192; --on:#10131A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#10131A; --grid:#1A1F29; --surface:#161A22; --ink:#E6E9EF; --ink2:#A1AABA; --line:#2A313D;
+  --trap:#FF6E72; --trapbg:#361618; --yes:#4CC38A; --no:#FF7B72; --warn:#F5B84A; --warnbg:#33260D;
+  --c-fpp:#93A0B8; --c-tax:#FF6369; --c-inv:#46A6FF; --c-ret:#FF8A3D; --c-ins:#B98AEB; --c-est:#45D192; --on:#10131A;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;font-family:var(--f);color:var(--ink);font-size:16px;line-height:1.5;
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  font-variant-numeric:tabular-nums;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--m);outline-offset:2px;border-radius:4px}
+
+/* ---------- navigation: binder tabs ---------- */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs ol{list-style:none;margin:0;padding:.5rem .75rem;display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none}
+.tabs ol::-webkit-scrollbar{display:none}
+.tabs a{--m:var(--tc);display:flex;align-items:center;gap:.45rem;white-space:nowrap;text-decoration:none;font-weight:700;font-size:.88rem;
+  padding:.45rem .75rem .45rem .6rem;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
+.tabs a::before{content:"";width:.55rem;height:1.05rem;border-radius:2px;background:var(--tc)}
+.tabs a.on{background:var(--tc);color:var(--on);border-color:var(--tc)}
+.tabs a.on::before{background:var(--on)}
+.tabs .cnt{font-weight:600;font-size:.72rem;opacity:.75}
+.tabs .brand{display:none;font-weight:900;font-size:1.05rem;padding:0 1rem;letter-spacing:-.01em}
+@media (min-width:640px){.fan{margin-left:0}}
+@media (min-width:1100px){
+  .tabs{position:fixed;top:0;left:0;bottom:0;width:212px;border-bottom:0;border-right:1px solid var(--line);padding-top:calc(env(safe-area-inset-top,0px) + 1rem)}
+  .tabs ol{flex-direction:column;overflow:visible;padding:1rem}
+  .tabs a{padding:.6rem .7rem;border-radius:0 8px 8px 0;border-left:0}
+  .tabs .brand{display:block}
+  main{margin-left:212px}
+}
+
+/* ---------- layout ---------- */
+main{max-width:none}
+.wrap{max-width:820px;margin:0 auto;padding:0 1rem}
+.hero{padding:2.2rem 0 1rem}
+.hero h1{font-size:clamp(2.2rem,8vw,3.6rem);line-height:.95;margin:0 0 .6rem;font-weight:900;letter-spacing:-.035em}
+.hero .sub{font-size:1.05rem;color:var(--ink2);margin:0 0 1.4rem;max-width:36em}
+
+/* spine diagram */
+.spine{list-style:none;margin:0;padding:0;counter-reset:s}
+.spine>li{counter-increment:s;position:relative;padding:.7rem .9rem .7rem 3.1rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:.9rem}
+.spine>li::before{content:counter(s);position:absolute;left:.7rem;top:.62rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--c-fpp);color:var(--on);display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.spine>li:not(:last-child)::after{content:"";position:absolute;left:1.53rem;bottom:-.95rem;height:.95rem;border-left:2px solid var(--c-fpp)}
+.spine b{display:block}
+.spine small{color:var(--ink2)}
+.spine li.big{border:2px solid var(--ink)}
+.fan{margin-left:-2.2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:.45rem;margin-top:.7rem}
+.fan a{--m:var(--tc);text-decoration:none;border-radius:8px;padding:.55rem .6rem;background:color-mix(in srgb,var(--tc) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--tc) 45%,transparent);font-weight:700;font-size:.9rem;line-height:1.2}
+.fan a span{display:block;font-weight:500;font-size:.75rem;color:var(--ink2);margin-top:.15rem}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 0;padding:0;list-style:none;font-size:.82rem;color:var(--ink2)}
+.legend li{display:flex;align-items:center;gap:.35rem}
+
+/* ---------- module ---------- */
+.mod{padding:2.5rem 0 1rem;scroll-margin-top:60px}
+.mod-h{border-top:6px solid var(--m);padding-top:.8rem;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6rem 1rem}
+.mod-h h2{margin:0;font-size:clamp(1.9rem,6.5vw,2.7rem);font-weight:900;letter-spacing:-.03em;line-height:1;color:var(--m)}
+.mod-h p{margin:.35rem 0 0;color:var(--ink2);flex-basis:100%}
+.rev{font:inherit;font-weight:700;font-size:.85rem;border:2px solid var(--m);background:transparent;color:var(--m);border-radius:999px;padding:.35rem .85rem;cursor:pointer}
+.rev[aria-pressed="true"]{background:var(--m);color:var(--on)}
+.map{display:flex;flex-wrap:wrap;gap:.35rem;margin:1rem 0 .4rem}
+.map a{font-size:.8rem;font-weight:600;text-decoration:none;padding:.28rem .6rem;border-radius:999px;background:color-mix(in srgb,var(--m) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--m) 35%,transparent)}
+
+.blk{margin:1.4rem 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1rem 1.1rem;scroll-margin-top:70px}
+.blk>h3{margin:0 0 .75rem;font-size:1.18rem;font-weight:800;letter-spacing:-.01em;line-height:1.3}
+.blk>h3::before{content:"";display:inline-block;width:.7rem;height:.7rem;background:var(--m);border-radius:2px;margin-right:.5rem;vertical-align:.05em}
+.blk>h3 .pri{font-size:.72rem;font-weight:700;padding:.1rem .45rem;border-radius:4px;background:var(--line);color:var(--ink2);margin-left:.3rem;vertical-align:.2em;white-space:nowrap}
+.blk>h3 .pri.hi{background:var(--m);color:var(--on)}
+.blk h4{margin:1rem 0 .45rem;font-size:.98rem;font-weight:800}
+.blk p{margin:.45rem 0}
+.blk ul{margin:.4rem 0;padding-left:1.15rem}
+.blk li{margin:.18rem 0}
+.two{display:grid;grid-template-columns:1fr;gap:.8rem}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.pane{border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;background:color-mix(in srgb,var(--m) 5%,var(--surface))}
+.pane>b:first-child{display:block;margin-bottom:.2rem}
+
+/* numbers */
+.n{font-weight:800;padding:0 .28rem;border-radius:4px;background:color-mix(in srgb,var(--m) 16%,transparent);white-space:nowrap}
+.st{font-size:.72rem;font-weight:700;color:var(--warn);background:var(--warnbg);border:1px dashed var(--warn);border-radius:4px;padding:0 .3rem;vertical-align:1px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* flow */
+.flow{list-style:none;margin:.5rem 0;padding:0}
+.flow>li{position:relative;border:1.5px solid color-mix(in srgb,var(--m) 55%,var(--line));background:var(--surface);border-radius:8px;padding:.55rem .75rem;margin-bottom:1.35rem}
+.flow>li:not(:last-child)::after{content:"";position:absolute;left:1.25rem;bottom:-1.3rem;height:1.2rem;border-left:2px solid var(--m)}
+.flow>li:not(:last-child)::before{content:"";position:absolute;left:calc(1.25rem - 4px);bottom:-1.33rem;border:5px solid transparent;border-top:6px solid var(--m);border-bottom:0;z-index:1}
+.flow>li b{display:block}
+.flow>li small{color:var(--ink2);display:block}
+.flow>li.op{border:0;background:transparent;padding:.1rem .75rem .1rem 2.1rem;font-weight:700;color:var(--m)}
+.flow>li.end{background:var(--m);color:var(--on);border-color:var(--m)}
+.flow>li.end small{color:var(--on);opacity:.85}
+@media (min-width:700px){
+  .flow.h{display:flex;flex-wrap:wrap;align-items:stretch;gap:0}
+  .flow.h>li{flex:1 1 0;min-width:120px;margin:0 1.3rem 0 0}
+  .flow.h>li:last-child{margin-right:0}
+  .flow.h>li:not(:last-child)::after{left:auto;right:-1.3rem;bottom:auto;top:50%;height:0;width:1.2rem;border-left:0;border-top:2px solid var(--m)}
+  .flow.h>li:not(:last-child)::before{left:auto;right:-1.34rem;bottom:auto;top:calc(50% - 4px);border:5px solid transparent;border-left:6px solid var(--m);border-right:0}
+}
+
+/* decision tree */
+.tree{margin:.6rem 0}
+.q{display:inline-block;background:var(--m);color:var(--on);font-weight:800;border-radius:8px;padding:.5rem .8rem;position:relative}
+.br{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:.6rem;margin-top:1.1rem;position:relative}
+.br>div{position:relative;border:1.5px solid var(--line);border-radius:8px;padding:.5rem .65rem;background:var(--surface)}
+.br>div::before{content:"";position:absolute;top:-1.1rem;left:1rem;height:1.05rem;border-left:2px solid var(--m)}
+.lab{display:inline-block;font-size:.75rem;font-weight:800;border-radius:4px;padding:.05rem .4rem;margin-bottom:.25rem;background:color-mix(in srgb,var(--m) 16%,transparent);color:var(--ink)}
+.lab.y{background:color-mix(in srgb,var(--yes) 18%,transparent)}
+.lab.x{background:color-mix(in srgb,var(--no) 18%,transparent)}
+.br p{margin:.15rem 0;font-size:.93rem}
+.out{font-weight:800}
+
+/* formula */
+.fx{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .5rem;font-weight:700;background:color-mix(in srgb,var(--m) 7%,var(--surface));border:1.5px dashed color-mix(in srgb,var(--m) 60%,transparent);border-radius:8px;padding:.6rem .75rem;margin:.55rem 0;overflow-x:auto}
+.fx .lhs{color:var(--m);font-weight:900}
+.frac{display:inline-flex;flex-direction:column;align-items:center;text-align:center;line-height:1.25}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .3rem .1rem}
+.frac>span:last-child{padding:.1rem .3rem 0}
+.fx small{flex-basis:100%;font-weight:500;color:var(--ink2)}
+
+/* callouts */
+.trap,.tip,.gap{border-radius:8px;padding:.55rem .75rem;margin:.6rem 0;font-size:.95rem}
+.trap{background:var(--trapbg);border-left:4px solid var(--trap)}
+.trap>b:first-child{color:var(--trap)}
+.tip{background:color-mix(in srgb,var(--m) 9%,var(--surface));border-left:4px solid var(--m)}
+.tip>b:first-child{color:var(--m)}
+.gap{border:2px dashed var(--line);background:transparent;color:var(--ink2)}
+.gap>b:first-child{color:var(--ink)}
+.gap ul{margin:.3rem 0 0}
+.lk{display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.12rem .55rem .12rem .4rem;background:var(--surface);white-space:nowrap;margin:.1rem 0}
+.lk::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--lc)}
+.links{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem;align-items:center;font-size:.82rem;color:var(--ink2)}
+
+/* tables */
+.tw{overflow-x:auto;margin:.55rem 0;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:420px}
+th,td{padding:.42rem .55rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:color-mix(in srgb,var(--m) 11%,var(--surface));font-weight:800;font-size:.84rem}
+tr:last-child td{border-bottom:0}
+td.y{color:var(--yes);font-weight:800}
+td.x{color:var(--no);font-weight:800}
+td.c,th.c{text-align:center}
+td.sp{color:var(--yes);font-weight:700}
+@media (max-width:640px){
+  .tw.stack{border:0;overflow:visible}
+  .tw.stack table{min-width:0}
+  .tw.stack tr:first-child{display:none}
+  .tw.stack tr{display:block;border:1px solid var(--line);border-radius:8px;margin:0 0 .6rem;padding:.4rem .6rem;background:var(--surface)}
+  .tw.stack td{display:grid;grid-template-columns:5.6rem 1fr;gap:.5rem;border:0;padding:.22rem 0}
+  .tw.stack td::before{content:attr(data-l);font-size:.74rem;font-weight:800;color:var(--ink2);padding-top:.12rem}
+  .tw.stack td:first-child{display:block;font-size:1rem;border-bottom:1px solid var(--line);padding-bottom:.35rem;margin-bottom:.2rem}
+  .tw.stack td:first-child::before{content:none}
+}
+
+
+/* band (CPP) */
+.band{display:flex;height:3.2rem;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin:.6rem 0 .2rem;font-size:.75rem;font-weight:800}
+.band>div{display:flex;align-items:center;justify-content:center;text-align:center;padding:0 .2rem;line-height:1.1}
+.bandlab{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink2);font-weight:700}
+
+/* timeline */
+.tl{display:flex;overflow-x:auto;gap:0;margin:.7rem 0;padding-bottom:.3rem}
+.tl>div{flex:1 0 118px;position:relative;padding:1.4rem .5rem 0 0;font-size:.86rem}
+.tl>div::before{content:"";position:absolute;top:.55rem;left:0;right:0;border-top:3px solid color-mix(in srgb,var(--m) 45%,transparent)}
+.tl>div::after{content:"";position:absolute;top:.2rem;left:0;width:.8rem;height:.8rem;border-radius:50%;background:var(--m);border:2px solid var(--surface)}
+.tl b{display:block;color:var(--m)}
+
+/* examples */
+details.ex{border:1px solid var(--line);border-radius:8px;margin:.6rem 0;background:color-mix(in srgb,var(--ink) 3%,var(--surface))}
+details.ex>summary{cursor:pointer;padding:.5rem .75rem;font-weight:700;font-size:.9rem;list-style:none}
+details.ex>summary::-webkit-details-marker{display:none}
+details.ex>summary::before{content:"+ ";color:var(--m);font-weight:900}
+details.ex[open]>summary::before{content:"− "}
+details.ex>div{padding:0 .75rem .7rem;font-size:.93rem}
+.calc{display:grid;grid-template-columns:1fr auto;gap:.1rem 1rem;margin:.4rem 0}
+.calc>span:nth-child(even){text-align:right;font-weight:700}
+.calc .tot{border-top:1.5px solid var(--ink);padding-top:.15rem;font-weight:900}
+
+/* svg */
+svg.dg{width:100%;height:auto;display:block;margin:.5rem 0}
+svg.dg text{font-family:var(--f);fill:var(--ink)}
+svg .axis{stroke:var(--ink2);stroke-width:1.5;fill:none}
+svg .mline{stroke:var(--m);stroke-width:3;fill:none}
+svg .soft{stroke:var(--ink2);stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+
+/* number wall */
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.5rem;margin:.6rem 0}
+.wall>div{border:1px solid var(--line);border-top:4px solid var(--m);border-radius:6px;padding:.45rem .55rem;background:var(--surface)}
+.wall b{display:block;font-size:1.08rem;font-weight:900;letter-spacing:-.01em}
+.wall span{font-size:.78rem;color:var(--ink2);line-height:1.25;display:block}
+
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.4rem 0}
+.chips>span{border:1px solid var(--line);border-radius:6px;padding:.15rem .5rem;font-size:.85rem;background:var(--surface)}
+footer{padding:2rem 0 3rem;color:var(--ink2);font-size:.85rem}
+.theme{position:fixed;right:.8rem;bottom:calc(env(safe-area-inset-bottom,0px) + .8rem);z-index:30;font:inherit;font-weight:700;font-size:.8rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.45rem .8rem;cursor:pointer}
+@media print{.tabs,.theme,.rev{display:none}main{margin:0}body{background:#fff}details.ex{display:block}}
+</style>
+</head>
+<body>
+<nav class="tabs" aria-label="Modules">
+  <div class="brand">CFP crash notes</div>
+  <ol>
+    <li><a href="#fpp" style="--tc:var(--c-fpp)">Process <span class="cnt" data-c="fpp"></span></a></li>
+    <li><a href="#tax" style="--tc:var(--c-tax)">Tax <span class="cnt" data-c="tax"></span></a></li>
+    <li><a href="#inv" style="--tc:var(--c-inv)">Investments <span class="cnt" data-c="inv"></span></a></li>
+    <li><a href="#ret" style="--tc:var(--c-ret)">Retirement <span class="cnt" data-c="ret"></span></a></li>
+    <li><a href="#ins" style="--tc:var(--c-ins)">Insurance <span class="cnt" data-c="ins"></span></a></li>
+    <li><a href="#est" style="--tc:var(--c-est)">Estate <span class="cnt" data-c="est"></span></a></li>
+    <li><a href="#wall" style="--tc:var(--ink)">Number wall</a></li>
+    <li><a href="#gaps" style="--tc:var(--ink2)">What changed</a></li>
+  </ol>
+</nav>
+
+<main>
+<div class="wrap">
+
+<header class="hero" id="top">
+  <h1>CFP crash notes</h1>
+  <p class="sub">Every module hangs off one spine: the six-step planning process. Step 3 is where the exam lives, and it splits into the six areas below. Tap any area to jump in.</p>
+
+  <ol class="spine">
+    <li><b>Establish the engagement</b><small>Scope, services, compensation and conflicts disclosed, engagement letter</small></li>
+    <li><b>Gather data, goals and expectations</b><small>Interviews and questionnaires, values, attitudes, priorities</small></li>
+    <li class="big"><b>Clarify status, find problems and opportunities</b><small>Cash flow, net worth, tax projection, then each area. Case studies and constructed responses test this step.</small>
+      <div class="fan">
+        <a href="#fpp-cash" style="--tc:var(--c-fpp)">Cash, debt, education<span>budget, mortgages, RESP, HBP, FHSA</span></a>
+        <a href="#tax" style="--tc:var(--c-tax)">Tax<span>income, credits, attribution, business</span></a>
+        <a href="#inv" style="--tc:var(--c-inv)">Investments<span>products, risk, portfolio theory</span></a>
+        <a href="#ret" style="--tc:var(--c-ret)">Retirement<span>CPP, OAS, pensions, RRSP, RRIF</span></a>
+        <a href="#ins" style="--tc:var(--c-ins)">Risk management<span>life, disability, health, P&amp;C</span></a>
+        <a href="#est" style="--tc:var(--c-est)">Estate<span>wills, trusts, freezes, death taxes</span></a>
+      </div>
+    </li>
+    <li><b>Develop and present the plan</b><small>Recommendations matched to values, temperament and risk tolerance; revise with the client</small></li>
+    <li><b>Implement</b><small>Coordinate with lawyers, accountants, insurance and investment professionals</small></li>
+    <li><b>Monitor</b><small>Life events (birth, death, illness, divorce, retirement), tax law and economic changes</small></li>
+  </ol>
+
+  <div class="blk" style="--m:var(--c-fpp)">
+    <h3>Rules for answering</h3>
+    <ul>
+      <li>Tax on investment, trust or dividend income: always use the <b>marginal</b> rate.</li>
+      <li>TVM formulas appear on screen. No tax table is provided, but case figures are given in the narrative.</li>
+      <li>Pick the most basic principle that answers the stated goal. Don't overthink.</li>
+      <li>AMT, U.S. estate tax, RDTOH mechanics: recognise it, flag it to the client, refer to a specialist.</li>
+      <li>Cash-flow problems: cut discretionary spending first, then reorganise investments, raise income last.</li>
+    </ul>
+    <ul class="legend">
+      <li><span class="n">$33,810</span> number to memorise</li>
+      <li><span class="st">notes outdated</span> printed notes differ from 2026 rules</li>
+      <li><span class="lab">⚠</span> exam trap</li>
+      <li><span class="lk" style="--lc:var(--c-est)">Estate</span> jumps to a connected rule</li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="mod" id="fpp" style="--m:var(--c-fpp)">
+  <div class="mod-h"><h2>Planning process</h2><button class="rev" data-k="fpp" aria-pressed="false">Mark reviewed</button>
+    <p>Cash flow, debt, mortgages, education and home-buying plans, law, economics, investor protection.</p></div>
+  <nav class="map"><a href="#fpp-cash">Statements &amp; ratios</a><a href="#fpp-mort">Mortgages</a><a href="#fpp-home">HBP · FHSA · LLP</a><a href="#fpp-resp">RESP</a><a href="#fpp-law">Law &amp; ownership</a><a href="#fpp-econ">Economics</a><a href="#fpp-prot">Protection funds</a></nav>
+
+  <article class="blk" id="fpp-cash">
+    <h3>Statements, ratios and the cash-flow fix <span class="pri hi">high</span></h3>
+    <div class="two">
+      <div class="pane"><b>Net worth statement</b>Assets − debts <i>as of a date</i>. Snapshot.</div>
+      <div class="pane"><b>Cash flow statement</b>Income − expenses <i>over a period</i>. Built from the budget. Surplus = savings, deficit = debt.</div>
+    </div>
+    <div class="fx"><span class="lhs">Liquidity</span> = <span class="frac"><span>Liquid assets</span><span>Monthly expenses</span></span><small>Months of expenses covered. Higher is better. Emergency fund target: 3–6 months (money market, cashable GICs, even a line of credit).</small></div>
+    <div class="fx"><span class="lhs">Debt service</span> = <span class="frac"><span>Monthly consumer-debt payments</span><span>Monthly after-tax income</span></span><small>Excludes the mortgage. Target ≤ <span class="n">20%</span>.</small></div>
+    <div class="fx"><span class="lhs">Savings</span> = <span class="frac"><span>Cash surplus</span><span>After-tax income</span></span><small>Target 5–10%+. Higher is better.</small></div>
+    <h4>Client has a cash-flow problem: answer in this order</h4>
+    <ol class="flow h">
+      <li><b>1. Cut discretionary</b><small>Travel, entertainment. Refinance high-interest debt (credit cards) to a cheaper facility.</small></li>
+      <li><b>2. Reorganise investments</b><small>Interest-bearing assets inside TFSA/RRSP; dividends and capital gains in non-registered.</small></li>
+      <li><b>3. Increase income</b><small>Last resort, but sometimes the "best available" answer.</small></li>
+    </ol>
+    <p class="trap"><b>Trap</b> Debt consolidation lowers the monthly payment by stretching amortization, but total interest over the life of the loan rises sharply.</p>
+  </article>
+
+  <article class="blk" id="fpp-mort">
+    <h3>Mortgages and debt service <span class="pri hi">high</span></h3>
+    <div class="fx"><span class="lhs">GDS</span> = <span class="frac"><span>Mortgage P&amp;I + property tax + heat + ½ condo fees</span><span>Gross household income</span></span><small>Guideline 32–35%. CMHC insured limit 39%.</small></div>
+    <div class="fx"><span class="lhs">TDS</span> = <span class="frac"><span>GDS costs + all other debt payments</span><span>Gross household income</span></span><small>Guideline 40–42% (use 40% when asked for a maximum). CMHC insured limit 44%.</small></div>
+    <p class="trap"><b>Trap</b> Include <span class="n">3%</span> of any consumer credit line <b>granted</b>, even with a zero balance. Work TDS monthly so you don't forget it.</p>
+    <details class="ex"><summary>Worked example: Tina's TDS</summary><div>
+      $60,000 salary, $800/mo mortgage incl. tax, $85/mo heat, unused $20,000 LOC.
+      <div class="calc"><span>Mortgage + tax</span><span>$800</span><span>Heat</span><span>$85</span><span>3% × $20,000 LOC</span><span>$600</span><span class="tot">÷ $5,000 monthly income</span><span class="tot">29.7%</span></div>
+      Max total debt payments at 40% TDS = 40% × $5,000 = <b>$2,000/month</b>.
+    </div></details>
+
+    <h4>Stress test (federally regulated lenders)</h4>
+    <div class="tree"><div class="q">Qualifying rate = the higher of</div>
+      <div class="br"><div><span class="lab">A</span><p class="out">5.25%</p></div><div><span class="lab">B</span><p class="out">Contract rate + 2%</p></div></div></div>
+    <p>Applies to purchases, refinancing and secured LOCs. Not stress-tested: same-lender renewals and, since Nov 21, 2024, a straight switch to a new lender at renewal (same balance and amortization). <span class="st">notes say &lt;20% down uses contract rate only; the +2% applies to insured too</span></p>
+
+    <h4>Vocabulary</h4>
+    <div class="two">
+      <div class="pane"><b>Conventional</b>Loan ≤ 80% of lesser of price or appraisal. Down payment ≥ 20%.</div>
+      <div class="pane"><b>High-ratio</b>Down 5–20%. Default insurance required. Down payment must be the buyer's own money (or a gift). Price cap <span class="n">$1.5M</span> <span class="st">notes say $1M; $1.5M since Dec 15, 2024</span></div>
+      <div class="pane"><b>Term vs amortization</b>Term = length of the contract (e.g. 5 yrs). Amortization = time to repay in full (e.g. 25 yrs). Longer amortization, lower payment, more total interest.</div>
+      <div class="pane"><b>Mortgagor / mortgagee</b>Mortgag<b>or</b> = borrower. Mortgag<b>ee</b> = lender.</div>
+    </div>
+    <h4>Minimum down payment</h4>
+    <div class="band"><div style="flex:5;background:var(--m);color:var(--on)">5% on first $500k</div><div style="flex:8;background:color-mix(in srgb,var(--m) 45%,var(--surface))">10% on $500k – $1.5M</div><div style="flex:5;background:var(--line)">$1.5M+: 20%</div></div>
+    <p style="font-size:.85rem;color:var(--ink2);margin-top:.2rem">At $1.5M and up there's no default insurance, so 20% minimum.</p>
+    <details class="ex"><summary>$900,000 home: minimum down payment?</summary><div>5% × $500,000 = $25,000 + 10% × $400,000 = $40,000 → <b>$65,000</b> (7.2%). Insured amortization max 25 years, or <b>30 years</b> for first-time buyers and new builds (since Dec 15, 2024).</div></details>
+    <div class="tw stack"><table><tr><th>Type</th><th>Prepay</th><th>Best for</th></tr>
+      <tr><td><b>Closed</b></td><td>10–15% of original per year, penalty beyond</td><td>Lowest rate, stability</td></tr>
+      <tr><td><b>Open</b></td><td>Any amount, any time</td><td>Paying off fast, expecting a windfall</td></tr>
+      <tr><td><b>Convertible</b></td><td>~10%/yr; convert to longer closed term without penalty</td><td>Think rates will rise</td></tr></table></div>
+    <p class="trap"><b>Trap</b> Tight budget but wants debt-free in under 15 years: a closed mortgage is the <i>unsuitable</i> choice (prepayment too limited).</p>
+    <p class="tip"><b>Refinancing</b> Breaking a closed fixed-rate term costs the greater of <b>3 months' interest</b> or the <b>IRD</b> ≈ (contract rate − today's rate for the remaining term) × balance × years left. Refinancing means re-qualifying on GDS/TDS and the stress test. Any loan payment = PV ÷ annuity factor ($80,000 at 8%/12 over 60 months → $1,622/mo).</p>
+    <p class="tip"><b>CMHC today</b> GDS 39% / TDS 44%, minimum credit score 600. The 2020 rules (35/42, score 680) were reversed on July 5, 2021. <span class="st">notes still show the 2020 rules</span></p>
+  </article>
+
+  <article class="blk" id="fpp-home">
+    <h3>HBP, FHSA and LLP side by side <span class="pri hi">high</span></h3>
+    <div class="tw"><table>
+      <tr><th></th><th>HBP (RRSP)</th><th>FHSA</th><th>LLP (RRSP)</th></tr>
+      <tr><td>Amount</td><td><span class="n">$60,000</span> each (since Apr 2024), limited to what's in your own RRSP</td><td><span class="n">$8,000</span>/yr, <span class="n">$40,000</span> lifetime</td><td><span class="n">$10,000</span>/yr, <span class="n">$20,000</span> total</td></tr>
+      <tr><td>Deduction in</td><td>Original RRSP deduction</td><td>Yes, deductible (carry forward indefinitely)</td><td>Original RRSP deduction</td></tr>
+      <tr><td>Out</td><td>Tax-free if repaid</td><td>Qualifying withdrawal tax-free, never repaid</td><td>Tax-free if repaid</td></tr>
+      <tr><td>Repay</td><td>1/15 per year over 15 yrs</td><td>None</td><td>1/10 per year over 10 yrs</td></tr>
+      <tr><td>Repay starts</td><td>2nd year after withdrawal; <b>5th year</b> if first withdrawal was in 2022–2025</td><td>n/a</td><td>No later than year 5 (or earlier if not a student 2 yrs running)</td></tr>
+      <tr><td>Shortfall</td><td colspan="3">Missed scheduled repayment is added to income that year</td></tr>
+      <tr><td>Who</td><td>First-time: no owner-occupied home in current + prior 4 yrs. Waived when buying for a DTC-eligible person</td><td>18+, resident, first-time (same 4-yr test)</td><td>You or spouse, not children; full-time ≥ 3 months (part-time if disabled)</td></tr>
+    </table></div>
+
+    <h4>HBP timeline</h4>
+    <div class="tl">
+      <div><b>−90 days</b>Funds must sit in the RRSP 90 days before withdrawal</div>
+      <div><b>Withdraw</b>Signed agreement to buy or build. Form <span class="n">T1036</span> to issuer, no withholding</div>
+      <div><b>+30 days</b>Home can't be acquired more than 30 days before the withdrawal</div>
+      <div><b>Oct 1, yr+1</b>Must acquire the home by then; occupy within 1 year</div>
+      <div><b>Yr+2 (or yr+5)</b>Repayment starts: balance ÷ 15. Due within 60 days of year-end. Year 5 for 2022–25 withdrawals</div>
+    </div>
+    <p class="tip"><b>Rule</b> Paying less than the schedule doesn't change the next year's schedule: balance still drops by the full scheduled amount (shortfall is taxed). Death: unpaid balance taxed unless spouse elects to take it over.</p>
+    <details class="ex"><summary>HBP checks for a 2026 withdrawal</summary><div>
+      <b>First-time test:</b> no home owned and lived in since <b>Jan 1, 2022</b> (current year + prior 4). A home bought up to 30 days before the withdrawal is fine. Waived if buying for (or as) a DTC-eligible person who'll live in it, even if they own a home now.<br>
+      <b>Deadlines:</b> withdraw Jan 2026 → close by <b>Oct 1, 2027</b> → move in within 1 year of buying or building (close Oct 2027 → in by Oct 2028).<br>
+      <b>Couple:</b> each spouse up to $60,000, but only from their own RRSP: Annie $60,000 + Ron $29,000 = <b>$89,000</b>.<br>
+      <b>Repayment relief:</b> first withdrawal in 2022–2025 → first repayment in the 5th year after, not the 2nd.</div></details>
+
+    <h4>FHSA flow</h4>
+    <ol class="flow">
+      <li><b>Open</b><small>18+, resident, first-time buyer. Room only starts accruing once opened.</small></li>
+      <li><b>Contribute</b><small>$8,000/yr; unused carry-forward capped at $8,000 (so max $16,000 in one year). No 60-day rule. Spouse can gift funds; no attribution.</small></li>
+      <li><b>Qualifying withdrawal</b><small>Still first-time at withdrawal, written agreement to buy before Oct 1 of next year, occupy within 1 yr. Can combine with HBP on the same home.</small></li>
+      <li class="end"><b>Not used? Close by Dec 31 of year 15 or age 71</b><small>Transfer tax-free to RRSP/RRIF (uses no RRSP room) or withdraw taxable.</small></li>
+    </ol>
+    <p class="trap"><b>Trap</b> Over-contribution tax 1%/month (like TFSA). Non-qualifying withdrawals don't restore room. No creditor protection. Interest on money borrowed to contribute is not deductible.</p>
+    <div class="two">
+      <div class="pane"><b>FHSA ↔ RRSP</b>FHSA → RRSP any time: tax-free, uses no RRSP room. RRSP → FHSA: tax-free but uses FHSA room, and the RRSP room is gone for good.</div>
+      <div class="pane"><b>Bankruptcy (BIA)</b>RRSPs are protected (except contributions in the last 12 months). TFSAs and FHSAs are <b>not</b>.</div>
+    </div>
+    <details class="ex"><summary>LLP timing check</summary><div>First LLP withdrawal in 2019 → can keep withdrawing until January of the 4th year after (last withdrawal before Jan 1, 2023). Repayment of $5,000 over 10 yrs = $500/yr; repaying $300 means $200 added to income. Typical use: fund your own education or exam costs now, repay when income rises.</div></details>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-tax)" href="#tax-credlist">Tax: home buyers' amount</a></div>
+  </article>
+
+  <article class="blk" id="fpp-resp">
+    <h3>RESP money flow <span class="pri hi">high</span></h3>
+    <ol class="flow">
+      <li><b>Subscriber contributes</b><small>Not deductible. No annual limit; <span class="n">$50,000</span> lifetime per beneficiary. Over-contribution 1%/month.</small></li>
+      <li><b>Government adds</b><small><b>CESG</b> 20% on first <span class="n">$2,500</span> = <span class="n">$500</span>/yr (<span class="n">$1,000</span> with carry-forward room, i.e. a <span class="n">$5,000</span> contribution), <span class="n">$7,200</span> lifetime, until end of year child turns 17.<br><b>A-CESG</b> on the first $500 (2026 family net income): +20% if ≤ <span class="n">$58,523</span>, +10% if $58,523 – <span class="n">$117,045</span>. No carry-forward. <span class="st">notes say $55,867 / $111,733</span><br><b>CLB</b> for low income: $500 + $100/yr to age 15 (+$25 once), max <span class="n">$2,000</span>, no contribution needed.</small></li>
+      <li><b>Grows tax-deferred</b><small>Contributions for <b>31 years</b>; plan must close by end of its <b>35th year</b>. DTC-eligible beneficiary (specified plan): 35 and 40 years. <span class="st">notes say 36</span></small></li>
+      <li class="end"><b>Student enrols?</b></li>
+    </ol>
+    <div class="tree" style="margin-top:-.4rem"><div class="br">
+      <div><span class="lab y">Yes</span><p><b>EAP</b> = grants + growth, taxed to the <b>student</b>. Capped at $8,000 for first 13 weeks full-time ($4,000 part-time). Part-time program = 3+ consecutive weeks, 12+ hours/month. Contributions come back tax-free.</p></div>
+      <div><span class="lab x">No</span><p>Contributions back to subscriber tax-free. CESG and CLB repaid. Growth = <b>AIP</b>: plan ≥ 10 yrs and all beneficiaries 21+ and not studying. Roll up to $50,000 into own/spousal RRSP (needs room); otherwise taxed at marginal rate <b>+20%</b>.</p></div>
+    </div></div>
+    <div class="two">
+      <div class="pane"><b>Family plan</b>Beneficiaries related by blood/adoption to subscriber, each under 21 when named. CESG can be shared among siblings (max $7,200 per child); the CLB can't.</div>
+      <div class="pane"><b>Age 16–17 CESG test</b>Need $2,000 contributed before the year they turn 16, or $100+/yr in any 4 years before then.</div>
+    </div>
+    <p class="trap"><b>Trap</b> Only the growth, grants and bonds in an EAP are taxable to the student. Contributions are never taxed again.</p>
+    <p class="trap"><b>Trap</b> Contributions withdrawn when not for school: CESG repaid (20% of the withdrawal) and no CESG for 3 years, with no carry-forward room building meanwhile.</p>
+    <details class="ex"><summary>How much grant? Family in the 10% A-CESG tier</summary><div>
+      <div class="calc"><span>$2,500, no unused room: 20% × $2,500 + 10% × $500</span><span>$550</span><span>$5,000 with unused room: 20% × $5,000 + 10% × $500</span><span>$1,050</span></div>
+      A-CESG is only on the first $500 each year and never carries forward. Twins in a family plan, year 1: $5,000 → $1,000 CESG ($500 each; no carry-forward room yet).</div></details>
+    <h4>Canada Learning Bond: eligibility chain</h4>
+    <ol class="flow h">
+      <li><b>Born 2004 or later</b><small>Birth certificate + SIN</small></li>
+      <li><b>Family gets the CCB</b><small>Apply, file returns every year</small></li>
+      <li><b>AFNI under the limit</b><small>Jul 2026–Jun 2027: 1–3 kids <span class="n">$58,523</span> · 4 kids $66,036 · 5 kids $73,577 <span class="st">notes use the old CCTB/NCBS test</span></small></li>
+      <li class="end"><b>Open an RESP</b><small>Provider applies. $500, then $100/yr to 15, max $2,000.</small></li>
+    </ol>
+    <div class="two">
+      <div class="pane"><b>Canada Child Benefit</b>Tax-free, monthly. Child under 18, you're the primary caregiver, resident, both parents file. Jul 2026–Jun 2027 max <span class="n">$8,157</span> under 6, <span class="n">$6,883</span> ages 6–17. Starts shrinking above about $38,000 AFNI. <b>Child disability benefit</b> top-up for a DTC-eligible child: up to $3,480, reduced above $82,847.</div>
+      <div class="pane"><b>RESP → RDSP rollover</b>Only the <b>accumulated income</b> moves (needs RDSP room, earns no CDSG). CESG and CLB go back. Allowed if the impairment rules out school, or the plan is 10+ years old with all beneficiaries 21+ and not studying, or the plan is 35+ years old.</div>
+    </div>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-ret)" href="#ret-rdsp">Retirement: RDSP grants</a><a class="lk" style="--lc:var(--c-ret)" href="#ret-rrsp">Retirement: AIP to RRSP room</a></div>
+  </article>
+
+  <article class="blk" id="fpp-law">
+    <h3>Contracts, duties and ownership</h3>
+    <div class="two">
+      <div class="pane"><b>Valid contract needs 5</b><ol style="margin:.2rem 0;padding-left:1.1rem"><li>Offer and acceptance</li><li>Competent parties</li><li>Consideration</li><li>Genuine intent</li><li>Lawful object</li></ol><small>Voidable for: mistake, misrepresentation, undue influence, duress. Discharged by: performance, frustration, breach.</small></div>
+      <div class="pane"><b>Fiduciary duty</b><ol style="margin:.2rem 0;padding-left:1.1rem"><li>Act in principal's best interest</li><li>No secret profits</li><li>Keep confidences</li><li>Disclose conflicts</li></ol><small>Professionals are held to a standard of care (tort law). E&amp;O insurance covers negligence.</small></div>
+    </div>
+    <div class="tree"><div class="q">Co-owned property: are all 4 unities present?</div><div class="br">
+      <div><span class="lab y">Yes: interest, title, possession, time</span><p class="out">Joint tenancy</p><p>Right of survivorship. Interest passes outside the will and outside probate.</p></div>
+      <div><span class="lab x">No</span><p class="out">Tenancy in common</p><p>Separate, possibly unequal shares. Passes through the will (or intestacy) and probate.</p></div>
+    </div></div>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-est)" href="#est-joint">Estate: joint tenancy pitfalls</a></div>
+  </article>
+
+  <article class="blk" id="fpp-econ">
+    <h3>Economics in four arrows <span class="pri">1–2 questions</span></h3>
+    <div class="two">
+      <div class="pane"><b>Fiscal (government)</b>Expansionary: ↑G or ↓T → ↑C, ↑I → ↑GDP<br>Restrictive: ↑T or ↓G → ↓C, ↓I → ↓GDP</div>
+      <div class="pane"><b>Monetary (Bank of Canada)</b>Expansionary: ↓rate, ↓reserves, <b>buy</b> bonds → ↑money supply → ↓rates → ↑GDP<br>Restrictive: ↑rate, ↑reserves, <b>sell</b> bonds → ↑rates → ↓investment</div>
+    </div>
+    <p>GDP = C + I + G + (X − M). Elasticity = %Δ quantity ÷ %Δ price. Demand and price move inversely; supply and price move together.</p>
+    <svg class="dg" viewBox="0 0 640 170" role="img" aria-label="Business cycle and yield curve shapes">
+      <path class="mline" d="M10 110 C 60 30, 110 30, 150 70 S 230 150, 280 110"/>
+      <text x="60" y="30" font-size="13" font-weight="700">peak</text><text x="190" y="158" font-size="13" font-weight="700">trough</text>
+      <text x="90" y="100" font-size="12">contraction ↘</text><text x="222" y="95" font-size="12">↗ expansion</text>
+      <g transform="translate(330,0)">
+        <line class="axis" x1="10" y1="140" x2="300" y2="140"/><line class="axis" x1="10" y1="140" x2="10" y2="15"/>
+        <path class="mline" d="M15 110 Q 120 40 290 30"/><text x="215" y="24" font-size="12" font-weight="700">normal</text>
+        <path class="soft" d="M15 80 L 290 82"/><text x="250" y="76" font-size="12">flat</text>
+        <path d="M15 45 Q 120 110 290 120" stroke="var(--trap)" stroke-width="2.5" fill="none"/><text x="220" y="134" font-size="12" font-weight="700" fill="var(--trap)">inverted</text>
+        <text x="130" y="158" font-size="11">maturity →</text>
+      </g>
+    </svg>
+    <div class="tw"><table><tr><th>Leading</th><th>Coincident</th><th>Lagging</th></tr>
+      <tr><td>Housing starts, new orders, profits, commodity prices, hours worked, stock prices</td><td>GDP, industrial production, personal income, retail sales</td><td>Unemployment, business investment, labour costs, inventories, inflation</td></tr></table></div>
+    <p class="tip"><b>Exam</b> Contraction → buy <b>long</b> bonds (lock yield before rates fall). Unanticipated inflation helps borrowers with fixed-rate debt. Natural unemployment is above zero.</p>
+  </article>
+
+  <article class="blk" id="fpp-prot">
+    <h3>Who protects what</h3>
+    <div class="tw stack"><table><tr><th>Plan</th><th>Covers</th><th>Limit</th></tr>
+      <tr><td><b>CDIC</b></td><td>Bank deposits (not stocks, funds)</td><td><span class="n">$100,000</span> per person, per member institution, per category: own name, joint, RRSP, RRIF, TFSA, FHSA, RESP, RDSP. Trust deposits: $100,000 per beneficiary. Spread across banks to multiply it.</td></tr>
+      <tr><td><b>CIPF</b></td><td>Investment dealer insolvency (not market losses)</td><td><span class="n">$1M</span> per dealer for each group: ① general (cash, margin, TFSA, FHSA) ② retirement (RRSP, RRIF, LIF) ③ RESP ④ each trust ⑤ holding company ⑥ partnership</td></tr>
+      <tr><td><b>Assuris</b></td><td>Life insurer insolvency</td><td>Greater of <span class="n">90%</span> of the promised benefit, or: death benefit <span class="n">$1M</span> · health expense $250,000 · monthly income $5,000 · cash value, accumulated value, seg fund guarantees $100,000 each <span class="st">notes say $200k; raised May 2023</span></td></tr>
+      <tr><td><b>OBSI</b></td><td>Free, independent dispute resolution</td><td>n/a</td></tr></table></div>
+    <details class="ex"><summary>CIPF worked example</summary><div>Cash $0.5M + margin $0.6M → pooled general = $1M. RRSP A $0.55M + RRSP B $0.65M → one "RRSP" separate category = $1M. Trust (daughter) $0.75M + trust (grandson) $0.45M → each separate. Total <b>$3.2M</b>.</div></details>
+  </article>
+</section>
+
+<!-- ===================== TAX ===================== -->
+<section class="mod" id="tax" style="--m:var(--c-tax)">
+  <div class="mod-h"><h2>Tax</h2><button class="rev" data-k="tax" aria-pressed="false">Mark reviewed</button>
+    <p>How income becomes tax, the capital rules, attribution, credits, AMT, employment benefits, small business.</p></div>
+  <nav class="map"><a href="#tax-calc">Income → tax</a><a href="#tax-credlist">2026 credits</a><a href="#tax-div">Dividends</a><a href="#tax-dates">Deadlines</a><a href="#tax-cca">CCA</a><a href="#tax-pre">Principal residence</a><a href="#tax-loss">Losses</a><a href="#tax-sl">Superficial loss</a><a href="#tax-attr">Attribution</a><a href="#tax-tosi">TOSI</a><a href="#tax-opt">Stock options</a><a href="#tax-cred">Donations</a><a href="#tax-amt">AMT</a><a href="#tax-supp">Support</a><a href="#tax-tfsa">TFSA</a><a href="#tax-emp">Home office &amp; auto</a><a href="#tax-biz">Small business</a><a href="#tax-other">Other credits</a></nav>
+
+  <article class="blk" id="tax-calc">
+    <h3>From income to tax payable <span class="pri hi">high</span></h3>
+    <ol class="flow">
+      <li><b>Total income</b><small>Worldwide. Employment, business, interest, grossed-up dividends, taxable capital gains, rent, OAS/CPP, EI, RRSP withdrawals, taxable support received</small></li>
+      <li class="op">− RPP, RRSP/FHSA, child care, union dues, support paid, moving, carrying charges, CPP enhanced portion</li>
+      <li><b>Net income</b><small>Drives income-tested credits and benefits (OAS clawback, GIS, CCB)</small></li>
+      <li class="op">− loss carry-forwards, capital gains deduction (LCGE), stock option deduction, northern residents</li>
+      <li><b>Taxable income</b><small>× graduated rates</small></li>
+      <li class="op">− non-refundable credits (amount × lowest rate), DTC, foreign tax credit</li>
+      <li class="end"><b>Tax payable</b></li>
+    </ol>
+    <div class="two">
+      <div class="pane"><b>Deduction</b>Reduces income. Saves amount × <b>marginal</b> rate.</div>
+      <div class="pane"><b>Credit</b>Reduces tax dollar for dollar. Non-refundable ones only take tax to zero. Federal value = amount × <b>lowest</b> rate.</div>
+    </div>
+    <h4>Federal brackets 2026</h4>
+    <div class="tw"><table><tr><th>Taxable income</th><th>Rate</th></tr>
+      <tr><td>Up to $58,523</td><td><span class="n">14%</span> <span class="st">notes say 15%</span></td></tr>
+      <tr><td>$58,523 – $117,045</td><td>20.5%</td></tr><tr><td>$117,045 – $181,440</td><td>26%</td></tr>
+      <tr><td>$181,440 – $258,482</td><td>29%</td></tr><tr><td>Over $258,482</td><td>33%</td></tr></table></div>
+    <p class="tip"><b>Exam</b> Federal surtax gone since 2001 (some provinces still have one). Not taxable: lottery wins, gifts and inheritances, life insurance death benefits, GST credit and CCB, strike pay, crime-victim compensation.</p>
+    <p class="trap"><b>Trap</b> Businesses and professionals must use accrual accounting, not cash.</p>
+    <p class="trap"><b>Trap</b> Capital gains inclusion is still <b>50%</b>. The proposed ⅔ rate on gains over $250,000 was cancelled in March 2025. And only the income above each bracket line is taxed at the higher rate.</p>
+    <h4 id="tax-credlist">2026 federal non-refundable credits: amount × 14%</h4>
+    <div class="tw stack"><table><tr><th>Credit</th><th>2026 amount</th><th>Rule to remember</th></tr>
+      <tr><td><b>Basic personal</b></td><td><span class="n">$16,452</span></td><td>Shrinks toward $14,829 as income goes from $181,440 to $258,482</td></tr>
+      <tr><td><b>Spouse / eligible dependant</b></td><td>Up to $16,452</td><td>Reduced $1 for $1 by the dependant's net income</td></tr>
+      <tr><td><b>Age (65+)</b></td><td><span class="n">$9,208</span></td><td>Reduced by 15% of net income over about $46,000; gone near $108,000</td></tr>
+      <tr><td><b>Pension</b></td><td>$2,000</td><td>Under 65: RPP pension, annuity. 65+: RRIF too</td></tr>
+      <tr><td><b>Disability (DTC)</b></td><td><span class="n">$10,341</span> + $6,032 under 18</td><td>Severe and prolonged, certified by a medical practitioner. Transferable to spouse or supporting relative</td></tr>
+      <tr><td><b>Canada caregiver</b></td><td>$8,773 adult · $2,740 minor</td><td>Infirm dependant; the adult amount shrinks as their income rises</td></tr>
+      <tr><td><b>Medical expenses</b></td><td>Above lesser of 3% of NI or <span class="n">$2,890</span></td><td>Any 12-month period ending in the year</td></tr>
+      <tr><td><b>Tuition</b></td><td>Fees over $100</td><td>Carry forward forever; up to $5,000 transferable to spouse, parent or grandparent</td></tr>
+      <tr><td><b>Student loan interest</b></td><td>Interest paid</td><td>Government student loans only; carry forward 5 yrs; not transferable</td></tr>
+      <tr><td><b>Canada employment</b></td><td>$1,501</td><td>Employees, lesser of this and employment income</td></tr>
+      <tr><td><b>Home buyers' amount</b></td><td>$10,000 → <span class="n">$1,400</span></td><td>First-time buyer (4-year test) or buying for a DTC-eligible person; either spouse or split</td></tr>
+      <tr><td><b>CPP / EI</b></td><td>Base CPP (4.95%) + EI premiums</td><td>The enhanced CPP part is a deduction, not a credit</td></tr>
+      <tr><td><b>Donations</b></td><td>14% / 29% / 33%</td><td>See donations below</td></tr>
+      <tr><td><b>Public transit</b></td><td colspan="2">Eliminated federally</td></tr></table></div>
+    <p class="trap"><b>Trap</b> Every "15%" credit in your notes is now 14%: the $10,000 home buyers' amount is worth $1,400, not $1,500. Dividend tax credit rates didn't change.</p>
+  </article>
+
+  <article class="blk" id="tax-div">
+    <h3>Dividend tax: the only credit you must calculate <span class="pri hi">high</span></h3>
+    <ol class="flow h">
+      <li><b>Cash dividend</b><small>$10,000 eligible</small></li>
+      <li><b>Gross up</b><small>Eligible ×1.38 · Non-eligible ×1.15 → $13,800 taxable</small></li>
+      <li><b>× marginal rate</b><small>$13,800 × 33% = $4,554</small></li>
+      <li><b>− DTC on grossed-up</b><small>Eligible 15.02% · Non-eligible 9.03% → $2,073</small></li>
+      <li class="end"><b>Net tax</b><small>$2,481</small></li>
+    </ol>
+    <div class="tw"><table><tr><th></th><th>Source</th><th>Gross-up</th><th>Federal DTC (of grossed-up)</th><th>DTC as fraction of gross-up</th></tr>
+      <tr><td><b>Eligible</b></td><td>Public co., CCPC income above SBD</td><td class="c"><span class="n">38%</span></td><td class="c"><span class="n">15.02%</span></td><td class="c">6/11</td></tr>
+      <tr><td><b>Non-eligible</b></td><td>CCPC income taxed at small business rate</td><td class="c"><span class="n">15%</span></td><td class="c"><span class="n">9.03%</span></td><td class="c">9/13</td></tr></table></div>
+    <p class="trap"><b>Trap</b> DRIPs and stock dividends are taxed like cash. Preferred and common dividends are taxed the same way. Foreign dividends: no gross-up, no credit, taxed as regular income. The 2026 rate cut to 14% doesn't change the DTC rates.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-inv)" href="#inv-tax">Investments: taxing each product</a></div>
+  </article>
+
+  <article class="blk" id="tax-dates">
+    <h3>Deadlines and instalments</h3>
+    <div class="tl">
+      <div><b>Mar/Jun/Sep/Dec 15</b>Instalments if net tax owing &gt; $3,000 this year and in either of the 2 prior years ($1,800 Quebec)</div>
+      <div><b>Apr 30</b>Employees file. Everyone pays balance.</div>
+      <div><b>Jun 15</b>Self-employed (and spouse) file. Payment was still due Apr 30.</div>
+    </div>
+    <div class="tree"><div class="q">Deceased: when did death occur?</div><div class="br">
+      <div><span class="lab">Jan 1 – Oct 31</span><p>Final return due <b>Apr 30</b> next year (Jun 15 if business, for deaths Jan 1 – Dec 15)</p></div>
+      <div><span class="lab">Nov 1 – Dec 31</span><p>Due <b>6 months after death</b> (business: deaths Dec 16–31)</p></div>
+    </div></div>
+    <p>Late filing: 5% of balance owing + 1% per full month late (max 12 months), plus interest.</p>
+  </article>
+
+  <article class="blk" id="tax-cca">
+    <h3>Selling depreciable property: CCA outcomes <span class="pri hi">high</span></h3>
+    <p>CCA is optional (any amount from nil to max). Half-year rule: only 50% of net additions qualify in the year of purchase. UCC = cost − CCA claimed.</p>
+    <div class="tree"><div class="q">Compare proceeds with capital cost and UCC (last asset in class)</div><div class="br">
+      <div><span class="lab x">Proceeds &gt; capital cost</span><p class="out">Capital gain + full recapture</p><p>Gain = proceeds − cost. Recapture = cost − UCC (100% income).</p></div>
+      <div><span class="lab">UCC &lt; proceeds ≤ cost</span><p class="out">Recapture only</p><p>Recapture = proceeds − UCC. Report as income.</p></div>
+      <div><span class="lab y">Proceeds &lt; UCC</span><p class="out">Terminal loss</p><p>UCC − proceeds. Deduct from business income.</p></div>
+    </div></div>
+    <p class="tip"><b>Rule</b> Subtract from UCC the <b>lesser</b> of proceeds and original cost. If UCC goes negative → recapture. Class empty with UCC left over → terminal loss.</p>
+    <details class="ex"><summary>Wendy: cost $50,000, UCC $30,000</summary><div>
+      Sells for $20,000 → terminal loss $10,000. Sells for $40,000 → recapture $10,000. Sells for $60,000 → capital gain $10,000 + recapture $20,000.</div></details>
+    <h4>Rental property</h4>
+    <ul><li>Only the <b>building</b> is depreciable, never the land: $950,000 with 75% building → $712,500 goes in the class.</li><li>CCA can't create or increase a rental loss (net all rentals first).</li></ul>
+    <details class="ex"><summary>Rental sold above original cost</summary><div>All CCA claimed comes back as <b>recapture</b>, 100% income (e.g. $68,250). Only the excess over original cost is a <b>capital gain</b> (e.g. $550,000, 50% taxable).</div></details>
+  </article>
+
+  <article class="blk" id="tax-pre">
+    <h3>Principal residence exemption</h3>
+    <div class="fx"><span class="lhs">Exempt gain</span> = <span class="frac"><span>1 + years designated</span><span>years owned</span></span> × (proceeds − ACB)<small>Count both the purchase and sale years in years owned. One designation per family unit per year. Taxable = (gain − exempt) × 50%.</small></div>
+    <p class="tip"><b>Strategy</b> Two properties: designate the one with the larger gain <i>per year owned</i> for overlapping years; the "+1" covers the year of switching.</p>
+    <div class="two">
+      <div class="pane"><b>Who and what qualifies</b>A housing unit owned alone or jointly, ordinarily inhabited by you, your spouse or your child. One designation per <b>family unit</b> per year (you, spouse, unmarried minor children). An adult child not on title can't claim it.</div>
+      <div class="pane"><b>Since 2017</b>Every sale must be <b>reported</b>, even if fully exempt. Non-residents lose the "+1". Only alter ego, spousal / joint spousal, QDT and minor-child-of-deceased-parent trusts can designate.</div>
+      <div class="pane"><b>Change of use</b>Home → rental = deemed sale at FMV and reacquisition; report it. The PRE can shelter the gain up to then, but you can't keep designating it once rented (elections aside).</div>
+      <div class="pane"><b>Before 1982</b>Each spouse could designate a home. From 1982, one per family unit.</div>
+    </div>
+    <details class="ex"><summary>Ella: home and cabin overlap</summary><div>Cabin has the higher gain per year, so it takes the overlap years. Home exempt 7/10 of a $300,000 gain → $90,000 gain, <b>$45,000 taxable</b>; cabin fully exempt. A condo sold to a child: the child can designate it from their purchase date.</div></details>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-est)" href="#est-death">Estate: deemed disposition at death</a></div>
+  </article>
+
+  <article class="blk" id="tax-loss">
+    <h3>Loss rules <span class="pri hi">high</span></h3>
+    <div class="tw stack"><table><tr><th>Loss</th><th>Offsets</th><th>Back</th><th>Forward</th></tr>
+      <tr><td><b>Net capital loss</b></td><td>Taxable capital gains only</td><td class="c">3</td><td class="c">Forever</td></tr>
+      <tr><td><b>Non-capital (business)</b></td><td>Any income</td><td class="c">3</td><td class="c">20</td></tr>
+      <tr><td><b>ABIL</b> (shares/debt of a small business corp.)</td><td>Any income, at <b>50%</b> of the loss <span class="st">older rates 66⅔% / 75%</span></td><td class="c">3</td><td class="c">10 as non-capital, then a net capital loss (year 11+)</td></tr></table></div>
+    <p class="tip"><b>Read it right</b> The 20-year carry-forward is for ordinary non-capital (business) losses. An unused ABIL gets only 10 years as a non-capital loss before it turns into a net capital loss. ABIL = loss on shares of, or a debt owed by, a small business corporation (CCPC) you deal with at arm's length.</p>
+    <p>Business losses shrink earned income, which shrinks next year's RRSP room.</p>
+  </article>
+
+  <article class="blk" id="tax-sl">
+    <h3>Superficial loss <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">Sold at a loss. Did you or an affiliated person buy identical property within 30 days before or after, and still own it on day 30 after?</div><div class="br">
+      <div><span class="lab y">No</span><p class="out">Loss allowed</p></div>
+      <div><span class="lab x">Yes: you, spouse, your corp</span><p class="out">Loss denied → added to ACB</p><p>Sold 1,000 shares, $8,000 loss denied, rebought at $20 → new ACB $20,000 + $8,000 = <b>$28,000</b>.</p></div>
+      <div><span class="lab x">Yes: your RRSP, TFSA, RESP</span><p class="out">Loss denied and lost</p><p>No ACB to add it to inside a registered plan.</p></div>
+    </div></div>
+    <details class="ex"><summary>Partial repurchase: sold 500, bought back 300</summary><div>$2,000 loss × 300/500 = <b>$1,200 denied</b> (added to the 300 shares' ACB); <b>$800 allowed</b>.</div></details>
+    <div class="two">
+      <div class="pane"><b>Avoid it</b>Wait 31 days, buy a similar but not identical company or fund, or get exposure through a derivative.</div>
+      <div class="pane"><b>Doesn't apply to</b>Deemed dispositions on death, becoming or ceasing to be resident, change of use, option expiry, becoming or ceasing to be tax-exempt.</div>
+    </div>
+  </article>
+
+  <article class="blk" id="tax-attr">
+    <h3>Attribution: who pays the tax? <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">Property given or lent to…</div><div class="br">
+      <div><span class="lab">Spouse / common-law</span><p><b>Income and capital gains</b> attribute back.</p><p>Escape: sell at FMV and report the gain, or prescribed-rate loan (<span class="n">3%</span> in Q4 2026, locked for the loan's life) with interest <b>paid by Jan 30</b> every year. Miss once → attributes forever.</p></div>
+      <div><span class="lab">Child under 18 (or niece/nephew)</span><p><b>Income</b> attributes. <b>Capital gains don't.</b></p><p>Growth assets for minors, not interest payers.</p></div>
+      <div><span class="lab">Adult child</span><p>Gift: no attribution.</p><p>Loan where main purpose is income splitting: income attributes.</p></div>
+    </div></div>
+    <p class="tip"><b>Also</b> Second-generation income (income on attributed income) is not attributed. No attribution on gifts to a spouse for their <b>TFSA</b> (until withdrawn and invested elsewhere) or <b>FHSA</b>. Spousal RRSPs use their own 3-year rule. Gift to a 17-year-old: income attributes, gains don't. Gift to an adult niece: nothing attributes.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-ret)" href="#ret-spousal">Retirement: spousal RRSP 3-year rule</a><a class="lk" style="--lc:var(--c-est)" href="#est-trust">Estate: trusts</a></div>
+  </article>
+
+  <article class="blk" id="tax-tosi">
+    <h3>TOSI: tax on split income <span class="pri hi">high</span></h3>
+    <p>Private-company dividends (and some gains, partnership and trust income) paid to family members are taxed at the <b>top rate</b> unless an exclusion applies.</p>
+    <div class="tree"><div class="q">Age of the family member receiving it</div><div class="br">
+      <div><span class="lab x">Under 18</span><p>Taxed at top rate ("kiddie tax"). Pay a <b>reasonable salary</b> for real work instead (T4, taxed at their own rates).</p></div>
+      <div><span class="lab">18 – 24</span><p>Only a reasonable return on <b>arm's-length capital</b>, or the <b>safe-harbour return</b> = prescribed rate × capital they contributed (4% × $1,000 = $40).</p></div>
+      <div><span class="lab y">25+</span><p>Any exclusion below, or a reasonable amount given work done, property contributed, risks taken and amounts already paid.</p></div>
+    </div></div>
+    <div class="tw stack"><table><tr><th>Exclusion</th><th>Test</th></tr>
+      <tr><td><b>Excluded business</b> (18+)</td><td>Actively engaged on a regular, continuous, substantial basis: <span class="n">20+ hours/week</span> in the year or any 5 prior years</td></tr>
+      <tr><td><b>Excluded shares</b> (25+)</td><td>Owns ≥ <span class="n">10%</span> of votes <b>and</b> value; not a professional corp; &lt; 90% of the corp's income from services</td></tr>
+      <tr><td><b>Owner spouse 65+</b></td><td>Once the business-owner spouse is 65, amounts to the other spouse are excluded (the recipient needn't be 65)</td></tr>
+      <tr><td><b>Salary</b></td><td>A reasonable salary is employment income, so an adult employee on salary isn't affected</td></tr></table></div>
+    <p class="trap"><b>Trap</b> It's the <b>owner</b> turning 65 that matters. The recipient spouse turning 65 changes nothing.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-est)" href="#est-trust">Estate: family trust</a><a class="lk" style="--lc:var(--c-est)" href="#est-freeze">Estate: freeze</a></div>
+  </article>
+
+  <article class="blk" id="tax-opt">
+    <h3>Stock options <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">Is the employer a CCPC (and you deal at arm's length)?</div><div class="br">
+      <div><span class="lab y">CCPC (arm's length)</span><p>No tax at exercise. At <b>sale</b>: 50% × (FMV at exercise − strike) = employment income (deduction if held 2+ yrs or strike ≥ FMV at grant), plus 50% × (sale − FMV at exercise) = taxable capital gain. Gain may qualify for LCGE. Non-CCPC options exercised before 4 pm EST, March 4, 2010 used this same timing.</p></div>
+      <div><span class="lab x">Public / non-CCPC</span><p>At <b>exercise</b>: 50% × (FMV − strike) = employment income, if arm's length, strike ≥ FMV at grant, plain common shares. At sale: 50% × (sale − FMV at exercise) = taxable capital gain.</p></div>
+    </div></div>
+    <details class="ex"><summary>Xerex: strike $10, FMV at exercise $20, sold at $40, 1,000 shares</summary><div>
+      <div class="calc"><span>Benefit ($20 − $10) × 1,000</span><span>$10,000</span><span>− 50% deduction</span><span>($5,000)</span><span class="tot">Employment income inclusion</span><span class="tot">$5,000</span>
+      <span>Gain ($40 − $20) × 1,000</span><span>$20,000</span><span class="tot">Taxable capital gain (50%)</span><span class="tot">$10,000</span></div></div></details>
+    <p class="trap"><b>Trap</b> The benefit is employment income, not a capital gain. If the shares later fall below FMV at exercise, the capital loss can't offset the benefit.</p>
+    <p class="tip"><b>$200,000 cap</b> Options granted after June 30, 2021 by large non-CCPC employers: the 50% deduction covers only the first $200,000 of options (FMV at grant) vesting each year. CCPCs and employers with revenue ≤ $500M are exempt.</p>
+  </article>
+
+  <article class="blk" id="tax-cred">
+    <h3>Donation and political credits</h3>
+    <div class="tl">
+      <div><b>First $200</b>14% in 2026 <span class="st">notes say 15%</span></div>
+      <div><b>Above $200</b><span class="n">29%</span></div>
+      <div><b>Portion above top bracket</b>33% (income &gt; $258,482) <span class="st">notes use $221,708</span></div>
+    </div>
+    <ul><li>Claim up to <span class="n">75%</span> of net income; <span class="n">100%</span> in year of death and year before.</li><li>Carry forward <span class="n">5 years</span>. Pool both spouses' receipts on one return.</li><li>Donating listed securities: capital gain inclusion is zero (30% for AMT).</li></ul>
+    <h4>Where can a donation be claimed?</h4>
+    <div class="tw stack"><table><tr><th>Situation</th><th>Carry back</th><th>Carry forward</th><th>Limit</th></tr>
+      <tr><td><b>Alive</b></td><td>None</td><td>5 years</td><td>75% of net income each year</td></tr>
+      <tr><td><b>Death, estate is a GRE</b> (gift within 36 months)</td><td>Terminal return or the year before, at <b>100%</b> of NI</td><td>5 years at 75%</td><td>Or the GRE's year of donation, or an earlier GRE year, at 75%</td></tr>
+      <tr><td><b>Death, no GRE</b></td><td>None</td><td>5 years at 75%</td><td>75% of the estate's own NI</td></tr></table></div>
+    <h4>Federal political contribution credit (max $650)</h4>
+    <div class="band"><div style="flex:400;background:var(--m);color:var(--on)">75% on first $400</div><div style="flex:350;background:color-mix(in srgb,var(--m) 60%,var(--surface))">50% next $350</div><div style="flex:525;background:color-mix(in srgb,var(--m) 25%,var(--surface))">33⅓% next $525</div></div>
+    <div class="bandlab"><span>$0</span><span>$400</span><span>$750</span><span>$1,275 → $650 credit</span></div>
+    <p>Either spouse can claim, but one receipt can't be split.</p>
+  </article>
+
+  <article class="blk" id="tax-amt">
+    <h3>Alternative minimum tax <span class="pri">recognise, then refer</span></h3>
+    <ol class="flow">
+      <li><b>Start with regular taxable income, then adjust</b><small>+ 100% of capital gains (not 50%) · + 30% of gains eligible for LCGE · + 30% of gains on donated listed securities · + 100% of stock option benefit · add back "tainted" deductions: tax-shelter and LP losses, resource deductions, carrying charges, CCA rental losses, employee home relocation loan</small></li>
+      <li class="op">− exemption <span class="n">$181,440</span> (2026; = start of the 29% bracket) <span class="st">your working used $173,205 (2024)</span></li>
+      <li><b>× 20.5%</b><small>was 15% before 2024</small></li>
+      <li class="op">− only 50% of most non-refundable credits (<b>80%</b> of the donation credit)</li>
+      <li class="end"><b>Pay the higher of AMT or regular tax</b><small>Excess AMT carries forward 7 years against regular tax; lost if there's never enough regular tax. AMT doesn't apply in the year of death.</small></li>
+    </ol>
+    <details class="ex"><summary>QSBC sale: $800,000 gain, no other income</summary><div>Regular tax $0 (LCGE). AMT: 30% × $800,000 = $240,000 − $181,440 = $58,560 × 20.5% = <b>$12,005</b> (before credits), recoverable over 7 years.</div></details>
+    <p class="tip"><b>Exam</b> On the CFP, spot it (big capital gain, big options, large sheltered retiring allowance), tell the client, refer to a tax professional.</p>
+    <h4>CRA's list of AMT triggers</h4>
+    <div class="chips"><span>Taxable capital gains</span><span>CCA rental losses</span><span>LP and tax-shelter losses</span><span>Carrying charges</span><span>Resource deductions</span><span>Security option deduction</span><span>Political credit</span><span>Investment tax credit</span><span>LSVCC credit</span><span>Dividend tax credit</span></div>
+  </article>
+
+  <article class="blk" id="tax-supp">
+    <h3>Support payments</h3>
+    <div class="tree"><div class="q">Is there a written agreement or court order?</div><div class="br">
+      <div><span class="lab x">No</span><p>No tax effect either side.</p></div>
+      <div><span class="lab">Child support only</span><p>Not deductible, not taxable (post-Apr 30, 1997 orders).</p></div>
+      <div><span class="lab y">Spousal support</span><p>Deductible to payer, taxable to recipient, only if all 4: written agreement or court order · <b>periodic</b>, not lump sum · an allowance the recipient can spend at their discretion · living apart. Combined with child support: the spousal amount must be stated separately or none of it counts.</p></div>
+    </div></div>
+    <p class="tip"><b>Arrears</b> Payments go to <b>child support first</b> until that year's child arrears are cleared. Enforcement (Ontario Family Responsibility Office): wage garnishment, bank and asset seizure, tax refund intercept, liens on property. Taxable support received counts as earned income for RRSP room.</p>
+    <p>Property division on breakdown: generally tax-neutral (spousal rollover); gains may arise on third-party sales.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-est)" href="#est-family">Estate: family law</a></div>
+  </article>
+
+  <article class="blk" id="tax-tfsa">
+    <h3>TFSA</h3>
+    <div class="two">
+      <div class="pane"><b>In</b>18+ with SIN (room starts at 18 even where majority is 19). Not deductible. No income needed, no age cap. No spousal TFSA (but you can gift funds, no attribution).</div>
+      <div class="pane"><b>Out</b>Tax-free, any time. Withdrawals re-added to room next January. At death: successor holder spouse keeps it sheltered; other beneficiaries get it tax-free (growth after death is taxable).</div>
+    </div>
+    <div class="tl"><div><b>2009–12</b>$5,000</div><div><b>2013–14</b>$5,500</div><div><b>2015</b>$10,000</div><div><b>2016–18</b>$5,500</div><div><b>2019–22</b>$6,000</div><div><b>2023</b>$6,500</div><div><b>2024–26</b>$7,000</div></div>
+    <p>Cumulative room if 18+ in 2009 and never contributed: <span class="n">$109,000</span> in 2026. Over-contribution: 1% per month.</p>
+  </article>
+
+  <article class="blk" id="tax-emp">
+    <h3>Home office and automobile benefit</h3>
+    <div class="tw"><table><tr><th>Expense</th><th class="c">Commissioned</th><th class="c">Salaried employee</th><th class="c">Self-employed</th></tr>
+      <tr><td>Rent, utilities, repairs</td><td class="c y">✓</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+      <tr><td>Home insurance, property tax</td><td class="c y">✓</td><td class="c x">✗</td><td class="c y">✓</td></tr>
+      <tr><td>Mortgage interest, CCA</td><td class="c x">✗</td><td class="c x">✗</td><td class="c y">✓</td></tr></table></div>
+    <p>Must be the principal place of work, or used exclusively and regularly to meet clients. Can't create or increase a loss; unused amounts carry forward.</p>
+    <h4>Employer car benefit = standby + operating − reimbursements</h4>
+    <div class="fx"><span class="lhs">Standby</span> = 2% × original cost × months available<small>Leased: ⅔ × monthly lease (excluding insurance) × months available. Car salespeople 1.5%.</small></div>
+    <div class="tree"><div class="q">&gt; 50% business use <u>and</u> personal km ≤ 1,667 × months available?</div><div class="br">
+      <div><span class="lab y">Both yes</span><p>Reduce standby × <span class="frac" style="font-weight:700"><span>personal km</span><span>1,667 × months available</span></span> (max 100%). The reduced charge <b>replaces</b> the full one.</p><p>Operating benefit may be ½ of standby (notify employer in writing by year-end).</p></div>
+      <div><span class="lab x">Either no</span><p>Full standby charge. Operating benefit = <span class="n">34¢</span>/km personal (31¢ car sales), 2026.</p></div>
+    </div></div>
+    <p class="trap"><b>Trap</b> The reduction is personal km ÷ (1,667 × months available), not ÷ total km (a full year = 20,004). Both conditions are needed: 46% business use → no reduction at all. Reimburse all personal operating costs within <b>45 days</b> of year-end → no operating benefit.</p>
+    <details class="ex"><summary>Car available 10 months, 8,000 personal km, &gt; 50% business</summary><div>Reduction = 8,000 ÷ (10 × 1,667) = 48% → $4,266.67 standby × 48% = <b>$2,048</b>. Same car at 46% business use: no reduction, e.g. $4,800 standby + $5,440 operating (34¢ × 16,000 km) = <b>$10,240</b>.</div></details>
+    <h4>2026 automobile figures</h4>
+    <div class="chips"><span><b>73¢ / 67¢</b> per km allowance (first 5,000 / after; +4¢ territories)</span><span><b>34¢</b> operating benefit (31¢ car sales)</span><span><b>$39,000</b> CCA ceiling ($61,000 zero-emission)</span><span><b>$1,100</b>/mo lease limit</span><span><b>$350</b>/mo interest limit</span></div>
+    <p>A reasonable per-km allowance isn't income, but then the employee can't deduct car expenses.</p>
+  </article>
+
+  <article class="blk" id="tax-biz">
+    <h3>Small business <span class="pri hi">high</span></h3>
+    <div class="tw"><table><tr><th></th><th>Sole prop</th><th>Partnership</th><th>Corporation</th></tr>
+      <tr><td>Liability</td><td>Unlimited</td><td>General: unlimited, joint. Limited partner: capped at investment (no management role)</td><td>Separate entity; directors can still be liable</td></tr>
+      <tr><td>Tax</td><td>Personal</td><td>Share of profit taxed personally</td><td>Corp files; SBD, LCGE, income splitting</td></tr>
+      <tr><td>Continuity</td><td>Ends with owner</td><td>Partners carry on</td><td>Survives shareholders</td></tr>
+      <tr><td>Cost</td><td>Lowest</td><td>Low</td><td>Highest setup and admin</td></tr></table></div>
+    <div class="fx"><span class="lhs">Partnership ACB</span> = contributions + profits − losses − drawings<small>Gain on sale = proceeds − ACB</small></div>
+
+    <h4>Can the shareholder use the LCGE (<span class="n">$1,275,000</span> in 2026)? <span class="st">notes say $1.25M</span></h4>
+    <ol class="flow">
+      <li><b>CCPC, active business mainly in Canada</b><small>Not a personal services or specified investment business</small></li>
+      <li><b>At sale: all or substantially all (90%+) of FMV in active assets</b><small>This is the "small business corporation" test</small></li>
+      <li><b>Prior 24 months: more than 50% in active assets, and owned only by you or a related person</b><small>An asset &gt; 50% used actively counts 100%</small></li>
+      <li class="end"><b>QSBC share → LCGE available</b><small>Watch AMT on the 30% add-back</small></li>
+    </ol>
+    <div class="two">
+      <div class="pane"><b>Small business deduction</b>CCPC, active income in Canada, first <span class="n">$500,000</span>. Personal services and specified investment businesses excluded.</div>
+      <div class="pane"><b>Capital dividend account</b>Tracks tax-free amounts: non-taxable half of capital gains, life insurance proceeds (less ACB), capital dividends received. Paid out tax-free by election. Doesn't reduce share ACB.</div>
+      <div class="pane"><b>Part IV / RDTOH</b>Private corp pays refundable tax on portfolio dividends; refunded when it pays taxable dividends. Integration: no advantage to earning through a corp. Don't calculate.</div>
+      <div class="pane"><b>Valuation</b>DCF (PV of future cash flows) · multiple of earnings or sales · liquidation value (sum of saleable assets).</div>
+    </div>
+    <div class="tree"><div class="q">Buy-sell funded with life insurance</div><div class="br">
+      <div><span class="lab">Criss-cross</span><p>Each owner buys a policy on the others and buys the shares personally.</p></div>
+      <div><span class="lab">Corporate redemption</span><p>Corp owns, pays for and is beneficiary of the policies; buys back the shares. Proceeds flow via CDA.</p></div>
+    </div></div>
+    <p class="tip"><b>Three CCPC perks</b> Small business deduction · better stock option treatment · LCGE.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-ins)" href="#ins-corp">Insurance: CDA credit mechanics</a><a class="lk" style="--lc:var(--c-est)" href="#est-freeze">Estate: freeze to crystallise LCGE</a></div>
+  </article>
+
+  <article class="blk" id="tax-other">
+    <h3>Shelters, leverage and other credits</h3>
+    <div class="two">
+      <div class="pane"><b>Flow-through shares</b>Deduct the exploration expenses; ACB deemed <b>zero</b>, so the full sale price is a capital gain.</div>
+      <div class="pane"><b>Borrowing to invest</b>Interest deductible if reasonable expectation of income (non-registered investing; also a corp funding an IPP). Not deductible for RRSP, TFSA, FHSA or RESP loans.</div>
+      <div class="pane"><b>Personal-use property</b>Cost and proceeds deemed at least <span class="n">$1,000</span>; losses denied (listed personal property losses only against LPP gains). Canoe bought $850, sold $1,700 → gain $700. Coins (LPP) bought $500, sold $850 → no gain.</div>
+      <div class="pane"><b>Life policy surrender</b>CSV − ACB is <b>income</b>, not a capital gain: $25,000 − $7,000 = $18,000 fully taxable.</div>
+      <div class="pane"><b>Income trusts</b>REITs, royalty/energy, business trusts. Tax advantage ended 2011.</div>
+      <div class="pane"><b>RCA</b>For executives and owners. 50% refundable tax on contributions and income.</div>
+    </div>
+    <h4>Other credits and benefits to recognise</h4>
+    <div class="tw stack"><table><tr><th>Program</th><th>What it pays</th><th>Watch</th></tr>
+      <tr><td><b>Canada Workers Benefit</b></td><td>Refundable. 2025 max $1,633 single / $2,813 family, + $843 disability supplement</td><td>Phases out $26,855 → $37,742 single, $30,639 → $49,393 family (about 2% higher for 2026). Paid partly in advance</td></tr>
+      <tr><td><b>Canada training credit</b></td><td>$250/yr of room, <span class="n">$5,000</span> lifetime</td><td>Ages 26–65, refundable, lesser of half the fees or your room</td></tr>
+      <tr><td><b>Home accessibility (HATC)</b></td><td>Up to $20,000 of expenses → <span class="n">$2,800</span></td><td>For someone <b>65+ or DTC-eligible</b> (not 65+ only, as one answer key says)</td></tr>
+      <tr><td><b>Multigenerational home renovation</b></td><td>15% refundable on up to $50,000 = <span class="n">$7,500</span></td><td>Building a secondary unit so a senior or a DTC-eligible adult can live with family</td></tr>
+      <tr><td><b>Child disability benefit</b></td><td>Up to $3,480/child, tax-free, paid with the CCB</td><td>DTC-eligible child under 18; reduced once AFNI passes $82,847 (Jul 2026–Jun 2027)</td></tr>
+      <tr><td><b>Disability tax credit</b></td><td>$10,341 non-refundable</td><td>The gateway: needed for the CDB, RDSP, Henson/QDT planning, HATC</td></tr></table></div>
+  </article>
+</section>
+
+<!-- ===================== INVESTMENTS ===================== -->
+<section class="mod" id="inv" style="--m:var(--c-inv)">
+  <div class="mod-h"><h2>Investments</h2><button class="rev" data-k="inv" aria-pressed="false">Mark reviewed</button>
+    <p>Products from safest to riskiest, the formulas you must run, how each is taxed, risk and portfolio theory.</p></div>
+  <nav class="map"><a href="#inv-ladder">Product ladder</a><a href="#inv-fx">Formula sheet</a><a href="#inv-bond">Bonds &amp; duration</a><a href="#inv-funds">Funds &amp; seg funds</a><a href="#inv-ann">Annuities</a><a href="#inv-der">Options</a><a href="#inv-tax">Taxation</a><a href="#inv-risk">Risk</a><a href="#inv-mpt">Portfolio theory</a><a href="#inv-strat">Strategies</a><a href="#inv-reg">Regulation</a></nav>
+
+  <article class="blk" id="inv-ladder">
+    <h3>The product ladder</h3>
+    <ol class="flow">
+      <li><b>Money market: T-bills, commercial paper, BAs</b><small>&lt; 1 year, sold at a discount, mature at par. Emergency funds.</small></li>
+      <li><b>GICs and term deposits</b><small>GIC: usually locked to maturity, higher rate. Term deposit: redeemable, slightly lower rate.</small></li>
+      <li><b>Government and MBS</b><small>Crown agencies backed by Canada. NHA MBS pay monthly interest + principal.</small></li>
+      <li><b>Bonds, then debentures</b><small>Bond secured by assets; debenture only by issuer credit → riskier, higher yield.</small></li>
+      <li><b>Convertibles and preferred shares</b><small>Pref: fixed dividend, priority over common, usually no vote, price moves inversely with rates like bonds.</small></li>
+      <li><b>Common shares, REITs</b><small>Residual claim, voting, growth. Need a long horizon. Real estate adds low correlation.</small></li>
+      <li class="end"><b>LSVCCs, derivatives</b><small>LSVCC: 15% federal credit (+ provincial) on up to $5,000; hold 8 yrs or repay credits. Only for already-diversified investors.</small></li>
+    </ol>
+    <p class="tip"><b>Exam</b> Asset-mix questions: answer from each product's most basic feature (liquidity, safety, income, growth). Don't overthink.</p>
+  </article>
+
+  <article class="blk" id="inv-fx">
+    <h3>Formula sheet <span class="pri hi">calculate</span></h3>
+    <div class="fx"><span class="lhs">T-bill yield</span> = <span class="frac"><span>Par − Price</span><span>Price</span></span> × <span class="frac"><span>365</span><span>days to maturity</span></span> × 100</div>
+    <div class="fx"><span class="lhs">Bond price</span> N = years × 2 · I/Y = market rate ÷ 2 · PMT = coupon ÷ 2 · FV = 1,000 → PV<small>Semi-annual unless told otherwise. Quote of 98 = $980.</small></div>
+    <div class="fx"><span class="lhs">NAV</span> = <span class="frac"><span>Fund assets − liabilities</span><span>Units outstanding</span></span></div>
+    <div class="fx"><span class="lhs">Offering price</span> = <span class="frac"><span>NAV</span><span>1 − front load</span></span> &nbsp;&nbsp; <span class="lhs">Redemption</span> = NAV × (1 − back load)</div>
+    <div class="fx"><span class="lhs">CAPM / SML</span> E(R) = R<sub>f</sub> + β (R<sub>m</sub> − R<sub>f</sub>)<small>4.5% + 1.1 × (6.7% − 4.5%) = 6.92%. Analyst estimate above the line → undervalued (buy). Below → overvalued.</small></div>
+    <div class="fx"><span class="lhs">DDM price</span> = <span class="frac"><span>D<sub>1</sub></span><span>r − g</span></span> &nbsp;&nbsp; <span class="lhs">P/E</span> = <span class="frac"><span>payout ratio</span><span>r − g</span></span><small>D₁ is next year's dividend (D₀ × (1+g)). Dividend payers only.</small></div>
+    <div class="fx"><span class="lhs">Macaulay D</span> = <span class="frac"><span>Σ [ t × CF<sub>t</sub> ÷ (1+y)<sup>t</sup> ]</span><span>Price</span></span> &nbsp;&nbsp; <span class="lhs">Modified D</span> = <span class="frac"><span>Macaulay D</span><span>1 + y/n</span></span><small>n = coupons per year. Modified duration drives the price estimate.</small></div>
+    <div class="fx"><span class="lhs">% bond price change</span> ≈ − modified duration × Δ yield<small>Duration 8, rates +2.5% → about −20%. Convexity makes the real result better than this, either direction.</small></div>
+    <div class="fx"><span class="lhs">Arithmetic mean</span> = <span class="frac"><span>r₁ + r₂ + … + rₙ</span><span>n</span></span> &nbsp;&nbsp; <span class="lhs">Geometric (TWR)</span> = [(1+r₁)(1+r₂)…(1+rₙ)]<sup>1/n</sup> − 1<small>3%, −9%, −1.4%, 2.25%, 2.4% → AM −0.55%, GM <b>−0.66%</b>. GM ≤ AM always. Multiply the (1 + r) terms, never the raw returns.</small></div>
+    <div class="fx"><span class="lhs">DWR</span> = IRR of every cash flow (CF keys)<small>Moves with deposits and withdrawals: the client's experience. TWR ignores them: the manager's skill.</small></div>
+    <div class="fx"><span class="lhs">After-tax</span> = r × (1 − MTR) &nbsp;&nbsp; <span class="lhs">Real</span> ≈ nominal − inflation<small>Exact: (1 + nominal) ÷ (1 + inflation) − 1. Use the real rate for income-replacement PVs.</small></div>
+    <div class="fx"><span class="lhs">Annuity due</span> first payment today → BGN mode<small>= ordinary annuity × (1 + r). Leaving a legacy: put it in FV. Solving for r: trial and error or interpolation.</small></div>
+  </article>
+
+  <article class="blk" id="inv-bond">
+    <h3>Bonds: the seesaw and duration <span class="pri hi">high</span></h3>
+    <svg class="dg" viewBox="0 0 640 190" role="img" aria-label="Price yield curve, convex">
+      <line class="axis" x1="50" y1="165" x2="330" y2="165"/><line class="axis" x1="50" y1="165" x2="50" y2="15"/>
+      <path class="mline" d="M60 25 Q 110 135 320 150"/>
+      <text x="170" y="185" font-size="12">yield →</text><text x="4" y="20" font-size="12">price</text>
+      <text x="170" y="100" font-size="12" font-weight="700">convex curve</text>
+      <g transform="translate(360,15)"><text x="0" y="20" font-size="14" font-weight="800">Rates ↑ → prices ↓</text>
+      <text x="0" y="46" font-size="13">Market rate &gt; coupon → discount</text><text x="0" y="68" font-size="13">Market rate &lt; coupon → premium</text>
+      <text x="0" y="90" font-size="13">Market rate = coupon → par</text>
+      <text x="0" y="122" font-size="13" font-weight="700">Duration ↑ with longer maturity</text><text x="0" y="144" font-size="13" font-weight="700">Duration ↑ with lower coupon</text></g>
+    </svg>
+    <div class="tree"><div class="q">You expect rates to…</div><div class="br">
+      <div><span class="lab y">Fall</span><p>Buy <b>long</b> duration (long maturity, low coupon) for the biggest price gain.</p></div>
+      <div><span class="lab x">Rise</span><p>Shorten duration to lose the least.</p></div>
+    </div></div>
+    <p class="tip"><b>Convexity</b> Yield ↓ → price rises <b>more</b> than duration predicts. Yield ↑ → price falls <b>less</b> than duration predicts. Convexity always helps the holder.</p>
+    <p class="trap"><b>Trap</b> Reinvestment risk shows up when rates <b>fall</b> (coupons reinvested below YTM). Canada Savings Bonds were liquid but not marketable.</p>
+  </article>
+
+  <article class="blk" id="inv-funds">
+    <h3>Mutual funds vs segregated funds <span class="pri hi">high</span></h3>
+    <div class="two">
+      <div class="pane"><b>Open-end</b>Unlimited units at NAV, priced end of day. Front, back or no load. MER = % of assets.</div>
+      <div class="pane"><b>Closed-end / UIT</b>Fixed units trade on an exchange at a premium or discount to NAV. UITs hold bonds and have a maturity.</div>
+    </div>
+    <div class="tw"><table><tr><th>Feature</th><th class="c">Seg fund</th><th class="c">Mutual fund</th></tr>
+      <tr><td>Maturity guarantee (75–100%, after 10 yrs)</td><td class="c y">✓</td><td class="c x">✗</td></tr>
+      <tr><td>Death benefit guarantee</td><td class="c y">✓</td><td class="c x">✗</td></tr>
+      <tr><td>Bypasses probate with named beneficiary</td><td class="c y">✓</td><td class="c x">✗</td></tr>
+      <tr><td>Creditor protection (preferred beneficiary)</td><td class="c y">✓</td><td class="c x">✗</td></tr>
+      <tr><td>Capital losses flow through to investor</td><td class="c y">✓</td><td class="c x">✗</td></tr>
+      <tr><td>Income allocated by time held (no phantom tax)</td><td class="c y">✓</td><td class="c x">✗</td></tr>
+      <tr><td>Regulated by / offered with</td><td>Insurance regulators, information folder</td><td>Securities regulators, prospectus</td></tr>
+      <tr><td>Backstop</td><td>Assuris</td><td>CIPF (dealer insolvency)</td></tr></table></div>
+    <p class="trap"><b>Trap</b> Creditor protection fails if bought in the year (or year before) bankruptcy to shelter assets. A seg fund is an annuity contract: investor owns no units, gets a T3. Seg fund distributions don't reduce NAV.</p>
+  </article>
+
+  <article class="blk" id="inv-ann">
+    <h3>Annuities</h3>
+    <div class="two">
+      <div class="pane"><b>Registered</b>Term-to-90 or life (insurers only). <b>Whole payment taxable.</b></div>
+      <div class="pane"><b>Non-registered</b>Only the interest portion is taxable.</div>
+    </div>
+    <div class="tree"><div class="q">Non-registered: how is interest reported?</div><div class="br">
+      <div><span class="lab">Prescribed</span><p>Level taxable amount every year. Good if bracket stays flat or falls later.</p></div>
+      <div><span class="lab">Non-prescribed</span><p>Interest front-loaded: higher taxable income early, lower later.</p></div>
+    </div></div>
+  </article>
+
+  <article class="blk" id="inv-der">
+    <h3>Options in one grid</h3>
+    <div class="tw"><table><tr><th></th><th>Call</th><th>Put</th></tr>
+      <tr><th>Long (buyer, pays premium)</th><td><b>Right to buy</b> at strike. Bullish. Exercise if price &gt; strike.</td><td><b>Right to sell</b> at strike. Bearish. Exercise if price &lt; strike. On shares you own = portfolio insurance.</td></tr>
+      <tr><th>Short (writer, gets premium)</th><td><b>Obligation to sell</b>. Covered call = income strategy (allowed in RRSP).</td><td><b>Obligation to buy</b>.</td></tr></table></div>
+    <p>One contract = 100 shares. Longer expiry = pricier. Futures/forwards: both sides committed (futures exchange-traded, forwards custom). Swaps: exchange fixed vs floating, or currencies. Low priority.</p>
+  </article>
+
+  <article class="blk" id="inv-tax">
+    <h3>How each product is taxed <span class="pri hi">high</span></h3>
+    <div class="tw"><table><tr><th>Income</th><th>Treatment</th></tr>
+      <tr><td>Interest (bonds, GICs, strips)</td><td>100% at marginal rate, <b>annually even if not received</b></td></tr>
+      <tr><td>T-bill discount</td><td>Interest, not a capital gain</td></tr>
+      <tr><td>Canadian dividends</td><td>Gross-up and DTC</td></tr>
+      <tr><td>Foreign (incl. U.S.) dividends</td><td>Regular income, no gross-up or DTC (foreign tax credit for withholding)</td></tr>
+      <tr><td>Capital gain</td><td>50% of (net proceeds − ACB). Commissions reduce proceeds and add to ACB.</td></tr>
+      <tr><td>Reinvested fund distributions</td><td>Taxed now, and <b>added to ACB</b></td></tr>
+      <tr><td>Trust distributions</td><td><b>Keep their character</b>: eligible dividends get the DTC, gains 50%</td></tr>
+      <tr><td>Anything inside an RRSP / RRIF</td><td><b>Loses its character</b>: no DTC, no 50% inclusion. Every withdrawal is ordinary income</td></tr>
+      <tr><td>Unrealized gains (appraisals, paper gains)</td><td>Not taxed until sold</td></tr></table></div>
+    <p>Canadian dividends arrive on a <b>T5</b> showing the cash, grossed-up amount and federal credit.</p>
+    <div class="tw"><table><tr><th></th><th>Seg fund</th><th>Mutual fund trust</th><th>Mutual fund corp</th></tr>
+      <tr><td>Slip</td><td>T3</td><td>T3</td><td>T5</td></tr>
+      <tr><td>Income keeps its character</td><td>Yes</td><td>Yes</td><td>Only dividends and capital-gains dividends</td></tr>
+      <tr><td>Losses</td><td>Flow to investor</td><td>Stay in fund</td><td>Stay in corp</td></tr>
+      <tr><td>Allocation</td><td>Time-weighted</td><td>Holders on record date</td><td>Holders on record date</td></tr></table></div>
+    <details class="ex"><summary>Vic's mutual fund</summary><div>Bought $10,000, reinvested $2,000 distribution, redeemed $15,000. ACB $12,000, gain $3,000, taxable $1,500. The $2,000 was already taxed as dividends.</div></details>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-tax)" href="#tax-div">Tax: dividend flow</a><a class="lk" style="--lc:var(--c-tax)" href="#tax-loss">Tax: loss carry rules</a></div>
+  </article>
+
+  <article class="blk" id="inv-risk">
+    <h3>Risk: types and measures</h3>
+    <div class="chips"><span><b>Business</b> firm-specific</span><span><b>Market</b> systematic, beta</span><span><b>Interest rate</b> duration</span><span><b>Reinvestment</b> rates fall</span><span><b>Purchasing power</b> inflation</span><span><b>Liquidity</b> sell fast at FMV</span><span><b>Marketability</b> can it be sold at all</span><span><b>Political</b> country premium</span><span><b>Exchange rate</b></span></div>
+    <div class="two">
+      <div class="pane"><b>Standard deviation = total risk</b>Systematic + unsystematic. T-bills ≈ 0. Diversifying (other asset classes, sectors) removes only the <b>unsystematic</b> part.</div>
+      <div class="pane"><b>Beta = systematic only</b>Market = 1. &lt; 1 defensive, &gt; 1 aggressive. Can't be diversified away.</div>
+    </div>
+    <p class="tip"><b>Time</b> Longer horizon → stocks less risky; bonds more risky (inflation and rate uncertainty).</p>
+    <div class="two">
+      <div class="pane"><b>Risk tolerance</b>Willingness to take risk (temperament).</div>
+      <div class="pane"><b>Risk capacity</b>Ability to take it. Falls near retirement even if tolerance is high; no debt raises it. Recommend a risk tolerance assessment.</div>
+    </div>
+    <details class="ex"><summary>Why does an index fund have lower SD than a single tech stock?</summary><div>Because diversification removed the unsystematic risk. Systematic risk is the same for everything.</div></details>
+  </article>
+
+  <article class="blk" id="inv-mpt">
+    <h3>Portfolio theory and market efficiency</h3>
+    <svg class="dg" viewBox="0 0 640 210" role="img" aria-label="Efficient frontier and security market line">
+      <line class="axis" x1="40" y1="180" x2="290" y2="180"/><line class="axis" x1="40" y1="180" x2="40" y2="15"/>
+      <path class="mline" d="M70 150 Q 90 60 280 30"/>
+      <circle cx="160" cy="130" r="5" fill="var(--ink2)"/><text x="170" y="134" font-size="12">inefficient</text>
+      <text x="200" y="28" font-size="12" font-weight="700">efficient frontier</text>
+      <text x="100" y="200" font-size="12">risk (SD) →</text><text x="2" y="12" font-size="12">E(R)</text>
+      <g transform="translate(340,0)">
+        <line class="axis" x1="30" y1="180" x2="290" y2="180"/><line class="axis" x1="30" y1="180" x2="30" y2="15"/>
+        <line class="mline" x1="30" y1="140" x2="285" y2="40"/><text x="0" y="144" font-size="12">R<tspan baseline-shift="sub" font-size="9">f</tspan></text>
+        <circle cx="150" cy="65" r="6" fill="var(--yes)"/><text x="160" y="62" font-size="12" font-weight="700" fill="var(--yes)">above: undervalued</text>
+        <circle cx="200" cy="130" r="6" fill="var(--trap)"/><text x="130" y="152" font-size="12" font-weight="700" fill="var(--trap)">below: overvalued</text>
+        <text x="235" y="36" font-size="12" font-weight="700">SML</text><text x="120" y="200" font-size="12">beta →</text>
+      </g>
+    </svg>
+    <div class="band"><div style="flex:1;background:var(--m);color:var(--on)">−1 max benefit</div><div style="flex:1;background:color-mix(in srgb,var(--m) 45%,var(--surface))">0</div><div style="flex:1;background:var(--line)">+1 no benefit</div></div>
+    <div class="bandlab"><span>correlation</span><span>lower = more risk reduction</span></div>
+    <p>Markowitz: judge the portfolio, not each security. Efficient portfolios give the most return per unit of risk. Diversify across asset class, size, sector, geography, style, maturity, credit.</p>
+    <div class="tree"><div class="q">Efficient market hypothesis: prices reflect…</div><div class="br">
+      <div><span class="lab">Weak</span><p>All past prices. Technical analysis fails. Markets ≈ weak efficient.</p></div>
+      <div><span class="lab">Semi-strong</span><p>+ all public info. Fundamental analysis fails. Close, with anomalies (January, small-firm effects).</p></div>
+      <div><span class="lab">Strong</span><p>+ private info. Evidence says markets are not strong-form.</p></div>
+    </div></div>
+    <h4>Behavioural finance: the 20 biases (+ mental accounting)</h4>
+    <div class="chips"><span><b>Conservatism</b> slow to update</span><span><b>Confirmation</b> seek agreeing info</span><span><b>Cognitive dissonance</b></span><span><b>Hindsight</b> "I knew it"</span><span><b>Illusion of control</b></span><span><b>Representativeness</b> stereotype = forecast</span><span><b>Anchoring</b> stuck on a number</span><span><b>Availability / recency</b></span><span><b>Framing</b></span><span><b>Self-attribution</b> wins = skill</span><span><b>Sunk cost</b></span><span><b>Outcome</b> judge by result</span><span><b>Affinity</b> buy what you identify with</span><span><b>Disposition</b> sell winners, hold losers</span><span><b>Endowment</b> overvalue what you own</span><span><b>Loss aversion</b></span><span><b>Overconfidence</b> overtrading</span><span><b>Regret aversion</b></span><span><b>Self-control</b> spend now</span><span><b>Status quo</b> do nothing</span><span><b>Mental accounting</b> money in buckets</span></div>
+    <p>Prospect theory: more risk-seeking after losses, more cautious after gains. Sample-size neglect: big conclusions from little data.</p>
+    <div class="tw"><table><tr><th>P/E goes up when…</th><th>P/E goes down when…</th></tr>
+      <tr><td>Payout ratio ↑, dividend growth ↑</td><td>Required return ↑, interest rates ↑, inflation ↑</td></tr></table></div>
+    <p>High P/E = growth style. Low P/E = value style.</p>
+  </article>
+
+  <article class="blk" id="inv-strat">
+    <h3>Strategies and performance</h3>
+    <div class="two">
+      <div class="pane"><b>Active</b>Market timing (tactical), security selection, short sales (unlimited loss).</div>
+      <div class="pane"><b>Passive</b>Strategic asset allocation, indexing (EMH believers), buy and hold, maturity matching.</div>
+      <div class="pane"><b>Formula</b>Dollar-cost averaging (more units when cheap), DRIPs.</div>
+      <div class="pane"><b>SWPs</b>Fixed dollar (same amount), fixed period, ratio (% of balance), life expectancy.</div>
+    </div>
+    <div class="tree"><div class="q">Measuring return</div><div class="br">
+      <div><span class="lab">Time-weighted</span><p>Ignores cash flows. Judge the <b>manager</b> with this.</p></div>
+      <div><span class="lab">Dollar-weighted (IRR)</span><p>Affected by deposits and withdrawals. The client's actual experience.</p></div>
+    </div></div>
+  </article>
+
+  <article class="blk" id="inv-reg">
+    <h3>Regulation <span class="pri">low priority</span></h3>
+    <ol class="flow h">
+      <li><b>Provincial regulators</b><small>Coordinated by the CSA</small></li>
+      <li><b>CIRO</b><small>SRO since Jan 1, 2023 (IIROC + MFDA)</small></li>
+      <li><b>CIPF</b><small>Dealer insolvency, $1M per account category</small></li>
+      <li><b>OBSI</b><small>Free complaint resolution</small></li>
+    </ol>
+    <p>Portfolio manager = discretionary. Investment counsel = advice, no discretion. Mutual fund dealer = funds only.</p>
+  </article>
+</section>
+
+<!-- ===================== RETIREMENT ===================== -->
+<section class="mod" id="ret" style="--m:var(--c-ret)">
+  <div class="mod-h"><h2>Retirement</h2><button class="rev" data-k="ret" aria-pressed="false">Mark reviewed</button>
+    <p>Three pillars: government (OAS/GIS, CPP), employer (RPP, DPSP, IPP, PRPP) and personal (RRSP → RRIF). Then the calculations.</p></div>
+  <nav class="map"><a href="#ret-cpp">CPP</a><a href="#ret-oas">OAS &amp; GIS</a><a href="#ret-rpp">Pensions</a><a href="#ret-pa">PA · PSPA · PAR</a><a href="#ret-rrsp">RRSP room</a><a href="#ret-spousal">Spousal RRSP</a><a href="#ret-ra">Retiring allowance</a><a href="#ret-rrif">RRIF &amp; locked-in</a><a href="#ret-other">IPP · DPSP · PRPP · RCA</a><a href="#ret-rdsp">RDSP · EFA</a></nav>
+
+  <article class="blk" id="ret-cpp">
+    <h3>CPP contributions <span class="pri hi">high</span></h3>
+    <div class="band">
+      <div style="flex:3.5;background:var(--line);font-size:.65rem">YBE</div>
+      <div style="flex:71.1;background:var(--m);color:var(--on)">5.95% each (EE + ER) · 11.9% self-employed</div>
+      <div style="flex:10.4;background:color-mix(in srgb,var(--m) 40%,var(--surface))">CPP2 4%</div>
+    </div>
+    <div class="bandlab"><span>$0</span><span>$3,500</span><span>YMPE $74,600</span><span>$85,000</span></div>
+    <p>2026 max employee: base + first enhanced <span class="n">$4,230.45</span> (5.95% × $71,100) + CPP2 <span class="n">$416</span> (4% × $10,400). Self-employed pays both halves (CPP2 8%).</p>
+    <div class="tw stack"><table><tr><th>Layer</th><th>Since</th><th>Employee rate</th><th>Earnings band</th><th>Tax treatment</th></tr>
+      <tr><td><b>Base CPP</b></td><td>1966</td><td>4.95%</td><td>$3,500 – $74,600</td><td>Non-refundable credit (14%)</td></tr>
+      <tr><td><b>First additional</b></td><td>2019</td><td>1.00%</td><td>$3,500 – $74,600</td><td>Deduction</td></tr>
+      <tr><td><b>CPP2</b></td><td>2024</td><td>4.00%</td><td>$74,600 – $85,000</td><td>Deduction</td></tr></table></div>
+    <div class="two">
+      <div class="pane"><b>Contributory period</b>18 to 65 = 47 years. Drop the lowest <b>17%</b> (about 8 years) → 39 years averaged. Child-rearing drop-out removes low years caring for a child under 7. Disability months are excluded too. Max pension replaces 25% of average earnings (base), rising toward 33.33% as the enhancement matures.</div>
+      <div class="pane"><b>Who contributes</b>18 until pension starts, 70 or death. Earnings only (net business income if self-employed), not investment income. Exempt: casual/migratory, &lt; $250 from one employer.</div>
+    </div>
+    <h4>When to start</h4>
+    <div class="band" style="height:3.6rem">
+      <div style="flex:5;background:color-mix(in srgb,var(--trap) 25%,var(--surface))">60<br>−36%</div>
+      <div style="flex:.9;background:var(--ink);color:var(--surface)">65</div>
+      <div style="flex:5;background:color-mix(in srgb,var(--yes) 25%,var(--surface))">70<br>+42%</div>
+    </div>
+    <div class="bandlab"><span>−0.6% per month before 65</span><span>+0.7% per month after 65</span></div>
+    <p class="trap"><b>Trap</b> Adjustment is permanent (an early pension doesn't reset at 65). No gain from waiting past 70. Retroactive payments: 11 months + the month you apply (65+ only). Enhancement only helps people contributing in 2019 or later.</p>
+    <div class="tree"><div class="q">Couple wants to shift CPP income</div><div class="br">
+      <div><span class="lab">Pension sharing</span><p>Still together, both 60+, both receiving CPP (or one, if only one contributed). Share the portion earned while together. Total paid unchanged; saves tax. Must apply.</p></div>
+      <div><span class="lab">Credit splitting</span><p>On divorce or separation. Credits earned during the relationship divided equally, even if one never contributed. <b>Mandatory once either applies</b>. Married: no time limit (within 36 months of an ex's death). Common-law: within <b>4 years</b> of separating.</p></div>
+    </div></div>
+    <h4>Three benefit families (2026 monthly maximums)</h4>
+    <div class="tw stack"><table><tr><th>Benefit</th><th>2026 max</th><th>Key rule</th></tr>
+      <tr><td><b>① Retirement</b></td><td><span class="n">$1,507.65</span> at 65</td><td>Taxable; indexed each January; paid anywhere in the world</td></tr>
+      <tr><td><b>① Post-retirement benefit</b></td><td>$54.69</td><td>Working while collecting: under 65 must contribute, 65–70 can opt out</td></tr>
+      <tr><td><b>② Death benefit</b></td><td><span class="n">$2,500</span> lump sum</td><td>Flat since 2019 (not 6 months of pension). Contributor needs 1/3 of the contributory period (min 3 yrs) or 10 calendar years</td></tr>
+      <tr><td><b>② Survivor's pension</b></td><td>$803.54 under 65 · $904.59 at 65+</td><td>Spouse or common-law partner</td></tr>
+      <tr><td><b>② ③ Child's pension</b></td><td><span class="n">$307.81</span> each</td><td>Orphan, or child of a disabled contributor: under 18, or 18–25 in school full-time</td></tr>
+      <tr><td><b>③ Disability</b></td><td><span class="n">$1,741.20</span> (flat part $610.46)</td><td>Severe and prolonged; contributed 4 of last 6 years, or <b>3 of last 6 with 25+ years</b>; starts 4 months after; becomes retirement pension at 65</td></tr></table></div>
+  </article>
+
+  <article class="blk" id="ret-oas">
+    <h3>OAS, GIS and the Allowance <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">Years of Canadian residence after age 18</div><div class="br">
+      <div><span class="lab x">&lt; 10</span><p>No OAS (unless a social security agreement fills the gap)</p></div>
+      <div><span class="lab">10 – 39</span><p>Partial: <span class="n">1/40</span> per full year</p></div>
+      <div><span class="lab y">40+</span><p>Full pension</p></div>
+      <div><span class="lab">20+</span><p>Can be paid outside Canada indefinitely (else stops 6 months after leaving)</p></div>
+    </div></div>
+    <div class="two">
+      <div class="pane"><b>Full OAS without 40 years</b>On July 1, 1977 you were 25+ and lived in Canada that day (or had lived here after 18, or held a valid immigration visa), <b>and</b> you lived here the 10 years right before approval, <b>or</b> 3 years here (after 18) for each year missing from those 10, plus the last year before approval.</div>
+      <div class="pane"><b>Leaving Canada</b>20+ years after 18 → OAS paid abroad indefinitely. Otherwise paid for the month you leave + 6 months. GIS and the Allowance stop after the month of departure + 6 months, whatever your history.</div>
+    </div>
+    <div class="fx"><span class="lhs">Clawback</span> = 15% × (net income − threshold)<small><b>2026 income:</b> threshold <span class="n">$95,323</span>, gone at $155,320 (65–74) / $161,320 (75+). <b>2025 income:</b> $93,454, gone at $152,062 / $157,923. Pair the right numbers. Age 75+ gets 10% more OAS.</small></div>
+    <div class="two">
+      <div class="pane"><b>Deferral</b>Up to 5 yrs to age 70, +0.6%/month (max +36%). Must apply. Retroactive: 11 months + the month you apply.</div>
+      <div class="pane"><b>Indexing</b>Quarterly (Jan, Apr, Jul, Oct). Never reduced if CPI falls. Taxable.</div>
+    </div>
+    <div class="tw"><table><tr><th></th><th>GIS</th><th>Allowance / Allowance for the survivor</th></tr>
+      <tr><td>Who</td><td>Low-income OAS recipients (needs OAS in pay; CPP not required)</td><td>Ages 60–64: spouse of a GIS recipient, or a low-income widow(er)</td></tr>
+      <tr><td>Taxable?</td><td colspan="2"><b>No</b>, but must be reported on the return</td></tr>
+      <tr><td>Renewal</td><td colspan="2">Annual, via filing the tax return. Stops after 6 months abroad.</td></tr>
+      <tr><td>Income test</td><td colspan="2">Prior year's income; payment year runs July–June. Counts pensions (CPP, RPP, RRIF, foreign), interest, dividends, rent, capital gains, EI, WCB, spousal support, employment. <b>Excludes OAS and TFSA withdrawals.</b> First $5,000 of employment/self-employment income exempt, then 50% of the next $10,000 (each person).</td></tr></table></div>
+    <h4>Oct–Dec 2026 maximums (indexed quarterly, so ballpark)</h4>
+    <div class="tw stack"><table><tr><th>Benefit</th><th>Max / month</th><th>Income under (prior year)</th></tr>
+      <tr><td><b>OAS 65–74 · 75+</b></td><td>$762.50 · $838.75</td><td>Clawback above $95,323</td></tr>
+      <tr><td><b>GIS, single</b></td><td>$1,138.90</td><td>$23,112</td></tr>
+      <tr><td><b>GIS, spouse gets full OAS</b></td><td>$685.56</td><td>$30,528 combined</td></tr>
+      <tr><td><b>GIS, spouse gets the Allowance</b></td><td>$685.56</td><td>$42,768 combined</td></tr>
+      <tr><td><b>GIS, spouse gets no OAS</b></td><td>$1,138.90</td><td>$55,392 combined</td></tr>
+      <tr><td><b>Allowance (spouse 60–64)</b></td><td>$1,448.06</td><td>$42,768 combined</td></tr>
+      <tr><td><b>Allowance for the survivor</b></td><td>$1,726.18</td><td>$31,152</td></tr></table></div>
+    <p><span class="st">your notes have Jan–Mar: OAS $742.31 / $816.54, GIS $1,123</span></p>
+    <p class="trap"><b>Trap</b> GIS drops about 50¢ per $1 of other income, so RRSP/RRIF withdrawals after 65 can cost a low-income senior more than the tax. TFSA withdrawals don't count. CPP and OAS can start at different times.</p>
+  </article>
+
+  <article class="blk" id="ret-rpp">
+    <h3>Employer pensions: DB vs DC <span class="pri hi">high</span></h3>
+    <div class="two">
+      <div class="pane"><b>Defined benefit</b>Benefit known, contribution varies. Employer bears investment risk.<div class="fx">Benefit = avg earnings × factor × years</div>Max accrual 2% per year up to <span class="n">$3,932.22</span> per year of service (2026), reached at $3,932.22 ÷ 2% = <span class="n">$196,611</span> of earnings.</div>
+      <div class="pane"><b>Defined contribution</b>Contribution known, benefit unknown. Member bears risk.<div class="fx">Total ≤ lesser of 18% or <span class="n">$35,390</span></div>Money purchase limit 2026. Employer contributions deductible to employer and not a taxable benefit.</div>
+    </div>
+    <div class="fx"><span class="lhs">Earliest unreduced age</span> = <span class="frac"><span>age at joining + qualifying factor</span><span>2</span></span><small>John joined at 25, factor 85 → (25 + 85) ÷ 2 = <b>55</b>.</small></div>
+    <div class="tree"><div class="q">Leaving the employer</div><div class="br">
+      <div><span class="lab">Before vesting (~2 yrs)</span><p>Refund of own contributions + interest</p></div>
+      <div><span class="lab">After vesting</span><p>Deferred pension, transfer to new RPP, or commuted value to a <b>LIRA</b> / locked-in RRSP (locked until about 55). DC plans: transfer to a LIRA or leave it with the old plan.</p></div>
+    </div></div>
+    <p>Integrated plans reduce the pension at 65 to account for CPP. Death: spouse can roll the lump sum to own RPP/RRSP/RRIF tax-deferred; anyone else is taxed on it (T4A).</p>
+  </article>
+
+  <article class="blk" id="ret-pa">
+    <h3>PA, PSPA and PAR</h3>
+    <div class="fx"><span class="lhs">PA (DB)</span> = 9 × benefit earned − <span class="n">$600</span><small>Never negative. Offset was $1,000 before 1997.</small></div>
+    <div class="fx"><span class="lhs">PA (DC)</span> = employer + employee contributions &nbsp;&nbsp; <span class="lhs">PA (DPSP)</span> = employer contributions</div>
+    <div class="tl">
+      <div><b>PA</b>This year's pension saving. Cuts <i>next</i> year's RRSP room.</div>
+      <div><b>PSPA</b>Past-service upgrade (post-1989). Cuts <i>current</i> year's room.</div>
+      <div><b>PAR</b>Left before vesting; got less than PAs reported. Restores room.</div>
+    </div>
+  </article>
+
+  <article class="blk" id="ret-rrsp">
+    <h3>RRSP contribution room <span class="pri hi">calculate</span></h3>
+    <ol class="flow">
+      <li><b>Lesser of 18% × last year's earned income, or $33,810</b><small>2026 dollar limit ($32,490 for 2025)</small></li>
+      <li class="op">− last year's PA</li>
+      <li class="op">− this year's PSPA</li>
+      <li class="op">+ this year's PAR</li>
+      <li><b>= This year's new room</b></li>
+      <li class="op">+ unused room carried forward (since 1991, forever)</li>
+      <li class="end"><b>= Deduction limit</b><small>+ $2,000 lifetime over-contribution buffer (beyond that 1%/month)</small></li>
+    </ol>
+    <div class="two">
+      <div class="pane"><b>Earned income includes</b>Employment (before RPP), self-employment, active partner income, net rent, royalties, taxable support received, CPP disability, supplementary UI plans, employer-paid disability benefits, research grants. Less: salary or grant refunds.</div>
+      <div class="pane"><b>Excludes</b>Interest, dividends, capital gains, limited partner income, pensions, OAS/CPP retirement, retiring allowances and severance, RRSP/RRIF/DPSP income, scholarships, death benefits, federal EI.<br><b>Subtract</b>: rental and business losses, deductible support paid.</div>
+    </div>
+    <p>Contribute until Dec 31 of the year you turn 71 (spousal: until the <i>spouse</i> turns 71). Deduction can be deferred to a higher-bracket year. Interest on RRSP loans is not deductible. No foreign content limit. DPSP money transferred to an RRSP, RRIF, RPP or another DPSP uses no RRSP room.</p>
+    <div class="chips"><span><b>2026 limits</b></span><span>MP $35,390</span><span>DB $3,932.22</span><span>RRSP $33,810</span><span>DPSP $17,695</span><span>YMPE $74,600</span><span>YAMPE $85,000</span></div>
+    <div class="tw stack"><table><tr><th></th><th>RRSP</th><th>TFSA</th></tr>
+      <tr><td><b>Going in</b></td><td>Deductible now (needs earned income)</td><td>No deduction</td></tr>
+      <tr><td><b>Coming out</b></td><td>Fully taxable; counts for OAS clawback and GIS</td><td>Tax-free; no effect on OAS or GIS</td></tr>
+      <tr><td><b>Room after withdrawal</b></td><td>Gone</td><td>Back next January</td></tr>
+      <tr><td><b>Deadline</b></td><td>Mature by end of the year you turn 71</td><td>None</td></tr></table></div>
+    <p class="tip"><b>Compare them</b> RRSP $5,000 + reinvest the refund in a TFSA; grow both; then net the RRSP of withdrawal tax. If tax rate in = tax rate out, they tie.</p>
+    <div class="tw"><table><tr><th>Lump-sum withdrawal</th><th>Withholding (Quebec)</th></tr>
+      <tr><td>$0 – $5,000</td><td>10% (5%)</td></tr><tr><td>$5,001 – $15,000</td><td>20% (10%)</td></tr><tr><td>Over $15,000</td><td>30% (15%)</td></tr></table></div>
+    <p>Qualified investments: cash, GICs, government and listed corporate bonds, listed shares (not OTC), ETFs, mutual funds, Canadian mortgages, certain small business shares, covered calls, bought puts and calls, gold and silver bullion.</p>
+  </article>
+
+  <article class="blk" id="ret-spousal">
+    <h3>Spousal RRSP three-year rule</h3>
+    <div class="tl">
+      <div><b>Year 1</b>Contribution in any spousal plan (Tom: Dec 17, 2022)</div>
+      <div><b>Year 2</b>Withdrawal taxed to contributor</div>
+      <div><b>Year 3</b>Withdrawal taxed to contributor</div>
+      <div><b>Jan 1, year 4</b>Withdrawal taxed to the annuitant spouse (Tom: Jan 1, 2025)</div>
+    </div>
+    <p class="trap"><b>Trap</b> Count calendar years of the contribution, not the tax year it's deducted. A January 2023 contribution deducted on the 2022 return still starts the clock in 2023.</p>
+    <p>No attribution if: marriage breakdown and living apart, contributor dies, either spouse non-resident, funds go to an annuity. Converted to a RRIF: only amounts above the minimum attribute. Doesn't use the spouse's own room.</p>
+  </article>
+
+  <article class="blk" id="ret-ra">
+    <h3>Retiring allowance rollover <span class="pri hi">calculate</span></h3>
+    <div class="fx"><span class="lhs">Eligible</span> = $2,000 × years before 1996 + $1,500 × years before 1989 with no vested pension/DPSP<small>Part years count as full. Only to the employee's own RRSP or RPP (not spousal), within 60 days of year-end. On top of normal room.</small></div>
+    <details class="ex"><summary>Danny: started 1983, no pension plan</summary><div>
+      <div class="calc"><span>Termination pay + unused sick leave</span><span>$42,500</span><span>1983–1995: 13 × $2,000</span><span>$26,000</span><span>1983–1988: 6 × $1,500</span><span>$9,000</span><span class="tot">Roll to RRSP</span><span class="tot">$35,000</span></div>
+      Taxable: $7,500 excess + $1,500 vacation pay (vacation pay isn't a retiring allowance). Direct transfer = no withholding. Watch AMT on large rollovers.</div></details>
+  </article>
+
+  <article class="blk" id="ret-rrif">
+    <h3>RRIF minimums and locked-in plans <span class="pri hi">calculate</span></h3>
+    <div class="tree"><div class="q">Age at January 1</div><div class="br">
+      <div><span class="lab">Under 71</span><div class="fx" style="margin:.3rem 0">Min = FMV Jan 1 × <span class="frac"><span>1</span><span>90 − age</span></span></div></div>
+      <div><span class="lab">71 and over</span><p>Prescribed table:</p><div class="chips"><span>71: 5.28%</span><span>75: 5.82%</span><span>80: 6.82%</span><span>85: 8.51%</span><span>90: 11.92%</span><span>95+: 20%</span></div></div>
+    </div></div>
+    <p>No minimum in the year the RRIF is opened. No maximum. Can elect a younger spouse's age to shrink the minimum. Donna, 69 on Jan 1, $674,000: 1/21 = 4.762% → <b>$32,095</b>.</p>
+    <ol class="flow h">
+      <li><b>RPP commuted value</b></li>
+      <li><b>LIRA / locked-in RRSP</b><small>Accumulation. Access only for hardship or small balances.</small></li>
+      <li><b>LIF / LRIF / life annuity</b><small>LIF has a minimum (RRIF rules) <b>and</b> a provincial maximum. Can start as early as 55.</small></li>
+    </ol>
+    <p>Maturing an RRSP by the end of the year you turn 71: RRIF, annuity, or cash (fully taxable).</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-est)" href="#est-death">Estate: RRSP/RRIF at death</a><a class="lk" style="--lc:var(--c-inv)" href="#inv-ann">Investments: annuities</a></div>
+  </article>
+
+  <article class="blk" id="ret-other">
+    <h3>IPP, DPSP, PRPP, RCA</h3>
+    <div class="two">
+      <div class="pane"><b>IPP</b>DB plan for one owner/executive. Best fit: 40+, income over $100,000, already maxing RRSP. Far higher limits, past service back to 1991, all contributions and fees deductible to the corp, creditor-protected, can't be collapsed. Surplus belongs to the member.</div>
+      <div class="pane"><b>DPSP</b>Employer-only contributions, from profits. Max lesser of 18% or ½ MPP = <span class="n">$17,695</span> (2026). Vesting within 24 months. Not locked in; paid within 90 days of death, termination or age 71. Can't cover shareholders owning ≥ 10% or related persons.</div>
+      <div class="pane"><b>PRPP</b>Pooled DC plan across employers, open to self-employed. Auto-enrolment with opt-out. Uses RRSP room (no PA). Employer contributions not payroll-taxed. Immediately vested and locked in.</div>
+      <div class="pane"><b>RCA</b>Top-up for high earners. 50% refundable tax on contributions and earnings, refunded as benefits are paid. All distributions taxable (T4A-RCA).</div>
+    </div>
+    <div class="tw"><table><tr><th>Plan</th><th>Employer contributions taxable to employee?</th><th>Growth</th><th>Payments</th></tr>
+      <tr><td>RPP, DPSP</td><td>No</td><td>Sheltered</td><td>Taxable</td></tr>
+      <tr><td>Group RRSP</td><td>Yes (employment income, with an offsetting deduction)</td><td>Sheltered</td><td>Taxable</td></tr></table></div>
+    <p>SPP (Saskatchewan Pension Plan) = treat like an RRSP.</p>
+  </article>
+
+  <article class="blk" id="ret-rdsp">
+    <h3>RDSP and eligible funeral arrangements</h3>
+    <div class="two">
+      <div class="pane"><b>RDSP</b>Beneficiary must qualify for the DTC, have a SIN, be resident and under 60. Contributions not deductible, no annual limit, <span class="n">$200,000</span> lifetime, until end of year beneficiary turns 59. LDAPs must start by end of the year they turn 60. Only contributions come out tax-free; grants, bonds and growth taxed to beneficiary. One RDSP per beneficiary. Closes by Dec 31 of year after death.</div>
+      <div class="pane"><b>EFA</b>Prepaid funeral/cemetery via funeral home. Limits per person: <span class="n">$15,000</span> funeral, <span class="n">$20,000</span> cemetery, <span class="n">$35,000</span> both. Not deductible; growth sheltered. Used for services → tax-free. Refund taxed on the <b>lesser</b> of the amount received and the plan's accumulated income, to the contributor if alive, else the recipient. Custodian-to-custodian transfer tax-free. Guaranteed contract: funeral home takes the shortfall. Cemetery care trust income stays exempt even if the EFA stops qualifying.</div>
+    </div>
+    <div class="two">
+      <div class="pane"><b>CDSG</b> needs contributions · max <span class="n">$3,500</span>/yr, <span class="n">$70,000</span> lifetime<br>Family income ≤ $117,045: <b>300%</b> on first $500 ($1,500) + <b>200%</b> on next $1,000 ($2,000).<br>Above: <b>100%</b> on first $1,000.</div>
+      <div class="pane"><b>CDSB</b> no contribution needed · max <span class="n">$1,000</span>/yr, <span class="n">$20,000</span> lifetime<br>Family income ≤ $38,237: full $1,000. Phases out to nil at $58,523.</div>
+    </div>
+    <div class="tl">
+      <div><b>Under 60</b>Open: DTC, SIN, resident</div>
+      <div><b>To 49</b>Last year grants and bonds are paid (10-yr carry-forward)</div>
+      <div><b>To 59</b>Last year for contributions</div>
+      <div><b>60</b>LDAPs must start (annual maximum)</div>
+    </div>
+    <p class="trap"><b>Trap</b> Assistance holdback: any withdrawal means repaying grants and bonds received in the last <b>10 years</b> ($3 per $1 withdrawn, up to the holdback). Plan holder for a minor: parent, guardian or public agency. RESP income can roll in.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-fpp)" href="#fpp-resp">Process: RESP → RDSP rollover</a></div>
+  </article>
+</section>
+
+<!-- ===================== INSURANCE ===================== -->
+<section class="mod" id="ins" style="--m:var(--c-ins)">
+  <div class="mod-h"><h2>Insurance</h2><button class="rev" data-k="ins" aria-pressed="false">Mark reviewed</button>
+    <p>How much, which kind, how it's taxed, then disability, health and property. The exam is written for a generalist: pick the most basic fit.</p></div>
+  <nav class="map"><a href="#ins-need">Life needs</a><a href="#ins-type">Term vs permanent</a><a href="#ins-prov">Provisions &amp; riders</a><a href="#ins-tax">Policy tax</a><a href="#ins-xfer">Ownership transfers</a><a href="#ins-corp">Corporate-owned</a><a href="#ins-di">Disability</a><a href="#ins-gov">CPP-D · EI · WCB</a><a href="#ins-grp">Group benefit tax</a><a href="#ins-health">Health</a><a href="#ins-pc">Auto, home, business</a></nav>
+
+  <article class="blk" id="ins-need">
+    <h3>Life insurance needs analysis <span class="pri hi">calculate</span></h3>
+    <ol class="flow">
+      <li><b>① Cash needs at death</b><small>Final expenses, mortgage, debts, taxes, education fund, emergency fund</small></li>
+      <li class="op">+</li>
+      <li><b>② Capital to fund survivors' income</b><small>(Income needed − survivor's continuing after-tax income) → PV to an age (TVM) or ÷ rate for perpetuity</small></li>
+      <li class="op">−</li>
+      <li><b>③ Resources available</b><small>Existing life insurance, CPP death benefit $2,500, savings, investments, RRSPs. <b>Not the home.</b></small></li>
+      <li class="end"><b>= Additional insurance needed</b></li>
+    </ol>
+    <details class="ex"><summary>Bill (35): perpetuity method, 5%</summary><div>
+      <div class="calc"><span>Loan $25,000 + mortgage $172,000 + funeral $15,000</span><span>$212,000</span><span>Sarah's need $1,800 × 12 ÷ 5%</span><span>$432,000</span><span>− cash $5,000 − CPP death benefit $2,500</span><span>($7,500)</span><span class="tot">Insurance needed</span><span class="tot">$636,500</span></div></div></details>
+    <details class="ex"><summary>Annuity method: $46,000/yr top-up from 39 to 65 at 6%</summary><div>N = 26, I = 6, PMT = −46,000, FV = 0 → PV = $598,145. + cash needs $215,000 − resources $337,500 = $475,645 more, total $725,645.</div></details>
+    <p class="tip"><b>Exam</b> Discount income replacement at the <b>real</b> rate (4.2% − 2% = 2.2%). Subtract group cover (e.g. 3× salary), knowing it ends with the job. Temporary needs (a mortgage with 7 years left, education) → term matched to the need; compare total cost of term-10 vs term-20. Insure the lower-earning spouse too: lost income, funeral costs, and the survivor cutting back work for child care.</p>
+  </article>
+
+  <article class="blk" id="ins-type">
+    <h3>Which policy? <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">How long does the need last?</div><div class="br">
+      <div><span class="lab">Temporary / tight budget</span><p class="out">Term</p><p>Young family, mortgage or business loan, changing needs (convert later, often only until 65), buy-sell at death only.</p></div>
+      <div><span class="lab">Lifetime</span><p class="out">Permanent (whole life)</p><p>Estate taxes, cottage kept in family, equalising heirs, legacy or charity, buy-out at retirement via cash value.</p></div>
+      <div><span class="lab">Lifetime + surplus cash</span><p class="out">Universal life</p><p>High earner who has maxed RRSP. Flexible premiums, tax-deferred investment account.</p></div>
+    </div></div>
+    <div class="two">
+      <div class="pane"><b>Term-to-100</b>Level premium, coverage to 100, usually no cash value or dividends. Acts like permanent.</div>
+      <div class="pane"><b>Joint first-to-die</b>Cheaper than two policies; survivor left uninsured. <b>Joint last-to-die</b>: pays at second death, suits estate taxes after a spousal rollover.</div>
+      <div class="pane"><b>Group life</b>Cheap, no medical, generic. Lost when you leave the job.</div>
+      <div class="pane"><b>Charity as owner and beneficiary</b>Premiums become donations each year.</div>
+    </div>
+    <p>Replacing a policy: check needs first, possible tax on the old policy, higher premiums at an older age.</p>
+  </article>
+
+  <article class="blk" id="ins-prov">
+    <h3>Provisions and riders</h3>
+    <div class="tl">
+      <div><b>30 days</b>Grace period, then lapse</div>
+      <div><b>2 years</b>Incontestable (misstatements, except fraud)</div>
+      <div><b>2 years</b>Suicide clause: premiums refunded only</div>
+      <div><b>6 months</b>Waiver of premium kicks in after disability</div>
+    </div>
+    <div class="two">
+      <div class="pane"><b>Non-forfeiture options</b>Stop paying a policy with cash value → take cash, reduced paid-up, extended term, or automatic premium loan.</div>
+      <div class="pane"><b>Misstatement of age</b>Individual: benefit adjusted. Group: premium adjusted.</div>
+      <div class="pane"><b>Conversion</b>Attained age (cheaper now, pricier premium) or original age.</div>
+      <div class="pane"><b>Insurable interest</b>Owner needs one: spouse, child, partner, debtor.</div>
+    </div>
+    <div class="chips"><span>Guaranteed insurability</span><span>Accidental death</span><span>COLA</span><span>Family rider</span><span>Family income (decreasing term)</span><span>Spousal term (to 65)</span><span>Child term (to 25, convertible)</span></div>
+    <p>Beneficiaries: primary, then contingent (secondary), then tertiary. Reinstatement needs evidence of insurability + back premiums.</p>
+  </article>
+
+  <article class="blk" id="ins-tax">
+    <h3>Taxing a policy <span class="pri hi">high</span></h3>
+    <div class="two">
+      <div class="pane"><b>Exempt</b>Death-benefit focus. Growth sheltered. Virtually all Canadian policies.</div>
+      <div class="pane"><b>Non-exempt</b>Investment focus. Accrual tax annually (post-1989).</div>
+    </div>
+    <div class="fx"><span class="lhs">ACB</span> = premiums + loan interest paid + taxed gains − NCPI − dividends − loans<small>Never negative. NCPI = mortality cost of the pure insurance, rises with age.</small></div>
+    <div class="fx"><span class="lhs">Policy gain</span> = proceeds − ACB<small>100% taxable as <b>income</b>, not a capital gain. No losses.</small></div>
+    <div class="tree"><div class="q">Accessing $40,000 from CSV $60,000, ACB $12,000</div><div class="br">
+      <div><span class="lab">Partial withdrawal</span><p>ACB used = 40/60 × 12,000 = $8,000</p><p class="out">Gain $32,000</p><p>New ACB $4,000</p></div>
+      <div><span class="lab">Policy loan</span><p>Whole ACB used first: 40,000 − 12,000</p><p class="out">Gain $28,000</p><p>New ACB $0. Repay later → deduct the $28,000 previously taxed.</p></div>
+    </div></div>
+    <div class="two">
+      <div class="pane"><b>Disposition</b>Surrender, withdrawal, loan, maturity, annuitisation, absolute assignment, gift, sale.</div>
+      <div class="pane"><b>Not a disposition</b>Collateral assignment, lapse, disability or AD benefits, death benefit on an exempt policy.</div>
+    </div>
+    <p>Premiums not deductible except: charity owner-beneficiary, or collateral for a business/investment loan from a restricted lender (lesser of premium or NCPI, × loan ÷ death benefit). Death benefit tax-free. Cash policy dividends reduce ACB; use them to buy paid-up additions to avoid tax.</p>
+  </article>
+
+  <article class="blk" id="ins-xfer">
+    <h3>Changing the owner</h3>
+    <div class="tree"><div class="q">Policy transferred to…</div><div class="br">
+      <div><span class="lab y">Spouse</span><p>Rollover at ACB (life or death), both resident</p></div>
+      <div><span class="lab y">Child who is the life insured</span><p>Rollover at ACB (parent or grandparent to child/grandchild)</p></div>
+      <div><span class="lab x">Any trust</span><p>Taxable disposition, even a spousal trust</p></div>
+      <div><span class="lab x">Own corporation</span><p>Deemed proceeds = CSV. Tax on CSV − ACB.</p></div>
+      <div><span class="lab x">Corp → employee or shareholder</span><p>Corp taxed on gain; recipient taxed on FMV (can be near death benefit if in poor health). Dividend in kind lets shareholder use DTC.</p></div>
+    </div></div>
+    <p class="trap"><b>Trap</b> Naming a contingent owner does not avoid a taxable disposition at death unless that person qualifies for the rollover. Corp paying premiums on a policy owned by a shareholder = taxable benefit.</p>
+  </article>
+
+  <article class="blk" id="ins-corp">
+    <h3>Corporate-owned life insurance and the CDA</h3>
+    <div class="tree"><div class="q">Death benefit received by the corporation</div><div class="br">
+      <div><span class="lab">Corp is owner and beneficiary</span><p>CDA credit = death benefit − policy ACB (even if collaterally assigned)</p></div>
+      <div><span class="lab">Corp is beneficiary only</span><p>CDA credit = full death benefit</p></div>
+    </div></div>
+    <ol class="flow h"><li><b>Tax-free to corp</b></li><li><b>CDA credit</b></li><li class="end"><b>Capital dividend, elected tax-free to shareholders</b></li></ol>
+    <p>Partnership equivalent: partners' ACB bumped by death benefit − ACB. Trust-owned policy can roll to a beneficiary at ACB. Key person insurance protects the business from losing someone essential. Accidental death benefit also credits the CDA.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-tax)" href="#tax-biz">Tax: CDA, buy-sell</a><a class="lk" style="--lc:var(--c-est)" href="#est-tools">Estate: life insurance uses</a></div>
+  </article>
+
+  <article class="blk" id="ins-di">
+    <h3>Disability insurance <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">Can the insured work?</div><div class="br">
+      <div><span class="lab x">Not at all</span><p class="out">Total disability</p><p>Can't do main duties of own job, not working elsewhere, under a doctor's care. Full benefit.</p></div>
+      <div><span class="lab">Some duties, or ≤ 50% of the time</span><p class="out">Partial</p><p>Fixed benefit for a set period. Based on <b>time</b>.</p></div>
+      <div><span class="lab y">Working, income down ≥ 20%</span><p class="out">Residual</p><p>Based on <b>income</b> lost.</p></div>
+    </div></div>
+    <div class="fx"><span class="lhs">Residual benefit</span> = <span class="frac"><span>lost pre-tax income</span><span>prior pre-tax income</span></span> × total disability benefit</div>
+    <div class="two">
+      <div class="pane"><b>Own-occupation</b>Surgeon who can't operate gets paid even if she could teach medicine. <b>Any-occupation</b> pays only if no suitable job by training and experience.</div>
+      <div class="pane"><b>Cost levers</b>Longer elimination period (30–365 days) → cheaper. Longer benefit period (to 65) → pricier. Riskier occupation class (1 professional → 5 labourer) → pricier. Max ≈ <span class="n">66%</span> of gross.</div>
+    </div>
+    <p class="tip"><b>Master rule</b> Premiums paid with after-tax dollars → benefits tax-free. Employer pays any part → benefits taxable (minus employee's own premiums).</p>
+    <details class="ex"><summary>John and Mary: surplus or deficit?</summary><div>
+      <div class="calc"><span>John's taxable DI $4,000 − 38% tax</span><span>$2,480</span><span>Mary $40,000 × (1 − 36%) ÷ 12</span><span>$2,133</span><span>− living expenses</span><span>($5,000)</span><span class="tot">Deficit</span><span class="tot">($387)</span></div>Recommend more DI coverage.</div></details>
+    <p>Self-employed can only insure reported net income; <b>business overhead</b> insurance covers fixed business costs (rent, staff, utilities) regardless of net income. Presumptive disability: loss of sight, hearing, speech or two limbs.</p>
+  </article>
+
+  <article class="blk" id="ins-gov">
+    <h3>Government income programs</h3>
+    <div class="tw"><table><tr><th></th><th>CPP disability</th><th>EI</th><th>Workers' comp</th></tr>
+      <tr><td>Eligibility</td><td>Severe and prolonged; 4 of last 6 yrs contributing</td><td>Insurable hours; job lost through no fault, sickness, parental</td><td>Work-related injury; not owners/partners/directors unless they buy coverage</td></tr>
+      <tr><td>Waiting</td><td>4 months</td><td>1 week <span class="st">notes say 2 weeks</span></td><td>None</td></tr>
+      <tr><td>Benefit</td><td>Flat + earnings-related; child benefit</td><td>55% of insurable earnings up to <span class="n">$68,900</span> → max <span class="n">$729</span>/week (2026). Regular 14–45 weeks; sickness up to 26</td><td>~90% of net wages to a provincial max; indexed</td></tr>
+      <tr><td>Taxable?</td><td class="y">Yes</td><td class="y">Yes</td><td class="x">No (reported, then deducted)</td></tr>
+      <tr><td>Second payer?</td><td colspan="3">Group DI and EI are reduced by CPP and WCB benefits. Individual DI usually isn't.</td></tr></table></div>
+    <h4>Stacking disability income: who gets reduced?</h4>
+    <div class="tw stack"><table><tr><th>Source</th><th>Work-related</th><th>Not work-related</th></tr>
+      <tr><td><b>WCB</b></td><td>Full</td><td>n/a</td></tr>
+      <tr><td><b>CPP disability</b></td><td>Full</td><td>Full</td></tr>
+      <tr><td><b>Group LTD</b></td><td>Reduced by WCB and CPP (and EI)</td><td>Reduced by CPP (and EI)</td></tr>
+      <tr><td><b>Individual DI</b></td><td>Full</td><td>Full</td></tr></table></div>
+    <h4>EI maternity and parental</h4>
+    <div class="band" style="height:3.4rem"><div style="flex:15;background:var(--m);color:var(--on)">Maternity 15 wks · 55%</div><div style="flex:40;background:color-mix(in srgb,var(--m) 45%,var(--surface))">Standard parental 40 shared (max 35 each) · 55%</div></div>
+    <div class="band" style="height:3.4rem"><div style="flex:15;background:var(--m);color:var(--on)">Mat. 15</div><div style="flex:69;background:color-mix(in srgb,var(--m) 25%,var(--surface))">Extended parental 69 shared (max 61 each) · 33%</div></div>
+    <p>Standard paid within <b>12 months</b> of birth; extended within <b>18 months</b> (extended ≈ $437/week max). Both parents must pick the same option. Max employee premium 2026: $1,123.07. Caregiving: 35 weeks for a critically ill child, 15 for an adult, 26 compassionate care. Self-employed can opt into special benefits (12-month wait). WCB permanent impairment: NELP lump sum; ELP monthly for lost earning capacity.</p>
+  </article>
+
+  <article class="blk" id="ins-grp">
+    <h3>Group benefits: who pays tax?</h3>
+    <div class="tw stack"><table><tr><th>Benefit</th><th class="c">Employer premium a taxable benefit?</th><th class="c">Benefit taxable when received?</th></tr>
+      <tr><td>Group term life, AD&amp;D</td><td class="c y">Yes</td><td class="c x">No</td></tr>
+      <tr><td>Health and dental</td><td class="c x">No (Quebec yes)</td><td class="c x">No</td></tr>
+      <tr><td>Critical illness</td><td class="c y">Yes</td><td class="c x">No</td></tr>
+      <tr><td>Short/long-term disability</td><td class="c x">No</td><td class="c">Yes, even if the employer paid only part (less employee's own cumulative premiums)</td></tr>
+      <tr><td>Employee assistance plan</td><td class="c x">No</td><td class="c x">No</td></tr></table></div>
+    <p>Employer deducts all premiums. Employee-paid premiums: no deduction or credit (medical expense credit aside).</p>
+  </article>
+
+  <article class="blk" id="ins-health">
+    <h3>Health coverage</h3>
+    <p><b>Canada Health Act, 5 principles:</b> public administration, comprehensiveness, universality, portability (old province covers up to 3 months after a move), accessibility.</p>
+    <div class="two">
+      <div class="pane"><b>Not covered publicly</b>Private rooms, private nursing, cosmetic surgery, court testimony. Out-of-country: emergencies only, limited. Buy travel coverage.</div>
+      <div class="pane"><b>Private plans</b>Basic 40–80%, extended 60–90% of costs. Critical illness: lump sum ~30 days after diagnosis of a listed condition. Long-term care: help with daily living.</div>
+    </div>
+    <p>Look in cases for coverage that ends at layoff or retirement.</p>
+  </article>
+
+  <article class="blk" id="ins-pc">
+    <h3>Auto, home and business</h3>
+    <div class="two">
+      <div class="pane"><b>Auto (mandatory)</b>Third-party liability min <span class="n">$200,000</span> (carry $1M+), accident benefits. Valid in Canada and U.S., not Mexico. Ontario: no-fault. From <b>July 1, 2026</b> only medical/rehab and attendant care benefits are mandatory; income replacement, caregiver, housekeeping, death and funeral, non-earner become optional. Direct compensation (DCPD) optional since 2024. <span class="st">notes predate the reform</span></div>
+      <div class="pane"><b>Auto (optional)</b>Collision (hit something) · Comprehensive (fire, theft, vandalism, falling objects) · All perils (both + theft by household or hired driver) · Specified perils (only listed).</div>
+    </div>
+    <div class="tw"><table><tr><th>Home policy</th><th>Building</th><th>Contents</th></tr>
+      <tr><td>Standard (basic)</td><td>Named perils</td><td>Named perils</td></tr>
+      <tr><td>Broad</td><td>All risks</td><td>Named perils</td></tr>
+      <tr><td>Comprehensive</td><td>All risks</td><td>All risks</td></tr></table></div>
+    <div class="two">
+      <div class="pane"><b>Actual cash value</b>Replacement cost − depreciation (5-yr-old TV → ~$100).</div>
+      <div class="pane"><b>Replacement value</b>Cost of a new equivalent, no depreciation.</div>
+    </div>
+    <p>Personal liability follows you worldwide. Umbrella = excess liability over other policies. Tenants need contents and liability. Higher deductible → lower premium.</p>
+    <div class="chips"><span><b>CGL</b> third-party injury/damage</span><span><b>Professional (E&amp;O)</b> advice</span><span><b>Product liability</b></span><span><b>Commercial property</b></span><span><b>Cyber</b></span><span><b>Commercial auto</b></span><span><b>D&amp;O</b> A: personal assets · B: company reimbursement · C: securities claims (public)</span></div>
+    <p>Business premiums are deductible. Home policies usually exclude business property and business liability.</p>
+  </article>
+</section>
+
+<!-- ===================== ESTATE ===================== -->
+<section class="mod" id="est" style="--m:var(--c-est)">
+  <div class="mod-h"><h2>Estate</h2><button class="rev" data-k="est" aria-pressed="false">Mark reviewed</button>
+    <p>Where every other module ends up. Case questions ask you to judge the consequence of a client's estate choice, so learn the "why" behind each tool.</p></div>
+  <nav class="map"><a href="#est-tools">Choosing a tool</a><a href="#est-death">The death map</a><a href="#est-will">Wills &amp; intestacy</a><a href="#est-joint">Joint ownership &amp; gifts</a><a href="#est-trust">Trusts</a><a href="#est-freeze">Estate freeze</a><a href="#est-us">U.S. estate tax</a><a href="#est-poa">POA &amp; incapacity</a><a href="#est-family">Family law</a></nav>
+
+  <article class="blk" id="est-tools">
+    <h3>Choosing the tool <span class="pri hi">case studies</span></h3>
+    <div class="tree"><div class="q">What does the client care about most?</div><div class="br">
+      <div><span class="lab">Keeping control</span><p><b>Trust</b> (be the trustee) or <b>holding co / freeze</b> (voting prefs).</p></div>
+      <div><span class="lab">Simplicity, low cost</span><p><b>Gift</b> or <b>joint tenancy</b>. Control is lost immediately.</p></div>
+      <div><span class="lab">Avoiding probate</span><p>Beneficiary designations (RRSP, RRIF, TFSA, insurance, seg funds), JTWROS, alter ego / joint partner trust.</p></div>
+      <div><span class="lab">Cutting death tax</span><p>Spousal rollover, freeze, gifting over several years, life insurance to fund the bill, multiple final returns.</p></div>
+      <div><span class="lab">Protecting a vulnerable heir</span><p>Testamentary trust, Henson trust, QDT.</p></div>
+    </div></div>
+    <p><b>Life insurance in the estate:</b> pays the tax so the cottage or business stays in the family, equalises heirs (house to one, insurance to another), provides for children of a first marriage, funds buy-sell.</p>
+    <p class="tip"><b>Process</b> 1. Analyse assets (how held?) and beneficiaries (ages, capacity). 2. Set succession objectives (who, when, how much control, how much tax matters). 3. Implement with lawyer, accountant, planner, insurance.</p>
+  </article>
+
+  <article class="blk" id="est-death">
+    <h3>The death map <span class="pri hi">high</span></h3>
+    <p>At death, capital property is deemed sold at FMV and registered plans collapse into the terminal return, unless a rollover applies. Follow each asset:</p>
+    <div class="tw stack"><table><tr><th>Asset</th><th>To spouse / spousal trust</th><th>To anyone else</th><th>Probate?</th></tr><tr><td data-l="Asset"><b>Non-registered investments, cottage, rental, private shares</b></td><td data-l="To spouse" class="sp">Rollover at ACB (UCC for depreciable). Can elect FMV to use losses or a low bracket.</td><td data-l="To others">Deemed disposition at FMV. Capital gains + recapture on terminal return.</td><td data-l="Probate">If it passes through the will</td></tr><tr><td data-l="Asset"><b>RRSP / RRIF</b></td><td data-l="To spouse" class="sp">Tax-free transfer to spouse's plan.</td><td data-l="To others">Full value taxed on terminal return. Exception: financially dependent child/grandchild under 18 (annuity to 18) or infirm child of any age.</td><td data-l="Probate">No, with a named beneficiary</td></tr><tr><td data-l="Asset"><b>TFSA</b></td><td data-l="To spouse" class="sp">Successor holder: stays sheltered.</td><td data-l="To others">FMV at death tax-free; growth after death taxable.</td><td data-l="Probate">No, with a named beneficiary</td></tr><tr><td data-l="Asset"><b>RPP lump sum</b></td><td data-l="To spouse" class="sp">Roll to own RPP / RRSP / RRIF.</td><td data-l="To others">Taxable to the recipient.</td><td data-l="Probate">Usually no</td></tr><tr><td data-l="Asset"><b>Life insurance, seg funds</b></td><td data-l="Anyone" colspan="2">Tax-free death benefit (exempt policy) to the named beneficiary; creditor-protected with a preferred beneficiary.</td><td data-l="Probate">No, with a named beneficiary</td></tr><tr><td data-l="Asset"><b>Principal residence</b></td><td data-l="Anyone" colspan="2">Gain sheltered using the PRE formula.</td><td data-l="Probate">If it passes through the will</td></tr><tr><td data-l="Asset"><b>Joint tenancy asset</b></td><td data-l="Anyone" colspan="2">Goes to the surviving joint tenant by right of survivorship.</td><td data-l="Probate">No</td></tr></table></div>
+    <h4>Returns you can file</h4>
+    <ol class="flow h">
+      <li><b>Terminal return</b><small>Jan 1 to date of death. Mandatory.</small></li>
+      <li><b>Rights or things</b><small>Declared unpaid dividends, matured uncashed coupons, salary/commission/vacation pay owed for a period already ended, unpaid bonuses, CPP/OAS received after death</small></li>
+      <li><b>Business</b><small>Proprietor/partner: fiscal year-end to death</small></li>
+      <li><b>Testamentary trust</b><small>Trust fiscal year-end to death</small></li>
+    </ol>
+    <p class="tip"><b>Why file extras</b> Each optional return gets its own personal credits and low brackets. Donations: 100% of net income in year of death and prior year; GRE donations can be allocated back to the deceased's last two returns.</p>
+    <div class="tree"><div class="q">Three taxes at death (no estate tax in Canada)</div><div class="br">
+      <div><span class="lab">1</span><p>Income tax from deemed disposition + registered plans</p></div>
+      <div><span class="lab">2</span><p>Provincial probate on assets passing through the will (Alberta and Quebec nominal; Quebec notarial wills need no probate)</p></div>
+      <div><span class="lab">3</span><p>U.S. estate tax on U.S. situs assets</p></div>
+    </div></div>
+    <div class="fx"><span class="lhs">Ontario EAT</span> = $15 per $1,000 over $50,000<small>Nothing on the first $50,000. Only debts on real property (mortgage, lien) reduce the value; LOCs, credit cards, loans, funeral and legal costs don't. No beneficiary on an RRSP, or "estate" named on insurance → probated and open to creditors. A testamentary spousal trust is created by the will, so its assets are probated first.</small></div>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-ret)" href="#ret-rrif">Retirement: RRIF</a><a class="lk" style="--lc:var(--c-tax)" href="#tax-dates">Tax: final return deadlines</a><a class="lk" style="--lc:var(--c-ins)" href="#ins-corp">Insurance: CDA</a><a class="lk" style="--lc:var(--c-tax)" href="#tax-tfsa">Tax: TFSA</a></div>
+  </article>
+
+  <article class="blk" id="est-will">
+    <h3>Wills and intestacy</h3>
+    <div class="tw stack"><table><tr><th>Type</th><th>How</th><th>Watch</th></tr>
+      <tr><td><b>Formal</b></td><td>Typed, signed before 2 witnesses</td><td>Witnesses (and their spouses) can't be beneficiaries</td></tr>
+      <tr><td><b>Holograph</b></td><td>Entirely handwritten and signed, no witness</td><td>Valid in most provinces, ambiguity risk. Ontario needs: identify testator; revoke prior wills; appoint executor; pay debts and expenses; name beneficiaries. Plus residue, signature, date</td></tr>
+      <tr><td><b>Notarial</b></td><td>Quebec only, notary + 1 witness</td><td>No probate needed</td></tr></table></div>
+    <p><b>Clauses:</b> identify testator · revoke prior wills · appoint executor (and alternate) · pay debts and expenses · specific bequests · residue distribution. Also names a guardian for minors. Useful extras: <b>discretionary encroachment</b> (executor can release a minor's share early), <b>investment discretion</b> (otherwise limited to conservative investments), a <b>tax-election</b> clause. Executor fees up to ~5%. Trust company suits long-running trusts or family conflict.</p>
+    <div class="tree"><div class="q">Dies without a will (intestate)</div><div class="br">
+      <div><span class="lab">Spouse, no children</span><p>All to spouse</p></div>
+      <div><span class="lab">Spouse + 1 child</span><p>Spouse's preferential share, rest split 50/50</p></div>
+      <div><span class="lab">Spouse + 2+ children</span><p>Preferential share, then ⅓ spouse, ⅔ children</p></div>
+      <div><span class="lab">No spouse</span><p>Children equally → parents → siblings → … → the Crown</p></div>
+    </div></div>
+    <div class="two">
+      <div class="pane"><b>Per capita</b>A predeceased child's share goes to the <b>living children</b>.</div>
+      <div class="pane"><b>Per stirpes</b>A predeceased child's share goes to <b>that child's own kids</b>.</div>
+    </div>
+    <p class="trap"><b>Trap</b> Ontario: since <b>Jan 1, 2022</b>, marriage no longer revokes a will, and a separated spouse is treated as if they'd died first. Older answer keys say "voided by marriage". Other provinces vary.</p>
+    <p class="trap"><b>Trap</b> Dependants' relief laws let a court rewrite a will that doesn't adequately provide for spouse and children, but only for estate assets, not assets already in an inter vivos trust. Creditors rank ahead of beneficiaries.</p>
+  </article>
+
+  <article class="blk" id="est-joint">
+    <h3>Joint ownership and gifts</h3>
+    <div class="two">
+      <div class="pane"><b>JTWROS: why</b>Instant transfer at death; skips probate, executor and legal fees and delays.</div>
+      <div class="pane"><b>JTWROS: risks</b>Loss of control; all owners must agree to sell land; exposed to each owner's creditors; possible tax on adding a joint owner; "convenience" accounts cause sibling litigation.</div>
+    </div>
+    <p class="trap"><b>Trap</b> Common disaster: if order of death is unknown, the <b>younger</b> is presumed to survive the older. Wills should cover this, or the older spouse's side may be cut out.</p>
+    <p><b>Tenancy in common</b>: unequal shares allowed, no survivorship, passes through the will and probate.</p>
+    <div class="two">
+      <div class="pane"><b>Joint account with an adult child: pros</b>Child can manage it; passes at death; skips probate.</div>
+      <div class="pane"><b>Cons</b>Exposed to the child's creditors (an ex-spouse included); other heirs shortchanged; family disputes.</div>
+    </div>
+    <h4>Pre-death checklist</h4>
+    <div class="chips"><span>Beneficiaries on life insurance (+ contingent)</span><span>RRSP/RRIF: spouse for the rollover</span><span>TFSA: spouse as <b>successor holder</b></span><span>House as JTWROS</span><span>POA for property</span><span>Healthcare directive</span></div>
+    <p><b>Valid gift</b> needs intent + an act of delivery. Document it (deed of gift). Gifting before death spreads gains over lower-bracket years, shrinks the estate and probate, and lets the donor see the benefit. Gift of appreciated property = deemed disposition at FMV.</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-fpp)" href="#fpp-law">Process: 4 unities</a><a class="lk" style="--lc:var(--c-tax)" href="#tax-attr">Tax: attribution on gifts</a></div>
+  </article>
+
+  <article class="blk" id="est-trust">
+    <h3>Trusts <span class="pri hi">high</span></h3>
+    <ol class="flow">
+      <li><b>Settlor</b><small>Transfers property. Deemed sale at FMV (taxable gain) unless a rollover trust. Can also be the trustee.</small></li>
+      <li><b>Trustee</b><small>Holds legal title, makes decisions (discretionary or not). The trust is a separate taxpayer.</small></li>
+      <li class="end"><b>Beneficiaries</b><small>Income beneficiary (life interest) · capital beneficiary (remainderman). Income paid out is taxed to them.</small></li>
+    </ol>
+    <p class="trap"><b>Trap</b> A beneficiary's ACB on assets distributed from a non-rollover trust = FMV when the asset went <b>into</b> the trust, not when it came out. Deemed disposition every 21 years.</p>
+    <div class="tw stack"><table><tr><th>Trust</th><th>Created</th><th>Tax</th><th>Key point</th></tr>
+      <tr><td><b>Testamentary</b></td><td>By will</td><td>Top rate since 2016</td><td>Minors held to 19+; spousal version</td></tr>
+      <tr><td><b>GRE</b></td><td>The estate</td><td>Graduated rates up to <span class="n">36 months</span></td><td>Designate on first return, give deceased's SIN, only one GRE; off-calendar year-end stretches to 4 tax years</td></tr>
+      <tr><td><b>QDT</b></td><td>By will</td><td>Graduated rates</td><td>Beneficiary qualifies for DTC; elect jointly with the trust</td></tr>
+      <tr><td><b>Spousal</b></td><td>Will or inter vivos</td><td>Rollover at ACB</td><td>Only spouse gets income/capital in their lifetime; kids get remainder. Testamentary version goes through probate</td></tr>
+      <tr><td><b>Alter ego</b></td><td>Inter vivos, age <span class="n">65+</span></td><td>Rollover in; retained income top rate; deemed disposition at death</td><td>Settlor = trustee = beneficiary. Avoids probate, private, no 21-yr rule until death</td></tr>
+      <tr><td><b>Henson</b></td><td>Either</td><td>Preferred beneficiary election if DTC</td><td>Absolute discretion → doesn't count as the disabled person's asset, keeps provincial benefits</td></tr>
+      <tr><td><b>Family trust</b></td><td>Inter vivos</td><td>Top rate on retained income</td><td>Holds growth shares in a freeze; watch attribution and TOSI</td></tr></table></div>
+    <p>Inter vivos trusts are used before a second marriage to shelter assets for first-family children from family-law and dependants' relief claims.</p>
+  </article>
+
+  <article class="blk" id="est-freeze">
+    <h3>Estate freeze <span class="pri hi">high</span></h3>
+    <div class="tree"><div class="q">Parent owns growth shares of Opco</div><div class="br">
+      <div><span class="lab">s.85 holdco freeze</span><p>Roll common shares into a new holdco for fixed-value prefs. Needs a filed election (T2057).</p></div>
+      <div><span class="lab">s.86 internal freeze</span><p>Swap common for fixed-value <b>voting</b> prefs inside the same corp. Automatic: no new company, no election form. ACB carries over to the new shares.</p></div>
+    </div></div>
+    <ol class="flow">
+      <li><b>Parent's value frozen in preferred shares</b><small>Voting prefs keep control. Tax at death capped at today's value: buy insurance for a known bill.</small></li>
+      <li><b>New common shares issued for nominal value</b><small>To children directly or to a family trust (parent as trustee keeps control)</small></li>
+      <li class="end"><b>Future growth taxed to the next generation</b><small>Deferred until they sell or die. Can crystallise the parent's LCGE and multiply it across family members.</small></li>
+    </ol>
+    <div class="chips"><span><b>Why freeze</b></span><span>Tax deferral</span><span>Probate reduction</span><span>Income splitting</span><span>Creditor protection</span><span>Multiply the LCGE</span></div>
+    <p class="tip"><b>Exam</b> Choosing between holdco, trust or gift: the deciding issue is <b>keeping control</b>. In a written answer, use the client's and children's names and the frozen value (e.g. $200,000).</p>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-tax)" href="#tax-biz">Tax: QSBC and LCGE</a></div>
+  </article>
+
+  <article class="blk" id="est-us">
+    <h3>U.S. estate tax for Canadians <span class="pri">flag and refer</span></h3>
+    <ol class="flow">
+      <li><b>Any U.S. situs property?</b><small>U.S. real estate, U.S. company shares (even inside an RRSP or TFSA). <b>Not</b> Canadian mutual funds, ETFs or seg funds that hold U.S. stocks.</small></li>
+      <li><b>U.S. assets over US$60,000?</b><small>Must file Form 706-NA, even if no tax is owed (also gives heirs a stepped-up basis)</small></li>
+      <li><b>Worldwide estate over the U.S. exemption?</b><small><span class="n">US$15M</span> in 2026 (made permanent and indexed by 2025 U.S. law) <span class="st">notes use 2023: $12.92M</span></small></li>
+      <li class="end"><b>Tax up to 40% on U.S. assets, less treaty credits</b></li>
+    </ol>
+    <div class="fx"><span class="lhs">Unified credit</span> = greater of $13,000 or <span class="n">$5,945,800</span> × <span class="frac"><span>U.S. assets</span><span>worldwide assets</span></span><small>$5,945,800 = U.S. tax on $15M (2026). <span class="st">notes: $5,113,800 (2023)</span> Marital credit (to spouse) = lesser of unified credit and tax left. Foreign tax credit federally only; provinces don't give one.</small></div>
+    <details class="ex"><summary>US$1M Florida condo, US$20M worldwide estate</summary><div>Credit = $5,945,800 × 1/20 = $297,290. U.S. tax on $1M = $345,800 → <b>$48,510</b> owing before the Canadian foreign tax credit.</div></details>
+    <div class="chips"><span>Life insurance to pay it</span><span>Sell U.S. assets before death</span><span>Canadian holdco</span><span>Canadian-listed U.S. funds</span><span>Joint ownership (defers)</span><span>Shrink estate below threshold</span></div>
+  </article>
+
+  <article class="blk" id="est-poa">
+    <h3>Planning for incapacity</h3>
+    <div class="two">
+      <div class="pane"><b>Power of attorney (property)</b>Donor gives attorney power over finances. Immediate or springing on incapacity. Revocable while capable. Without one: costly court application, Public Trustee.</div>
+      <div class="pane"><b>Living will</b>Wishes on life support. Not legally binding.</div>
+      <div class="pane"><b>Representative agreement</b>Covers personal, health and financial decisions. For people with no trusted family.</div>
+      <div class="pane"><b>Executor vs attorney</b>Attorney acts while you're alive; authority ends at death. Executor acts after.</div>
+    </div>
+  </article>
+
+  <article class="blk" id="est-family">
+    <h3>Family law <span class="pri">weighs more than the blueprint suggests</span></h3>
+    <div class="tl">
+      <div><b>Separation</b>Agreement needs independent legal advice + full disclosure</div>
+      <div><b>1 year apart</b>No-fault ground. Adultery or cruelty need proof</div>
+      <div><b>≤ 90 days</b>Can reconcile without resetting the clock</div>
+      <div><b>31 days</b>Judgment final, then Certificate of Divorce</div>
+    </div>
+    <div class="two">
+      <div class="pane"><b>Divorce (federal)</b>Married anywhere; either spouse resident in the province 1 year. Common-law partners don't divorce; they use provincial law and have fewer rights.</div>
+      <div class="pane"><b>Property (provincial)</b>Home, pensions, RRSPs, CPP credits (split equally: married, no time limit; common-law, within 4 years), business assets in some provinces. Delay can forfeit rights.</div>
+      <div class="pane"><b>Child support</b>Best interests first. <b>Federal</b> guidelines (Divorce Act) for divorcing couples; <b>provincial</b> for common-law or separated-not-divorced. Total = table amount (payer income, number of kids, province) + special or extraordinary expenses (childcare, medical, education, extracurriculars) ± hardship. Since 2021 the Divorce Act says "decision-making responsibility" and "parenting time", not custody and access.</div>
+      <div class="pane"><b>Spousal support</b>No fault considered. Four goals: ① compensate contributions (funded the other's schooling) ② prevent hardship (quit work to raise kids, so little CPP) ③ the parent with the kids isn't disadvantaged (turned down a promotion) ④ self-sufficiency (is she employable?). Variable on material change.</div>
+    </div>
+    <div class="links">Connected: <a class="lk" style="--lc:var(--c-tax)" href="#tax-supp">Tax: support payments</a><a class="lk" style="--lc:var(--c-ret)" href="#ret-cpp">Retirement: CPP credit split</a><a class="lk" style="--lc:var(--c-ret)" href="#ret-spousal">Retirement: spousal RRSP exception</a></div>
+  </article>
+</section>
+
+<!-- ===================== NUMBER WALL ===================== -->
+<section class="mod" id="wall" style="--m:var(--ink)">
+  <div class="mod-h"><h2>Number wall</h2><p>The last-hour sweep. Cover the big figure with your thumb, read the label, say the number.</p></div>
+
+  <h3 style="margin:1.4rem 0 .3rem;color:var(--c-fpp)">Process</h3>
+  <div class="wall" style="--m:var(--c-fpp)">
+    <div><b>$60,000</b><span>HBP per person; repay 1/15 from yr 2 (yr 5 if 2022–25)</span></div>
+    <div><b>90 days</b><span>RRSP deposit before HBP withdrawal</span></div>
+    <div><b>$8k / $40k</b><span>FHSA annual / lifetime; carry-forward max $8k</span></div>
+    <div><b>15 yrs or 71</b><span>FHSA must close</span></div>
+    <div><b>$10k / $20k</b><span>LLP per year / total; repay over 10 yrs</span></div>
+    <div><b>$50,000</b><span>RESP lifetime; also AIP → RRSP cap</span></div>
+    <div><b>20% on $2,500</b><span>CESG = $500/yr, $7,200 lifetime; $5,000 catches up $1,000</span></div>
+    <div><b>$58,523 / $117,045</b><span>A-CESG 20% / 10% income tiers 2026</span></div>
+    <div><b>31 / 35 yrs</b><span>RESP contributions / must close (35 / 40 if disabled)</span></div>
+    <div><b>$2,000</b><span>Canada Learning Bond lifetime ($500 + $100/yr to 15)</span></div>
+    <div><b>$8,157 / $6,883</b><span>CCB max under 6 / 6–17</span></div>
+    <div><b>+20%</b><span>Extra tax on AIP not rolled to RRSP</span></div>
+    <div><b>32 / 40%</b><span>GDS / TDS guidelines (CMHC 39 / 44)</span></div>
+    <div><b>3%</b><span>Of consumer credit limit in TDS</span></div>
+    <div><b>5.25% or +2%</b><span>Stress test, whichever higher</span></div>
+    <div><b>$1.5M</b><span>Insured mortgage price cap</span></div>
+    <div><b>5% / 10% / 20%</b><span>Down: first $500k / to $1.5M / $1.5M+</span></div>
+    <div><b>30 yrs</b><span>Insured amortization, first-time or new build</span></div>
+    <div><b>$100,000</b><span>CDIC per category</span></div>
+    <div><b>$1M</b><span>CIPF per group (general, retirement, RESP…)</span></div>
+    <div><b>$1M · 90%</b><span>Assuris death benefit (or 90% if higher)</span></div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .3rem;color:var(--c-tax)">Tax</h3>
+  <div class="wall" style="--m:var(--c-tax)">
+    <div><b>14 / 20.5 / 26 / 29 / 33</b><span>2026 federal rates</span></div>
+    <div><b>$58,523</b><span>Top of lowest bracket 2026</span></div>
+    <div><b>$16,452</b><span>Basic personal amount 2026</span></div>
+    <div><b>$9,208</b><span>Age amount (65+)</span></div>
+    <div><b>$2,890 / 3%</b><span>Medical threshold, lesser of</span></div>
+    <div><b>$1,400</b><span>Home buyers' credit ($10k × 14%)</span></div>
+    <div><b>50%</b><span>Capital gains inclusion (⅔ cancelled)</span></div>
+    <div><b>$258,482</b><span>Top bracket starts 2026</span></div>
+    <div><b>38% · 15.02%</b><span>Eligible gross-up · DTC</span></div>
+    <div><b>15% · 9.03%</b><span>Non-eligible gross-up · DTC</span></div>
+    <div><b>$1,275,000</b><span>LCGE 2026 (QSBC shares)</span></div>
+    <div><b>$500,000</b><span>Small business deduction limit</span></div>
+    <div><b>3 back / ∞</b><span>Net capital losses</span></div>
+    <div><b>3 back / 20</b><span>Non-capital losses</span></div>
+    <div><b>50% · 10 yrs</b><span>ABIL deductible · then net capital loss</span></div>
+    <div><b>30 days</b><span>Superficial loss window each side</span></div>
+    <div><b>Jan 30 · 3%</b><span>Prescribed-loan interest deadline · rate Q4 2026</span></div>
+    <div><b>20 hrs / wk</b><span>TOSI excluded business test</span></div>
+    <div><b>10% · 25+</b><span>TOSI excluded shares</span></div>
+    <div><b>20.5%</b><span>AMT rate; 7-yr carry-forward</span></div>
+    <div><b>$181,440</b><span>AMT exemption 2026</span></div>
+    <div><b>50% / 80%</b><span>AMT credits allowed / donation credit</span></div>
+    <div><b>75% / 100%</b><span>Donation limit / year of death</span></div>
+    <div><b>$650</b><span>Max federal political credit</span></div>
+    <div><b>$7,000</b><span>TFSA 2026; $109,000 cumulative</span></div>
+    <div><b>2% / month</b><span>Standby charge on car cost</span></div>
+    <div><b>1,667 × months</b><span>Personal km cap for reduced standby (20,004/yr)</span></div>
+    <div><b>34¢ / km</b><span>Operating benefit 2026 (31¢ car sales)</span></div>
+    <div><b>73¢ / 67¢</b><span>Tax-free allowance: first 5,000 km / after</span></div>
+    <div><b>$1,000</b><span>Personal-use property floor</span></div>
+    <div><b>45 days</b><span>Reimburse operating costs after year-end</span></div>
+    <div><b>$3,000</b><span>Tax owing that triggers instalments</span></div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .3rem;color:var(--c-inv)">Investments</h3>
+  <div class="wall" style="--m:var(--c-inv)">
+    <div><b>−D<sub>mod</sub> × Δy</b><span>Bond price change</span></div>
+    <div><b>GM ≤ AM</b><span>Geometric = TWR; DWR = IRR</span></div>
+    <div><b>NAV ÷ (1 − load)</b><span>Offering price</span></div>
+    <div><b>75–100%</b><span>Seg fund guarantee, 10-yr maturity</span></div>
+    <div><b>β = 1</b><span>The market</span></div>
+    <div><b>$5,000 · 8 yrs</b><span>LSVCC credit cap · hold period</span></div>
+    <div><b>100 shares</b><span>Per option contract</span></div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .3rem;color:var(--c-ret)">Retirement</h3>
+  <div class="wall" style="--m:var(--c-ret)">
+    <div><b>$3,500</b><span>YBE (frozen)</span></div>
+    <div><b>$74,600</b><span>YMPE 2026</span></div>
+    <div><b>$85,000</b><span>YAMPE 2026 (CPP2 4%)</span></div>
+    <div><b>5.95% / 11.9%</b><span>CPP employee / self-employed</span></div>
+    <div><b>−0.6% · +0.7%</b><span>CPP per month early / late</span></div>
+    <div><b>$1,507.65</b><span>CPP max retirement at 65 (2026)</span></div>
+    <div><b>$1,741.20</b><span>CPP disability max</span></div>
+    <div><b>$2,500</b><span>CPP death benefit (1/3 of period, min 3 yrs)</span></div>
+    <div><b>17%</b><span>CPP general drop-out (47 → 39 yrs)</span></div>
+    <div><b>4 of 6 · 3 of 6</b><span>CPP disability years (3 of 6 if 25+ yrs)</span></div>
+    <div><b>4 yrs</b><span>Common-law CPP credit split deadline</span></div>
+    <div><b>$95,323</b><span>OAS clawback threshold, 2026 income (15%)</span></div>
+    <div><b>$762.50 / $838.75</b><span>OAS max Oct–Dec 2026 (65–74 / 75+)</span></div>
+    <div><b>$1,138.90</b><span>GIS single max (income &lt; $23,112)</span></div>
+    <div><b>July 1, 1977</b><span>OAS full-pension grandfather date</span></div>
+    <div><b>+0.6% / month</b><span>OAS deferral to 70</span></div>
+    <div><b>10 / 20 / 40</b><span>OAS years: minimum / paid abroad / full</span></div>
+    <div><b>11 + 1</b><span>Retroactivity: 11 months + month applied</span></div>
+    <div><b>$33,810</b><span>RRSP limit 2026 (18% of earned)</span></div>
+    <div><b>$2,000</b><span>RRSP over-contribution buffer</span></div>
+    <div><b>$35,390</b><span>Money purchase limit 2026</span></div>
+    <div><b>$17,695</b><span>DPSP max 2026</span></div>
+    <div><b>$3,932.22</b><span>DB max benefit per year of service</span></div>
+    <div><b>$196,611</b><span>Earnings to hit the DB max at 2%</span></div>
+    <div><b>9 × B − 600</b><span>DB pension adjustment</span></div>
+    <div><b>$2,000 / $1,500</b><span>Retiring allowance pre-1996 / pre-1989</span></div>
+    <div><b>1 ÷ (90 − age)</b><span>RRIF minimum under 71</span></div>
+    <div><b>5.28%</b><span>RRIF factor at 71</span></div>
+    <div><b>3 calendar yrs</b><span>Spousal RRSP attribution</span></div>
+    <div><b>10 / 20 / 30%</b><span>RRSP withholding tiers</span></div>
+    <div><b>$200,000</b><span>RDSP lifetime contributions</span></div>
+    <div><b>$3,500 / $70k</b><span>CDSG yearly / lifetime</span></div>
+    <div><b>$1,000 / $20k</b><span>CDSB yearly / lifetime</span></div>
+    <div><b>49 · 59 · 60</b><span>RDSP grants end · contributions end · LDAPs start</span></div>
+    <div><b>10 yrs</b><span>RDSP assistance holdback</span></div>
+    <div><b>$15k / $20k / $35k</b><span>EFA funeral / cemetery / both</span></div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .3rem;color:var(--c-ins)">Insurance</h3>
+  <div class="wall" style="--m:var(--c-ins)">
+    <div><b>2 years</b><span>Incontestability and suicide clauses</span></div>
+    <div><b>30 days</b><span>Grace period</span></div>
+    <div><b>6 months</b><span>Waiver of premium trigger</span></div>
+    <div><b>~66%</b><span>Max DI as % of gross</span></div>
+    <div><b>20%</b><span>Income loss for residual disability</span></div>
+    <div><b>4 months</b><span>CPP disability waiting period</span></div>
+    <div><b>1 week</b><span>EI waiting period</span></div>
+    <div><b>55% · 14–45 wks</b><span>EI benefit rate · duration</span></div>
+    <div><b>$68,900 → $729</b><span>EI max insurable 2026 → weekly max</span></div>
+    <div><b>15 + 40 / 69</b><span>Maternity + standard / extended parental</span></div>
+    <div><b>12 / 18 months</b><span>Standard / extended parental window</span></div>
+    <div><b>$200,000</b><span>Minimum auto third-party liability</span></div>
+  </div>
+
+  <h3 style="margin:1.4rem 0 .3rem;color:var(--c-est)">Estate</h3>
+  <div class="wall" style="--m:var(--c-est)">
+    <div><b>36 months</b><span>GRE graduated rates</span></div>
+    <div><b>65+</b><span>Alter ego trust</span></div>
+    <div><b>21 years</b><span>Trust deemed disposition</span></div>
+    <div><b>2 witnesses</b><span>Formal will, not beneficiaries</span></div>
+    <div><b>US$60,000</b><span>U.S. assets that trigger 706-NA</span></div>
+    <div><b>US$15M</b><span>U.S. estate exemption 2026</span></div>
+    <div><b>$5,945,800</b><span>Full unified credit (× U.S. ÷ world)</span></div>
+    <div><b>$15 / $1,000</b><span>Ontario EAT over $50,000</span></div>
+    <div><b>Jan 1, 2022</b><span>Ontario: marriage stops revoking wills</span></div>
+    <div><b>40%</b><span>Top U.S. estate tax rate</span></div>
+    <div><b>1 yr · 90 days · 31 days</b><span>Separation · reconcile · judgment final</span></div>
+    <div><b>Apr 30, 1997</b><span>Child support not taxable after</span></div>
+  </div>
+</section>
+
+<section class="mod" id="gaps" style="--m:var(--ink2)">
+  <div class="mod-h"><h2>What changed</h2><p>Updated Oct 1, 2026 from your handwritten corrections, the practice-question rules, and a check of 2026 figures. Amber flags above still mark where your printed notes differ.</p></div>
+  <div class="blk">
+    <div class="two">
+      <div class="pane"><b>Outdated in the printed notes</b><ul><li>Lowest federal rate 15% → 14%</li><li>AMT exemption $173,205 → $181,440</li><li>LCGE $1.25M → $1,275,000</li><li>OAS clawback $93,454 → $95,323 (2026 income)</li><li>A-CESG tiers → $58,523 / $117,045</li><li>Insured mortgage cap $1M → $1.5M; CMHC 35/42 rule reversed</li><li>Assuris $200k → $1M death benefit</li><li>U.S. exemption $12.92M → US$15M</li><li>Standby reduction ÷ 20,004 → ÷ (1,667 × months)</li><li>ABIL 66⅔% / 75% → 50%</li><li>Ontario: marriage no longer revokes a will</li><li>EI 2 weeks → 1 week wait; RESP 36 → 35 years</li></ul></div>
+      <div class="pane"><b>New sections</b><ul><li>2026 credits table (14%)</li><li>Superficial loss</li><li>TOSI</li><li>CPP benefit families and 2026 maximums</li><li>OAS residency rules and Oct–Dec 2026 GIS table</li><li>RDSP grants, bonds and holdback</li><li>Disability income stacking</li><li>Behavioural biases (20)</li><li>Other credits: CWB, training, HATC, MHRTC, CDB</li></ul></div>
+      <div class="pane"><b>Answer-key errors to ignore</b><ul><li>Thresholds labelled 2026 were 2025 figures</li><li>HATC: 65+ or DTC-eligible, not 65+ only</li><li>RESP → RDSP: only accumulated income rolls</li><li>RESP → RRSP: it's the AIP, not contributions</li><li>Home buyers' credit is $1,400, not $1,500</li></ul></div>
+      <div class="pane"><b>Indexed: recheck if your sitting is in 2027</b><ul><li>OAS, GIS, Allowance (quarterly)</li><li>CPP maximums, YMPE, YAMPE</li><li>Brackets, BPA, credit amounts, AMT exemption</li><li>CLB, CDSB, CDB income limits (July)</li><li>Prescribed rate (quarterly)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built from Brian Gordon's Exam Success notes (Financial Planning Process, Tax, Investments, Retirement, Insurance, Estate), with your handwritten corrections and practice-question rules. 2026 figures checked against CRA, ESDC, CIPF, CDIC and Assuris on Oct 1, 2026. Amber flags mark where the printed notes differ.</p>
+</footer>
+</div>
+</main>
+<button class="theme" type="button" id="theme">Dark</button>
+
+<script>
+(function(){
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  // label stacked table cells from their column headers
+  document.querySelectorAll('.tw.stack table').forEach(function(t){
+    var hs=[].map.call(t.rows[0].cells,function(c){return c.textContent.trim()});
+    [].slice.call(t.rows,1).forEach(function(r){var i=0;[].forEach.call(r.cells,function(c,k){if(!c.hasAttribute('data-l'))c.setAttribute('data-l',hs[i]||'');if(k>0&&c.childNodes.length>1){var w=document.createElement('span');while(c.firstChild)w.appendChild(c.firstChild);c.appendChild(w)}i+=c.colSpan||1})});
+  });
+  // reviewed toggles
+  function paint(){
+    document.querySelectorAll('.rev').forEach(function(b){
+      var on=store.get('cfp-rev-'+b.dataset.k)==='1';
+      b.setAttribute('aria-pressed',on?'true':'false');
+      b.textContent=on?'Reviewed ✓':'Mark reviewed';
+      var c=document.querySelector('.cnt[data-c="'+b.dataset.k+'"]');
+      if(c)c.textContent=on?'✓':'';
+    });
+  }
+  document.querySelectorAll('.rev').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k='cfp-rev-'+b.dataset.k;store.set(k,store.get(k)==='1'?'0':'1');paint();
+    });
+  });
+  paint();
+  // active tab
+  var links={};document.querySelectorAll('.tabs a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          Object.keys(links).forEach(function(id){links[id].classList.toggle('on',id===e.target.id)});
+          var a=links[e.target.id];if(a&&a.scrollIntoView&&window.innerWidth<1100){var ol=a.closest('ol');ol.scrollTo({left:a.offsetLeft-12,behavior:'smooth'})}
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section.mod').forEach(function(s){io.observe(s)});
+  }
+  // theme toggle
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function cur(){var t=root.getAttribute('data-theme');if(t)return t;return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+  function label(){btn.textContent=cur()==='dark'?'Light':'Dark'}
+  var saved=store.get('cfp-theme');if(saved)root.setAttribute('data-theme',saved);label();
+  btn.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark';root.setAttribute('data-theme',n);store.set('cfp-theme',n);label()});
+})();
+</script>
+</body>
+</html>
+
+</body></html>
