@@ -125,10 +125,43 @@ function fpPage(opt = {}){
   if (q.get('clean') === '1' || q.get('bare') === '1') html.classList.add('fp-clean');
   if (q.get('bare') === '1') html.classList.add('fp-bare');
   const p = document.createElement('p'); p.className = 'fp-note';
-  p.innerHTML = `<b>Educational illustration, not advice.</b> Simplified for illustration: federal rules and ${opt.asOf || FP_FACTS.asOf} figures`
-    + ` unless stated; provincial rules (and Quebec's) differ, and figures change each year. ${opt.note ? opt.note + ' ' : ''}`
+  const body = opt.body != null ? opt.body : `Simplified for illustration: federal rules and ${opt.asOf || FP_FACTS.asOf} figures`
+    + ` unless stated; provincial rules (and Quebec's) differ, and figures change each year.`;
+  p.innerHTML = `<b>Educational illustration, not advice.</b> ${body} ${opt.note ? opt.note + ' ' : ''}`
     + `Speak with a qualified professional about your situation.${opt.firm ? ' ' + opt.firm : ''}`;
   const anchor = document.querySelector('.controls') || document.querySelector('.stage');
   if (anchor) anchor.after(p);
   return p;
+}
+
+/* ---------- story line: one plain-English sentence under the scene that changes with each step ----------
+   fpStory(ui, st => 'text'): call after mountFigure (and xrMount). It re-reads the text on every render. Keep it to
+   one or two short sentences a 9th grader can follow; say what just happened and why, in dollars. */
+function fpStory(ui, text){
+  const el = document.createElement('p'); el.className = 'fp-story'; el.setAttribute('aria-live', 'polite');
+  const css = document.createElement('style');
+  css.textContent = `.fp-story{width:100%;max-width:760px;min-height:3.2em;margin:2px 0 14px;font-size:14.5px;line-height:1.5;text-align:center;
+      color:var(--ink);letter-spacing:.01em;text-wrap:balance}
+    .fp-story b{font-weight:800} html.fp-bare .fp-story{display:none}
+    @media (max-width:560px){.fp-story{font-size:13.5px;text-align:left}}`;
+  document.head.appendChild(css);
+  (document.querySelector('.stage') || document.body).after(el);
+  const r0 = ui.render; ui.render = () => { r0(); const t = text(ui.st); if (el._t !== t){ el._t = t; el.innerHTML = t; } };
+  ui.render();
+  return el;
+}
+
+/* ---------- a row of label pills under the board, for parts whose labels would otherwise cross the scene ----------
+   fpRowTags(items, ground): items [{ at:[x,y,z], text, on }], ground = 3D points of the board outline (the row sits
+   just below its lowest point on screen). Pills keep their parts' left-to-right order and stay clear of the zoom chip.
+   Use it with xrCallouts for the parts on the left (first used in Fig. 01). */
+function fpRowTags(items, ground){
+  if (!items.length) return '';
+  const k = INK_K, u = window.LBL_U ? LBL_U() : 0, fs = u ? 10*u : 8.6*k, gap = 5*k;
+  const vb = document.getElementById('fig').viewBox.baseVal;
+  const rowY = Math.max(...ground.map(p => P(...p)[1])) + 4*k;
+  const its = items.map(it => { const [X, Y] = P(...it.at); return { ...it, X, Y, w: u ? 17*u*1.3 : it.text.length*fs*.62 + fs*1.5 }; }).sort((a, b) => a.X - b.X);
+  let x = -1e9; for (const it of its){ it.px = Math.max(it.X, x + gap + it.w/2); x = it.px + it.w/2; }
+  const over = x - (vb.x + vb.width * (u ? .98 : .85)); if (over > 0) for (const it of its) it.px -= over;
+  return its.map(it => tag(it.at, (it.px - it.X)/k, (rowY - it.Y)/k, it.text, it.on)).join('');
 }

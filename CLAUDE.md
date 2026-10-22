@@ -43,6 +43,9 @@ vendor/colorfigures.zip      pristine upstream skill
 
 ## Current status (update me)
 - v0 foundation complete (2026-10-22).
-- Fig. 01 OAS clawback (`figures/oas-clawback/`) built and verified 2026-10-22; awaiting owner review, the
-  Canada.ca re-check and compliance. Next candidates: R2 RRSP vs TFSA, E2 estate freeze.
+- Fig. 01 OAS clawback (`figures/oas-clawback/`): invented-machine style; the owner found it too much to decode
+  (D-009). Plain charts were rejected too (D-010).
+- **Direction now (proposed, D-011): everyday analogies** — read `docs/VISUAL-DIRECTION.md` before any figure.
+  Fig. 02 `figures/seeds-or-harvest/` (RRSP vs TFSA as two garden beds) is the prototype; waiting for the owner.
+- **Language rules are permanent (D-012):** plain sentences a 9th grader follows, dollars not invented units.
 - Open items: firm name/colours (`docs/BRAND.md`), compliance house rules (`docs/COMPLIANCE.md`), v1 sources.

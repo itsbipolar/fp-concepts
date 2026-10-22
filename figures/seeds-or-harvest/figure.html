@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tax the seeds or the harvest</title></head><body>
+<script src="core.js"></script>
+<script src="fp-kit.js"></script>
+<script>
+/* Tax the seeds or the harvest: RRSP vs TFSA as two garden beds (catalog R2, brief: figures/seeds-or-harvest/BRIEF.md).
+   Everyday-analogy style: a scene everyone already knows, so the picture explains itself.
+
+   The story, step by step (each button is one step):
+     PLANT    each garden gets a sack of 10 gold-coin seeds ($1,000 each = $10,000 earned).
+              TFSA: tax takes 30% of the seeds first (3 coins to its TAX basket), 7 are planted.
+              RRSP: no tax going in (the deduction), all 10 are planted.
+     WAIT     20 years: every seed grows into a plant with 3 coins (a made-up growth example).
+     HARVEST  TFSA: every coin goes to your basket. RRSP: the TAX basket takes its share first (20 / 30 / 40%).
+   Same rate in and out: both keep $21,000.
+
+   Parts (each held by another):
+     LAWN     grass tile . gravel path . grass tufts
+     BEDS     4 plank walls . rim . soil with two furrows . up to 10 money plants (stem, 2 leaves, 3 coins) . sign on 2 stakes
+     FRONT    burlap seed sack with a $10,000 tag . grey TAX basket . wicker harvest basket (coins stack inside)
+     PROPS    watering can on the path
+   Layout: x = depth (front at high x), y = width (+y = viewer-left). TFSA garden on the left (y 84-136),
+   RRSP garden on the right (y 14-66), the path between; sacks and baskets along the front (x = 92). */
+
+const GD_TODAY = .30, GD_GROW = 3, GD_RATES = [.20, .30, .40];
+const GD_GRASS = { l:'#b7d78f', m:'#95bd70', d:'#5f8046' };
+const GD_SACKM = { l:'#e6cf9f', m:'#cdb07c', d:'#8f744a' };
+const GD_WICKER = { l:'#e5c486', m:'#c79e5c', d:'#88663b' };
+const GD_LEAF = { l:'#93d47c', m:'#6cb15a', d:'#3f7a34' };
+const GD_STEM = { l:'#86c46c', m:'#619f50', d:'#3b6b30' };
+const GD_CAN = { l:'#9cc8e6', m:'#76a7cc', d:'#3d6488' };
+const GD_SOIL = '#6e4c30', GD_SOIL_D = '#4c331f', GD_PATH = '#e4d8bf';
+const GD_K = Math.sqrt(1.5);                                     // model unit -> screen unit (the engine's iso scale)
+
+// layout
+const GLX1 = 120, GLY1 = 150, GLH = 5;                           // lawn tile
+const GBX0 = 20, GBX1 = 70, GBW = 2.4, GBH = 17, GSOIL = 15.5;   // beds: depth range, wall thickness, wall top, soil
+const GBEDS = {
+  tfsa: { y0: 84, y1: 136, sack: 130, tax: 111, harv: 92, title: 'TFSA', sub: 'TAX THE SEEDS' },
+  rrsp: { y0: 14, y1: 66,  sack: 60,  tax: 41,  harv: 22, title: 'RRSP', sub: 'TAX THE HARVEST' } };
+const GFX = 96, GSS = 1.3;                                       // the front row, and how much bigger its things are drawn
+const GCT = 1.25, GCR = 4.6, GSTACK0 = GLH + 1.4;                // coins in baskets: thickness, radius, floor
+const GD_CPOS = [[-1.1, -2.5, -1.7], [1.1, 2.5, -.7], [0, 0, 1.9]];   // the 3 coins around a plant's top
+const gdSlots = b => [33, 56].flatMap(x => [0, 1, 2, 3, 4].map(i => [x, b.y0 + 7 + i * 9.5]));
+const gdTop = g => GSOIL + 2 + 15 * g;
+const gdCoinPos = (slot, j, g) => [slot[0] + GD_CPOS[j][0], slot[1] + GD_CPOS[j][1], gdTop(g) + GD_CPOS[j][2]];
+const gdStackTop = (y, n) => [GFX, y, GSTACK0 + n * GCT + GCT / 2];
+const gdRing = (x, y, z, r, n = 24) => on(PZ(z), ellUV(x, y, r, r, n));
+const gdArcPts = (x, y, z, r, [a0, a1], n = 14) => Array.from({ length: n + 1 }, (_, i) => { const a = (a0 + (a1 - a0) * i / n) * Math.PI / 180; return [x + r * Math.cos(a), y + r * Math.sin(a), z]; });
+const gdArc = (a, b, e) => { const h = 7 + Math.hypot(b[0] - a[0], b[1] - a[1]) * .22; return [0, 1, 2].map(i => a[i] + (b[i] - a[i]) * e + (i === 2 ? h * Math.sin(Math.PI * e) : 0)); };
+const gdHash = i => { const v = Math.sin(i * 12.9898 + 4.1) * 43758.5453; return v - Math.floor(v); };
+
+/* ---------- where every coin is, from the step and the clock (no bookkeeping: the same step + time = the same picture) ---------- */
+function gdWorld(st){
+  const ph = st.phase, t = st.t, W = { fly: [] };
+  const plantE = i => ph === 'ready' ? -1 : ph === 'planting' ? (t - i * .12) / .6 : 2;           // >= 1: landed
+  const harvE = k => ph === 'harvesting' ? (t - k * .07) / .6 : ph === 'done' ? 2 : -1;
+  W.g = ph === 'growing' ? ease(Math.min(1, t / 2.4)) : ['grown', 'harvesting', 'done'].includes(ph) ? 1 : 0;
+  const taxOut = Math.round(10 * GD_GROW * st.rate);
+  for (const key of ['tfsa', 'rrsp']){
+    const b = GBEDS[key], slots = gdSlots(b), nIn = key === 'tfsa' ? Math.round(10 * GD_TODAY) : 0, nPlant = 10 - nIn;
+    const w = W[key] = { sackLeft: 0, seeds: [], tax: 0, harv: 0, coinVis: slots.map(() => [false, false, false]), nPlant };
+    for (let i = 0; i < 10; i++){
+      const e = plantE(i), toTax = i < nIn, s = i - nIn;
+      const to = toTax ? gdStackTop(b.tax, i) : [slots[s][0], slots[s][1], GSOIL + .4];
+      if (e <= 0) w.sackLeft++;
+      else if (e < 1) W.fly.push(gdArc([GFX, b.sack, GLH + 13.6 * GSS], to, ease(e)));
+      else if (toTax) w.tax++; else w.seeds[s] = true;
+    }
+    const tk = key === 'rrsp' ? taxOut : 0;
+    for (let k = 0; k < 3 * nPlant; k++){
+      const s = Math.floor(k / 3), j = k % 3, e = harvE(k);
+      if (e <= 0){ w.coinVis[s][j] = true; continue; }
+      const toTax = k < tk, to = toTax ? gdStackTop(b.tax, nIn + k) : gdStackTop(b.harv, k - tk);
+      if (e < 1) W.fly.push(gdArc(gdCoinPos(slots[s], j, 1), to, ease(e)));
+      else if (toTax) w.tax++; else w.harv++;
+    }
+  }
+  return W;
+}
+
+/* ---------- drawing ---------- */
+// a gold coin that always faces you (hanging fruit, a coin in flight)
+const gdCoin = (p, r = 2.2) => { const [X, Y] = P(...p), R = r * GD_K;
+  return `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R)}" fill="${FP_GOLD.l}" stroke="${INK}" stroke-width=".8"/>`
+    + `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R * .6)}" fill="none" stroke="${FP_GOLD.d}" stroke-width=".55"/>`
+    + `<path d="M${f(X - R * .45)} ${f(Y - R * .25)}A${f(R * .55)} ${f(R * .55)} 0 0 1 ${f(X + R * .1)} ${f(Y - R * .6)}" fill="none" stroke="#fff8dc" stroke-width=".7" opacity=".9"/>`; };
+function gdLeaf(base, ang, len, up){
+  const a = ang * Math.PI / 180, d = [Math.cos(a), Math.sin(a), 0], sd = [-d[1], d[0], 0];
+  const tip = [base[0] + d[0] * len, base[1] + d[1] * len, base[2] + up];
+  const mid = [base[0] + d[0] * len * .5, base[1] + d[1] * len * .5, base[2] + up * .5 + .5], wd = len * .3;
+  const pts = [base, [mid[0] + sd[0] * wd, mid[1] + sd[1] * wd, mid[2]], tip, [mid[0] - sd[0] * wd, mid[1] - sd[1] * wd, mid[2]]];
+  let n = norm(cross(sub(pts[1], pts[0]), sub(pts[3], pts[0]))); if (!vis(n)) n = n.map(v => -v);
+  return { at: mid, svg: shape(pts, toneI(n, GD_LEAF), .6) + ink(pd([base, tip], false), .4) };
+}
+function gdPlant(slot, g, coinVis, idx){
+  const [sx, sy] = slot;
+  if (g < .06) return cyl(sx, sy, GSOIL - .2, GSOIL + .6, 2.1, FP_GOLD, toneI, .8, 16);          // a seed coin in the soil
+  const top = gdTop(g), items = [];
+  items.push({ at: [sx, sy, (GSOIL + top) / 2], svg: rod([sx, sy, GSOIL], [sx, sy, top], .4 + .2 * g, GD_STEM, toneI, .5) });
+  const a0 = idx * 67 + 20, lz = GSOIL + 1.5 + 6 * g, ll = 2 + 4.4 * g;
+  items.push(gdLeaf([sx, sy, lz], a0, ll, 1.6 * g), gdLeaf([sx, sy, lz + 3.2 * g], a0 + 170, ll * .9, 1.9 * g));
+  const cr = 2.2 * Math.max(0, Math.min(1, (g - .35) / .5));
+  if (cr > .1) GD_CPOS.forEach((o, j) => { if (coinVis[j]){ const p = gdCoinPos(slot, j, g); items.push({ at: p, svg: gdCoin(p, cr) }); } });
+  return items.sort((p, q) => depthOf(p.at) - depthOf(q.at)).map(p => p.svg).join('');
+}
+const gdSides = (x0, y0, z0, x1, y1, z1) => [
+  [[0,1,0],  [[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]]], [[1,0,0],  [[x1,y0,z0],[x1,y1,z0],[x1,y1,z1],[x1,y0,z1]]],
+  [[0,-1,0], [[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1]]], [[-1,0,0], [[x0,y0,z0],[x0,y1,z0],[x0,y1,z1],[x0,y0,z1]]] ];
+function gdBed(b, W, key){
+  const x0 = GBX0, x1 = GBX1, y0 = b.y0, y1 = b.y1, w = GBW, ix0 = x0 + w, ix1 = x1 - w, iy0 = y0 + w, iy1 = y1 - w, wd = W[key];
+  let s = '';
+  // the inside of the far walls, above the soil; then the soil and its furrows
+  s += gdSides(ix0, iy0, GSOIL, ix1, iy1, GBH).filter(([n]) => !vis(n)).map(([n, q]) => shape(q, toneI(n.map(v => -v), WOOD), .6)).join('');
+  const soil = [[ix0, iy0, GSOIL], [ix1, iy0, GSOIL], [ix1, iy1, GSOIL], [ix0, iy1, GSOIL]];
+  s += fill(pd(soil), GD_SOIL) + [33, 56].map(x => `<path d="${pd([[x, iy0 + 2, GSOIL + .05], [x, iy1 - 2, GSOIL + .05]], false)}" stroke="${GD_SOIL_D}" stroke-width="2.4" stroke-linecap="round" opacity=".75"/>`).join('');
+  for (let i = 0; i < 8; i++){ const px = ix0 + 3 + gdHash(i + y0) * (ix1 - ix0 - 6), py = iy0 + 3 + gdHash(i * 7 + y0) * (iy1 - iy0 - 6);
+    s += fill(pd(on(PZ(GSOIL + .06), ellUV(px, py, .5, .5, 6))), GD_SOIL_D); }
+  // the plants, back to front
+  const slots = gdSlots(b);
+  s += slots.map((sl, i) => ({ i, sl })).filter(o => wd.seeds[o.i]).sort((p, q) => depthOf([p.sl[0], p.sl[1], 20]) - depthOf([q.sl[0], q.sl[1], 20]))
+    .map(o => gdPlant(o.sl, W.g, wd.coinVis[o.i], o.i + (key === 'tfsa' ? 3 : 0))).join('');
+  // the outside of the walls you can see, with plank lines; the rim
+  s += gdSides(x0, y0, GLH, x1, y1, GBH).filter(([n]) => vis(n)).map(([n, q]) => { const a = q[0], c = q[1];
+    const pl = [GLH + 4, GLH + 8].map(z => pd([[a[0], a[1], z], [c[0], c[1], z]], false)).join('');
+    return shape(q, tone(n, WOOD), .9) + `<path d="${pl}" stroke="${INK}" stroke-width=".6" opacity=".6"/>`; }).join('');
+  const rimO = [[x0, y0, GBH], [x1, y0, GBH], [x1, y1, GBH], [x0, y1, GBH]], rimI = [[ix0, iy0, GBH], [ix1, iy0, GBH], [ix1, iy1, GBH], [ix0, iy1, GBH]];
+  s += `<path d="${pd(rimO)}${pd(rimI)}" fill="${WOOD.l}" fill-rule="evenodd" stroke="${INK}" stroke-width=".9" stroke-linejoin="round"/>`;
+  s += hullInk([...gdSides(x0, y0, GLH, x1, y1, GBH).flatMap(([, q]) => q)], 2.4);
+  return s;
+}
+function gdSign(b, m){
+  const c = (b.y0 + b.y1) / 2;
+  let s = rod([10.25, c - 13, GLH], [10.25, c - 13, 28], .9, WOOD, toneI, .8) + rod([10.25, c + 13, GLH], [10.25, c + 13, 28], .9, WOOD, toneI, .8);
+  s += box(9, c - 23, 27, 11.5, c + 23, 47, m, tone, 1.3);
+  if (vis([1, 0, 0])) s += tx(11.6, c, 37.6, b.title, 8, INK, 800) + tx(11.6, c, 30.6, b.sub, 4.1, INK, 800);
+  return s;
+}
+function gdSack(y, full){
+  const prof = [[0, 5.2], [3, 6.3], [8, 6.2], [11.3, 4.1], [12.4, 3.3], [13.6, 4.3]], hz = full ? 1 : .68;
+  const rings = prof.map(([z, r]) => gdRing(GFX, y, GLH + z * hz * GSS, r * GSS * (full ? 1 : 1.07), 20));
+  let s = '';
+  for (let i = 0; i < rings.length - 1; i++) s += loft(rings[i], rings[i + 1], n => toneI(n, GD_SACKM));
+  const topZ = GLH + 13.6 * hz * GSS;
+  s += fill(pd(rings[5]), '#5b4630') + ink(pd(rings[5]), .8);
+  if (full) for (const o of [[1, -1.7, .3], [-1.3, 1.4, .5], [0, 0, 1.4]]) s += gdCoin([GFX + o[0], y + o[1], topZ + o[2]], 2);
+  s += `<path d="${pd(gdArcPts(GFX, y, GLH + 12.4 * hz * GSS, 3.3 * GSS, nearHalf()), false)}" fill="none" stroke="#6b4b2a" stroke-width="1.6"/>`;
+  s += hullInk(rings.flat(), 1.7);
+  if (vis([1, 0, 0])){ const tz = GLH + 3.4 * hz, xf = GFX + 8.4;     // the paper tag on the front
+    s += shape([[xf, y - 7.4, tz], [xf, y + 7.4, tz], [xf, y + 7.4, tz + 5.2], [xf, y - 7.4, tz + 5.2]], '#fbf6e8', .8);
+    s += tx(xf + .1, y, tz + 1.5, '$10,000', 3.3, INK, 800); }
+  return act('sack', s);
+}
+function gdBasket(y, m, n, label){
+  const A = gdRing(GFX, y, GLH, 7.2), B = gdRing(GFX, y, GLH + 9, 9);
+  const inner = fill(pd(gdRing(GFX, y, GLH + .5, 7.2)), mix(m.d, '#000000', .25)) + `<path d="${pd(gdArcPts(GFX, y, GLH + 9, 9, farHalf()), false)}" fill="none" stroke="${INK}" stroke-width="1"/>`
+    + fpCoinStack(GFX, y, GSTACK0, n, GCR, GCT);
+  let s = openShell(A, B, nn => toneI(nn, m), inner);
+  s += [3, 6].map(dz => `<path d="${pd(gdArcPts(GFX, y, GLH + dz, 7.2 + 1.8 * dz / 9, nearHalf()), false)}" fill="none" stroke="${INK}" stroke-width=".6" opacity=".55"/>`).join('');
+  s += `<path d="${pd(gdArcPts(GFX, y, GLH + 9, 9, nearHalf()), false)}" fill="none" stroke="${INK}" stroke-width="1.1"/>` + hullInk([...A, ...B], 1.7);
+  if (label && vis([1, 0, 0])){ const xf = GFX + 8.6, z0 = GLH + 2.2, hw = label.length * 1.5 + 2.6;
+    s += shape([[xf, y - hw, z0], [xf, y + hw, z0], [xf, y + hw, z0 + 5], [xf, y - hw, z0 + 5]], '#fbf6e8', .8) + tx(xf + .1, y, z0 + 1.4, label, 3.5, INK, 800); }
+  return act('basket', s);
+}
+function gdCan(){
+  const x = 110, y = 75;
+  const parts = [
+    { at: [x, y, 8], svg: cyl(x, y, GLH, GLH + 7, 3.3, GD_CAN, toneI, 1.1, 20) },
+    { at: [x, y - 5, 10], svg: rod([x, y - 2.6, GLH + 3], [x, y - 8.2, GLH + 9], .6, GD_CAN, toneI, .7) + cyl(x, y - 8.2, GLH + 8.7, GLH + 9.6, 1.2, GD_CAN, toneI, .6, 12) },
+    { at: [x, y + 2, 13], svg: rod([x, y + 2.4, GLH + 6.8], [x, y + 1.4, GLH + 10.5], .45, GD_CAN, toneI, .6) + rod([x, y + 1.4, GLH + 10.5], [x, y - 1.4, GLH + 10.5], .45, GD_CAN, toneI, .6) + rod([x, y - 1.4, GLH + 10.5], [x, y - 2.4, GLH + 6.8], .45, GD_CAN, toneI, .6) } ];
+  return parts.sort((p, q) => depthOf(p.at) - depthOf(q.at)).map(p => p.svg).join('');
+}
+function gdLawn(){
+  let s = board(0, 0, GLX1, GLY1, GLH, 10, GD_GRASS);
+  s += shape([[3, 69, GLH + .05], [GLX1 - 3, 69, GLH + .05], [GLX1 - 3, 81, GLH + .05], [3, 81, GLH + .05]], GD_PATH, .6);
+  let pb = ''; for (let i = 0; i < 40; i++){ const x = 5 + gdHash(i * 3.1) * (GLX1 - 10), y = 70 + gdHash(i * 5.7) * 10;
+    pb += pd(on(PZ(GLH + .08), ellUV(x, y, .6, .45, 6))); }
+  s += fill(pb, '#c6b79a');
+  let tf = ''; for (let i = 0; i < 90; i++){ const x = 3 + gdHash(i * 1.37) * (GLX1 - 6), y = 3 + gdHash(i * 2.71) * (GLY1 - 6);
+    if (y > 67 && y < 83) continue;
+    tf += pd([[x, y - .9, GLH + 1.6], [x, y, GLH], [x, y + .2, GLH + 2.1]], false) + pd([[x, y, GLH], [x, y + 1, GLH + 1.4]], false); }
+  return s + `<path d="${tf}" fill="none" stroke="${GD_GRASS.d}" stroke-width=".65" stroke-linecap="round" opacity=".8"/>`;
+}
+
+function scene(st, m){
+  const W = gdWorld(st), bt = boardTop(0, 0, GLX1, GLY1, GLH, 10);
+  let s = gdLawn();
+  // shadows, one per object, on the lawn
+  const bx = (x0, y0, x1, y1, z0, z1) => [[x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]];
+  let sh = '';
+  for (const key of ['tfsa', 'rrsp']){ const b = GBEDS[key], c = (b.y0 + b.y1) / 2;
+    sh += castShadow(bx(GBX0, b.y0, GBX1, b.y1, GLH, GBH), GLH, bt) + castShadow(bx(9, c - 23, 11.5, c + 23, GLH, 47), GLH, bt);
+    for (const y of [b.sack, b.tax, b.harv]) sh += castShadow([...gdRing(GFX, y, GLH, 8.5, 12), ...gdRing(GFX, y, GLH + 14, 8, 12)], GLH, bt); }
+  sh += castShadow([...gdRing(110, 75, GLH, 3.3, 12), ...gdRing(110, 75, GLH + 9, 3.3, 12)], GLH, bt);
+  s += `<g opacity=".75">${sh}</g>`;
+  const parts = [];
+  for (const key of ['tfsa', 'rrsp']){ const b = GBEDS[key], c = (b.y0 + b.y1) / 2, wd = W[key];
+    parts.push({ box: [[GBX0, b.y0, GLH], [GBX1, b.y1, 36]], svg: act('bed', gdBed(b, W, key)) });
+    parts.push({ box: [[9, c - 23, GLH], [11.5, c + 23, 47]], svg: gdSign(b, m) });
+    parts.push({ box: [[GFX - 8.8, b.sack - 8.8, GLH], [GFX + 8.8, b.sack + 8.8, GLH + 19]], svg: gdSack(b.sack, wd.sackLeft > 0) });
+    parts.push({ box: [[GFX - 9, b.tax - 9, GLH], [GFX + 9, b.tax + 9, GSTACK0 + Math.max(9, wd.tax * GCT)]], svg: gdBasket(b.tax, FP_CRA, wd.tax, 'TAX') });
+    parts.push({ box: [[GFX - 9, b.harv - 9, GLH], [GFX + 9, b.harv + 9, GSTACK0 + Math.max(9, wd.harv * GCT)]], svg: gdBasket(b.harv, GD_WICKER, wd.harv, 'YOURS') });
+  }
+  parts.push({ box: [[106.5, 66.5, GLH], [113.5, 78.5, GLH + 11]], svg: gdCan() });
+  s += byDepth(parts);
+  s += W.fly.sort((p, q) => depthOf(p) - depthOf(q)).map(p => gdCoin(p)).join('');   // coins in the air, over everything
+
+  // "What it means": the TFSA side in the left column, the RRSP side in a row under the lawn
+  const T = GBEDS.tfsa, R = GBEDS.rrsp;
+  s += xrCallouts([
+    { at: [GFX, T.sack, GLH + 16], text: 'MONEY YOU EARNED', on: st.phase === 'ready' },
+    { at: [GFX, T.tax, GLH + 9], text: 'TFSA: TAXED GOING IN', on: st.phase === 'planting' },
+    { at: [GFX, T.harv, GLH + 9], text: 'TFSA: TAX-FREE COMING OUT', on: st.phase === 'harvesting' },
+    { at: [33, T.y0 + 26, gdTop(W.g)], text: 'GROWS TAX-FREE IN BOTH', on: st.phase === 'growing' } ], [0, GLX1, 0, GLY1, 0, 47]);
+  s += fpRowTags([
+    { at: [GFX + 7, R.sack, GLH + 9], text: 'RRSP: NO TAX GOING IN', on: st.phase === 'planting' },
+    { at: [GFX + 8, R.tax, GLH + 5], text: 'RRSP: TAXED COMING OUT', on: st.phase === 'harvesting' } ],
+    [[0, 0, 0], [GLX1, 0, 0], [GLX1, GLY1, 0], [0, GLY1, 0]]);
+  return s;
+}
+
+/* ---------- behaviour: one state object, one clock ---------- */
+let ui, gdLoop = false;
+const GD_END = { planting: 1.75, growing: 2.45, harvesting: 2.7 }, GD_NEXT = { planting: 'planted', growing: 'grown', harvesting: 'done' };
+function gdRun(){
+  if (gdLoop) return; gdLoop = true;
+  ui.animate(dt => { const st = ui.st; st.t += dt;
+    if (GD_END[st.phase] && st.t > GD_END[st.phase]){ st.phase = GD_NEXT[st.phase]; st.t = 0; }
+    const busy = !!GD_END[st.phase]; if (!busy) gdLoop = false; return busy; });
+}
+const gdGo = (st, phase) => { st.phase = phase; st.t = 0; gdRun(); };
+function gdPlantIt(st){
+  if (st.phase === 'ready') return gdGo(st, 'planting');
+  ui.flash(st.phase === 'planting' ? 'Planting now' : 'Already planted. Press Start over to plant again');
+}
+function gdWait(st){
+  if (st.phase === 'ready') return ui.flash('Plant the seeds first');
+  if (st.phase === 'planted') return gdGo(st, 'growing');
+  ui.flash(['planting', 'growing'].includes(st.phase) ? 'One moment' : 'The 20 years have passed: time to harvest');
+}
+function gdHarvest(st){
+  if (['ready', 'planting', 'planted', 'growing'].includes(st.phase)) return ui.flash(st.phase === 'ready' ? 'Plant the seeds first' : 'Let them grow first: press Wait 20 years');
+  if (st.phase === 'grown') return gdGo(st, 'harvesting');
+  ui.flash('Already harvested. Try another tax rate at harvest');
+}
+function gdSetRate(st, r){
+  st.rate = r;
+  if (st.phase === 'harvesting' || st.phase === 'done') gdGo(st, 'harvesting');     // harvest again at the new rate
+}
+const gdStory = st => {
+  const pct = Math.round(st.rate * 100), keepR = (10 * GD_GROW - Math.round(10 * GD_GROW * st.rate)) * 1000;
+  switch (st.phase){
+    case 'ready': return `You earned <b>$10,000</b> for each garden. Each gold coin is $1,000. The tax rate today is <b>30%</b>.`;
+    case 'planting': case 'planted': return `<b>TFSA garden:</b> tax takes its 30% of the seeds first, so you plant $7,000. <b>RRSP garden:</b> no tax today, so you plant all $10,000.`;
+    case 'growing': case 'grown': return `Twenty years later, every seed has grown into 3 coins. <b>TFSA:</b> $21,000, all yours. <b>RRSP:</b> $30,000, but the tax on it is still to come.`;
+    default: { const verdict = st.rate < GD_TODAY ? 'Lower tax at harvest, so the RRSP comes out ahead.' : st.rate > GD_TODAY ? 'Higher tax at harvest, so the TFSA comes out ahead.' : `Same tax rate going in and coming out, so it's a tie.`;
+      return `Harvest. The <b>TFSA</b> harvest is tax-free: you keep $21,000. The <b>RRSP</b> harvest is taxed at ${pct}%: you keep ${fpMoney(keepR)}. ${verdict}`; }
+  } };
+
+ui = mountFigure({
+  fig: '02', turn: 'full', title: 'Tax the seeds or the harvest', palette: 'ret',
+  size: [GLX1, GLY1, 50], center: [GLX1 / 2, GLY1 / 2],
+  state: { phase: 'ready', t: 0, rate: GD_TODAY },
+  scene,
+  buttons: [
+    { label: 'Plant the seeds', onClick: st => gdPlantIt(st) },
+    { label: 'Wait 20 years', onClick: st => gdWait(st) },
+    { label: 'Harvest', onClick: st => gdHarvest(st) },
+    { label: 'Tax rate at harvest', choices: st => GD_RATES.map(r => ({ label: `${Math.round(r * 100)}%${r < GD_TODAY ? ' (lower than today)' : r > GD_TODAY ? ' (higher than today)' : ' (same as today)'}`,
+        current: st.rate === r, onClick: s => gdSetRate(s, r) })) },
+    { label: 'Start over', onClick: st => { st.phase = 'ready'; st.t = 0; } },
+  ],
+  stats: st => { const W = gdWorld(st), shown = st.phase === 'harvesting' || st.phase === 'done';
+    return [{ label: 'Years', value: String(Math.round(20 * W.g)), small: true },
+            { label: 'TFSA: you keep', value: shown ? fpMoney(W.tfsa.harv * 1000) : '?' },
+            { label: 'RRSP: you keep', value: shown ? fpMoney(W.rrsp.harv * 1000) : '?' }]; },
+  acts: { sack: st => gdPlantIt(st), bed: st => gdWait(st), basket: st => gdHarvest(st) },
+  params: (st, q) => {
+    if (q.has('rate')) { const r = +q.get('rate') / 100; if (GD_RATES.includes(r)) st.rate = r; }
+    const step = q.get('step'); if (['planted', 'grown', 'done'].includes(step)) st.phase = step;
+  },
+});
+xrMount(() => ui, () => '', { labelsOnly: true });
+document.getElementById('lblb').textContent = 'What it means';
+fpStory(ui, gdStory);
+fpPage({ body: 'A made-up example to show how the two accounts work: the tax rates (30% today; 20, 30 or 40% at harvest) and the growth (it triples in 20 years) are not predictions, and returns are not guaranteed. The RRSP tax refund is shown as being able to plant the full $10,000; contribution room and other rules are not shown.' });
+</script></body></html>

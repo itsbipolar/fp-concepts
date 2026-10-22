@@ -16,6 +16,12 @@
 - [ ] Owner review; capture every lesson in `engine-cheatsheet.md` and the grammar.
 - [ ] Fill the firm details in `BRAND.md` and the house rules in `COMPLIANCE.md`.
 
+## v0.15: finding the visual direction — in review
+- [x] Owner feedback on Fig. 01: the invented machine is too much (D-009); charts are too dull (D-010).
+- [x] Fig. 02 `seeds-or-harvest`: the everyday-analogy prototype (D-011), story line, "What it means" switch.
+- [ ] Owner verdict on the analogy direction; then fold `docs/VISUAL-DIRECTION.md` into the skill.
+- [ ] Redo R1 OAS as an analogy (the pie idea), if approved.
+
 ## v0.2: a starter series (3–5 figures)
 - [ ] R2 RRSP vs TFSA, E2 estate freeze, N3 corporate insurance and the CDA, T3 dividend gross-up.
 - [ ] A gallery page (`figures/index.html`) linking every published figure with its still.

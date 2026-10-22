@@ -13,6 +13,16 @@ clawback is a weir that skims 15 cents of every dollar spilling over a line at $
 The drawing engine, its look and its drawing contract are unchanged from Colorfigures. This file adds the layer on top:
 **rule -> mechanism -> figure**. Read both.
 
+## Direction (read first)
+**`docs/VISUAL-DIRECTION.md`** holds the current visual direction and the language rules. Since Fig. 02 the
+proposed style is **everyday analogies**: one familiar scene (a garden, an oven, a bridge) that explains the rule by
+itself, not an invented machine (Fig. 01 was too hard to decode) and not a chart (too dull, see the journey there).
+The machine grammar below still helps find a rule's shape, but the scene must be something people already know.
+
+## Language (always)
+Plain sentences a 9th grader can follow, "you", dollars not invented units, the real term once next to its plain
+meaning, and every label must read as a meaningful phrase on its own. Full rules: `docs/VISUAL-DIRECTION.md`.
+
 ## Files
 - `references/colorfigures-SKILL.md`: the upstream drawing contract (coordinates, depth sorting, see-through, labels,
   interaction, reserved names, verify). **Every rule in it still applies.** Read it before writing geometry.

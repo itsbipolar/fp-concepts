@@ -14,6 +14,7 @@ figures/<slug>/
 | Fig. | Slug | Catalog ID | Status |
 |---|---|---|---|
 | 00 | `_smoke` | — | toolchain canary, not for publishing |
-| 01 | `oas-clawback` | R1 | verified; awaiting owner review and compliance |
+| 01 | `oas-clawback` | R1 | invented-machine style; owner found it too complex (D-009); to redo as an analogy |
+| 02 | `seeds-or-harvest` | R2 | everyday-analogy prototype (garden beds); owner review |
 
 How to make one: `.claude/skills/fp-figures/SKILL.md`; commands: `docs/PIPELINE.md`.

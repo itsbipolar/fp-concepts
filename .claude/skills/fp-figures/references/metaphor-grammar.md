@@ -1,5 +1,9 @@
 # Metaphor grammar: from a financial rule to a machine
 
+> **Read `docs/VISUAL-DIRECTION.md` first.** The owner found an invented machine (Fig. 01) too hard to decode. The
+> proposed style is an everyday scene people already know (Fig. 02's garden). Use this page to find the *shape* of a
+> rule (a threshold, a schedule, a test), then pick a familiar scene with that shape from the analogy bank there.
+
 The whole project rests on one move: **find the machine whose physics already behaves like the rule.** When the
 match is right, the client doesn't need the label to get it; the label just names what they already saw.
 

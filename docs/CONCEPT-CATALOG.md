@@ -61,8 +61,8 @@ Archetypes A1–A10 are defined in `.claude/skills/fp-figures/references/metapho
 ## Retirement
 | ID | Concept | Arch. | Machine idea | Misconception it breaks | HNW | Vis | Build | Drift | Source | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| R1 | OAS clawback | A2 | income column with a weir at $95,323; 15% skimmer eats the OAS stack, gone at $155,320; TFSA pipe bypasses the column | "every withdrawal is the same" | 5 | 5 | M | H | v0 Ret | verified (`figures/oas-clawback/`) |
-| R2 | RRSP vs TFSA | A1 | twin tanks: RRSP tap on the way out, TFSA tap on the way in; refund reinvested; equal rates tie | "RRSP always wins" / "TFSA always wins" | 4 | 5 | S | M | v0 Ret | idea |
+| R1 | OAS clawback | A2 | income column with a weir at $95,323; 15% skimmer eats the OAS stack, gone at $155,320; TFSA pipe bypasses the column | "every withdrawal is the same" | 5 | 5 | M | H | v0 Ret | machine version built (`figures/oas-clawback/`); owner found it too complex (D-009): redo as an everyday analogy (pie idea in VISUAL-DIRECTION) |
+| R2 | RRSP vs TFSA | analogy | two garden beds: "tax the seeds (TFSA) or tax the harvest (RRSP)"; same rate in and out, same result | "RRSP always wins" / "TFSA always wins" | 4 | 5 | S | M | v0 Ret | prototype (`figures/seeds-or-harvest/`), owner review |
 | R3 | CPP start age | A5 | a dial 60–70 resizing the monthly coin: -0.6%/month early (-36%), +0.7%/month late (+42%) | "take it early, it's the same money" | 4 | 4 | S | M | v0 Ret | idea |
 | R4 | RRIF minimum drain | A1 | a tank with a meter tap opening wider each birthday (1/(90-age), then the table) | "I control how much comes out" | 4 | 4 | S | L | v0 Ret | idea |
 | R5 | Spousal RRSP 3-year rule | A5 | three calendar drums; a withdrawal before Jan 1 of year 4 routes back to the contributor | "the money is the spouse's the day it goes in" | 4 | 4 | M | L | v0 Ret | idea |

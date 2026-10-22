@@ -36,3 +36,22 @@ row and ledger row cites the version it came from.
 **D-008 (2026-10-22) Moved the uploaded files.**
 `colorfigures.zip` -> `vendor/colorfigures.zip` (pristine upstream); `CFP crash notes.html` ->
 `sources/v0-cfp-crash-notes/` with a `notes.txt` text extraction for search.
+
+**D-009 (2026-10-22) Owner review of Fig. 01: an invented machine is too much.**
+"Wrapping my head around a whole cylindrically engineered system is just doing too much." The figure is correct but
+must be learned before it teaches. Kept in the repo as a reference; not for publishing as is.
+
+**D-010 (2026-10-22) Plain charts rejected.**
+Four quick non-physical sketches (`explorations/visual-directions.html`): "still confusing... basic charts... what does
+'your income 122 dots' even mean". Charts lack the delight of Colorfigures; abstract units mean nothing.
+
+**D-011 (2026-10-22, proposed) Everyday analogies.**
+Explain each rule with one familiar everyday scene drawn in the Colorfigures style (Fig. 02: two garden beds, "tax the
+seeds or tax the harvest"). Pending the owner's verdict. Details: `docs/VISUAL-DIRECTION.md`.
+
+**D-012 (2026-10-22) Language rules are permanent.**
+Plain sentences, "you", dollars, the real term once, no invented units; every label must read as a phrase on its own.
+
+**D-013 (2026-10-22) A one-sentence story line under the scene.**
+A second, deliberate exception to "no text on the page" (after the disclaimer, D-005): a plain sentence that changes
+with each step (`fpStory`), because a 9th grader needs the "why" in words, not only in pictures.

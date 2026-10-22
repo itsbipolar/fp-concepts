@@ -89,3 +89,11 @@ fpPage({ note:'...', asOf:'2026' });    // last: disclaimer footer + ?clean / ?b
 10. When `xrCallouts` puts every pill on one side (no room on the other), give the far-side parts their own row
     under the board with `tag()` and computed offsets: see `oaRowTags` in `figures/oas-clawback/figure.html`.
 11. A part that faces you only from some sides (a wall a label points at) should pick its anchor by `facing()`.
+12. **Legible text in the scene:** a desk-sized scene renders at roughly 2.4 screen px per unit at full width, so
+    scene text under ~3.3 units is unreadable. Signs: 8 for a title, 4 for a subtitle; tags: 3.3 to 3.5.
+13. **Coins that always face you:** hanging or flying coins read best as screen-facing circles (`gdCoin` in
+    `figures/seeds-or-harvest/figure.html`, radius x sqrt(1.5) to match the projection); coins at rest are 3D stacks.
+14. **Derive the picture from step + clock** (`gdWorld`): where every coin is follows from the current step and its
+    time, with no counters to keep in sync, so URL states (`?step=done&rate=20`) and replays come out identical.
+15. `fpStory(ui, st => html)` adds the one-sentence story line; `fpRowTags(items, ground)` is the label row under
+    the board (both in fp-kit). Rename the Labels switch for analogy figures: `lblb.textContent = 'What it means'`.
