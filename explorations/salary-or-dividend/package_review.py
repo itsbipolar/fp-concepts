@@ -10,7 +10,8 @@ page = (ROOT / 'index.html').read_text()
 page = page.replace('<link rel="stylesheet" href="style.css">',
                     '<style>\n' + (ROOT / 'style.css').read_text() + '\n</style>')
 for filename in ('model.js', 'app.js'):
-    page = page.replace(f'<script src="{filename}" defer></script>', '')
+    page = re.sub(r'(?m)^[ \t]*<script src="' + re.escape(filename)
+                  + r'" defer></script>[ \t]*\n', '', page)
 
 images = {}
 paths = {}
