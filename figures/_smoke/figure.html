@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smoke test</title></head><body>
+<script src="core.js"></script>
+<script src="fp-kit.js"></script>
+<script>
+/* Smoke test for the toolchain (engine + fp-kit + build.py + shoot.py), not a concept figure.
+   A tray on a board holds two coin stacks: what you keep and the federal tax on what you earned
+   (fpFedTax, 2026 brackets, no credits). "Earn $25k" adds income; each coin = $5,000. */
+const smW = 60, smD = 80, smH = 30, SM_COIN = 5000;
+function scene(st, m){
+  const tax = fpFedTax(st.income), keep = st.income - tax;
+  const nK = Math.round(keep / SM_COIN), nT = Math.round(tax / SM_COIN);
+  let s = board(-8, -8, smW + 8, smD + 8, 3, 6);
+  s += castShadow([[0, 0, 3], [smW, 0, 3], [smW, smD, 3], [0, smD, 3], [0, 0, 3 + smH*.3], [smW, smD, 3 + smH*.3]], 3, boardTop(-8, -8, smW + 8, smD + 8, 3, 6));
+  s += box(0, 0, 3, smW, smD, 9, m, tone, 1.4);
+  const parts = [
+    { box: fpCoinBox(30, 25, 9, nK, 9, 1.6), svg: fpCoinStack(30, 25, 9, nK, 9, 1.6) },
+    { box: fpCoinBox(30, 58, 9, nT, 9, 1.6), svg: fpCoinStack(30, 58, 9, nT, 9, 1.6, FP_CRA) },
+  ];
+  s += byDepth(parts);
+  return s + xrCallouts([{ at: [30, 25, 9 + nK*1.6], text: 'YOU KEEP', on: true }, { at: [30, 58, 9 + nT*1.6], text: 'FEDERAL TAX', on: false }],
+    [0, smW, 0, smD, 0, smH + 40]);
+}
+const ui = mountFigure({
+  fig: '00', turn: 'full', title: 'Smoke test', size: [smW + 16, smD + 16, smH + 50], center: [smW/2, smD/2], palette: 'gold',
+  state: { income: 50000 }, scene,
+  buttons: [{ label: 'Earn $25k', onClick: st => { st.income = Math.min(400000, st.income + 25000); } },
+            { label: 'Reset', onClick: st => { st.income = 50000; } }],
+  stats: st => [{ label: 'Income', value: fpMoney(st.income) }, { label: 'Federal tax', value: fpMoney(fpFedTax(st.income)), small: true },
+                { label: 'Marginal', value: fpPct(fpMarginal(st.income), 1), small: true }],
+  params: (st, q) => { if (q.has('income')) st.income = +q.get('income'); },
+});
+fpPage({ note: 'Toolchain smoke test.' });
+</script></body></html>

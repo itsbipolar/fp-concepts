@@ -1,0 +1,1087 @@
+ 
+ CFP crash notes 
+ CFP crash notes
+ Process 
+ Tax 
+ Investments 
+ Retirement 
+ Insurance 
+ Estate 
+ Number wall 
+ What changed 
+ CFP crash notes
+ Every module hangs off one spine: the six-step planning process. Step 3 is where the exam lives, and it splits into the six areas below. Tap any area to jump in.
+ Establish the engagement Scope, services, compensation and conflicts disclosed, engagement letter 
+ Gather data, goals and expectations Interviews and questionnaires, values, attitudes, priorities 
+ Clarify status, find problems and opportunities Cash flow, net worth, tax projection, then each area. Case studies and constructed responses test this step. 
+ Cash, debt, education budget, mortgages, RESP, HBP, FHSA 
+ Tax income, credits, attribution, business 
+ Investments products, risk, portfolio theory 
+ Retirement CPP, OAS, pensions, RRSP, RRIF 
+ Risk management life, disability, health, P&C 
+ Estate wills, trusts, freezes, death taxes 
+ Develop and present the plan Recommendations matched to values, temperament and risk tolerance; revise with the client 
+ Implement Coordinate with lawyers, accountants, insurance and investment professionals 
+ Monitor Life events (birth, death, illness, divorce, retirement), tax law and economic changes 
+ Rules for answering
+ Tax on investment, trust or dividend income: always use the marginal rate.
+ TVM formulas appear on screen. No tax table is provided, but case figures are given in the narrative.
+ Pick the most basic principle that answers the stated goal. Don't overthink.
+ AMT, U.S. estate tax, RDTOH mechanics: recognise it, flag it to the client, refer to a specialist.
+ Cash-flow problems: cut discretionary spending first, then reorganise investments, raise income last.
+ $33,810 number to memorise
+ notes outdated printed notes differ from 2026 rules
+ ⚠ exam trap
+ Estate jumps to a connected rule
+ Planning process
+ Mark reviewed 
+ Cash flow, debt, mortgages, education and home-buying plans, law, economics, investor protection.
+ Statements & ratios Mortgages HBP · FHSA · LLP RESP Law & ownership Economics Protection funds 
+ Statements, ratios and the cash-flow fix high 
+ Net worth statement Assets − debts as of a date . Snapshot.
+ Cash flow statement Income − expenses over a period . Built from the budget. Surplus = savings, deficit = debt.
+ Liquidity = Liquid assets Monthly expenses Months of expenses covered. Higher is better. Emergency fund target: 3–6 months (money market, cashable GICs, even a line of credit). 
+ Debt service = Monthly consumer-debt payments Monthly after-tax income Excludes the mortgage. Target ≤ 20% . 
+ Savings = Cash surplus After-tax income Target 5–10%+. Higher is better. 
+ Client has a cash-flow problem: answer in this order
+ 1. Cut discretionary Travel, entertainment. Refinance high-interest debt (credit cards) to a cheaper facility. 
+ 2. Reorganise investments Interest-bearing assets inside TFSA/RRSP; dividends and capital gains in non-registered. 
+ 3. Increase income Last resort, but sometimes the "best available" answer. 
+ Trap Debt consolidation lowers the monthly payment by stretching amortization, but total interest over the life of the loan rises sharply.
+ Mortgages and debt service high 
+ GDS = Mortgage P&I + property tax + heat + ½ condo fees Gross household income Guideline 32–35%. CMHC insured limit 39%. 
+ TDS = GDS costs + all other debt payments Gross household income Guideline 40–42% (use 40% when asked for a maximum). CMHC insured limit 44%. 
+ Trap Include 3% of any consumer credit line granted , even with a zero balance. Work TDS monthly so you don't forget it.
+ Worked example: Tina's TDS 
+ $60,000 salary, $800/mo mortgage incl. tax, $85/mo heat, unused $20,000 LOC.
+ Mortgage + tax $800 Heat $85 3% × $20,000 LOC $600 ÷ $5,000 monthly income 29.7% 
+ Max total debt payments at 40% TDS = 40% × $5,000 = $2,000/month .
+ Stress test (federally regulated lenders)
+ Qualifying rate = the higher of
+ A 5.25%
+ B Contract rate + 2%
+ Applies to purchases, refinancing and secured LOCs. Not stress-tested: same-lender renewals and, since Nov 21, 2024, a straight switch to a new lender at renewal (same balance and amortization). notes say <20% down uses contract rate only; the +2% applies to insured too 
+ Vocabulary
+ Conventional Loan ≤ 80% of lesser of price or appraisal. Down payment ≥ 20%.
+ High-ratio Down 5–20%. Default insurance required. Down payment must be the buyer's own money (or a gift). Price cap $1.5M notes say $1M; $1.5M since Dec 15, 2024 
+ Term vs amortization Term = length of the contract (e.g. 5 yrs). Amortization = time to repay in full (e.g. 25 yrs). Longer amortization, lower payment, more total interest.
+ Mortgagor / mortgagee Mortgag or = borrower. Mortgag ee = lender.
+ Minimum down payment
+ 5% on first $500k
+ 10% on $500k – $1.5M
+ $1.5M+: 20%
+ At $1.5M and up there's no default insurance, so 20% minimum.
+ $900,000 home: minimum down payment? 5% × $500,000 = $25,000 + 10% × $400,000 = $40,000 → $65,000 (7.2%). Insured amortization max 25 years, or 30 years for first-time buyers and new builds (since Dec 15, 2024).
+ Type Prepay Best for 
+ Closed 10–15% of original per year, penalty beyond Lowest rate, stability 
+ Open Any amount, any time Paying off fast, expecting a windfall 
+ Convertible ~10%/yr; convert to longer closed term without penalty Think rates will rise 
+ Trap Tight budget but wants debt-free in under 15 years: a closed mortgage is the unsuitable choice (prepayment too limited).
+ Refinancing Breaking a closed fixed-rate term costs the greater of 3 months' interest or the IRD ≈ (contract rate − today's rate for the remaining term) × balance × years left. Refinancing means re-qualifying on GDS/TDS and the stress test. Any loan payment = PV ÷ annuity factor ($80,000 at 8%/12 over 60 months → $1,622/mo).
+ CMHC today GDS 39% / TDS 44%, minimum credit score 600. The 2020 rules (35/42, score 680) were reversed on July 5, 2021. notes still show the 2020 rules 
+ HBP, FHSA and LLP side by side high 
+ HBP (RRSP) FHSA LLP (RRSP) 
+ Amount $60,000 each (since Apr 2024), limited to what's in your own RRSP $8,000 /yr, $40,000 lifetime $10,000 /yr, $20,000 total 
+ Deduction in Original RRSP deduction Yes, deductible (carry forward indefinitely) Original RRSP deduction 
+ Out Tax-free if repaid Qualifying withdrawal tax-free, never repaid Tax-free if repaid 
+ Repay 1/15 per year over 15 yrs None 1/10 per year over 10 yrs 
+ Repay starts 2nd year after withdrawal; 5th year if first withdrawal was in 2022–2025 n/a No later than year 5 (or earlier if not a student 2 yrs running) 
+ Shortfall Missed scheduled repayment is added to income that year 
+ Who First-time: no owner-occupied home in current + prior 4 yrs. Waived when buying for a DTC-eligible person 18+, resident, first-time (same 4-yr test) You or spouse, not children; full-time ≥ 3 months (part-time if disabled) 
+ HBP timeline
+ −90 days Funds must sit in the RRSP 90 days before withdrawal
+ Withdraw Signed agreement to buy or build. Form T1036 to issuer, no withholding
+ +30 days Home can't be acquired more than 30 days before the withdrawal
+ Oct 1, yr+1 Must acquire the home by then; occupy within 1 year
+ Yr+2 (or yr+5) Repayment starts: balance ÷ 15. Due within 60 days of year-end. Year 5 for 2022–25 withdrawals
+ Rule Paying less than the schedule doesn't change the next year's schedule: balance still drops by the full scheduled amount (shortfall is taxed). Death: unpaid balance taxed unless spouse elects to take it over.
+ HBP checks for a 2026 withdrawal 
+ First-time test: no home owned and lived in since Jan 1, 2022 (current year + prior 4). A home bought up to 30 days before the withdrawal is fine. Waived if buying for (or as) a DTC-eligible person who'll live in it, even if they own a home now.
+ Deadlines: withdraw Jan 2026 → close by Oct 1, 2027 → move in within 1 year of buying or building (close Oct 2027 → in by Oct 2028).
+ Couple: each spouse up to $60,000, but only from their own RRSP: Annie $60,000 + Ron $29,000 = $89,000 .
+ Repayment relief: first withdrawal in 2022–2025 → first repayment in the 5th year after, not the 2nd.
+ FHSA flow
+ Open 18+, resident, first-time buyer. Room only starts accruing once opened. 
+ Contribute $8,000/yr; unused carry-forward capped at $8,000 (so max $16,000 in one year). No 60-day rule. Spouse can gift funds; no attribution. 
+ Qualifying withdrawal Still first-time at withdrawal, written agreement to buy before Oct 1 of next year, occupy within 1 yr. Can combine with HBP on the same home. 
+ Not used? Close by Dec 31 of year 15 or age 71 Transfer tax-free to RRSP/RRIF (uses no RRSP room) or withdraw taxable. 
+ Trap Over-contribution tax 1%/month (like TFSA). Non-qualifying withdrawals don't restore room. No creditor protection. Interest on money borrowed to contribute is not deductible.
+ FHSA ↔ RRSP FHSA → RRSP any time: tax-free, uses no RRSP room. RRSP → FHSA: tax-free but uses FHSA room, and the RRSP room is gone for good.
+ Bankruptcy (BIA) RRSPs are protected (except contributions in the last 12 months). TFSAs and FHSAs are not .
+ LLP timing check First LLP withdrawal in 2019 → can keep withdrawing until January of the 4th year after (last withdrawal before Jan 1, 2023). Repayment of $5,000 over 10 yrs = $500/yr; repaying $300 means $200 added to income. Typical use: fund your own education or exam costs now, repay when income rises.
+ Connected: Tax: home buyers' amount 
+ RESP money flow high 
+ Subscriber contributes Not deductible. No annual limit; $50,000 lifetime per beneficiary. Over-contribution 1%/month. 
+ Government adds CESG 20% on first $2,500 = $500 /yr ( $1,000 with carry-forward room, i.e. a $5,000 contribution), $7,200 lifetime, until end of year child turns 17.
+ A-CESG on the first $500 (2026 family net income): +20% if ≤ $58,523 , +10% if $58,523 – $117,045 . No carry-forward. notes say $55,867 / $111,733 
+ CLB for low income: $500 + $100/yr to age 15 (+$25 once), max $2,000 , no contribution needed. 
+ Grows tax-deferred Contributions for 31 years ; plan must close by end of its 35th year . DTC-eligible beneficiary (specified plan): 35 and 40 years. notes say 36 
+ Student enrols? 
+ Yes EAP = grants + growth, taxed to the student . Capped at $8,000 for first 13 weeks full-time ($4,000 part-time). Part-time program = 3+ consecutive weeks, 12+ hours/month. Contributions come back tax-free.
+ No Contributions back to subscriber tax-free. CESG and CLB repaid. Growth = AIP : plan ≥ 10 yrs and all beneficiaries 21+ and not studying. Roll up to $50,000 into own/spousal RRSP (needs room); otherwise taxed at marginal rate +20% .
+ Family plan Beneficiaries related by blood/adoption to subscriber, each under 21 when named. CESG can be shared among siblings (max $7,200 per child); the CLB can't.
+ Age 16–17 CESG test Need $2,000 contributed before the year they turn 16, or $100+/yr in any 4 years before then.
+ Trap Only the growth, grants and bonds in an EAP are taxable to the student. Contributions are never taxed again.
+ Trap Contributions withdrawn when not for school: CESG repaid (20% of the withdrawal) and no CESG for 3 years, with no carry-forward room building meanwhile.
+ How much grant? Family in the 10% A-CESG tier 
+ $2,500, no unused room: 20% × $2,500 + 10% × $500 $550 $5,000 with unused room: 20% × $5,000 + 10% × $500 $1,050 
+ A-CESG is only on the first $500 each year and never carries forward. Twins in a family plan, year 1: $5,000 → $1,000 CESG ($500 each; no carry-forward room yet).
+ Canada Learning Bond: eligibility chain
+ Born 2004 or later Birth certificate + SIN 
+ Family gets the CCB Apply, file returns every year 
+ AFNI under the limit Jul 2026–Jun 2027: 1–3 kids $58,523 · 4 kids $66,036 · 5 kids $73,577 notes use the old CCTB/NCBS test 
+ Open an RESP Provider applies. $500, then $100/yr to 15, max $2,000. 
+ Canada Child Benefit Tax-free, monthly. Child under 18, you're the primary caregiver, resident, both parents file. Jul 2026–Jun 2027 max $8,157 under 6, $6,883 ages 6–17. Starts shrinking above about $38,000 AFNI. Child disability benefit top-up for a DTC-eligible child: up to $3,480, reduced above $82,847.
+ RESP → RDSP rollover Only the accumulated income moves (needs RDSP room, earns no CDSG). CESG and CLB go back. Allowed if the impairment rules out school, or the plan is 10+ years old with all beneficiaries 21+ and not studying, or the plan is 35+ years old.
+ Connected: Retirement: RDSP grants Retirement: AIP to RRSP room 
+ Contracts, duties and ownership
+ Valid contract needs 5 Offer and acceptance
+ Competent parties
+ Consideration
+ Genuine intent
+ Lawful object
+ Voidable for: mistake, misrepresentation, undue influence, duress. Discharged by: performance, frustration, breach. 
+ Fiduciary duty Act in principal's best interest
+ No secret profits
+ Keep confidences
+ Disclose conflicts
+ Professionals are held to a standard of care (tort law). E&O insurance covers negligence. 
+ Co-owned property: are all 4 unities present?
+ Yes: interest, title, possession, time Joint tenancy
+ Right of survivorship. Interest passes outside the will and outside probate.
+ No Tenancy in common
+ Separate, possibly unequal shares. Passes through the will (or intestacy) and probate.
+ Connected: Estate: joint tenancy pitfalls 
+ Economics in four arrows 1–2 questions 
+ Fiscal (government) Expansionary: ↑G or ↓T → ↑C, ↑I → ↑GDP
+Restrictive: ↑T or ↓G → ↓C, ↓I → ↓GDP
+ Monetary (Bank of Canada) Expansionary: ↓rate, ↓reserves, buy bonds → ↑money supply → ↓rates → ↑GDP
+Restrictive: ↑rate, ↑reserves, sell bonds → ↑rates → ↓investment
+ GDP = C + I + G + (X − M). Elasticity = %Δ quantity ÷ %Δ price. Demand and price move inversely; supply and price move together.
+ peak trough 
+ contraction ↘ ↗ expansion 
+ normal 
+ flat 
+ inverted 
+ maturity → 
+ Leading Coincident Lagging 
+ Housing starts, new orders, profits, commodity prices, hours worked, stock prices GDP, industrial production, personal income, retail sales Unemployment, business investment, labour costs, inventories, inflation 
+ Exam Contraction → buy long bonds (lock yield before rates fall). Unanticipated inflation helps borrowers with fixed-rate debt. Natural unemployment is above zero.
+ Who protects what
+ Plan Covers Limit 
+ CDIC Bank deposits (not stocks, funds) $100,000 per person, per member institution, per category: own name, joint, RRSP, RRIF, TFSA, FHSA, RESP, RDSP. Trust deposits: $100,000 per beneficiary. Spread across banks to multiply it. 
+ CIPF Investment dealer insolvency (not market losses) $1M per dealer for each group: ① general (cash, margin, TFSA, FHSA) ② retirement (RRSP, RRIF, LIF) ③ RESP ④ each trust ⑤ holding company ⑥ partnership 
+ Assuris Life insurer insolvency Greater of 90% of the promised benefit, or: death benefit $1M · health expense $250,000 · monthly income $5,000 · cash value, accumulated value, seg fund guarantees $100,000 each notes say $200k; raised May 2023 
+ OBSI Free, independent dispute resolution n/a 
+ CIPF worked example Cash $0.5M + margin $0.6M → pooled general = $1M. RRSP A $0.55M + RRSP B $0.65M → one "RRSP" separate category = $1M. Trust (daughter) $0.75M + trust (grandson) $0.45M → each separate. Total $3.2M .
+ Tax
+ Mark reviewed 
+ How income becomes tax, the capital rules, attribution, credits, AMT, employment benefits, small business.
+ Income → tax 2026 credits Dividends Deadlines CCA Principal residence Losses Superficial loss Attribution TOSI Stock options Donations AMT Support TFSA Home office & auto Small business Other credits 
+ From income to tax payable high 
+ Total income Worldwide. Employment, business, interest, grossed-up dividends, taxable capital gains, rent, OAS/CPP, EI, RRSP withdrawals, taxable support received 
+ − RPP, RRSP/FHSA, child care, union dues, support paid, moving, carrying charges, CPP enhanced portion
+ Net income Drives income-tested credits and benefits (OAS clawback, GIS, CCB) 
+ − loss carry-forwards, capital gains deduction (LCGE), stock option deduction, northern residents
+ Taxable income × graduated rates 
+ − non-refundable credits (amount × lowest rate), DTC, foreign tax credit
+ Tax payable 
+ Deduction Reduces income. Saves amount × marginal rate.
+ Credit Reduces tax dollar for dollar. Non-refundable ones only take tax to zero. Federal value = amount × lowest rate.
+ Federal brackets 2026
+ Taxable income Rate 
+ Up to $58,523 14% notes say 15% 
+ $58,523 – $117,045 20.5% 
+ $117,045 – $181,440 26% 
+ $181,440 – $258,482 29% 
+ Over $258,482 33% 
+ Exam Federal surtax gone since 2001 (some provinces still have one). Not taxable: lottery wins, gifts and inheritances, life insurance death benefits, GST credit and CCB, strike pay, crime-victim compensation.
+ Trap Businesses and professionals must use accrual accounting, not cash.
+ Trap Capital gains inclusion is still 50% . The proposed ⅔ rate on gains over $250,000 was cancelled in March 2025. And only the income above each bracket line is taxed at the higher rate.
+ 2026 federal non-refundable credits: amount × 14%
+ Credit 2026 amount Rule to remember 
+ Basic personal $16,452 Shrinks toward $14,829 as income goes from $181,440 to $258,482 
+ Spouse / eligible dependant Up to $16,452 Reduced $1 for $1 by the dependant's net income 
+ Age (65+) $9,208 Reduced by 15% of net income over about $46,000; gone near $108,000 
+ Pension $2,000 Under 65: RPP pension, annuity. 65+: RRIF too 
+ Disability (DTC) $10,341 + $6,032 under 18 Severe and prolonged, certified by a medical practitioner. Transferable to spouse or supporting relative 
+ Canada caregiver $8,773 adult · $2,740 minor Infirm dependant; the adult amount shrinks as their income rises 
+ Medical expenses Above lesser of 3% of NI or $2,890 Any 12-month period ending in the year 
+ Tuition Fees over $100 Carry forward forever; up to $5,000 transferable to spouse, parent or grandparent 
+ Student loan interest Interest paid Government student loans only; carry forward 5 yrs; not transferable 
+ Canada employment $1,501 Employees, lesser of this and employment income 
+ Home buyers' amount $10,000 → $1,400 First-time buyer (4-year test) or buying for a DTC-eligible person; either spouse or split 
+ CPP / EI Base CPP (4.95%) + EI premiums The enhanced CPP part is a deduction, not a credit 
+ Donations 14% / 29% / 33% See donations below 
+ Public transit Eliminated federally 
+ Trap Every "15%" credit in your notes is now 14%: the $10,000 home buyers' amount is worth $1,400, not $1,500. Dividend tax credit rates didn't change.
+ Dividend tax: the only credit you must calculate high 
+ Cash dividend $10,000 eligible 
+ Gross up Eligible ×1.38 · Non-eligible ×1.15 → $13,800 taxable 
+ × marginal rate $13,800 × 33% = $4,554 
+ − DTC on grossed-up Eligible 15.02% · Non-eligible 9.03% → $2,073 
+ Net tax $2,481 
+ Source Gross-up Federal DTC (of grossed-up) DTC as fraction of gross-up 
+ Eligible Public co., CCPC income above SBD 38% 15.02% 6/11 
+ Non-eligible CCPC income taxed at small business rate 15% 9.03% 9/13 
+ Trap DRIPs and stock dividends are taxed like cash. Preferred and common dividends are taxed the same way. Foreign dividends: no gross-up, no credit, taxed as regular income. The 2026 rate cut to 14% doesn't change the DTC rates.
+ Connected: Investments: taxing each product 
+ Deadlines and instalments
+ Mar/Jun/Sep/Dec 15 Instalments if net tax owing > $3,000 this year and in either of the 2 prior years ($1,800 Quebec)
+ Apr 30 Employees file. Everyone pays balance.
+ Jun 15 Self-employed (and spouse) file. Payment was still due Apr 30.
+ Deceased: when did death occur?
+ Jan 1 – Oct 31 Final return due Apr 30 next year (Jun 15 if business, for deaths Jan 1 – Dec 15)
+ Nov 1 – Dec 31 Due 6 months after death (business: deaths Dec 16–31)
+ Late filing: 5% of balance owing + 1% per full month late (max 12 months), plus interest.
+ Selling depreciable property: CCA outcomes high 
+ CCA is optional (any amount from nil to max). Half-year rule: only 50% of net additions qualify in the year of purchase. UCC = cost − CCA claimed.
+ Compare proceeds with capital cost and UCC (last asset in class)
+ Proceeds > capital cost Capital gain + full recapture
+ Gain = proceeds − cost. Recapture = cost − UCC (100% income).
+ UCC < proceeds ≤ cost Recapture only
+ Recapture = proceeds − UCC. Report as income.
+ Proceeds < UCC Terminal loss
+ UCC − proceeds. Deduct from business income.
+ Rule Subtract from UCC the lesser of proceeds and original cost. If UCC goes negative → recapture. Class empty with UCC left over → terminal loss.
+ Wendy: cost $50,000, UCC $30,000 
+ Sells for $20,000 → terminal loss $10,000. Sells for $40,000 → recapture $10,000. Sells for $60,000 → capital gain $10,000 + recapture $20,000.
+ Rental property
+ Only the building is depreciable, never the land: $950,000 with 75% building → $712,500 goes in the class.
+ CCA can't create or increase a rental loss (net all rentals first).
+ Rental sold above original cost All CCA claimed comes back as recapture , 100% income (e.g. $68,250). Only the excess over original cost is a capital gain (e.g. $550,000, 50% taxable).
+ Principal residence exemption
+ Exempt gain = 1 + years designated years owned × (proceeds − ACB) Count both the purchase and sale years in years owned. One designation per family unit per year. Taxable = (gain − exempt) × 50%. 
+ Strategy Two properties: designate the one with the larger gain per year owned for overlapping years; the "+1" covers the year of switching.
+ Who and what qualifies A housing unit owned alone or jointly, ordinarily inhabited by you, your spouse or your child. One designation per family unit per year (you, spouse, unmarried minor children). An adult child not on title can't claim it.
+ Since 2017 Every sale must be reported , even if fully exempt. Non-residents lose the "+1". Only alter ego, spousal / joint spousal, QDT and minor-child-of-deceased-parent trusts can designate.
+ Change of use Home → rental = deemed sale at FMV and reacquisition; report it. The PRE can shelter the gain up to then, but you can't keep designating it once rented (elections aside).
+ Before 1982 Each spouse could designate a home. From 1982, one per family unit.
+ Ella: home and cabin overlap Cabin has the higher gain per year, so it takes the overlap years. Home exempt 7/10 of a $300,000 gain → $90,000 gain, $45,000 taxable ; cabin fully exempt. A condo sold to a child: the child can designate it from their purchase date.
+ Connected: Estate: deemed disposition at death 
+ Loss rules high 
+ Loss Offsets Back Forward 
+ Net capital loss Taxable capital gains only 3 Forever 
+ Non-capital (business) Any income 3 20 
+ ABIL (shares/debt of a small business corp.) Any income, at 50% of the loss older rates 66⅔% / 75% 3 10 as non-capital, then a net capital loss (year 11+) 
+ Read it right The 20-year carry-forward is for ordinary non-capital (business) losses. An unused ABIL gets only 10 years as a non-capital loss before it turns into a net capital loss. ABIL = loss on shares of, or a debt owed by, a small business corporation (CCPC) you deal with at arm's length.
+ Business losses shrink earned income, which shrinks next year's RRSP room.
+ Superficial loss high 
+ Sold at a loss. Did you or an affiliated person buy identical property within 30 days before or after, and still own it on day 30 after?
+ No Loss allowed
+ Yes: you, spouse, your corp Loss denied → added to ACB
+ Sold 1,000 shares, $8,000 loss denied, rebought at $20 → new ACB $20,000 + $8,000 = $28,000 .
+ Yes: your RRSP, TFSA, RESP Loss denied and lost
+ No ACB to add it to inside a registered plan.
+ Partial repurchase: sold 500, bought back 300 $2,000 loss × 300/500 = $1,200 denied (added to the 300 shares' ACB); $800 allowed .
+ Avoid it Wait 31 days, buy a similar but not identical company or fund, or get exposure through a derivative.
+ Doesn't apply to Deemed dispositions on death, becoming or ceasing to be resident, change of use, option expiry, becoming or ceasing to be tax-exempt.
+ Attribution: who pays the tax? high 
+ Property given or lent to…
+ Spouse / common-law Income and capital gains attribute back.
+ Escape: sell at FMV and report the gain, or prescribed-rate loan ( 3% in Q4 2026, locked for the loan's life) with interest paid by Jan 30 every year. Miss once → attributes forever.
+ Child under 18 (or niece/nephew) Income attributes. Capital gains don't. 
+ Growth assets for minors, not interest payers.
+ Adult child Gift: no attribution.
+ Loan where main purpose is income splitting: income attributes.
+ Also Second-generation income (income on attributed income) is not attributed. No attribution on gifts to a spouse for their TFSA (until withdrawn and invested elsewhere) or FHSA . Spousal RRSPs use their own 3-year rule. Gift to a 17-year-old: income attributes, gains don't. Gift to an adult niece: nothing attributes.
+ Connected: Retirement: spousal RRSP 3-year rule Estate: trusts 
+ TOSI: tax on split income high 
+ Private-company dividends (and some gains, partnership and trust income) paid to family members are taxed at the top rate unless an exclusion applies.
+ Age of the family member receiving it
+ Under 18 Taxed at top rate ("kiddie tax"). Pay a reasonable salary for real work instead (T4, taxed at their own rates).
+ 18 – 24 Only a reasonable return on arm's-length capital , or the safe-harbour return = prescribed rate × capital they contributed (4% × $1,000 = $40).
+ 25+ Any exclusion below, or a reasonable amount given work done, property contributed, risks taken and amounts already paid.
+ Exclusion Test 
+ Excluded business (18+) Actively engaged on a regular, continuous, substantial basis: 20+ hours/week in the year or any 5 prior years 
+ Excluded shares (25+) Owns ≥ 10% of votes and value; not a professional corp; < 90% of the corp's income from services 
+ Owner spouse 65+ Once the business-owner spouse is 65, amounts to the other spouse are excluded (the recipient needn't be 65) 
+ Salary A reasonable salary is employment income, so an adult employee on salary isn't affected 
+ Trap It's the owner turning 65 that matters. The recipient spouse turning 65 changes nothing.
+ Connected: Estate: family trust Estate: freeze 
+ Stock options high 
+ Is the employer a CCPC (and you deal at arm's length)?
+ CCPC (arm's length) No tax at exercise. At sale : 50% × (FMV at exercise − strike) = employment income (deduction if held 2+ yrs or strike ≥ FMV at grant), plus 50% × (sale − FMV at exercise) = taxable capital gain. Gain may qualify for LCGE. Non-CCPC options exercised before 4 pm EST, March 4, 2010 used this same timing.
+ Public / non-CCPC At exercise : 50% × (FMV − strike) = employment income, if arm's length, strike ≥ FMV at grant, plain common shares. At sale: 50% × (sale − FMV at exercise) = taxable capital gain.
+ Xerex: strike $10, FMV at exercise $20, sold at $40, 1,000 shares 
+ Benefit ($20 − $10) × 1,000 $10,000 − 50% deduction ($5,000) Employment income inclusion $5,000 
+ Gain ($40 − $20) × 1,000 $20,000 Taxable capital gain (50%) $10,000 
+ Trap The benefit is employment income, not a capital gain. If the shares later fall below FMV at exercise, the capital loss can't offset the benefit.
+ $200,000 cap Options granted after June 30, 2021 by large non-CCPC employers: the 50% deduction covers only the first $200,000 of options (FMV at grant) vesting each year. CCPCs and employers with revenue ≤ $500M are exempt.
+ Donation and political credits
+ First $200 14% in 2026 notes say 15% 
+ Above $200 29% 
+ Portion above top bracket 33% (income > $258,482) notes use $221,708 
+ Claim up to 75% of net income; 100% in year of death and year before.
+ Carry forward 5 years . Pool both spouses' receipts on one return.
+ Donating listed securities: capital gain inclusion is zero (30% for AMT).
+ Where can a donation be claimed?
+ Situation Carry back Carry forward Limit 
+ Alive None 5 years 75% of net income each year 
+ Death, estate is a GRE (gift within 36 months) Terminal return or the year before, at 100% of NI 5 years at 75% Or the GRE's year of donation, or an earlier GRE year, at 75% 
+ Death, no GRE None 5 years at 75% 75% of the estate's own NI 
+ Federal political contribution credit (max $650)
+ 75% on first $400
+ 50% next $350
+ 33⅓% next $525
+ $0 $400 $750 $1,275 → $650 credit 
+ Either spouse can claim, but one receipt can't be split.
+ Alternative minimum tax recognise, then refer 
+ Start with regular taxable income, then adjust + 100% of capital gains (not 50%) · + 30% of gains eligible for LCGE · + 30% of gains on donated listed securities · + 100% of stock option benefit · add back "tainted" deductions: tax-shelter and LP losses, resource deductions, carrying charges, CCA rental losses, employee home relocation loan 
+ − exemption $181,440 (2026; = start of the 29% bracket) your working used $173,205 (2024) 
+ × 20.5% was 15% before 2024 
+ − only 50% of most non-refundable credits ( 80% of the donation credit)
+ Pay the higher of AMT or regular tax Excess AMT carries forward 7 years against regular tax; lost if there's never enough regular tax. AMT doesn't apply in the year of death. 
+ QSBC sale: $800,000 gain, no other income Regular tax $0 (LCGE). AMT: 30% × $800,000 = $240,000 − $181,440 = $58,560 × 20.5% = $12,005 (before credits), recoverable over 7 years.
+ Exam On the CFP, spot it (big capital gain, big options, large sheltered retiring allowance), tell the client, refer to a tax professional.
+ CRA's list of AMT triggers
+ Taxable capital gains CCA rental losses LP and tax-shelter losses Carrying charges Resource deductions Security option deduction Political credit Investment tax credit LSVCC credit Dividend tax credit 
+ Support payments
+ Is there a written agreement or court order?
+ No No tax effect either side.
+ Child support only Not deductible, not taxable (post-Apr 30, 1997 orders).
+ Spousal support Deductible to payer, taxable to recipient, only if all 4: written agreement or court order · periodic , not lump sum · an allowance the recipient can spend at their discretion · living apart. Combined with child support: the spousal amount must be stated separately or none of it counts.
+ Arrears Payments go to child support first until that year's child arrears are cleared. Enforcement (Ontario Family Responsibility Office): wage garnishment, bank and asset seizure, tax refund intercept, liens on property. Taxable support received counts as earned income for RRSP room.
+ Property division on breakdown: generally tax-neutral (spousal rollover); gains may arise on third-party sales.
+ Connected: Estate: family law 
+ TFSA
+ In 18+ with SIN (room starts at 18 even where majority is 19). Not deductible. No income needed, no age cap. No spousal TFSA (but you can gift funds, no attribution).
+ Out Tax-free, any time. Withdrawals re-added to room next January. At death: successor holder spouse keeps it sheltered; other beneficiaries get it tax-free (growth after death is taxable).
+ 2009–12 $5,000
+ 2013–14 $5,500
+ 2015 $10,000
+ 2016–18 $5,500
+ 2019–22 $6,000
+ 2023 $6,500
+ 2024–26 $7,000
+ Cumulative room if 18+ in 2009 and never contributed: $109,000 in 2026. Over-contribution: 1% per month.
+ Home office and automobile benefit
+ Expense Commissioned Salaried employee Self-employed 
+ Rent, utilities, repairs ✓ ✓ ✓ 
+ Home insurance, property tax ✓ ✗ ✓ 
+ Mortgage interest, CCA ✗ ✗ ✓ 
+ Must be the principal place of work, or used exclusively and regularly to meet clients. Can't create or increase a loss; unused amounts carry forward.
+ Employer car benefit = standby + operating − reimbursements
+ Standby = 2% × original cost × months available Leased: ⅔ × monthly lease (excluding insurance) × months available. Car salespeople 1.5%. 
+ > 50% business use and personal km ≤ 1,667 × months available?
+ Both yes Reduce standby × personal km 1,667 × months available (max 100%). The reduced charge replaces the full one.
+ Operating benefit may be ½ of standby (notify employer in writing by year-end).
+ Either no Full standby charge. Operating benefit = 34¢ /km personal (31¢ car sales), 2026.
+ Trap The reduction is personal km ÷ (1,667 × months available), not ÷ total km (a full year = 20,004). Both conditions are needed: 46% business use → no reduction at all. Reimburse all personal operating costs within 45 days of year-end → no operating benefit.
+ Car available 10 months, 8,000 personal km, > 50% business Reduction = 8,000 ÷ (10 × 1,667) = 48% → $4,266.67 standby × 48% = $2,048 . Same car at 46% business use: no reduction, e.g. $4,800 standby + $5,440 operating (34¢ × 16,000 km) = $10,240 .
+ 2026 automobile figures
+ 73¢ / 67¢ per km allowance (first 5,000 / after; +4¢ territories) 34¢ operating benefit (31¢ car sales) $39,000 CCA ceiling ($61,000 zero-emission) $1,100 /mo lease limit $350 /mo interest limit 
+ A reasonable per-km allowance isn't income, but then the employee can't deduct car expenses.
+ Small business high 
+ Sole prop Partnership Corporation 
+ Liability Unlimited General: unlimited, joint. Limited partner: capped at investment (no management role) Separate entity; directors can still be liable 
+ Tax Personal Share of profit taxed personally Corp files; SBD, LCGE, income splitting 
+ Continuity Ends with owner Partners carry on Survives shareholders 
+ Cost Lowest Low Highest setup and admin 
+ Partnership ACB = contributions + profits − losses − drawings Gain on sale = proceeds − ACB 
+ Can the shareholder use the LCGE ( $1,275,000 in 2026)? notes say $1.25M 
+ CCPC, active business mainly in Canada Not a personal services or specified investment business 
+ At sale: all or substantially all (90%+) of FMV in active assets This is the "small business corporation" test 
+ Prior 24 months: more than 50% in active assets, and owned only by you or a related person An asset > 50% used actively counts 100% 
+ QSBC share → LCGE available Watch AMT on the 30% add-back 
+ Small business deduction CCPC, active income in Canada, first $500,000 . Personal services and specified investment businesses excluded.
+ Capital dividend account Tracks tax-free amounts: non-taxable half of capital gains, life insurance proceeds (less ACB), capital dividends received. Paid out tax-free by election. Doesn't reduce share ACB.
+ Part IV / RDTOH Private corp pays refundable tax on portfolio dividends; refunded when it pays taxable dividends. Integration: no advantage to earning through a corp. Don't calculate.
+ Valuation DCF (PV of future cash flows) · multiple of earnings or sales · liquidation value (sum of saleable assets).
+ Buy-sell funded with life insurance
+ Criss-cross Each owner buys a policy on the others and buys the shares personally.
+ Corporate redemption Corp owns, pays for and is beneficiary of the policies; buys back the shares. Proceeds flow via CDA.
+ Three CCPC perks Small business deduction · better stock option treatment · LCGE.
+ Connected: Insurance: CDA credit mechanics Estate: freeze to crystallise LCGE 
+ Shelters, leverage and other credits
+ Flow-through shares Deduct the exploration expenses; ACB deemed zero , so the full sale price is a capital gain.
+ Borrowing to invest Interest deductible if reasonable expectation of income (non-registered investing; also a corp funding an IPP). Not deductible for RRSP, TFSA, FHSA or RESP loans.
+ Personal-use property Cost and proceeds deemed at least $1,000 ; losses denied (listed personal property losses only against LPP gains). Canoe bought $850, sold $1,700 → gain $700. Coins (LPP) bought $500, sold $850 → no gain.
+ Life policy surrender CSV − ACB is income , not a capital gain: $25,000 − $7,000 = $18,000 fully taxable.
+ Income trusts REITs, royalty/energy, business trusts. Tax advantage ended 2011.
+ RCA For executives and owners. 50% refundable tax on contributions and income.
+ Other credits and benefits to recognise
+ Program What it pays Watch 
+ Canada Workers Benefit Refundable. 2025 max $1,633 single / $2,813 family, + $843 disability supplement Phases out $26,855 → $37,742 single, $30,639 → $49,393 family (about 2% higher for 2026). Paid partly in advance 
+ Canada training credit $250/yr of room, $5,000 lifetime Ages 26–65, refundable, lesser of half the fees or your room 
+ Home accessibility (HATC) Up to $20,000 of expenses → $2,800 For someone 65+ or DTC-eligible (not 65+ only, as one answer key says) 
+ Multigenerational home renovation 15% refundable on up to $50,000 = $7,500 Building a secondary unit so a senior or a DTC-eligible adult can live with family 
+ Child disability benefit Up to $3,480/child, tax-free, paid with the CCB DTC-eligible child under 18; reduced once AFNI passes $82,847 (Jul 2026–Jun 2027) 
+ Disability tax credit $10,341 non-refundable The gateway: needed for the CDB, RDSP, Henson/QDT planning, HATC 
+ Investments
+ Mark reviewed 
+ Products from safest to riskiest, the formulas you must run, how each is taxed, risk and portfolio theory.
+ Product ladder Formula sheet Bonds & duration Funds & seg funds Annuities Options Taxation Risk Portfolio theory Strategies Regulation 
+ The product ladder
+ Money market: T-bills, commercial paper, BAs < 1 year, sold at a discount, mature at par. Emergency funds. 
+ GICs and term deposits GIC: usually locked to maturity, higher rate. Term deposit: redeemable, slightly lower rate. 
+ Government and MBS Crown agencies backed by Canada. NHA MBS pay monthly interest + principal. 
+ Bonds, then debentures Bond secured by assets; debenture only by issuer credit → riskier, higher yield. 
+ Convertibles and preferred shares Pref: fixed dividend, priority over common, usually no vote, price moves inversely with rates like bonds. 
+ Common shares, REITs Residual claim, voting, growth. Need a long horizon. Real estate adds low correlation. 
+ LSVCCs, derivatives LSVCC: 15% federal credit (+ provincial) on up to $5,000; hold 8 yrs or repay credits. Only for already-diversified investors. 
+ Exam Asset-mix questions: answer from each product's most basic feature (liquidity, safety, income, growth). Don't overthink.
+ Formula sheet calculate 
+ T-bill yield = Par − Price Price × 365 days to maturity × 100
+ Bond price N = years × 2 · I/Y = market rate ÷ 2 · PMT = coupon ÷ 2 · FV = 1,000 → PV Semi-annual unless told otherwise. Quote of 98 = $980. 
+ NAV = Fund assets − liabilities Units outstanding 
+ Offering price = NAV 1 − front load    Redemption = NAV × (1 − back load)
+ CAPM / SML E(R) = R f + β (R m − R f ) 4.5% + 1.1 × (6.7% − 4.5%) = 6.92%. Analyst estimate above the line → undervalued (buy). Below → overvalued. 
+ DDM price = D 1 r − g    P/E = payout ratio r − g D₁ is next year's dividend (D₀ × (1+g)). Dividend payers only. 
+ Macaulay D = Σ [ t × CF t ÷ (1+y) t ] Price    Modified D = Macaulay D 1 + y/n n = coupons per year. Modified duration drives the price estimate. 
+ % bond price change ≈ − modified duration × Δ yield Duration 8, rates +2.5% → about −20%. Convexity makes the real result better than this, either direction. 
+ Arithmetic mean = r₁ + r₂ + … + rₙ n    Geometric (TWR) = [(1+r₁)(1+r₂)…(1+rₙ)] 1/n − 1 3%, −9%, −1.4%, 2.25%, 2.4% → AM −0.55%, GM −0.66% . GM ≤ AM always. Multiply the (1 + r) terms, never the raw returns. 
+ DWR = IRR of every cash flow (CF keys) Moves with deposits and withdrawals: the client's experience. TWR ignores them: the manager's skill. 
+ After-tax = r × (1 − MTR)    Real ≈ nominal − inflation Exact: (1 + nominal) ÷ (1 + inflation) − 1. Use the real rate for income-replacement PVs. 
+ Annuity due first payment today → BGN mode = ordinary annuity × (1 + r). Leaving a legacy: put it in FV. Solving for r: trial and error or interpolation. 
+ Bonds: the seesaw and duration high 
+ yield → price 
+ convex curve 
+ Rates ↑ → prices ↓ 
+ Market rate > coupon → discount Market rate < coupon → premium 
+ Market rate = coupon → par 
+ Duration ↑ with longer maturity Duration ↑ with lower coupon 
+ You expect rates to…
+ Fall Buy long duration (long maturity, low coupon) for the biggest price gain.
+ Rise Shorten duration to lose the least.
+ Convexity Yield ↓ → price rises more than duration predicts. Yield ↑ → price falls less than duration predicts. Convexity always helps the holder.
+ Trap Reinvestment risk shows up when rates fall (coupons reinvested below YTM). Canada Savings Bonds were liquid but not marketable.
+ Mutual funds vs segregated funds high 
+ Open-end Unlimited units at NAV, priced end of day. Front, back or no load. MER = % of assets.
+ Closed-end / UIT Fixed units trade on an exchange at a premium or discount to NAV. UITs hold bonds and have a maturity.
+ Feature Seg fund Mutual fund 
+ Maturity guarantee (75–100%, after 10 yrs) ✓ ✗ 
+ Death benefit guarantee ✓ ✗ 
+ Bypasses probate with named beneficiary ✓ ✗ 
+ Creditor protection (preferred beneficiary) ✓ ✗ 
+ Capital losses flow through to investor ✓ ✗ 
+ Income allocated by time held (no phantom tax) ✓ ✗ 
+ Regulated by / offered with Insurance regulators, information folder Securities regulators, prospectus 
+ Backstop Assuris CIPF (dealer insolvency) 
+ Trap Creditor protection fails if bought in the year (or year before) bankruptcy to shelter assets. A seg fund is an annuity contract: investor owns no units, gets a T3. Seg fund distributions don't reduce NAV.
+ Annuities
+ Registered Term-to-90 or life (insurers only). Whole payment taxable. 
+ Non-registered Only the interest portion is taxable.
+ Non-registered: how is interest reported?
+ Prescribed Level taxable amount every year. Good if bracket stays flat or falls later.
+ Non-prescribed Interest front-loaded: higher taxable income early, lower later.
+ Options in one grid
+ Call Put 
+ Long (buyer, pays premium) Right to buy at strike. Bullish. Exercise if price > strike. Right to sell at strike. Bearish. Exercise if price < strike. On shares you own = portfolio insurance. 
+ Short (writer, gets premium) Obligation to sell . Covered call = income strategy (allowed in RRSP). Obligation to buy . 
+ One contract = 100 shares. Longer expiry = pricier. Futures/forwards: both sides committed (futures exchange-traded, forwards custom). Swaps: exchange fixed vs floating, or currencies. Low priority.
+ How each product is taxed high 
+ Income Treatment 
+ Interest (bonds, GICs, strips) 100% at marginal rate, annually even if not received 
+ T-bill discount Interest, not a capital gain 
+ Canadian dividends Gross-up and DTC 
+ Foreign (incl. U.S.) dividends Regular income, no gross-up or DTC (foreign tax credit for withholding) 
+ Capital gain 50% of (net proceeds − ACB). Commissions reduce proceeds and add to ACB. 
+ Reinvested fund distributions Taxed now, and added to ACB 
+ Trust distributions Keep their character : eligible dividends get the DTC, gains 50% 
+ Anything inside an RRSP / RRIF Loses its character : no DTC, no 50% inclusion. Every withdrawal is ordinary income 
+ Unrealized gains (appraisals, paper gains) Not taxed until sold 
+ Canadian dividends arrive on a T5 showing the cash, grossed-up amount and federal credit.
+ Seg fund Mutual fund trust Mutual fund corp 
+ Slip T3 T3 T5 
+ Income keeps its character Yes Yes Only dividends and capital-gains dividends 
+ Losses Flow to investor Stay in fund Stay in corp 
+ Allocation Time-weighted Holders on record date Holders on record date 
+ Vic's mutual fund Bought $10,000, reinvested $2,000 distribution, redeemed $15,000. ACB $12,000, gain $3,000, taxable $1,500. The $2,000 was already taxed as dividends.
+ Connected: Tax: dividend flow Tax: loss carry rules 
+ Risk: types and measures
+ Business firm-specific Market systematic, beta Interest rate duration Reinvestment rates fall Purchasing power inflation Liquidity sell fast at FMV Marketability can it be sold at all Political country premium Exchange rate 
+ Standard deviation = total risk Systematic + unsystematic. T-bills ≈ 0. Diversifying (other asset classes, sectors) removes only the unsystematic part.
+ Beta = systematic only Market = 1. < 1 defensive, > 1 aggressive. Can't be diversified away.
+ Time Longer horizon → stocks less risky; bonds more risky (inflation and rate uncertainty).
+ Risk tolerance Willingness to take risk (temperament).
+ Risk capacity Ability to take it. Falls near retirement even if tolerance is high; no debt raises it. Recommend a risk tolerance assessment.
+ Why does an index fund have lower SD than a single tech stock? Because diversification removed the unsystematic risk. Systematic risk is the same for everything.
+ Portfolio theory and market efficiency
+ inefficient 
+ efficient frontier 
+ risk (SD) → E(R) 
+ R f 
+ above: undervalued 
+ below: overvalued 
+ SML beta → 
+ −1 max benefit
+ 0
+ +1 no benefit
+ correlation lower = more risk reduction 
+ Markowitz: judge the portfolio, not each security. Efficient portfolios give the most return per unit of risk. Diversify across asset class, size, sector, geography, style, maturity, credit.
+ Efficient market hypothesis: prices reflect…
+ Weak All past prices. Technical analysis fails. Markets ≈ weak efficient.
+ Semi-strong + all public info. Fundamental analysis fails. Close, with anomalies (January, small-firm effects).
+ Strong + private info. Evidence says markets are not strong-form.
+ Behavioural finance: the 20 biases (+ mental accounting)
+ Conservatism slow to update Confirmation seek agreeing info Cognitive dissonance Hindsight "I knew it" Illusion of control Representativeness stereotype = forecast Anchoring stuck on a number Availability / recency Framing Self-attribution wins = skill Sunk cost Outcome judge by result Affinity buy what you identify with Disposition sell winners, hold losers Endowment overvalue what you own Loss aversion Overconfidence overtrading Regret aversion Self-control spend now Status quo do nothing Mental accounting money in buckets 
+ Prospect theory: more risk-seeking after losses, more cautious after gains. Sample-size neglect: big conclusions from little data.
+ P/E goes up when… P/E goes down when… 
+ Payout ratio ↑, dividend growth ↑ Required return ↑, interest rates ↑, inflation ↑ 
+ High P/E = growth style. Low P/E = value style.
+ Strategies and performance
+ Active Market timing (tactical), security selection, short sales (unlimited loss).
+ Passive Strategic asset allocation, indexing (EMH believers), buy and hold, maturity matching.
+ Formula Dollar-cost averaging (more units when cheap), DRIPs.
+ SWPs Fixed dollar (same amount), fixed period, ratio (% of balance), life expectancy.
+ Measuring return
+ Time-weighted Ignores cash flows. Judge the manager with this.
+ Dollar-weighted (IRR) Affected by deposits and withdrawals. The client's actual experience.
+ Regulation low priority 
+ Provincial regulators Coordinated by the CSA 
+ CIRO SRO since Jan 1, 2023 (IIROC + MFDA) 
+ CIPF Dealer insolvency, $1M per account category 
+ OBSI Free complaint resolution 
+ Portfolio manager = discretionary. Investment counsel = advice, no discretion. Mutual fund dealer = funds only.
+ Retirement
+ Mark reviewed 
+ Three pillars: government (OAS/GIS, CPP), employer (RPP, DPSP, IPP, PRPP) and personal (RRSP → RRIF). Then the calculations.
+ CPP OAS & GIS Pensions PA · PSPA · PAR RRSP room Spousal RRSP Retiring allowance RRIF & locked-in IPP · DPSP · PRPP · RCA RDSP · EFA 
+ CPP contributions high 
+ YBE
+ 5.95% each (EE + ER) · 11.9% self-employed
+ CPP2 4%
+ $0 $3,500 YMPE $74,600 $85,000 
+ 2026 max employee: base + first enhanced $4,230.45 (5.95% × $71,100) + CPP2 $416 (4% × $10,400). Self-employed pays both halves (CPP2 8%).
+ Layer Since Employee rate Earnings band Tax treatment 
+ Base CPP 1966 4.95% $3,500 – $74,600 Non-refundable credit (14%) 
+ First additional 2019 1.00% $3,500 – $74,600 Deduction 
+ CPP2 2024 4.00% $74,600 – $85,000 Deduction 
+ Contributory period 18 to 65 = 47 years. Drop the lowest 17% (about 8 years) → 39 years averaged. Child-rearing drop-out removes low years caring for a child under 7. Disability months are excluded too. Max pension replaces 25% of average earnings (base), rising toward 33.33% as the enhancement matures.
+ Who contributes 18 until pension starts, 70 or death. Earnings only (net business income if self-employed), not investment income. Exempt: casual/migratory, < $250 from one employer.
+ When to start
+ 60
+−36%
+ 65
+ 70
++42%
+ −0.6% per month before 65 +0.7% per month after 65 
+ Trap Adjustment is permanent (an early pension doesn't reset at 65). No gain from waiting past 70. Retroactive payments: 11 months + the month you apply (65+ only). Enhancement only helps people contributing in 2019 or later.
+ Couple wants to shift CPP income
+ Pension sharing Still together, both 60+, both receiving CPP (or one, if only one contributed). Share the portion earned while together. Total paid unchanged; saves tax. Must apply.
+ Credit splitting On divorce or separation. Credits earned during the relationship divided equally, even if one never contributed. Mandatory once either applies . Married: no time limit (within 36 months of an ex's death). Common-law: within 4 years of separating.
+ Three benefit families (2026 monthly maximums)
+ Benefit 2026 max Key rule 
+ ① Retirement $1,507.65 at 65 Taxable; indexed each January; paid anywhere in the world 
+ ① Post-retirement benefit $54.69 Working while collecting: under 65 must contribute, 65–70 can opt out 
+ ② Death benefit $2,500 lump sum Flat since 2019 (not 6 months of pension). Contributor needs 1/3 of the contributory period (min 3 yrs) or 10 calendar years 
+ ② Survivor's pension $803.54 under 65 · $904.59 at 65+ Spouse or common-law partner 
+ ② ③ Child's pension $307.81 each Orphan, or child of a disabled contributor: under 18, or 18–25 in school full-time 
+ ③ Disability $1,741.20 (flat part $610.46) Severe and prolonged; contributed 4 of last 6 years, or 3 of last 6 with 25+ years ; starts 4 months after; becomes retirement pension at 65 
+ OAS, GIS and the Allowance high 
+ Years of Canadian residence after age 18
+ < 10 No OAS (unless a social security agreement fills the gap)
+ 10 – 39 Partial: 1/40 per full year
+ 40+ Full pension
+ 20+ Can be paid outside Canada indefinitely (else stops 6 months after leaving)
+ Full OAS without 40 years On July 1, 1977 you were 25+ and lived in Canada that day (or had lived here after 18, or held a valid immigration visa), and you lived here the 10 years right before approval, or 3 years here (after 18) for each year missing from those 10, plus the last year before approval.
+ Leaving Canada 20+ years after 18 → OAS paid abroad indefinitely. Otherwise paid for the month you leave + 6 months. GIS and the Allowance stop after the month of departure + 6 months, whatever your history.
+ Clawback = 15% × (net income − threshold) 2026 income: threshold $95,323 , gone at $155,320 (65–74) / $161,320 (75+). 2025 income: $93,454, gone at $152,062 / $157,923. Pair the right numbers. Age 75+ gets 10% more OAS. 
+ Deferral Up to 5 yrs to age 70, +0.6%/month (max +36%). Must apply. Retroactive: 11 months + the month you apply.
+ Indexing Quarterly (Jan, Apr, Jul, Oct). Never reduced if CPI falls. Taxable.
+ GIS Allowance / Allowance for the survivor 
+ Who Low-income OAS recipients (needs OAS in pay; CPP not required) Ages 60–64: spouse of a GIS recipient, or a low-income widow(er) 
+ Taxable? No , but must be reported on the return 
+ Renewal Annual, via filing the tax return. Stops after 6 months abroad. 
+ Income test Prior year's income; payment year runs July–June. Counts pensions (CPP, RPP, RRIF, foreign), interest, dividends, rent, capital gains, EI, WCB, spousal support, employment. Excludes OAS and TFSA withdrawals. First $5,000 of employment/self-employment income exempt, then 50% of the next $10,000 (each person). 
+ Oct–Dec 2026 maximums (indexed quarterly, so ballpark)
+ Benefit Max / month Income under (prior year) 
+ OAS 65–74 · 75+ $762.50 · $838.75 Clawback above $95,323 
+ GIS, single $1,138.90 $23,112 
+ GIS, spouse gets full OAS $685.56 $30,528 combined 
+ GIS, spouse gets the Allowance $685.56 $42,768 combined 
+ GIS, spouse gets no OAS $1,138.90 $55,392 combined 
+ Allowance (spouse 60–64) $1,448.06 $42,768 combined 
+ Allowance for the survivor $1,726.18 $31,152 
+ your notes have Jan–Mar: OAS $742.31 / $816.54, GIS $1,123 
+ Trap GIS drops about 50¢ per $1 of other income, so RRSP/RRIF withdrawals after 65 can cost a low-income senior more than the tax. TFSA withdrawals don't count. CPP and OAS can start at different times.
+ Employer pensions: DB vs DC high 
+ Defined benefit Benefit known, contribution varies. Employer bears investment risk. Benefit = avg earnings × factor × years
+Max accrual 2% per year up to $3,932.22 per year of service (2026), reached at $3,932.22 ÷ 2% = $196,611 of earnings.
+ Defined contribution Contribution known, benefit unknown. Member bears risk. Total ≤ lesser of 18% or $35,390 
+Money purchase limit 2026. Employer contributions deductible to employer and not a taxable benefit.
+ Earliest unreduced age = age at joining + qualifying factor 2 John joined at 25, factor 85 → (25 + 85) ÷ 2 = 55 . 
+ Leaving the employer
+ Before vesting (~2 yrs) Refund of own contributions + interest
+ After vesting Deferred pension, transfer to new RPP, or commuted value to a LIRA / locked-in RRSP (locked until about 55). DC plans: transfer to a LIRA or leave it with the old plan.
+ Integrated plans reduce the pension at 65 to account for CPP. Death: spouse can roll the lump sum to own RPP/RRSP/RRIF tax-deferred; anyone else is taxed on it (T4A).
+ PA, PSPA and PAR
+ PA (DB) = 9 × benefit earned − $600 Never negative. Offset was $1,000 before 1997. 
+ PA (DC) = employer + employee contributions    PA (DPSP) = employer contributions
+ PA This year's pension saving. Cuts next year's RRSP room.
+ PSPA Past-service upgrade (post-1989). Cuts current year's room.
+ PAR Left before vesting; got less than PAs reported. Restores room.
+ RRSP contribution room calculate 
+ Lesser of 18% × last year's earned income, or $33,810 2026 dollar limit ($32,490 for 2025) 
+ − last year's PA
+ − this year's PSPA
+ + this year's PAR
+ = This year's new room 
+ + unused room carried forward (since 1991, forever)
+ = Deduction limit + $2,000 lifetime over-contribution buffer (beyond that 1%/month) 
+ Earned income includes Employment (before RPP), self-employment, active partner income, net rent, royalties, taxable support received, CPP disability, supplementary UI plans, employer-paid disability benefits, research grants. Less: salary or grant refunds.
+ Excludes Interest, dividends, capital gains, limited partner income, pensions, OAS/CPP retirement, retiring allowances and severance, RRSP/RRIF/DPSP income, scholarships, death benefits, federal EI.
+ Subtract : rental and business losses, deductible support paid.
+ Contribute until Dec 31 of the year you turn 71 (spousal: until the spouse turns 71). Deduction can be deferred to a higher-bracket year. Interest on RRSP loans is not deductible. No foreign content limit. DPSP money transferred to an RRSP, RRIF, RPP or another DPSP uses no RRSP room.
+ 2026 limits MP $35,390 DB $3,932.22 RRSP $33,810 DPSP $17,695 YMPE $74,600 YAMPE $85,000 
+ RRSP TFSA 
+ Going in Deductible now (needs earned income) No deduction 
+ Coming out Fully taxable; counts for OAS clawback and GIS Tax-free; no effect on OAS or GIS 
+ Room after withdrawal Gone Back next January 
+ Deadline Mature by end of the year you turn 71 None 
+ Compare them RRSP $5,000 + reinvest the refund in a TFSA; grow both; then net the RRSP of withdrawal tax. If tax rate in = tax rate out, they tie.
+ Lump-sum withdrawal Withholding (Quebec) 
+ $0 – $5,000 10% (5%) 
+ $5,001 – $15,000 20% (10%) 
+ Over $15,000 30% (15%) 
+ Qualified investments: cash, GICs, government and listed corporate bonds, listed shares (not OTC), ETFs, mutual funds, Canadian mortgages, certain small business shares, covered calls, bought puts and calls, gold and silver bullion.
+ Spousal RRSP three-year rule
+ Year 1 Contribution in any spousal plan (Tom: Dec 17, 2022)
+ Year 2 Withdrawal taxed to contributor
+ Year 3 Withdrawal taxed to contributor
+ Jan 1, year 4 Withdrawal taxed to the annuitant spouse (Tom: Jan 1, 2025)
+ Trap Count calendar years of the contribution, not the tax year it's deducted. A January 2023 contribution deducted on the 2022 return still starts the clock in 2023.
+ No attribution if: marriage breakdown and living apart, contributor dies, either spouse non-resident, funds go to an annuity. Converted to a RRIF: only amounts above the minimum attribute. Doesn't use the spouse's own room.
+ Retiring allowance rollover calculate 
+ Eligible = $2,000 × years before 1996 + $1,500 × years before 1989 with no vested pension/DPSP Part years count as full. Only to the employee's own RRSP or RPP (not spousal), within 60 days of year-end. On top of normal room. 
+ Danny: started 1983, no pension plan 
+ Termination pay + unused sick leave $42,500 1983–1995: 13 × $2,000 $26,000 1983–1988: 6 × $1,500 $9,000 Roll to RRSP $35,000 
+ Taxable: $7,500 excess + $1,500 vacation pay (vacation pay isn't a retiring allowance). Direct transfer = no withholding. Watch AMT on large rollovers.
+ RRIF minimums and locked-in plans calculate 
+ Age at January 1
+ Under 71 Min = FMV Jan 1 × 1 90 − age 
+ 71 and over Prescribed table:
+ 71: 5.28% 75: 5.82% 80: 6.82% 85: 8.51% 90: 11.92% 95+: 20% 
+ No minimum in the year the RRIF is opened. No maximum. Can elect a younger spouse's age to shrink the minimum. Donna, 69 on Jan 1, $674,000: 1/21 = 4.762% → $32,095 .
+ RPP commuted value 
+ LIRA / locked-in RRSP Accumulation. Access only for hardship or small balances. 
+ LIF / LRIF / life annuity LIF has a minimum (RRIF rules) and a provincial maximum. Can start as early as 55. 
+ Maturing an RRSP by the end of the year you turn 71: RRIF, annuity, or cash (fully taxable).
+ Connected: Estate: RRSP/RRIF at death Investments: annuities 
+ IPP, DPSP, PRPP, RCA
+ IPP DB plan for one owner/executive. Best fit: 40+, income over $100,000, already maxing RRSP. Far higher limits, past service back to 1991, all contributions and fees deductible to the corp, creditor-protected, can't be collapsed. Surplus belongs to the member.
+ DPSP Employer-only contributions, from profits. Max lesser of 18% or ½ MPP = $17,695 (2026). Vesting within 24 months. Not locked in; paid within 90 days of death, termination or age 71. Can't cover shareholders owning ≥ 10% or related persons.
+ PRPP Pooled DC plan across employers, open to self-employed. Auto-enrolment with opt-out. Uses RRSP room (no PA). Employer contributions not payroll-taxed. Immediately vested and locked in.
+ RCA Top-up for high earners. 50% refundable tax on contributions and earnings, refunded as benefits are paid. All distributions taxable (T4A-RCA).
+ Plan Employer contributions taxable to employee? Growth Payments 
+ RPP, DPSP No Sheltered Taxable 
+ Group RRSP Yes (employment income, with an offsetting deduction) Sheltered Taxable 
+ SPP (Saskatchewan Pension Plan) = treat like an RRSP.
+ RDSP and eligible funeral arrangements
+ RDSP Beneficiary must qualify for the DTC, have a SIN, be resident and under 60. Contributions not deductible, no annual limit, $200,000 lifetime, until end of year beneficiary turns 59. LDAPs must start by end of the year they turn 60. Only contributions come out tax-free; grants, bonds and growth taxed to beneficiary. One RDSP per beneficiary. Closes by Dec 31 of year after death.
+ EFA Prepaid funeral/cemetery via funeral home. Limits per person: $15,000 funeral, $20,000 cemetery, $35,000 both. Not deductible; growth sheltered. Used for services → tax-free. Refund taxed on the lesser of the amount received and the plan's accumulated income, to the contributor if alive, else the recipient. Custodian-to-custodian transfer tax-free. Guaranteed contract: funeral home takes the shortfall. Cemetery care trust income stays exempt even if the EFA stops qualifying.
+ CDSG needs contributions · max $3,500 /yr, $70,000 lifetime
+Family income ≤ $117,045: 300% on first $500 ($1,500) + 200% on next $1,000 ($2,000).
+Above: 100% on first $1,000.
+ CDSB no contribution needed · max $1,000 /yr, $20,000 lifetime
+Family income ≤ $38,237: full $1,000. Phases out to nil at $58,523.
+ Under 60 Open: DTC, SIN, resident
+ To 49 Last year grants and bonds are paid (10-yr carry-forward)
+ To 59 Last year for contributions
+ 60 LDAPs must start (annual maximum)
+ Trap Assistance holdback: any withdrawal means repaying grants and bonds received in the last 10 years ($3 per $1 withdrawn, up to the holdback). Plan holder for a minor: parent, guardian or public agency. RESP income can roll in.
+ Connected: Process: RESP → RDSP rollover 
+ Insurance
+ Mark reviewed 
+ How much, which kind, how it's taxed, then disability, health and property. The exam is written for a generalist: pick the most basic fit.
+ Life needs Term vs permanent Provisions & riders Policy tax Ownership transfers Corporate-owned Disability CPP-D · EI · WCB Group benefit tax Health Auto, home, business 
+ Life insurance needs analysis calculate 
+ ① Cash needs at death Final expenses, mortgage, debts, taxes, education fund, emergency fund 
+ +
+ ② Capital to fund survivors' income (Income needed − survivor's continuing after-tax income) → PV to an age (TVM) or ÷ rate for perpetuity 
+ −
+ ③ Resources available Existing life insurance, CPP death benefit $2,500, savings, investments, RRSPs. Not the home. 
+ = Additional insurance needed 
+ Bill (35): perpetuity method, 5% 
+ Loan $25,000 + mortgage $172,000 + funeral $15,000 $212,000 Sarah's need $1,800 × 12 ÷ 5% $432,000 − cash $5,000 − CPP death benefit $2,500 ($7,500) Insurance needed $636,500 
+ Annuity method: $46,000/yr top-up from 39 to 65 at 6% N = 26, I = 6, PMT = −46,000, FV = 0 → PV = $598,145. + cash needs $215,000 − resources $337,500 = $475,645 more, total $725,645.
+ Exam Discount income replacement at the real rate (4.2% − 2% = 2.2%). Subtract group cover (e.g. 3× salary), knowing it ends with the job. Temporary needs (a mortgage with 7 years left, education) → term matched to the need; compare total cost of term-10 vs term-20. Insure the lower-earning spouse too: lost income, funeral costs, and the survivor cutting back work for child care.
+ Which policy? high 
+ How long does the need last?
+ Temporary / tight budget Term
+ Young family, mortgage or business loan, changing needs (convert later, often only until 65), buy-sell at death only.
+ Lifetime Permanent (whole life)
+ Estate taxes, cottage kept in family, equalising heirs, legacy or charity, buy-out at retirement via cash value.
+ Lifetime + surplus cash Universal life
+ High earner who has maxed RRSP. Flexible premiums, tax-deferred investment account.
+ Term-to-100 Level premium, coverage to 100, usually no cash value or dividends. Acts like permanent.
+ Joint first-to-die Cheaper than two policies; survivor left uninsured. Joint last-to-die : pays at second death, suits estate taxes after a spousal rollover.
+ Group life Cheap, no medical, generic. Lost when you leave the job.
+ Charity as owner and beneficiary Premiums become donations each year.
+ Replacing a policy: check needs first, possible tax on the old policy, higher premiums at an older age.
+ Provisions and riders
+ 30 days Grace period, then lapse
+ 2 years Incontestable (misstatements, except fraud)
+ 2 years Suicide clause: premiums refunded only
+ 6 months Waiver of premium kicks in after disability
+ Non-forfeiture options Stop paying a policy with cash value → take cash, reduced paid-up, extended term, or automatic premium loan.
+ Misstatement of age Individual: benefit adjusted. Group: premium adjusted.
+ Conversion Attained age (cheaper now, pricier premium) or original age.
+ Insurable interest Owner needs one: spouse, child, partner, debtor.
+ Guaranteed insurability Accidental death COLA Family rider Family income (decreasing term) Spousal term (to 65) Child term (to 25, convertible) 
+ Beneficiaries: primary, then contingent (secondary), then tertiary. Reinstatement needs evidence of insurability + back premiums.
+ Taxing a policy high 
+ Exempt Death-benefit focus. Growth sheltered. Virtually all Canadian policies.
+ Non-exempt Investment focus. Accrual tax annually (post-1989).
+ ACB = premiums + loan interest paid + taxed gains − NCPI − dividends − loans Never negative. NCPI = mortality cost of the pure insurance, rises with age. 
+ Policy gain = proceeds − ACB 100% taxable as income , not a capital gain. No losses. 
+ Accessing $40,000 from CSV $60,000, ACB $12,000
+ Partial withdrawal ACB used = 40/60 × 12,000 = $8,000
+ Gain $32,000
+ New ACB $4,000
+ Policy loan Whole ACB used first: 40,000 − 12,000
+ Gain $28,000
+ New ACB $0. Repay later → deduct the $28,000 previously taxed.
+ Disposition Surrender, withdrawal, loan, maturity, annuitisation, absolute assignment, gift, sale.
+ Not a disposition Collateral assignment, lapse, disability or AD benefits, death benefit on an exempt policy.
+ Premiums not deductible except: charity owner-beneficiary, or collateral for a business/investment loan from a restricted lender (lesser of premium or NCPI, × loan ÷ death benefit). Death benefit tax-free. Cash policy dividends reduce ACB; use them to buy paid-up additions to avoid tax.
+ Changing the owner
+ Policy transferred to…
+ Spouse Rollover at ACB (life or death), both resident
+ Child who is the life insured Rollover at ACB (parent or grandparent to child/grandchild)
+ Any trust Taxable disposition, even a spousal trust
+ Own corporation Deemed proceeds = CSV. Tax on CSV − ACB.
+ Corp → employee or shareholder Corp taxed on gain; recipient taxed on FMV (can be near death benefit if in poor health). Dividend in kind lets shareholder use DTC.
+ Trap Naming a contingent owner does not avoid a taxable disposition at death unless that person qualifies for the rollover. Corp paying premiums on a policy owned by a shareholder = taxable benefit.
+ Corporate-owned life insurance and the CDA
+ Death benefit received by the corporation
+ Corp is owner and beneficiary CDA credit = death benefit − policy ACB (even if collaterally assigned)
+ Corp is beneficiary only CDA credit = full death benefit
+ Tax-free to corp 
+ CDA credit 
+ Capital dividend, elected tax-free to shareholders 
+ Partnership equivalent: partners' ACB bumped by death benefit − ACB. Trust-owned policy can roll to a beneficiary at ACB. Key person insurance protects the business from losing someone essential. Accidental death benefit also credits the CDA.
+ Connected: Tax: CDA, buy-sell Estate: life insurance uses 
+ Disability insurance high 
+ Can the insured work?
+ Not at all Total disability
+ Can't do main duties of own job, not working elsewhere, under a doctor's care. Full benefit.
+ Some duties, or ≤ 50% of the time Partial
+ Fixed benefit for a set period. Based on time .
+ Working, income down ≥ 20% Residual
+ Based on income lost.
+ Residual benefit = lost pre-tax income prior pre-tax income × total disability benefit
+ Own-occupation Surgeon who can't operate gets paid even if she could teach medicine. Any-occupation pays only if no suitable job by training and experience.
+ Cost levers Longer elimination period (30–365 days) → cheaper. Longer benefit period (to 65) → pricier. Riskier occupation class (1 professional → 5 labourer) → pricier. Max ≈ 66% of gross.
+ Master rule Premiums paid with after-tax dollars → benefits tax-free. Employer pays any part → benefits taxable (minus employee's own premiums).
+ John and Mary: surplus or deficit? 
+ John's taxable DI $4,000 − 38% tax $2,480 Mary $40,000 × (1 − 36%) ÷ 12 $2,133 − living expenses ($5,000) Deficit ($387) 
+Recommend more DI coverage.
+ Self-employed can only insure reported net income; business overhead insurance covers fixed business costs (rent, staff, utilities) regardless of net income. Presumptive disability: loss of sight, hearing, speech or two limbs.
+ Government income programs
+ CPP disability EI Workers' comp 
+ Eligibility Severe and prolonged; 4 of last 6 yrs contributing Insurable hours; job lost through no fault, sickness, parental Work-related injury; not owners/partners/directors unless they buy coverage 
+ Waiting 4 months 1 week notes say 2 weeks None 
+ Benefit Flat + earnings-related; child benefit 55% of insurable earnings up to $68,900 → max $729 /week (2026). Regular 14–45 weeks; sickness up to 26 ~90% of net wages to a provincial max; indexed 
+ Taxable? Yes Yes No (reported, then deducted) 
+ Second payer? Group DI and EI are reduced by CPP and WCB benefits. Individual DI usually isn't. 
+ Stacking disability income: who gets reduced?
+ Source Work-related Not work-related 
+ WCB Full n/a 
+ CPP disability Full Full 
+ Group LTD Reduced by WCB and CPP (and EI) Reduced by CPP (and EI) 
+ Individual DI Full Full 
+ EI maternity and parental
+ Maternity 15 wks · 55%
+ Standard parental 40 shared (max 35 each) · 55%
+ Mat. 15
+ Extended parental 69 shared (max 61 each) · 33%
+ Standard paid within 12 months of birth; extended within 18 months (extended ≈ $437/week max). Both parents must pick the same option. Max employee premium 2026: $1,123.07. Caregiving: 35 weeks for a critically ill child, 15 for an adult, 26 compassionate care. Self-employed can opt into special benefits (12-month wait). WCB permanent impairment: NELP lump sum; ELP monthly for lost earning capacity.
+ Group benefits: who pays tax?
+ Benefit Employer premium a taxable benefit? Benefit taxable when received? 
+ Group term life, AD&D Yes No 
+ Health and dental No (Quebec yes) No 
+ Critical illness Yes No 
+ Short/long-term disability No Yes, even if the employer paid only part (less employee's own cumulative premiums) 
+ Employee assistance plan No No 
+ Employer deducts all premiums. Employee-paid premiums: no deduction or credit (medical expense credit aside).
+ Health coverage
+ Canada Health Act, 5 principles: public administration, comprehensiveness, universality, portability (old province covers up to 3 months after a move), accessibility.
+ Not covered publicly Private rooms, private nursing, cosmetic surgery, court testimony. Out-of-country: emergencies only, limited. Buy travel coverage.
+ Private plans Basic 40–80%, extended 60–90% of costs. Critical illness: lump sum ~30 days after diagnosis of a listed condition. Long-term care: help with daily living.
+ Look in cases for coverage that ends at layoff or retirement.
+ Auto, home and business
+ Auto (mandatory) Third-party liability min $200,000 (carry $1M+), accident benefits. Valid in Canada and U.S., not Mexico. Ontario: no-fault. From July 1, 2026 only medical/rehab and attendant care benefits are mandatory; income replacement, caregiver, housekeeping, death and funeral, non-earner become optional. Direct compensation (DCPD) optional since 2024. notes predate the reform 
+ Auto (optional) Collision (hit something) · Comprehensive (fire, theft, vandalism, falling objects) · All perils (both + theft by household or hired driver) · Specified perils (only listed).
+ Home policy Building Contents 
+ Standard (basic) Named perils Named perils 
+ Broad All risks Named perils 
+ Comprehensive All risks All risks 
+ Actual cash value Replacement cost − depreciation (5-yr-old TV → ~$100).
+ Replacement value Cost of a new equivalent, no depreciation.
+ Personal liability follows you worldwide. Umbrella = excess liability over other policies. Tenants need contents and liability. Higher deductible → lower premium.
+ CGL third-party injury/damage Professional (E&O) advice Product liability Commercial property Cyber Commercial auto D&O A: personal assets · B: company reimbursement · C: securities claims (public) 
+ Business premiums are deductible. Home policies usually exclude business property and business liability.
+ Estate
+ Mark reviewed 
+ Where every other module ends up. Case questions ask you to judge the consequence of a client's estate choice, so learn the "why" behind each tool.
+ Choosing a tool The death map Wills & intestacy Joint ownership & gifts Trusts Estate freeze U.S. estate tax POA & incapacity Family law 
+ Choosing the tool case studies 
+ What does the client care about most?
+ Keeping control Trust (be the trustee) or holding co / freeze (voting prefs).
+ Simplicity, low cost Gift or joint tenancy . Control is lost immediately.
+ Avoiding probate Beneficiary designations (RRSP, RRIF, TFSA, insurance, seg funds), JTWROS, alter ego / joint partner trust.
+ Cutting death tax Spousal rollover, freeze, gifting over several years, life insurance to fund the bill, multiple final returns.
+ Protecting a vulnerable heir Testamentary trust, Henson trust, QDT.
+ Life insurance in the estate: pays the tax so the cottage or business stays in the family, equalises heirs (house to one, insurance to another), provides for children of a first marriage, funds buy-sell.
+ Process 1. Analyse assets (how held?) and beneficiaries (ages, capacity). 2. Set succession objectives (who, when, how much control, how much tax matters). 3. Implement with lawyer, accountant, planner, insurance.
+ The death map high 
+ At death, capital property is deemed sold at FMV and registered plans collapse into the terminal return, unless a rollover applies. Follow each asset:
+ Asset To spouse / spousal trust To anyone else Probate? 
+ Non-registered investments, cottage, rental, private shares Rollover at ACB (UCC for depreciable). Can elect FMV to use losses or a low bracket. Deemed disposition at FMV. Capital gains + recapture on terminal return. If it passes through the will 
+ RRSP / RRIF Tax-free transfer to spouse's plan. Full value taxed on terminal return. Exception: financially dependent child/grandchild under 18 (annuity to 18) or infirm child of any age. No, with a named beneficiary 
+ TFSA Successor holder: stays sheltered. FMV at death tax-free; growth after death taxable. No, with a named beneficiary 
+ RPP lump sum Roll to own RPP / RRSP / RRIF. Taxable to the recipient. Usually no 
+ Life insurance, seg funds Tax-free death benefit (exempt policy) to the named beneficiary; creditor-protected with a preferred beneficiary. No, with a named beneficiary 
+ Principal residence Gain sheltered using the PRE formula. If it passes through the will 
+ Joint tenancy asset Goes to the surviving joint tenant by right of survivorship. No 
+ Returns you can file
+ Terminal return Jan 1 to date of death. Mandatory. 
+ Rights or things Declared unpaid dividends, matured uncashed coupons, salary/commission/vacation pay owed for a period already ended, unpaid bonuses, CPP/OAS received after death 
+ Business Proprietor/partner: fiscal year-end to death 
+ Testamentary trust Trust fiscal year-end to death 
+ Why file extras Each optional return gets its own personal credits and low brackets. Donations: 100% of net income in year of death and prior year; GRE donations can be allocated back to the deceased's last two returns.
+ Three taxes at death (no estate tax in Canada)
+ 1 Income tax from deemed disposition + registered plans
+ 2 Provincial probate on assets passing through the will (Alberta and Quebec nominal; Quebec notarial wills need no probate)
+ 3 U.S. estate tax on U.S. situs assets
+ Ontario EAT = $15 per $1,000 over $50,000 Nothing on the first $50,000. Only debts on real property (mortgage, lien) reduce the value; LOCs, credit cards, loans, funeral and legal costs don't. No beneficiary on an RRSP, or "estate" named on insurance → probated and open to creditors. A testamentary spousal trust is created by the will, so its assets are probated first. 
+ Connected: Retirement: RRIF Tax: final return deadlines Insurance: CDA Tax: TFSA 
+ Wills and intestacy
+ Type How Watch 
+ Formal Typed, signed before 2 witnesses Witnesses (and their spouses) can't be beneficiaries 
+ Holograph Entirely handwritten and signed, no witness Valid in most provinces, ambiguity risk. Ontario needs: identify testator; revoke prior wills; appoint executor; pay debts and expenses; name beneficiaries. Plus residue, signature, date 
+ Notarial Quebec only, notary + 1 witness No probate needed 
+ Clauses: identify testator · revoke prior wills · appoint executor (and alternate) · pay debts and expenses · specific bequests · residue distribution. Also names a guardian for minors. Useful extras: discretionary encroachment (executor can release a minor's share early), investment discretion (otherwise limited to conservative investments), a tax-election clause. Executor fees up to ~5%. Trust company suits long-running trusts or family conflict.
+ Dies without a will (intestate)
+ Spouse, no children All to spouse
+ Spouse + 1 child Spouse's preferential share, rest split 50/50
+ Spouse + 2+ children Preferential share, then ⅓ spouse, ⅔ children
+ No spouse Children equally → parents → siblings → … → the Crown
+ Per capita A predeceased child's share goes to the living children .
+ Per stirpes A predeceased child's share goes to that child's own kids .
+ Trap Ontario: since Jan 1, 2022 , marriage no longer revokes a will, and a separated spouse is treated as if they'd died first. Older answer keys say "voided by marriage". Other provinces vary.
+ Trap Dependants' relief laws let a court rewrite a will that doesn't adequately provide for spouse and children, but only for estate assets, not assets already in an inter vivos trust. Creditors rank ahead of beneficiaries.
+ Joint ownership and gifts
+ JTWROS: why Instant transfer at death; skips probate, executor and legal fees and delays.
+ JTWROS: risks Loss of control; all owners must agree to sell land; exposed to each owner's creditors; possible tax on adding a joint owner; "convenience" accounts cause sibling litigation.
+ Trap Common disaster: if order of death is unknown, the younger is presumed to survive the older. Wills should cover this, or the older spouse's side may be cut out.
+ Tenancy in common : unequal shares allowed, no survivorship, passes through the will and probate.
+ Joint account with an adult child: pros Child can manage it; passes at death; skips probate.
+ Cons Exposed to the child's creditors (an ex-spouse included); other heirs shortchanged; family disputes.
+ Pre-death checklist
+ Beneficiaries on life insurance (+ contingent) RRSP/RRIF: spouse for the rollover TFSA: spouse as successor holder House as JTWROS POA for property Healthcare directive 
+ Valid gift needs intent + an act of delivery. Document it (deed of gift). Gifting before death spreads gains over lower-bracket years, shrinks the estate and probate, and lets the donor see the benefit. Gift of appreciated property = deemed disposition at FMV.
+ Connected: Process: 4 unities Tax: attribution on gifts 
+ Trusts high 
+ Settlor Transfers property. Deemed sale at FMV (taxable gain) unless a rollover trust. Can also be the trustee. 
+ Trustee Holds legal title, makes decisions (discretionary or not). The trust is a separate taxpayer. 
+ Beneficiaries Income beneficiary (life interest) · capital beneficiary (remainderman). Income paid out is taxed to them. 
+ Trap A beneficiary's ACB on assets distributed from a non-rollover trust = FMV when the asset went into the trust, not when it came out. Deemed disposition every 21 years.
+ Trust Created Tax Key point 
+ Testamentary By will Top rate since 2016 Minors held to 19+; spousal version 
+ GRE The estate Graduated rates up to 36 months Designate on first return, give deceased's SIN, only one GRE; off-calendar year-end stretches to 4 tax years 
+ QDT By will Graduated rates Beneficiary qualifies for DTC; elect jointly with the trust 
+ Spousal Will or inter vivos Rollover at ACB Only spouse gets income/capital in their lifetime; kids get remainder. Testamentary version goes through probate 
+ Alter ego Inter vivos, age 65+ Rollover in; retained income top rate; deemed disposition at death Settlor = trustee = beneficiary. Avoids probate, private, no 21-yr rule until death 
+ Henson Either Preferred beneficiary election if DTC Absolute discretion → doesn't count as the disabled person's asset, keeps provincial benefits 
+ Family trust Inter vivos Top rate on retained income Holds growth shares in a freeze; watch attribution and TOSI 
+ Inter vivos trusts are used before a second marriage to shelter assets for first-family children from family-law and dependants' relief claims.
+ Estate freeze high 
+ Parent owns growth shares of Opco
+ s.85 holdco freeze Roll common shares into a new holdco for fixed-value prefs. Needs a filed election (T2057).
+ s.86 internal freeze Swap common for fixed-value voting prefs inside the same corp. Automatic: no new company, no election form. ACB carries over to the new shares.
+ Parent's value frozen in preferred shares Voting prefs keep control. Tax at death capped at today's value: buy insurance for a known bill. 
+ New common shares issued for nominal value To children directly or to a family trust (parent as trustee keeps control) 
+ Future growth taxed to the next generation Deferred until they sell or die. Can crystallise the parent's LCGE and multiply it across family members. 
+ Why freeze Tax deferral Probate reduction Income splitting Creditor protection Multiply the LCGE 
+ Exam Choosing between holdco, trust or gift: the deciding issue is keeping control . In a written answer, use the client's and children's names and the frozen value (e.g. $200,000).
+ Connected: Tax: QSBC and LCGE 
+ U.S. estate tax for Canadians flag and refer 
+ Any U.S. situs property? U.S. real estate, U.S. company shares (even inside an RRSP or TFSA). Not Canadian mutual funds, ETFs or seg funds that hold U.S. stocks. 
+ U.S. assets over US$60,000? Must file Form 706-NA, even if no tax is owed (also gives heirs a stepped-up basis) 
+ Worldwide estate over the U.S. exemption? US$15M in 2026 (made permanent and indexed by 2025 U.S. law) notes use 2023: $12.92M 
+ Tax up to 40% on U.S. assets, less treaty credits 
+ Unified credit = greater of $13,000 or $5,945,800 × U.S. assets worldwide assets $5,945,800 = U.S. tax on $15M (2026). notes: $5,113,800 (2023) Marital credit (to spouse) = lesser of unified credit and tax left. Foreign tax credit federally only; provinces don't give one. 
+ US$1M Florida condo, US$20M worldwide estate Credit = $5,945,800 × 1/20 = $297,290. U.S. tax on $1M = $345,800 → $48,510 owing before the Canadian foreign tax credit.
+ Life insurance to pay it Sell U.S. assets before death Canadian holdco Canadian-listed U.S. funds Joint ownership (defers) Shrink estate below threshold 
+ Planning for incapacity
+ Power of attorney (property) Donor gives attorney power over finances. Immediate or springing on incapacity. Revocable while capable. Without one: costly court application, Public Trustee.
+ Living will Wishes on life support. Not legally binding.
+ Representative agreement Covers personal, health and financial decisions. For people with no trusted family.
+ Executor vs attorney Attorney acts while you're alive; authority ends at death. Executor acts after.
+ Family law weighs more than the blueprint suggests 
+ Separation Agreement needs independent legal advice + full disclosure
+ 1 year apart No-fault ground. Adultery or cruelty need proof
+ ≤ 90 days Can reconcile without resetting the clock
+ 31 days Judgment final, then Certificate of Divorce
+ Divorce (federal) Married anywhere; either spouse resident in the province 1 year. Common-law partners don't divorce; they use provincial law and have fewer rights.
+ Property (provincial) Home, pensions, RRSPs, CPP credits (split equally: married, no time limit; common-law, within 4 years), business assets in some provinces. Delay can forfeit rights.
+ Child support Best interests first. Federal guidelines (Divorce Act) for divorcing couples; provincial for common-law or separated-not-divorced. Total = table amount (payer income, number of kids, province) + special or extraordinary expenses (childcare, medical, education, extracurriculars) ± hardship. Since 2021 the Divorce Act says "decision-making responsibility" and "parenting time", not custody and access.
+ Spousal support No fault considered. Four goals: ① compensate contributions (funded the other's schooling) ② prevent hardship (quit work to raise kids, so little CPP) ③ the parent with the kids isn't disadvantaged (turned down a promotion) ④ self-sufficiency (is she employable?). Variable on material change.
+ Connected: Tax: support payments Retirement: CPP credit split Retirement: spousal RRSP exception 
+ Number wall
+ The last-hour sweep. Cover the big figure with your thumb, read the label, say the number.
+ Process
+ $60,000 HBP per person; repay 1/15 from yr 2 (yr 5 if 2022–25) 
+ 90 days RRSP deposit before HBP withdrawal 
+ $8k / $40k FHSA annual / lifetime; carry-forward max $8k 
+ 15 yrs or 71 FHSA must close 
+ $10k / $20k LLP per year / total; repay over 10 yrs 
+ $50,000 RESP lifetime; also AIP → RRSP cap 
+ 20% on $2,500 CESG = $500/yr, $7,200 lifetime; $5,000 catches up $1,000 
+ $58,523 / $117,045 A-CESG 20% / 10% income tiers 2026 
+ 31 / 35 yrs RESP contributions / must close (35 / 40 if disabled) 
+ $2,000 Canada Learning Bond lifetime ($500 + $100/yr to 15) 
+ $8,157 / $6,883 CCB max under 6 / 6–17 
+ +20% Extra tax on AIP not rolled to RRSP 
+ 32 / 40% GDS / TDS guidelines (CMHC 39 / 44) 
+ 3% Of consumer credit limit in TDS 
+ 5.25% or +2% Stress test, whichever higher 
+ $1.5M Insured mortgage price cap 
+ 5% / 10% / 20% Down: first $500k / to $1.5M / $1.5M+ 
+ 30 yrs Insured amortization, first-time or new build 
+ $100,000 CDIC per category 
+ $1M CIPF per group (general, retirement, RESP…) 
+ $1M · 90% Assuris death benefit (or 90% if higher) 
+ Tax
+ 14 / 20.5 / 26 / 29 / 33 2026 federal rates 
+ $58,523 Top of lowest bracket 2026 
+ $16,452 Basic personal amount 2026 
+ $9,208 Age amount (65+) 
+ $2,890 / 3% Medical threshold, lesser of 
+ $1,400 Home buyers' credit ($10k × 14%) 
+ 50% Capital gains inclusion (⅔ cancelled) 
+ $258,482 Top bracket starts 2026 
+ 38% · 15.02% Eligible gross-up · DTC 
+ 15% · 9.03% Non-eligible gross-up · DTC 
+ $1,275,000 LCGE 2026 (QSBC shares) 
+ $500,000 Small business deduction limit 
+ 3 back / ∞ Net capital losses 
+ 3 back / 20 Non-capital losses 
+ 50% · 10 yrs ABIL deductible · then net capital loss 
+ 30 days Superficial loss window each side 
+ Jan 30 · 3% Prescribed-loan interest deadline · rate Q4 2026 
+ 20 hrs / wk TOSI excluded business test 
+ 10% · 25+ TOSI excluded shares 
+ 20.5% AMT rate; 7-yr carry-forward 
+ $181,440 AMT exemption 2026 
+ 50% / 80% AMT credits allowed / donation credit 
+ 75% / 100% Donation limit / year of death 
+ $650 Max federal political credit 
+ $7,000 TFSA 2026; $109,000 cumulative 
+ 2% / month Standby charge on car cost 
+ 1,667 × months Personal km cap for reduced standby (20,004/yr) 
+ 34¢ / km Operating benefit 2026 (31¢ car sales) 
+ 73¢ / 67¢ Tax-free allowance: first 5,000 km / after 
+ $1,000 Personal-use property floor 
+ 45 days Reimburse operating costs after year-end 
+ $3,000 Tax owing that triggers instalments 
+ Investments
+ −D mod × Δy Bond price change 
+ GM ≤ AM Geometric = TWR; DWR = IRR 
+ NAV ÷ (1 − load) Offering price 
+ 75–100% Seg fund guarantee, 10-yr maturity 
+ β = 1 The market 
+ $5,000 · 8 yrs LSVCC credit cap · hold period 
+ 100 shares Per option contract 
+ Retirement
+ $3,500 YBE (frozen) 
+ $74,600 YMPE 2026 
+ $85,000 YAMPE 2026 (CPP2 4%) 
+ 5.95% / 11.9% CPP employee / self-employed 
+ −0.6% · +0.7% CPP per month early / late 
+ $1,507.65 CPP max retirement at 65 (2026) 
+ $1,741.20 CPP disability max 
+ $2,500 CPP death benefit (1/3 of period, min 3 yrs) 
+ 17% CPP general drop-out (47 → 39 yrs) 
+ 4 of 6 · 3 of 6 CPP disability years (3 of 6 if 25+ yrs) 
+ 4 yrs Common-law CPP credit split deadline 
+ $95,323 OAS clawback threshold, 2026 income (15%) 
+ $762.50 / $838.75 OAS max Oct–Dec 2026 (65–74 / 75+) 
+ $1,138.90 GIS single max (income < $23,112) 
+ July 1, 1977 OAS full-pension grandfather date 
+ +0.6% / month OAS deferral to 70 
+ 10 / 20 / 40 OAS years: minimum / paid abroad / full 
+ 11 + 1 Retroactivity: 11 months + month applied 
+ $33,810 RRSP limit 2026 (18% of earned) 
+ $2,000 RRSP over-contribution buffer 
+ $35,390 Money purchase limit 2026 
+ $17,695 DPSP max 2026 
+ $3,932.22 DB max benefit per year of service 
+ $196,611 Earnings to hit the DB max at 2% 
+ 9 × B − 600 DB pension adjustment 
+ $2,000 / $1,500 Retiring allowance pre-1996 / pre-1989 
+ 1 ÷ (90 − age) RRIF minimum under 71 
+ 5.28% RRIF factor at 71 
+ 3 calendar yrs Spousal RRSP attribution 
+ 10 / 20 / 30% RRSP withholding tiers 
+ $200,000 RDSP lifetime contributions 
+ $3,500 / $70k CDSG yearly / lifetime 
+ $1,000 / $20k CDSB yearly / lifetime 
+ 49 · 59 · 60 RDSP grants end · contributions end · LDAPs start 
+ 10 yrs RDSP assistance holdback 
+ $15k / $20k / $35k EFA funeral / cemetery / both 
+ Insurance
+ 2 years Incontestability and suicide clauses 
+ 30 days Grace period 
+ 6 months Waiver of premium trigger 
+ ~66% Max DI as % of gross 
+ 20% Income loss for residual disability 
+ 4 months CPP disability waiting period 
+ 1 week EI waiting period 
+ 55% · 14–45 wks EI benefit rate · duration 
+ $68,900 → $729 EI max insurable 2026 → weekly max 
+ 15 + 40 / 69 Maternity + standard / extended parental 
+ 12 / 18 months Standard / extended parental window 
+ $200,000 Minimum auto third-party liability 
+ Estate
+ 36 months GRE graduated rates 
+ 65+ Alter ego trust 
+ 21 years Trust deemed disposition 
+ 2 witnesses Formal will, not beneficiaries 
+ US$60,000 U.S. assets that trigger 706-NA 
+ US$15M U.S. estate exemption 2026 
+ $5,945,800 Full unified credit (× U.S. ÷ world) 
+ $15 / $1,000 Ontario EAT over $50,000 
+ Jan 1, 2022 Ontario: marriage stops revoking wills 
+ 40% Top U.S. estate tax rate 
+ 1 yr · 90 days · 31 days Separation · reconcile · judgment final 
+ Apr 30, 1997 Child support not taxable after 
+ What changed
+ Updated Oct 1, 2026 from your handwritten corrections, the practice-question rules, and a check of 2026 figures. Amber flags above still mark where your printed notes differ.
+ Outdated in the printed notes Lowest federal rate 15% → 14%
+ AMT exemption $173,205 → $181,440
+ LCGE $1.25M → $1,275,000
+ OAS clawback $93,454 → $95,323 (2026 income)
+ A-CESG tiers → $58,523 / $117,045
+ Insured mortgage cap $1M → $1.5M; CMHC 35/42 rule reversed
+ Assuris $200k → $1M death benefit
+ U.S. exemption $12.92M → US$15M
+ Standby reduction ÷ 20,004 → ÷ (1,667 × months)
+ ABIL 66⅔% / 75% → 50%
+ Ontario: marriage no longer revokes a will
+ EI 2 weeks → 1 week wait; RESP 36 → 35 years
+ New sections 2026 credits table (14%)
+ Superficial loss
+ TOSI
+ CPP benefit families and 2026 maximums
+ OAS residency rules and Oct–Dec 2026 GIS table
+ RDSP grants, bonds and holdback
+ Disability income stacking
+ Behavioural biases (20)
+ Other credits: CWB, training, HATC, MHRTC, CDB
+ Answer-key errors to ignore Thresholds labelled 2026 were 2025 figures
+ HATC: 65+ or DTC-eligible, not 65+ only
+ RESP → RDSP: only accumulated income rolls
+ RESP → RRSP: it's the AIP, not contributions
+ Home buyers' credit is $1,400, not $1,500
+ Indexed: recheck if your sitting is in 2027 OAS, GIS, Allowance (quarterly)
+ CPP maximums, YMPE, YAMPE
+ Brackets, BPA, credit amounts, AMT exemption
+ CLB, CDSB, CDB income limits (July)
+ Prescribed rate (quarterly)
+ Built from Brian Gordon's Exam Success notes (Financial Planning Process, Tax, Investments, Retirement, Insurance, Estate), with your handwritten corrections and practice-question rules. 2026 figures checked against CRA, ESDC, CIPF, CDIC and Assuris on Oct 1, 2026. Amber flags mark where the printed notes differ.
+ Dark 
+ 
