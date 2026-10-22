@@ -1,5 +1,15 @@
 # Vision: FP Concepts
 
+## Current vision: interactive illustrated consequences
+
+Make complex Canadian financial decisions understandable through expressive illustrations that people can operate: **one choice reveals its connected consequences across the scene**.
+
+The selected **Within reach** style uses bold colour, cut-paper shapes and recognisable, expressive subjects. A learner's action can reveal immediate cash effects, related taxes or costs, and future rights or benefits. Quantities give the visual story precision. The assistant researches the mechanism and invents the visual explanation; the owner should not need to supply the metaphors.
+
+Success means a learner can change a financial choice and explain what changed now, what changed later and why. The active guidance is [Visual direction](VISUAL-DIRECTION.md) and [Interaction principles](INTERACTION-PRINCIPLES.md).
+
+**Historical vision below:** the original machine-based proposal is retained as background. Its invented-machine, physical-metaphor and one-machine/one-idea constraints do not govern new work. The audience and goals of interactive education and shareable visual material remain relevant.
+
 ## The idea in one line
 Explain Canadian financial-planning concepts the way Colorfigures explains a toaster: as a colourful, hand-inked
 machine you can turn around, look inside and operate, except the machines are invented and **their mechanics are the

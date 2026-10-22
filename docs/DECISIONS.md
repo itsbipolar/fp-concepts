@@ -67,3 +67,7 @@ The owner chose the recommended cut-paper **Within reach** direction for active 
 
 **Within reach: first ownership interaction implemented.**
 Company, owner and one highlighted payment are separate layers. Movement reveals ownership groups; a deliberate dividend action transfers the highlighted payment to the owner. Personal-tax wording stays narrow and recognises the dividend tax credit. Repeated transfer, interrupted reset and conflicting input are guarded. Original alternative style frames remain intact. This implements the selected style but still awaits review of teaching effectiveness.
+
+
+**2026-10-22 — Style endorsed; one choice should reveal connected consequences.**
+The owner likes the Within reach visual design and drawing style. Future financial lessons should reveal multiple effects of an action, including quantities, related taxes or costs, and future benefits where relevant. Chart-led explanations remain rejected; numerical precision within the illustrated story is welcome. The assistant must research the consequences and originate their visual treatment, without relying on the owner to supply metaphors. Salary/dividend/CPP was an example of this ambition, not a prescribed bag design or a request for an immediate calculator. The active contract is `docs/INTERACTION-PRINCIPLES.md`. The current prototype and both alternative styles remain intact; visual endorsement is distinct from approval of a completed financial lesson.

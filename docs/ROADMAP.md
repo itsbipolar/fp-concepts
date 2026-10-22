@@ -6,7 +6,9 @@
 - [x] Package a GitHub-readable review and downloadable offline HTML.
 - [x] Owner selected **Within reach**; retain **The colossus** and **Separate bodies** for future use.
 - [x] Produce layered artwork and the first ownership interaction at `explorations/within-reach/`; browser and offline-package checks passed.
-- [ ] Owner reviews the interaction before expanding the lesson.
+- [x] Owner endorsed the visual design and drawing style of the ownership interaction.
+- [x] Record the next design requirement: one decision reveals several connected consequences, with quantities integrated into the illustration (`docs/INTERACTION-PRINCIPLES.md`). The assistant originates the visual explanations.
+- [ ] For the next lesson, research its causal effects and develop a coherent visual sequence spanning immediate and later outcomes where relevant. The salary/dividend/CPP example is illustrative, not a committed calculator specification.
 
 Earlier roadmap below is historical; the garden direction was rejected.
 

@@ -2,11 +2,15 @@
 
 ## Selected direction: Within reach
 
-The owner selected **Within reach**: expressive cut-paper illustration, recognisable stylised subjects, and behaviour that reveals financial relationships. The first ownership interaction is available for review at `explorations/within-reach/README.md`.
+The owner selected **Within reach** and endorsed its visual design and drawing style after reviewing the first ownership interaction: expressive cut-paper illustration, recognisable stylised subjects, and behaviour that reveals financial relationships. The current prototype is at `explorations/within-reach/README.md`.
 
 Keep **The colossus** (woodcut) and **Separate bodies** (sculpture) intact in `explorations/style-frames/` for possible later use. They were not rejected.
 
-The garden, numerical charts, overlapping amounts, literal streetscapes, and ungrounded abstract studies were rejected. An audited, pinned Anthropic frontend-design skill is installed in `.agents/skills/`. The style selection does not yet approve a completed lesson. The material below records the earlier proposal.
+The garden, chart-led explanations, overlapping amounts, literal streetscapes, and ungrounded abstract studies were rejected. Quantification is welcome when it explains the illustrated consequences. An audited, pinned Anthropic frontend-design skill is installed in `.agents/skills/`. Visual approval does not approve a completed financial lesson.
+
+**One decision, several connected consequences** is the interaction direction. A click can change immediate cash, related taxes or costs, and future rights or benefits within the same scene. Reveal those effects in a readable sequence and preserve the result for comparison. The assistant owns the research and invention of these visual explanations. See [Interaction principles](INTERACTION-PRINCIPLES.md) for the active design contract. The salary/dividend/CPP example illustrates this ambition; it is not a prescribed money-bag treatment or a calculator task.
+
+The material below records the earlier proposal. Its one-scene/one-idea and physical-analogy constraints do not govern new work.
 
 
 **Historical proposal (2026-10-22):** the everyday-analogy direction below preceded the rejected garden prototype. It is retained as background, not the active direction.

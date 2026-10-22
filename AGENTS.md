@@ -4,9 +4,11 @@ This repository explores visual, interactive education for Canadian financial pl
 
 ## Current work
 
-**Selected direction: Within reach.** The owner chose its cut-paper style and expressive character for the first ownership interaction. Active work: `explorations/within-reach/README.md`. The style-frame archive remains at `explorations/style-frames/README.md`; keep **The colossus** and **Separate bodies** intact as alternatives for future use. Selection of the visual style does not imply approval of a finished lesson.
+**Selected direction: Within reach.** The owner endorsed its visual design and drawing style after reviewing the first ownership interaction. Active work: `explorations/within-reach/README.md`. The style-frame archive remains at `explorations/style-frames/README.md`; keep **The colossus** and **Separate bodies** intact as alternatives for future use. Visual approval does not imply approval of a finished financial lesson.
 
-The owner has rejected numerical charts, the garden analogy, money-only typography, a literal miniature streetscape, and ungrounded abstract visual studies. Use recognisable, stylised subjects with personality; show financial relationships through behaviour. Do not assume the older Colorfigures or physical-machine requirements apply to new independent explorations.
+The owner has rejected chart-led explanations, the garden analogy, money-only typography, a literal miniature streetscape, and ungrounded abstract visual studies. Use recognisable, stylised subjects with personality; show financial relationships through behaviour. Quantification is welcome when it explains what changes in the illustration. Do not assume the older Colorfigures or physical-machine requirements apply to new independent explorations.
+
+**One decision, several connected consequences.** Read `docs/INTERACTION-PRINCIPLES.md` before designing a financial lesson. An action can reveal immediate cash effects, related tax/cost changes, and later rights or benefits in the same scene. The assistant is responsible for researching these effects and inventing their visual treatment; do not ask the owner to supply metaphors. The salary/dividend/CPP example explains this ambition; it is not a prescribed visual or a request to implement a calculator.
 
 ## Design guidance
 
