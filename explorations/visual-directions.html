@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visual directions</title>
+<style>
+  :root{--paper:#f2efe7;--ink:#231e16;--muted:#857d6e;--rule:#ddd6c8;--blue:#7fb3d5;--orange:#e0662a;--gold:#e9b949;--grey:#bdb6a8;--green:#7cc9a0}
+  *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;padding:24px 16px 40px}
+  .wrap{max-width:1180px;margin:0 auto}
+  h1{font-size:15px;margin:0 0 4px;letter-spacing:.02em} .sub{color:var(--muted);margin:0 0 18px;max-width:780px}
+  .ctl{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;padding:12px 14px;border:1.5px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);background:#f7f4ec;margin-bottom:20px}
+  .ctl label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  input[type=range]{width:260px;accent-color:var(--ink)}
+  .seg{display:flex;gap:6px} .seg button{font:inherit;border:1.5px solid var(--ink);background:var(--paper);border-radius:999px;padding:4px 12px;cursor:pointer}
+  .seg button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+  .amt{font-weight:800;font-size:16px;min-width:80px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media (max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{border-top:1.5px solid var(--ink);padding-top:10px}
+  .card h2{font-size:13px;margin:0;letter-spacing:.04em} .card h2 b{display:inline-block;width:22px;height:22px;line-height:20px;text-align:center;border:1.5px solid var(--ink);border-radius:50%;margin-right:8px;background:#fff4d6}
+  .card p{margin:4px 0 6px;color:var(--muted);font-size:12px}
+  svg{width:100%;height:auto;display:block}
+  .note{margin-top:26px;color:var(--muted);font-size:11px;max-width:860px}
+</style></head><body><div class="wrap">
+<h1>Visual directions: one rule, four ways to draw it</h1>
+<p class="sub">The rule: above $95,323 of net income (2026), 15 cents of OAS goes back for every dollar, until it is gone at
+$155,320. TFSA withdrawals don't count as income. Same retiree as Fig. 01 (net income $91,600 before any extra
+withdrawal). Move the slider and switch the source: all four sketches update together.</p>
+
+<div class="ctl">
+  <div><label>Extra cash needed</label><br><input id="amt" type="range" min="0" max="80000" step="5000" value="30000"> <span class="amt" id="amtv"></span></div>
+  <div><label>Take it from</label><div class="seg"><button id="sR" aria-pressed="true">RRIF</button><button id="sT" aria-pressed="false">TFSA</button></div></div>
+  <div><label>Result</label><br><span id="res"></span></div>
+</div>
+
+<div class="grid">
+  <div class="card"><h2><b>A</b>The line</h2><p>Income as a length on a ruler; the threshold is a mark; what's past it is shaded. OAS is a row of 18 tiles that grey out.</p><svg id="A" viewBox="0 0 560 300"></svg></div>
+  <div class="card"><h2><b>B</b>Every dot is $1,000</h2><p>A unit grid you can count. Dots past the line turn orange; about every 7 orange dots cost one gold OAS dot.</p><svg id="B" viewBox="0 0 560 300"></svg></div>
+  <div class="card"><h2><b>C</b>The shape of the rule</h2><p>The rule drawn as its own shape: flat, a bend at $95,323, a slope down to zero. You are the dot riding it.</p><svg id="C" viewBox="0 0 560 300"></svg></div>
+  <div class="card"><h2><b>D</b>Two doors</h2><p>No diagram at all: the same money through two doors, side by side, with the numbers doing the work.</p><svg id="D" viewBox="0 0 560 300"></svg></div>
+</div>
+<p class="note">Sketches for choosing a direction, not finished figures. Simplified: federal OAS recovery tax, ages 65-74, 2026 income, OAS about $9,000 a year; income tax on withdrawals not shown. Educational illustration, not advice.</p>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><filter id="hand" x="-3%" y="-3%" width="106%" height="106%">
+  <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4" result="w"/>
+  <feDisplacementMap in="SourceGraphic" in2="w" scale="2.6" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+
+<script>
+// same numbers as Fig. 01 (FP_FACTS 2026, v0 source)
+const TH = 95323, RATE = .15, GONE = 155320, OAS = (GONE - TH) * RATE;          // OAS $8,999.55
+const BASE = OAS + 15000 + 40000 + 20000 * 1.38;                                 // $91,599.55
+const SRC = [ ['OAS', OAS, '#e9b949'], ['CPP', 15000, '#8ec3ea'], ['RRIF MIN', 40000, '#f59a5a'], ['DIVIDENDS', 27600, '#7cc9a0'] ];
+const INK = '#231e16', OR = '#e0662a', GREY = '#bdb6a8', GOLD = '#e9b949';
+const $ = v => '$' + Math.round(v).toLocaleString('en-CA');
+const claw = net => Math.min(OAS, Math.max(0, net - TH) * RATE);
+let amt = 30000, src = 'R';
+const t = (x, y, s, o = {}) => `<text x="${x}" y="${y}" font-size="${o.size || 11}" font-weight="${o.w || 700}" fill="${o.fill || INK}" text-anchor="${o.a || 'start'}" font-family="ui-monospace,Menlo,monospace">${s}</text>`;
+const wob = s => `<g filter="url(#hand)">${s}</g>`;
+
+function drawA(net, c){
+  const x0 = 30, x1 = 530, max = 180000, X = v => x0 + (x1 - x0) * v / max;
+  let s = '', acc = 0;
+  for (const [k, v, col] of SRC){ s += `<rect x="${X(acc)}" y="70" width="${X(acc + v) - X(acc)}" height="34" fill="${col}" stroke="${INK}" stroke-width="1.2"/>`; acc += v; }
+  const extra = net - BASE;
+  if (extra > 0) s += `<rect x="${X(acc)}" y="70" width="${X(net) - X(acc)}" height="34" fill="#f9c9a4" stroke="${INK}" stroke-width="1.2"/>`;
+  if (net > TH) s += `<rect x="${X(TH)}" y="70" width="${X(net) - X(TH)}" height="34" fill="url(#hatch)" stroke="${OR}" stroke-width="2"/>`;
+  // ruler
+  s += `<path d="M${x0} 118H${x1}" stroke="${INK}" stroke-width="1.4"/>`;
+  for (let v = 0; v <= max; v += 20000) s += `<path d="M${X(v)} 114V122" stroke="${INK}"/>` + t(X(v), 136, v ? (v / 1000) + 'k' : '0', { a: 'middle', size: 9, w: 500, fill: '#857d6e' });
+  s += `<path d="M${X(TH)} 46V128" stroke="${OR}" stroke-width="2.4" stroke-dasharray="5 4"/>` + t(X(TH), 40, '$95,323', { a: 'middle', fill: OR });
+  s += t(x0, 60, 'NET INCOME ' + $(net), { size: 11 });
+  if (net > TH) s += t(X(TH) + 6, 156, 'OVER THE LINE ' + $(net - TH), { fill: OR });
+  // OAS tiles
+  const n = 18, lost = Math.round(c / 500), w = 24;
+  s += t(x0, 176, 'OAS: 18 TILES OF $500', { size: 10, fill: '#857d6e' });
+  for (let i = 0; i < n; i++){ const gone = i >= n - lost;
+    s += `<rect x="${x0 + i * (w + 4)}" y="186" width="${w}" height="${w}" rx="4" fill="${gone ? GREY : GOLD}" stroke="${INK}" stroke-width="1.2"/>`;
+    if (gone) s += `<path d="M${x0 + i * (w + 4) + 5} ${191}L${x0 + i * (w + 4) + w - 5} ${186 + w - 5}" stroke="${INK}" stroke-width="1.2"/>`; }
+  s += t(x0, 240, 'CLAWED BACK ' + $(c), { size: 13, fill: c ? OR : INK }) + t(x0, 258, '15 CENTS FOR EVERY DOLLAR PAST THE LINE', { size: 9.5, w: 500, fill: '#857d6e' });
+  return `<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" stroke="${OR}" stroke-width="2"/></pattern></defs>` + wob(s);
+}
+function drawB(net, c){
+  let s = ''; const cols = 20, r = 7.2, gx = 22, gy = 22, ox = 26, oy = 40, n = Math.round(net / 1000);
+  for (let i = 0; i < 180; i++){ const cx = ox + (i % cols) * gx, cy = oy + Math.floor(i / cols) * gy, on = i < n, over = i >= 95 && on;
+    s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${on ? (over ? OR : '#7fb3d5') : 'none'}" stroke="${on ? INK : '#d4ccbc'}" stroke-width="${on ? 1.1 : .8}"/>`; }
+  // threshold marker after dot 95
+  const mx = ox + (95 % cols) * gx - gx / 2, my = oy + Math.floor(95 / cols) * gy;
+  s += `<path d="M${mx} ${my - 12}V${my + 12}" stroke="${OR}" stroke-width="2.6"/>`;
+  s += t(26, 20, 'YOUR INCOME: ' + n + ' DOTS', { size: 11 }) + t(470, 20, 'LINE AFTER DOT 95', { a: 'end', size: 10, fill: OR });
+  // OAS gold dots
+  const gdots = 9, lost = Math.round(c / 1000);
+  s += t(26, 250, 'OAS: 9 GOLD DOTS', { size: 10, fill: '#857d6e' });
+  for (let i = 0; i < gdots; i++){ const cx = 160 + i * 26;
+    s += `<circle cx="${cx}" cy="270" r="9" fill="${i >= gdots - lost ? GREY : GOLD}" stroke="${INK}" stroke-width="1.2"/>`; }
+  s += t(410, 266, 'LOST ' + $(c), { size: 12, fill: c ? OR : INK }) + t(410, 282, '1 GOLD PER ~7 ORANGE', { size: 9, w: 500, fill: '#857d6e' });
+  return wob(s);
+}
+function drawC(net, c, cash){
+  const x0 = 60, x1 = 530, y0 = 240, y1 = 50, lo = 60000, hi = 180000;
+  const X = v => x0 + (x1 - x0) * (v - lo) / (hi - lo), Y = v => y0 - (y0 - y1) * v / OAS;
+  let s = `<path d="M${x0} ${y0}H${x1}M${x0} ${y0}V${y1 - 10}" stroke="${INK}" stroke-width="1.3"/>`;
+  for (let v = 60000; v <= hi; v += 20000) s += t(X(v), y0 + 16, (v / 1000) + 'k', { a: 'middle', size: 9, w: 500, fill: '#857d6e' });
+  s += t(x0 - 8, Y(OAS) + 4, '$9k', { a: 'end', size: 9, w: 500, fill: '#857d6e' }) + t(x0 - 8, y0 + 4, '$0', { a: 'end', size: 9, w: 500, fill: '#857d6e' });
+  s += t(x0, y1 - 18, 'OAS YOU KEEP', { size: 10, fill: '#857d6e' }) + t(x1, y0 + 34, 'NET INCOME', { a: 'end', size: 10, fill: '#857d6e' });
+  s += `<path d="M${X(lo)} ${Y(OAS)}L${X(TH)} ${Y(OAS)}L${X(GONE)} ${Y(0)}L${X(hi)} ${Y(0)}" fill="none" stroke="${INK}" stroke-width="3.2" stroke-linejoin="round"/>`;
+  s += `<path d="M${X(TH)} ${Y(OAS)}L${X(GONE)} ${Y(0)}L${X(TH)} ${Y(0)}Z" fill="${OR}" opacity=".14"/>`;
+  s += t(X(TH) + 6, Y(OAS) - 10, 'BENDS AT $95,323', { size: 9.5, fill: OR }) + t(X(GONE) + 6, Y(0) - 10, 'GONE AT $155,320', { size: 9.5, fill: OR });
+  s += t((X(TH) + X(GONE)) / 2 + 18, (Y(OAS) + Y(0)) / 2 + 2, '-15%', { size: 12, fill: OR });
+  const px = X(Math.min(hi, net)), py = Y(OAS - c);
+  s += `<path d="M${px} ${py}V${y0}" stroke="${INK}" stroke-dasharray="3 3"/><circle cx="${px}" cy="${py}" r="9" fill="${GOLD}" stroke="${INK}" stroke-width="2"/>`;
+  s += t(px + (net < TH + 8000 ? -14 : 13), py + (net < TH + 8000 ? 28 : -10), 'YOU', { size: 11, a: net < TH + 8000 ? 'end' : 'start' });
+  if (src === 'T' && cash > 0) s += t(x0 + 12, Y(OAS) + 70, 'TFSA: +' + $(cash) + ' CASH,', { size: 9.5, fill: '#2f7d5b' }) + t(x0 + 12, Y(OAS) + 84, 'THE DOT DOESN\'T MOVE', { size: 9.5, fill: '#2f7d5b' });
+  return wob(s);
+}
+function drawD(){
+  const a = amt, nR = BASE + a, cR = claw(nR), nT = BASE, cT = claw(nT);
+  const door = (x, title, inc, cl, on) => {
+    let s = `<rect x="${x}" y="30" width="235" height="240" rx="14" fill="${on ? '#fff4d6' : 'none'}" stroke="${INK}" stroke-width="${on ? 2.4 : 1.4}"/>`;
+    s += t(x + 18, 58, title, { size: 13 });
+    s += t(x + 18, 96, 'CASH IN HAND', { size: 9, fill: '#857d6e' }) + t(x + 18, 120, '+' + $(a), { size: 22, w: 800 });
+    s += t(x + 18, 152, 'COUNTED AS INCOME', { size: 9, fill: '#857d6e' }) + t(x + 18, 176, '+' + $(inc), { size: 22, w: 800 });
+    s += t(x + 18, 208, 'OAS CLAWED BACK', { size: 9, fill: '#857d6e' }) + t(x + 18, 236, $(cl), { size: 26, w: 800, fill: cl ? OR : '#2f7d5b' });
+    return s; };
+  return wob(door(20, 'FROM THE RRIF', a, cR, src === 'R') + door(305, 'FROM THE TFSA', 0, cT, src === 'T')
+    + t(280, 290, 'SAME MONEY. DIFFERENT DOOR.', { a: 'middle', size: 11 }));
+}
+function render(){
+  const net = src === 'R' ? BASE + amt : BASE, c = claw(net);
+  document.getElementById('amtv').textContent = $(amt);
+  document.getElementById('res').innerHTML = `net income <b>${$(net)}</b> &middot; OAS clawback <b style="color:${c ? OR : INK}">${$(c)}</b>`;
+  document.getElementById('A').innerHTML = drawA(net, c);
+  document.getElementById('B').innerHTML = drawB(net, c);
+  document.getElementById('C').innerHTML = drawC(net, c, amt);
+  document.getElementById('D').innerHTML = drawD();
+}
+document.getElementById('amt').oninput = e => { amt = +e.target.value; render(); };
+const sR = document.getElementById('sR'), sT = document.getElementById('sT');
+sR.onclick = () => { src = 'R'; sR.setAttribute('aria-pressed', true); sT.setAttribute('aria-pressed', false); render(); };
+sT.onclick = () => { src = 'T'; sT.setAttribute('aria-pressed', true); sR.setAttribute('aria-pressed', false); render(); };
+render();
+</script></body></html>
