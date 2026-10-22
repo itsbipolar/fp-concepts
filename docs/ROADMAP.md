@@ -1,5 +1,15 @@
 # Roadmap
 
+## Current art-direction review
+- [x] Research and install a pinned external frontend-design skill for Codex.
+- [x] Create three distinct company/owner/money style frames.
+- [x] Package a GitHub-readable review and downloadable offline HTML.
+- [ ] Owner selects or redirects a visual language.
+- [ ] Produce layered artwork and a meaningful teaching interaction for that direction.
+
+Earlier roadmap below is historical; the garden direction was rejected.
+
+
 ## v0: foundation (2026-10-22) — done
 - [x] Studied Colorfigures (engine, drawing contract, the three examples) and the v0 CFP crash notes.
 - [x] Project skill `.claude/skills/fp-figures/` (rule -> machine layer on the unmodified engine).

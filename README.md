@@ -1,5 +1,8 @@
 # fp-concepts
 
+**Current review:** [Three visual style frames](explorations/style-frames/README.md) — woodcut, sculpture and cut-paper treatments of company ownership. [Download the offline review](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip). The original concept-machine approach below is retained as project history; new experiments are free to use other visual languages.
+
+
 **Concept machines for Canadian financial planning.** Colourful, hand-inked isometric contraptions you can turn
 around, look inside and operate, whose moving parts follow a real planning rule: the OAS clawback as a weir that
 skims 15% of everything spilling over $95,323, an estate freeze as a block of ice with new shares sprouting from it,

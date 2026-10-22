@@ -1,5 +1,8 @@
 # FP Concepts: project memory
 
+**Current direction:** read `AGENTS.md` and `explorations/style-frames/README.md` first. The owner rejected the later literal and numerical explorations; the active scope is three still style frames using distinct illustration languages. Older machine/Colorfigures constraints below apply to legacy figures, not independent explorations.
+
+
 **What this is:** interactive, hand-inked isometric "concept machines" that explain Canadian financial-planning
 concepts (tax, retirement, estate, insurance, investments) to high-net-worth clients, for education and marketing.
 Built on the Colorfigures engine (MIT). The machines are invented; **their mechanics are the rules**.

@@ -55,3 +55,7 @@ Plain sentences, "you", dollars, the real term once, no invented units; every la
 **D-013 (2026-10-22) A one-sentence story line under the scene.**
 A second, deliberate exception to "no text on the page" (after the disclaimer, D-005): a plain sentence that changes
 with each step (`fpStory`), because a 9th grader needs the "why" in words, not only in pictures.
+
+
+**2026-10-22 — Review still art direction before another lesson.**
+The owner rejected garden translation, numerical displays, overly literal streetscapes, and disconnected abstract studies. The agreed approach uses recognisable stylised subjects whose eventual behaviour will teach the relationship. Three static company/owner/money frames now test woodcut, sculpture and cut paper. No style is approved. The user authorized GitHub/web research and skill installation; a pinned Apache-2.0 Anthropic frontend-design skill is installed for Codex. Review files are committed and shared through GitHub because workspace paths were inaccessible and an environment restart lost uncommitted experiments.

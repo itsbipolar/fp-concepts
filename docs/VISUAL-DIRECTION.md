@@ -1,5 +1,12 @@
 # Visual direction
 
+## Current review: company, owner, money
+
+The owner has rejected the garden, numerical charts, overlapping amounts, literal streetscapes, and ungrounded abstract studies. The agreed next step is **three static style frames** with recognisable, highly stylised subjects and personality, before building another financial interaction.
+
+See `explorations/style-frames/README.md` for the woodcut, sculptural and cut-paper directions. The owner requested external skill research; an audited, pinned Anthropic frontend-design skill is installed in `.agents/skills/`. No visual direction is approved yet. The material below records the earlier proposal.
+
+
 **Status: proposed (2026-10-22), waiting for the owner's verdict on Fig. 02.** Once approved, fold it into the skill
 (`.claude/skills/fp-figures/SKILL.md`) and mark the machine grammar as background reading.
 
