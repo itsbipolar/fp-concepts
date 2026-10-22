@@ -1,14 +1,15 @@
 # Visual direction
 
-## Current review: company, owner, money
+## Selected direction: Within reach
 
-The owner has rejected the garden, numerical charts, overlapping amounts, literal streetscapes, and ungrounded abstract studies. The agreed next step is **three static style frames** with recognisable, highly stylised subjects and personality, before building another financial interaction.
+The owner selected **Within reach**: expressive cut-paper illustration, recognisable stylised subjects, and behaviour that reveals financial relationships. The first ownership interaction is available for review at `explorations/within-reach/README.md`.
 
-See `explorations/style-frames/README.md` for the woodcut, sculptural and cut-paper directions. The owner requested external skill research; an audited, pinned Anthropic frontend-design skill is installed in `.agents/skills/`. No visual direction is approved yet. The material below records the earlier proposal.
+Keep **The colossus** (woodcut) and **Separate bodies** (sculpture) intact in `explorations/style-frames/` for possible later use. They were not rejected.
+
+The garden, numerical charts, overlapping amounts, literal streetscapes, and ungrounded abstract studies were rejected. An audited, pinned Anthropic frontend-design skill is installed in `.agents/skills/`. The style selection does not yet approve a completed lesson. The material below records the earlier proposal.
 
 
-**Status: proposed (2026-10-22), waiting for the owner's verdict on Fig. 02.** Once approved, fold it into the skill
-(`.claude/skills/fp-figures/SKILL.md`) and mark the machine grammar as background reading.
+**Historical proposal (2026-10-22):** the everyday-analogy direction below preceded the rejected garden prototype. It is retained as background, not the active direction.
 
 ## What we tried, and what the owner said
 | Try | What it was | Owner's verdict | Lesson |

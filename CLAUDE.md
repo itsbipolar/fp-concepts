@@ -1,6 +1,6 @@
 # FP Concepts: project memory
 
-**Current direction:** read `AGENTS.md` and `explorations/style-frames/README.md` first. The owner rejected the later literal and numerical explorations; the active scope is three still style frames using distinct illustration languages. Older machine/Colorfigures constraints below apply to legacy figures, not independent explorations.
+**Current direction:** the owner selected **Within reach**, the cut-paper style with an expressive character. Read `AGENTS.md` and `explorations/within-reach/README.md` for active work. Keep **The colossus** and **Separate bodies** in `explorations/style-frames/` as alternatives for later use. Older machine/Colorfigures constraints below apply to legacy figures, not independent explorations.
 
 
 **What this is:** interactive, hand-inked isometric "concept machines" that explain Canadian financial-planning
@@ -48,7 +48,6 @@ vendor/colorfigures.zip      pristine upstream skill
 - v0 foundation complete (2026-10-22).
 - Fig. 01 OAS clawback (`figures/oas-clawback/`): invented-machine style; the owner found it too much to decode
   (D-009). Plain charts were rejected too (D-010).
-- **Direction now (proposed, D-011): everyday analogies** — read `docs/VISUAL-DIRECTION.md` before any figure.
-  Fig. 02 `figures/seeds-or-harvest/` (RRSP vs TFSA as two garden beds) is the prototype; waiting for the owner.
+- **Direction now: Within reach selected.** Read `docs/VISUAL-DIRECTION.md`. The first ownership interaction is available for review at `explorations/within-reach/`; the other two style frames remain available. The earlier garden analogy was rejected.
 - **Language rules are permanent (D-012):** plain sentences a 9th grader follows, dollars not invented units.
 - Open items: firm name/colours (`docs/BRAND.md`), compliance house rules (`docs/COMPLIANCE.md`), v1 sources.

@@ -1,6 +1,6 @@
 # fp-concepts
 
-**Current review:** [Three visual style frames](explorations/style-frames/README.md) — woodcut, sculpture and cut-paper treatments of company ownership. [Download the offline review](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip). The original concept-machine approach below is retained as project history; new experiments are free to use other visual languages.
+**Selected direction:** [Within reach](explorations/within-reach/README.md), the cut-paper treatment of company ownership, now has a working interaction. [Download and try it](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/within-reach/within-reach.zip). **The colossus** and **Separate bodies** remain in the [style-frame archive](explorations/style-frames/README.md) for possible future use. [Download all three style frames](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip). The original concept-machine approach below is retained as project history.
 
 
 **Concept machines for Canadian financial planning.** Colourful, hand-inked isometric contraptions you can turn

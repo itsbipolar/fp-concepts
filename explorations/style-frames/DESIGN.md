@@ -1,6 +1,10 @@
 # Company, owner, money: three style frames
 
-The owner has rejected gardens as metaphors, numerical charts, overlapping amounts, literal streetscapes and disconnected abstract objects. The current approved scope is three still art-direction frames before another interactive lesson.
+The owner has rejected gardens as metaphors, numerical charts, overlapping amounts, literal streetscapes and disconnected abstract objects. After reviewing these three still frames, the owner selected **Within reach** for development. Keep **The colossus** and **Separate bodies** intact as alternatives for future use.
+
+## Selection and next step
+
+**Within reach** is the active visual language. The first ownership interaction is available for review at `../within-reach/README.md`; selection of the style is not approval of a finished lesson. The original stills and offline comparison remain available unchanged.
 
 ## Shared composition and idea
 
@@ -28,6 +32,6 @@ The page is a comparison of image languages, not another numerical or financial 
 
 ## Provenance and scope
 
-Images are generated with OpenAI image generation from original detailed art direction, then edited to remove real currency details. They are raster style frames, not layered animation assets. A selected direction needs independent vector/layered production artwork, a specific teaching interaction, and financial review before a finished lesson.
+Images are generated with OpenAI image generation from original detailed art direction, then edited to remove real currency details. These retained originals are raster style frames. The selected Within reach direction needs separate production layers, a specific teaching interaction, and financial review before a finished lesson.
 
 External guidance: pinned Anthropic frontend-design, Apache-2.0, installed at `.agents/skills/frontend-design/`. No other external skill packages or installer scripts were needed.

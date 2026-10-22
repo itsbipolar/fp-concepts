@@ -59,3 +59,11 @@ with each step (`fpStory`), because a 9th grader needs the "why" in words, not o
 
 **2026-10-22 — Review still art direction before another lesson.**
 The owner rejected garden translation, numerical displays, overly literal streetscapes, and disconnected abstract studies. The agreed approach uses recognisable stylised subjects whose eventual behaviour will teach the relationship. Three static company/owner/money frames now test woodcut, sculpture and cut paper. No style is approved. The user authorized GitHub/web research and skill installation; a pinned Apache-2.0 Anthropic frontend-design skill is installed for Codex. Review files are committed and shared through GitHub because workspace paths were inaccessible and an environment restart lost uncommitted experiments.
+
+
+**2026-10-22 — Within reach selected; alternatives retained.**
+The owner chose the recommended cut-paper **Within reach** direction for active development and explicitly asked to keep **The colossus** and **Separate bodies** for possible later use. Preserve all three original style frames. The first ownership interaction is in development at `explorations/within-reach/`; its completion, validation and lesson approval are separate from this visual selection.
+
+
+**Within reach: first ownership interaction implemented.**
+Company, owner and one highlighted payment are separate layers. Movement reveals ownership groups; a deliberate dividend action transfers the highlighted payment to the owner. Personal-tax wording stays narrow and recognises the dividend tax credit. Repeated transfer, interrupted reset and conflicting input are guarded. Original alternative style frames remain intact. This implements the selected style but still awaits review of teaching effectiveness.

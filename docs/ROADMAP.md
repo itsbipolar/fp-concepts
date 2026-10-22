@@ -1,11 +1,12 @@
 # Roadmap
 
-## Current art-direction review
+## Within reach: selected direction
 - [x] Research and install a pinned external frontend-design skill for Codex.
 - [x] Create three distinct company/owner/money style frames.
 - [x] Package a GitHub-readable review and downloadable offline HTML.
-- [ ] Owner selects or redirects a visual language.
-- [ ] Produce layered artwork and a meaningful teaching interaction for that direction.
+- [x] Owner selected **Within reach**; retain **The colossus** and **Separate bodies** for future use.
+- [x] Produce layered artwork and the first ownership interaction at `explorations/within-reach/`; browser and offline-package checks passed.
+- [ ] Owner reviews the interaction before expanding the lesson.
 
 Earlier roadmap below is historical; the garden direction was rejected.
 

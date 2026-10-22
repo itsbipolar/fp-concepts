@@ -4,7 +4,7 @@ This repository explores visual, interactive education for Canadian financial pl
 
 ## Current work
 
-Current review: `explorations/style-frames/README.md`. Three still images test art directions for company ownership before another interactive lesson. No direction is approved yet.
+**Selected direction: Within reach.** The owner chose its cut-paper style and expressive character for the first ownership interaction. Active work: `explorations/within-reach/README.md`. The style-frame archive remains at `explorations/style-frames/README.md`; keep **The colossus** and **Separate bodies** intact as alternatives for future use. Selection of the visual style does not imply approval of a finished lesson.
 
 The owner has rejected numerical charts, the garden analogy, money-only typography, a literal miniature streetscape, and ungrounded abstract visual studies. Use recognisable, stylised subjects with personality; show financial relationships through behaviour. Do not assume the older Colorfigures or physical-machine requirements apply to new independent explorations.
 
