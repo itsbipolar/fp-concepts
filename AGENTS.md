@@ -8,11 +8,11 @@ Read `docs/PROJECT-STATE.md` for the compact handoff. For a new or extended less
 
 ## Current work
 
-**Selected direction: Within reach.** The owner endorsed its visual design and drawing style after reviewing the first ownership interaction. Active work: `explorations/within-reach/README.md`. The style-frame archive remains at `explorations/style-frames/README.md`; keep **The colossus** and **Separate bodies** intact as alternatives for future use. Visual approval does not imply approval of a finished financial lesson.
+**Selected direction: Within reach.** The owner endorsed its visual design and drawing style after reviewing the first ownership interaction. Latest build: `explorations/salary-or-dividend/README.md`, a qualitative connected-effects lesson; original ownership prototype: `explorations/within-reach/README.md`. The style-frame archive remains at `explorations/style-frames/README.md`; keep **The colossus** and **Separate bodies** intact as alternatives for future use. Visual approval does not imply approval of a finished financial lesson.
 
 The owner has rejected chart-led explanations, the garden analogy, money-only typography, a literal miniature streetscape, and ungrounded abstract visual studies. Use recognisable, stylised subjects with personality; show financial relationships through behaviour. Quantification is welcome when it explains what changes in the illustration. Do not assume the older Colorfigures or physical-machine requirements apply to new independent explorations.
 
-**One decision, several connected consequences.** Read `docs/INTERACTION-PRINCIPLES.md` before designing a financial lesson. An action can reveal immediate cash effects, related tax/cost changes, and later rights or benefits in the same scene. The assistant is responsible for researching these effects and inventing their visual treatment; do not ask the owner to supply metaphors. The salary/dividend/CPP example explains this ambition; it is not a prescribed visual or a request to implement a calculator.
+**One decision, several connected consequences.** Read `docs/INTERACTION-PRINCIPLES.md` before designing a financial lesson. An action can reveal immediate cash effects, related tax/cost changes, and later rights or benefits in the same scene. The assistant is responsible for researching these effects and inventing their visual treatment; do not ask the owner to supply metaphors. Salary/dividend is now the first build testing that workflow. Numerical tax modeling remains pending verified official sources; do not invent rates to fill that gap.
 
 ## Design guidance
 
@@ -35,3 +35,5 @@ Use the existing checkout. Do not create a worktree unless requested. The workin
 Style-frame package: `python3 explorations/style-frames/package_review.py` rebuilds the embedded HTML and ZIP. The user can open the extracted HTML without a server.
 
 Ownership package: `python3 explorations/within-reach/package_review.py`. Workflow/reference check: `python3 scripts/check_visual_system.py`. Run only checks relevant to the change. Update the lesson brief and `docs/PROJECT-STATE.md` before handing off.
+
+Latest lesson package/checks: `python3 explorations/salary-or-dividend/package_review.py` and `python3 explorations/salary-or-dividend/verify.py`.

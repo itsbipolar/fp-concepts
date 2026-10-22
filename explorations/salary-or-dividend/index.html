@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffdf08">
+  <title>Salary or dividend — Within reach</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="model.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<main>
+  <header class="masthead"><a href="https://github.com/itsbipolar/fp-concepts/blob/codex/explorations/within-reach/README.md">Within reach</a><span>Salary or dividend</span></header>
+  <section class="introduction" aria-labelledby="title">
+    <h1 id="title">A payment changes more<br>than your pocket.</h1>
+    <div class="choices" aria-label="Choose how the company pays you">
+      <button id="salary" class="choice" aria-pressed="false">Pay a salary</button>
+      <button id="dividend" class="choice" aria-pressed="false">Pay a dividend</button>
+    </div>
+  </section>
+
+  <section id="scene" class="scene" aria-label="A payment today connects to taxes, your CPP record and next year's RRSP room" data-beat="0" data-choice="none">
+    <div class="today">
+      <span class="time today-time">Today</span>
+      <div class="present-art" role="img" aria-label="A blue company with its working owner, and one symbolic payment">
+        <img class="company art" src="../within-reach/assets/company.png" alt="" width="1536" height="1024">
+        <img class="owner art" src="../within-reach/assets/owner.png" alt="" width="1536" height="1024">
+        <img id="payment" class="payment" src="../within-reach/assets/payment.png" alt="" width="1776" height="888">
+      </div>
+      <button class="subject company-tax consequence now-effect" id="company-tax" data-detail="company" aria-controls="detail-note"><span class="subject-heading">The company</span><span id="company-label">Company tax</span><span class="more" aria-hidden="true">+</span></button>
+      <button class="subject owner-tax consequence now-effect" id="owner-tax" data-detail="personal" aria-controls="detail-note"><span class="subject-heading">Your tax</span><span id="personal-label">Personal tax</span><span class="more" aria-hidden="true">+</span></button>
+      <span class="payment-caption" id="payment-caption">One symbolic payment</span>
+    </div>
+
+    <svg class="connections" viewBox="0 0 1200 540" preserveAspectRatio="none" aria-hidden="true"><path class="cpp-path" d="M700 190 C800 165 760 112 850 125"/><path class="rrsp-path" d="M705 390 C770 480 900 400 930 448"/></svg>
+
+    <div class="later">
+      <span class="time later-time">Later</span>
+      <div class="future-art">
+      <img class="future-owner art" src="assets/future-owner.png" alt="The same owner later in life, holding his pensionable earnings record" width="1536" height="1024">
+      <button class="cpp-record subject" id="cpp-record" data-detail="cpp" aria-controls="detail-note">
+        <span class="subject-heading">Your CPP record</span>
+        <span class="history">Earlier earnings history</span>
+        <span class="record-line" aria-hidden="true"></span><span class="record-line short" aria-hidden="true"></span>
+        <span class="cpp-change consequence" id="cpp-label">Pensionable earnings</span>
+        <span class="more" aria-hidden="true">+</span>
+      </button>
+      </div>
+      <span class="contribution-caption">Company + you pay CPP today</span>
+      <button class="rrsp-paper subject" id="rrsp-room" data-detail="rrsp" aria-controls="detail-note">
+        <span class="timing">Next year</span><span class="subject-heading">RRSP room</span>
+        <span class="existing-room">Existing room stays yours</span>
+        <span class="rrsp-outcome consequence" id="rrsp-label">Contribution room</span>
+        <span class="new-room-flap"><span class="flap-space" aria-hidden="true"></span></span>
+        <span class="more" aria-hidden="true">+</span>
+      </button>
+    </div>
+    <img class="cpp-contribution company-contribution" src="../within-reach/assets/payment.png" alt="" aria-hidden="true" width="1776" height="888">
+    <img class="cpp-contribution owner-contribution" src="../within-reach/assets/payment.png" alt="" aria-hidden="true" width="1776" height="888">
+  </section>
+
+  <div class="story-row"><p id="story" role="status" aria-live="polite" aria-atomic="true">Choose how to pay yourself. Follow what changes now, and what follows you.</p><div class="playback"><button id="pause" disabled>Pause</button><button id="replay" disabled>Replay</button><button id="reset">Reset</button></div></div>
+  <section id="detail-note" class="detail-note" aria-labelledby="detail-title" hidden><div><h2 id="detail-title"></h2><p id="detail-body"></p></div><button id="close-detail" aria-label="Close explanation">×</button></section>
+  <footer><p>A working controlling owner, under 65. Salary below the CPP ceiling; no other earned income or employer pension plan. Non-eligible dividends.</p><details id="assumptions"><summary>Assumptions &amp; sources</summary><p>A qualitative Canadian illustration. The owner is 40, salary stays below the annual CPP ceiling, and there is no other earned income or employer pension plan. Notes, marks and paper sizes do not encode amounts. It does not compare equal company costs or calculate take-home pay. Actual results depend on earnings, limits, province and personal circumstances. Salary must be reasonable to be deductible. Earlier CPP history and existing RRSP room persist in either choice.</p><p>CPP is a record of pensionable earnings and pension rights, not a personal savings pot. RRSP room is permission to contribute, not cash deposited.</p><p>Rule references: <a href="https://www.canada.ca/en/services/benefits/publicpensions/cpp/contributions.html">CPP contributions</a>, <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp.html">employer CPP responsibilities</a>, <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/contributing-a-rrsp-prpp.html">RRSP contributions and room</a>, and <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12000-taxable-amount-dividends-eligible-other-than-eligible-taxable-canadian-corporations.html">taxable Canadian dividends</a>. Reference pages were inaccessible during this build; no current rates or amounts are asserted.</p></details></footer>
+</main>
+</body>
+</html>

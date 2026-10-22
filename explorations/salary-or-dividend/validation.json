@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "Initial scene, images and preserved history",
+    "Keyboard choice, pause/resume, salary stamp and unfolded room",
+    "Accessible explanation and focus return",
+    "Dividend leaves earlier CPP history and RRSP room intact",
+    "Rapid choice switching and replay do not accumulate effects",
+    "Reset interrupts all pending sequence changes",
+    "Reduced motion including preference change while paused",
+    "390px and 320px layout; no horizontal overflow",
+    "Standalone HTML makes one document request; interaction works after disconnect",
+    "ZIP integrity and exact standalone content"
+  ],
+  "javascript_errors": [],
+  "limitation": "Managed browser blocks file: navigation; identical standalone HTML tested via local HTTP, then network disconnected."
+}

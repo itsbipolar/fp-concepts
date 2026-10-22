@@ -1,5 +1,7 @@
 # fp-concepts
 
+**Latest build:** [Salary or dividend](explorations/salary-or-dividend/README.md) — one payment changes tax treatment, the CPP earnings record and next year's RRSP room. [Download and try the visual prototype](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/salary-or-dividend/salary-or-dividend.zip). Quantified tax outcomes remain pending primary-source verification.
+
 **Selected direction:** [Within reach](explorations/within-reach/README.md), the cut-paper treatment of company ownership, now has a working interaction. [Download and try it](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/within-reach/within-reach.zip). **The colossus** and **Separate bodies** remain in the [style-frame archive](explorations/style-frames/README.md) for possible future use. [Download all three style frames](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip).
 
 ## Start a new chat

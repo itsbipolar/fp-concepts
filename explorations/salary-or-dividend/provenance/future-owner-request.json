@@ -1,0 +1,36 @@
+{
+  "tool": "image_gen.imagegen",
+  "model_if_exposed": null,
+  "seed_if_exposed": null,
+  "transparent_background": true,
+  "prompt_path": "provenance/future-owner-prompt.txt",
+  "references": [
+    {
+      "path": "explorations/style-frames/assets/within-reach.png",
+      "sha256": "bd2361ac40b317cc8f9388cf60286745db8c7890c1b199f85236c19adac88302"
+    },
+    {
+      "path": "explorations/within-reach/assets/owner.png",
+      "sha256": "8627753b1493f5ecb0f4af362eab029f2829edc72120b9cffe4338eb1085ae1d"
+    }
+  ],
+  "attempt": 1,
+  "status": "agent-reviewed in desktop and phone scenes; prototype for user review",
+  "output_path": "assets/future-owner.png",
+  "original_path": "/workspace/generated_images/exec-e5e9ca88-90a5-4c16-844e-8a6b8550874b.png",
+  "sha256": "d04b880f9e5ad3b2cca8108b6627064362a7bf157a644151b51f30734adfe4cc",
+  "dimensions_px": [
+    1536,
+    1024
+  ],
+  "has_alpha_channel": true,
+  "review": {
+    "style": "Matches angular figure, hand proportions, paper texture and limited palette references",
+    "alpha": "RGBA; composited on lemon without distracting rectangle or halo",
+    "scene_screenshots": [
+      "preview.png",
+      "mobile-preview.png"
+    ],
+    "generation_attempts": 1
+  }
+}

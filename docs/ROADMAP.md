@@ -9,7 +9,8 @@
 - [x] Owner endorsed the visual design and drawing style of the ownership interaction.
 - [x] Record the next design requirement: one decision reveals several connected consequences, with quantities integrated into the illustration (`docs/INTERACTION-PRINCIPLES.md`). The assistant originates the visual explanations.
 - [x] Preserve the drawing/texture system, image references and hashes, generation templates, lesson brief, fresh-chat handoff and project skill. Establish explicit economical model routing; verify the portable kit with `scripts/check_visual_system.py`.
-- [ ] For the next lesson, research its causal effects and develop a coherent visual sequence spanning immediate and later outcomes where relevant. The salary/dividend/CPP example is illustrative, not a committed calculator specification.
+- [x] Build the first connected-effects lesson: `explorations/salary-or-dividend/`, using the existing company/owner/payment and one new older-owner image. Salary stamps an earnings record and unfolds RRSP room; dividends preserve existing rights without adding those effects. Browser and standalone-package checks pass.
+- [ ] After official source access is applied and verified, research and independently validate a bounded equal-company-cost numerical comparison. The current qualitative build makes no net-cash or pension-amount claims.
 
 Earlier roadmap below is historical; the garden direction was rejected.
 
