@@ -5,11 +5,13 @@ Status: draft / representative passage / reviewed / approved. Branch: `codex-vid
 ## Question and scope
 
 - Audience, question and misconception:
+- Story form and pillar; why this audience needs this angle now:
 - Visual argument (one short paragraph):
 - Jurisdiction, year, comparison basis and assumptions:
 - Material immediate, connected and later consequences:
 - Sources and independent calculation evidence; unresolved verification:
 - Deliverable: aspect ratio, resolution, frame rate, runtime range, spoken/silent:
+- Script, claims ledger and delivery-record paths (use the local VIDEO-SCRIPT / VIDEO-CLAIMS / VIDEO-DELIVERY templates):
 
 ## Reference and visual mechanism
 
@@ -19,6 +21,8 @@ Status: draft / representative passage / reviewed / approved. Branch: `codex-vid
 - Symbolic elements versus measured values:
 - New assets needed, reason, exact prompt/provenance path:
 - Simplifications that could mislead:
+- Opening question, causal turn and final repeatable insight:
+- What's visually new compared with the previous film:
 
 ## Beat map
 
@@ -37,5 +41,8 @@ Status: draft / representative passage / reviewed / approved. Branch: `codex-vid
 - Financial/state checks, when applicable:
 - Motion, output metadata/decoding, captions and sound checks:
 - Source, stills, MP4, descriptive transcript and validation paths:
+- Quantified example: independent model/checks and one-sheet live-formula/source backup:
+- Parent version / claim subset for derivative cuts:
+- Publication review and freshness/correction record (separate from draft creation):
 - User approval status, known limits and next concrete step:
 - Actual tool/model usage if available; never infer token savings:

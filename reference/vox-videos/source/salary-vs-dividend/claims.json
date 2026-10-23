@@ -1,0 +1,1266 @@
+{
+  "slug": "salary-vs-dividend",
+  "title": "Salary or dividend: where the tax hides",
+  "as_of": "2026-10-22",
+  "tax_year": 2027,
+  "jurisdictions": [
+    "CA",
+    "ON"
+  ],
+  "summit_refs": [
+    "CORP-04"
+  ],
+  "assumptions": [
+    "Illustrative example, not anyone's real numbers. Ontario resident; Ontario corporation (a CCPC).",
+    "The owner's income is already in the top federal and Ontario brackets, so each extra dollar is taxed at the top marginal rate.",
+    "The profit is active business income taxed at the small-business rate (within the $500,000 business limit; not shared with associated companies).",
+    "Everything is paid out in the same year; the dividend is non-eligible. Deferral (leaving money in the company) is a separate question.",
+    "Uses the rules in force for 2027: 33% federal and 13.16% Ontario top rates (rates aren't indexed; thresholds are, in November), Ontario surtax rates, the 2027 Ontario dividend credit (Bill 97) and the 11.2% corporate rate.",
+    "Quebec is different (QPP, its own rates and credits) and isn't covered.",
+    "The video's figures leave out payroll costs. Section D adds them with switches: CPP on salary (5.95% each for the owner and the company, 2026 rate, with the tax relief on the owner's share), EI (off when the owner has more than 40% of the votes), Ontario's Employer Health Tax (only above the $1 million exemption) and the Ontario Health Premium (flat at this income). Not modelled: the CPP2 band and the $3,500 exemption, the alternative minimum tax, and keeping money in the company."
+  ],
+  "review": {
+    "by": "Mo",
+    "credentials": "",
+    "on": "2026-10-22",
+    "note": "Approved in chat, his words: \"okay go proceed lets give it a shot\" (after being asked for \"go\" and a sign-off on the facts). Recorded by Claude at his instruction; internal only."
+  },
+  "claims": [
+    {
+      "id": "ex-profit",
+      "kind": "figure",
+      "statement": "Illustrative: the company earns an extra $10,000 of active business profit, all paid out to the owner in the same year.",
+      "on_screen": "$10,000 · EXAMPLE",
+      "spoken": "an extra ten thousand dollars",
+      "value": 10000,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "illustrative": true
+    },
+    {
+      "id": "fed-top-rate",
+      "kind": "rate",
+      "statement": "The top federal personal rate is 33%.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.33,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-117.html",
+        "title": "Income Tax Act s. 117(2)(e)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "plus 33% of the amount by which the amount taxable exceeds $253,414 for the year."
+      },
+      "supporting": [
+        {
+          "title": "CRA, Current year tax rates and income brackets (2026): 33% over $258,482 (indexed threshold)",
+          "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html"
+        }
+      ],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "The rate isn't indexed; the threshold is (2026: $258,482). The example assumes the owner is already above it."
+    },
+    {
+      "id": "on-top-rate",
+      "kind": "rate",
+      "statement": "Ontario's top personal rate is 13.16% (taxable income over $220,000).",
+      "on_screen": "ONTARIO TOP RATE 13.16% (2026)",
+      "spoken": "",
+      "value": 0.1316,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+        "title": "CRA, Current year tax rates and income brackets (2026), Ontario rate: 2026",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "$220,000.01 | unlimited | 13.16%"
+      },
+      "supporting": [
+        {
+          "title": "CRA T4127, July 2026, Table 8.1 (ON: V = 0.1316 over A = 220,000)",
+          "url": "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul/t4127-jul-payroll-deductions-formulas.html"
+        }
+      ],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Ontario's consolidated Taxation Act, 2007 text didn't render on e-Laws or CanLII (403); CRA's published 2026 table is the source. Re-check when CRA posts 2027 rates (November)."
+    },
+    {
+      "id": "on-surtax-20",
+      "kind": "rate",
+      "statement": "Ontario surtax: 20% of basic Ontario tax above the first threshold ($5,818 for 2026).",
+      "on_screen": "SURTAX (2026)",
+      "spoken": "",
+      "value": 0.2,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul/t4127-jul-payroll-deductions-formulas.html",
+        "title": "CRA T4127 Payroll Deductions Formulas, July 2026, Table 8.2 (ON surtax)",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "5,818 | 0.200 (T4 to V1 | V1 rate); glossary: V1 Provincial surtax calculated on the basic provincial tax (only applies to Ontario)"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "on-surtax-36",
+      "kind": "rate",
+      "statement": "Ontario surtax: a further 36% of basic Ontario tax above the second threshold ($7,446 for 2026).",
+      "on_screen": "SURTAX (2026)",
+      "spoken": "",
+      "value": 0.36,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul/t4127-jul-payroll-deductions-formulas.html",
+        "title": "CRA T4127 Payroll Deductions Formulas, July 2026, Table 8.2 (ON surtax)",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "7,446 | 0.360 (T4 to V1 | V1 rate)"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "on-surtax-before-dtc",
+      "kind": "rule",
+      "statement": "Ontario's surtax is computed on Ontario tax before the Ontario dividend tax credit is subtracted.",
+      "on_screen": "",
+      "spoken": "",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/content/dam/cra-arc/formspubs/pbg/5006-c/5006-c-25e.txt",
+        "title": "CRA Form ON428 (2025), Ontario Tax, lines 63–71",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "Line 68: Line 66 plus line 67 = … Line 69: Line 62 plus line 68 = … Line 70: Ontario dividend tax credit from line 57 … Line 71: Line 69 minus line 70"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "2025 form (the 2026 form isn't published yet). Re-check against the 2026 ON428 when CRA posts it."
+    },
+    {
+      "id": "gross-up",
+      "kind": "rate",
+      "statement": "A non-eligible dividend is grossed up by 15% when it's included in income.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.15,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-82.html",
+        "title": "Income Tax Act s. 82(1)(b)(i)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "the product of the amount determined under paragraph (a) in respect of the taxpayer for the taxation year multiplied by (A) for the 2018 taxation year, 16%, and (B) for taxation years after 2018, 15%"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "fed-dtc",
+      "kind": "rate",
+      "statement": "The federal dividend tax credit on a non-eligible dividend is 9/13 of the gross-up.",
+      "on_screen": "9/13 OF THE GROSS-UP",
+      "spoken": "",
+      "value": 0.6923076923076923,
+      "unit": "fraction",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-121.html",
+        "title": "Income Tax Act s. 121(a)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "the product of the amount, if any, that is required by subparagraph 82(1)(b)(i) to be included in computing the individual's income for the year multiplied by (i) for the 2018 taxation year, 8/11, and (ii) for taxation years after 2018, 9/13"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "on-dtc",
+      "kind": "rate",
+      "statement": "Ontario's dividend tax credit on a non-eligible dividend is 15.2283% of the gross-up, for years ending after December 31, 2026 (equal to 1.9863% of the grossed-up dividend).",
+      "on_screen": "ONTARIO CREDIT (2027)",
+      "spoken": "",
+      "value": 0.152283,
+      "unit": "%",
+      "year": 2027,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.ola.org/en/legislative-business/bills/parliament-44/session-1/bill-97",
+        "title": "Plan to Protect Ontario Act (Budget Measures), 2026 (Bill 97, S.O. 2026, c. 2), Sched. 15, s. 1 amending Taxation Act, 2007 s. 19.1",
+        "publisher": "Legislative Assembly of Ontario",
+        "retrieved_on": "2026-10-22",
+        "quote": "15.2283 per cent of any amount required under subparagraph 82 (1) (b) (i) of the Federal Act to be included in computing the individual's income for the year, if the year ends after December 31, 2026"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Royal Assent April 24, 2026. For 2026 the rate is 22.895% of the gross-up (= 2.9863% of the grossed-up dividend)."
+    },
+    {
+      "id": "corp-fed-rate",
+      "kind": "rate",
+      "statement": "A CCPC's federal tax rate on income eligible for the small business deduction is 9%.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.09,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/corporation-tax-rates.html",
+        "title": "CRA, Corporation tax rates",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "For Canadian-controlled private corporations claiming the small business deduction, the net tax rate is 9%"
+      },
+      "supporting": [
+        {
+          "title": "Income Tax Act s. 125(1.1), (2): 19% deduction; $500,000 business limit",
+          "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-125.html"
+        }
+      ],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "corp-on-rate",
+      "kind": "rate",
+      "statement": "Ontario's lower corporate rate (small business income) is 2.2% from July 1, 2026.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.022,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.ontario.ca/document/corporations-tax/corporate-income-tax",
+        "title": "Ontario, Corporate Income Tax (updated April 27, 2026)",
+        "publisher": "Government of Ontario",
+        "retrieved_on": "2026-10-22",
+        "quote": "Effective July 1, 2026, the lower rate of Ontario corporate income tax is reduced from 3.2 per cent to 2.2 per cent."
+      },
+      "supporting": [
+        {
+          "title": "CRA, Corporation tax rates: Ontario 2.2% (Reduced from 3.2%, effective July 1, 2026)",
+          "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/corporation-tax-rates.html"
+        }
+      ],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "integration",
+      "kind": "rule",
+      "statement": "The dividend tax credits are set to roughly give back the tax the corporation already paid (integration).",
+      "on_screen": "",
+      "spoken": "the credit gives back roughly the tax the company already paid",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "ON",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://budget.ontario.ca/2026/annex.html",
+        "title": "2026 Ontario Budget, Annex: Details of Tax Measures",
+        "publisher": "Government of Ontario",
+        "retrieved_on": "2026-10-22",
+        "quote": "As dividends are paid out of after‐tax corporate earnings, individual shareholders are eligible for personal income tax relief through the federal and Ontario dividend tax credits, the rate of which approximates the CIT rate paid by the corporation."
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "salary-deductible",
+      "kind": "rule",
+      "statement": "A salary the company pays its owner to earn its business income is deductible to the company, so the company pays no corporate tax on it.",
+      "on_screen": "",
+      "spoken": "",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-18.html",
+        "title": "Income Tax Act s. 18(1)(a)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "In computing the income of a taxpayer from a business or property no deduction shall be made in respect of (a) an outlay or expense except to the extent that it was made or incurred by the taxpayer for the purpose of gaining or producing income from the business or property"
+      },
+      "supporting": [
+        {
+          "title": "Income Tax Act s. 67: deductible only to the extent reasonable in the circumstances",
+          "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-67.html"
+        }
+      ],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Reasonableness (s. 67) applies; CRA generally doesn't question salaries paid to active owner-managers, but that is CRA's position, so the video says only that salary is deductible."
+    },
+    {
+      "id": "rrsp-earned",
+      "kind": "rule",
+      "statement": "RRSP room grows by 18% of the previous year's earned income, up to a yearly dollar limit; salary is earned income and dividends are not.",
+      "on_screen": "RRSP ROOM: 18% OF LAST YEAR'S EARNED INCOME, UP TO THE YEARLY LIMIT",
+      "spoken": "",
+      "value": 0.18,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-146.html",
+        "title": "Income Tax Act s. 146(1) 'RRSP deduction limit' and 'earned income'",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "the lesser of the RRSP dollar limit for the year and 18% of the taxpayer's earned income for the preceding taxation year … earned income … means … the taxpayer's income … from (i) an office or employment"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "'Dividend' doesn't appear in the earned-income definition. 2026 dollar limit $33,810 (CRA limits page) if shown."
+    },
+    {
+      "id": "cpp-salary",
+      "kind": "rule",
+      "statement": "CPP contributions (and so the CPP pension) are based on income from employment, so salary counts and dividends don't.",
+      "on_screen": "",
+      "spoken": "",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/C-8/section-12.html",
+        "title": "Canada Pension Plan s. 12(1)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "The amount of the contributory salary and wages of a person for a year is the person's income for the year from pensionable employment, computed in accordance with the Income Tax Act"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Salary also costs CPP contributions from both the company and the owner, up to the yearly ceiling; the worked example doesn't charge them."
+    },
+    {
+      "id": "calc-salary-rate",
+      "kind": "calc",
+      "statement": "Combined top marginal rate on salary, Ontario: 33% + 13.16% × (1 + 20% + 36%).",
+      "on_screen": "53.53%",
+      "spoken": "about fifty-three and a half per cent",
+      "value": 0.535296,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "fed + on * (1 + s20 + s36)",
+        "vars": {
+          "fed": "@fed-top-rate",
+          "on": "@on-top-rate",
+          "s20": "@on-surtax-20",
+          "s36": "@on-surtax-36"
+        }
+      }
+    },
+    {
+      "id": "calc-salary-keep",
+      "kind": "calc",
+      "statement": "Salary route: the owner keeps $10,000 × (1 − 53.53%) ≈ $4,647.",
+      "on_screen": "$4,647",
+      "spoken": "",
+      "value": 4647,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "round(profit * (1 - rate))",
+        "vars": {
+          "profit": "@ex-profit",
+          "rate": "@calc-salary-rate"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "calc-corp-rate",
+      "kind": "calc",
+      "statement": "Company's tax on small-business income, Ontario, from July 1, 2026: 9% + 2.2% = 11.2%.",
+      "on_screen": "11.2%",
+      "spoken": "eleven point two per cent",
+      "value": 0.112,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "f + o",
+        "vars": {
+          "f": "@corp-fed-rate",
+          "o": "@corp-on-rate"
+        }
+      }
+    },
+    {
+      "id": "calc-corp-tax",
+      "kind": "calc",
+      "statement": "Dividend route: the company's tax on the $10,000 first, $10,000 × 11.2% = $1,120.",
+      "on_screen": "−$1,120",
+      "spoken": "the company pays its tax first",
+      "value": 1120,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "ON",
+      "calc": {
+        "expr": "round(profit * c)",
+        "vars": {
+          "profit": "@ex-profit",
+          "c": "@calc-corp-rate"
+        }
+      },
+      "illustrative": true,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": ""
+    },
+    {
+      "id": "calc-dividend",
+      "kind": "calc",
+      "statement": "Dividend route: what's left to pay out after corporate tax, $10,000 × (1 − 11.2%) = $8,880.",
+      "on_screen": "$8,880",
+      "spoken": "",
+      "value": 8880,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "round(profit * (1 - c))",
+        "vars": {
+          "profit": "@ex-profit",
+          "c": "@calc-corp-rate"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "calc-div-rate",
+      "kind": "calc",
+      "statement": "Top marginal rate on a non-eligible dividend, Ontario, 2027 credit: 1.15 × 33% − 0.15 × 9/13 + 1.15 × 13.16% × 1.56 − 0.15 × 15.2283% = 48.89% of the cash dividend.",
+      "on_screen": "48.89% (2027)",
+      "spoken": "almost forty-nine per cent",
+      "value": 0.4889018,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Order follows ON428: surtax on Ontario tax before the dividend credit (claim on-surtax-before-dtc).",
+      "calc": {
+        "expr": "round((1 + g) * fed - g * fdtc + (1 + g) * on * (1 + s20 + s36) - g * odtc, 7)",
+        "vars": {
+          "g": "@gross-up",
+          "fed": "@fed-top-rate",
+          "fdtc": "@fed-dtc",
+          "on": "@on-top-rate",
+          "s20": "@on-surtax-20",
+          "s36": "@on-surtax-36",
+          "odtc": "@on-dtc"
+        }
+      }
+    },
+    {
+      "id": "calc-div-keep",
+      "kind": "calc",
+      "statement": "Dividend route: the owner keeps $8,880 × (1 − 48.89%) ≈ $4,539.",
+      "on_screen": "$4,539",
+      "spoken": "",
+      "value": 4539,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "round(d * (1 - rate))",
+        "vars": {
+          "d": "@calc-dividend",
+          "rate": "@calc-div-rate"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "calc-gap",
+      "kind": "calc",
+      "statement": "The salary route leaves about $108 more per $10,000 in this example.",
+      "on_screen": "+$108",
+      "spoken": "",
+      "value": 108,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "s - d",
+        "vars": {
+          "s": "@calc-salary-keep",
+          "d": "@calc-div-keep"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "calc-rrsp-room",
+      "kind": "calc",
+      "statement": "$10,000 of salary adds $1,800 of RRSP room the next year (18%), if the owner is under the yearly limit.",
+      "on_screen": "+$1,800 RRSP ROOM",
+      "spoken": "",
+      "value": 1800,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": null,
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "calc": {
+        "expr": "profit * r",
+        "vars": {
+          "profit": "@ex-profit",
+          "r": "@rrsp-earned"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "sw-cpp",
+      "kind": "figure",
+      "statement": "Switch: does CPP apply to this $10,000 of salary? On (1) if the owner's salary for the year is below the CPP ceiling (for example, an owner who has been taking only dividends).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 1,
+      "unit": "switch",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Off (0) if the owner's salary is already above the CPP ceilings ($74,600 and $85,000 for 2026). The video's numbers equal this section with all switches off.",
+      "section": "full",
+      "illustrative": true
+    },
+    {
+      "id": "sw-eht",
+      "kind": "figure",
+      "statement": "Switch: does Ontario's Employer Health Tax apply? On (1) only if the company's Ontario payroll is above its $1 million exemption (or it has no exemption: payroll over $5 million with associated employers).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0,
+      "unit": "switch",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Most owner-managed companies are under the exemption, so it's off by default.",
+      "section": "full",
+      "illustrative": true
+    },
+    {
+      "id": "sw-ei",
+      "kind": "figure",
+      "statement": "Switch: does EI apply? Off (0) when the owner controls more than 40% of the voting shares, because that employment isn't insurable.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0,
+      "unit": "switch",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "illustrative": true
+    },
+    {
+      "id": "cpp-rate",
+      "kind": "rate",
+      "statement": "CPP contribution rate on salary (base plus first additional), each for the employee and the employer: 5.95% (2026).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.0595,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "CRA T4127 (July 2026): on April 28, 2026 the Government announced its intention to cut the base rate from 4.95% to 4.75% each from January 1, 2027 (proposed; not used here). The CPP2 band (4%, $74,600 to $85,000 for 2026) isn't modelled; the first $3,500 a year is exempt.",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp/cpp-contribution-rates-maximums-exemptions.html",
+        "title": "CRA, CPP contribution rates, maximums and exemptions",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "2026 | $74,600 | $3,500 | $71,100 | 5.95 | $4,230.45 | $8,460.90"
+      }
+    },
+    {
+      "id": "cpp-base",
+      "kind": "rate",
+      "statement": "The base part of the CPP rate is 4.95% (it gets a tax credit); the first additional part is 1% (it's deductible).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.0495,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp.html",
+        "title": "CRA, About the deduction of Canada Pension Plan (CPP) contributions",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "These are the base contributions (4.95%) and the first additional contribution to the CPP (1%)."
+      }
+    },
+    {
+      "id": "cpp-add1",
+      "kind": "rate",
+      "statement": "First additional CPP contribution rate: 1%.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.01,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp.html",
+        "title": "CRA, About the deduction of Canada Pension Plan (CPP) contributions",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "These are the base contributions (4.95%) and the first additional contribution to the CPP (1%)."
+      }
+    },
+    {
+      "id": "ei-rate",
+      "kind": "rate",
+      "statement": "EI employee premium rate for 2027: 1.64% (the employer pays 1.4 times the employee's premium).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.0164,
+      "unit": "%",
+      "year": 2027,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/employment-insurance-ei/ei-premium-rates-maximums.html",
+        "title": "CRA, EI premium rates and maximums",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "New 2027 | $70,800 | 1.64 | $1,161.12 | $1,625.57 … The employer's premium will be 1.4 times this amount."
+      }
+    },
+    {
+      "id": "ei-er-multiple",
+      "kind": "rate",
+      "statement": "The employer's EI premium is 1.4 times the employee's.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 1.4,
+      "unit": "fraction",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/employment-insurance-ei/ei-premium-rates-maximums.html",
+        "title": "CRA, EI premium rates and maximums",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "The employer's premium will be 1.4 times this amount."
+      }
+    },
+    {
+      "id": "ei-control",
+      "kind": "rule",
+      "statement": "Employment by a corporation isn't insurable if the person controls more than 40% of its voting shares.",
+      "on_screen": "",
+      "spoken": "",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/E-5.6/section-5.html",
+        "title": "Employment Insurance Act s. 5(2)(b)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "(b) the employment of a person by a corporation if the person controls more than 40% of the voting shares of the corporation;"
+      }
+    },
+    {
+      "id": "eht-rate",
+      "kind": "rate",
+      "statement": "Ontario Employer Health Tax: 1.95% for an Ontario payroll over $400,000 (the rate is set by payroll before the exemption); the exemption is currently $1 million for eligible employers.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.0195,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "Lower rates (0.98% to 1.95%) apply to payrolls of $400,000 or less. Eligibility for the exemption: Ontario payroll (with associated employers) under $5 million, or a registered charity.",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.ontario.ca/document/employer-health-tax-eht",
+        "title": "Ontario, Employer Health Tax (EHT) (updated September 18, 2026)",
+        "publisher": "Government of Ontario",
+        "retrieved_on": "2026-10-22",
+        "quote": "Over $400,000.00 | 1.95% … The exemption amount is currently $ 1 million."
+      },
+      "j": "ON"
+    },
+    {
+      "id": "fed-low-rate",
+      "kind": "rate",
+      "statement": "Lowest federal rate (used for the credit on base CPP and EI): 14%.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.14,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "14% for 2026 and later.",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+        "title": "CRA, Current year tax rates and income brackets (2026)",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "Federal rate: 2026 … $0 | $58,523 | 14%"
+      }
+    },
+    {
+      "id": "on-low-rate",
+      "kind": "rate",
+      "statement": "Lowest Ontario rate (used for Ontario's credit on base CPP and EI): 5.05%.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.0505,
+      "unit": "%",
+      "year": 2026,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets/current-year.html",
+        "title": "CRA, Current year tax rates and income brackets (2026)",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "Ontario rate: 2026 … $0 | $53,891 | 5.05%"
+      },
+      "j": "ON"
+    },
+    {
+      "id": "cpp-relief",
+      "kind": "rule",
+      "statement": "The employee's base CPP contributions and EI premiums earn a non-refundable credit at the lowest rate; the first additional (enhanced) CPP contributions are deducted from income.",
+      "on_screen": "",
+      "spoken": "",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [
+        {
+          "title": "Income Tax Act s. 60 (paragraph (e.1))",
+          "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-60.html"
+        },
+        {
+          "title": "CRA T4127 glossary: K2, base CPP and EI federal credits use the lowest federal tax rate",
+          "url": "https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul/t4127-jul-payroll-deductions-formulas.html"
+        }
+      ],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "The 'appropriate percentage' is the lowest federal rate (14%); Ontario's matching credit uses its lowest rate (5.05%).",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/section-118.7.html",
+        "title": "Income Tax Act s. 118.7 (credit on base CPP and EI) and s. 60(e.1) (deduction for enhanced CPP)",
+        "publisher": "Justice Laws",
+        "retrieved_on": "2026-10-22",
+        "quote": "118.7 … there may be deducted the amount determined by the formula A × B where A is the appropriate percentage for the year; and B is the total of … an amount payable by the individual for the year as an employee's contribution under subsection 8(1) of the Canada Pension Plan · 60(e.1) Enhanced CPP contributions: the lesser of (i) the total of all amounts each of which is an amount payable by the taxpayer for the year as an employee's contribution under subsection 8(1.1) or (1.2) of the Canada Pension Plan"
+      }
+    },
+    {
+      "id": "ohp",
+      "kind": "rate",
+      "statement": "Ontario Health Premium: a flat $900 a year once taxable income is above $200,600, so it's the same under either route at this income and doesn't change the comparison.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 900,
+      "unit": "CAD",
+      "year": 2025,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "2025 chart (the 2026 form isn't posted yet). Flat above $200,600, so it adds nothing at the margin for a top-bracket owner, under either route.",
+      "section": "full",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://www.canada.ca/content/dam/cra-arc/formspubs/pbg/5006-c/5006-c-25e.txt",
+        "title": "CRA Form ON428 (2025), Ontario health premium chart",
+        "publisher": "CRA",
+        "retrieved_on": "2026-10-22",
+        "quote": "Taxable Income more than $200,600 / Ontario health premium: $900"
+      },
+      "j": "ON"
+    },
+    {
+      "id": "full-er-rate",
+      "kind": "calc",
+      "statement": "The company's payroll costs on top of the salary, as a share of the salary: CPP (if on) + EHT (if on) + EI × 1.4 (if on).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0.0595,
+      "unit": "%",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "sc * cpp + se * eht + si * ei * m",
+        "vars": {
+          "sc": "@sw-cpp",
+          "cpp": "@cpp-rate",
+          "se": "@sw-eht",
+          "eht": "@eht-rate",
+          "si": "@sw-ei",
+          "ei": "@ei-rate",
+          "m": "@ei-er-multiple"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-salary",
+      "kind": "calc",
+      "statement": "The salary the $10,000 can pay once the company's own payroll costs come out of it: $10,000 ÷ (1 + payroll costs).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 9438.41,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(profit / (1 + er), 2)",
+        "vars": {
+          "profit": "@ex-profit",
+          "er": "@full-er-rate"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-er-cost",
+      "kind": "calc",
+      "statement": "The company's payroll costs (CPP, EHT, EI), deductible to the company.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 561.59,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(profit - s, 2)",
+        "vars": {
+          "profit": "@ex-profit",
+          "s": "@full-salary"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-ee-cpp",
+      "kind": "calc",
+      "statement": "The owner's own CPP contributions on that salary.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 561.59,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(sc * cpp * s, 2)",
+        "vars": {
+          "sc": "@sw-cpp",
+          "cpp": "@cpp-rate",
+          "s": "@full-salary"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-ee-ei",
+      "kind": "calc",
+      "statement": "The owner's own EI premiums on that salary.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 0,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(si * ei * s, 2)",
+        "vars": {
+          "si": "@sw-ei",
+          "ei": "@ei-rate",
+          "s": "@full-salary"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-tax",
+      "kind": "calc",
+      "statement": "The owner's income tax on the salary at the top rate, less the deduction for enhanced CPP and the credits for base CPP and EI (at the lowest rates; Ontario's credit is also worth its surtax at this income).",
+      "on_screen": "",
+      "spoken": "",
+      "value": 4899.61,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(s * rate - sc * add1 * s * rate - (sc * b * s + ee_ei) * (flow + olow * (1 + s20 + s36)), 2)",
+        "vars": {
+          "s": "@full-salary",
+          "rate": "@calc-salary-rate",
+          "sc": "@sw-cpp",
+          "add1": "@cpp-add1",
+          "b": "@cpp-base",
+          "ee_ei": "@full-ee-ei",
+          "flow": "@fed-low-rate",
+          "olow": "@on-low-rate",
+          "s20": "@on-surtax-20",
+          "s36": "@on-surtax-36"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-salary-keep",
+      "kind": "calc",
+      "statement": "Full picture, salary route: cash the owner keeps after payroll costs, CPP, EI and income tax.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 3977.21,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(s - tax - cpp - ei, 2)",
+        "vars": {
+          "s": "@full-salary",
+          "tax": "@full-tax",
+          "cpp": "@full-ee-cpp",
+          "ei": "@full-ee-ei"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-cpp-account",
+      "kind": "calc",
+      "statement": "Full picture: total CPP contributions (owner + company) that go toward the owner's CPP pension.",
+      "on_screen": "",
+      "spoken": "",
+      "value": 1123.18,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(cpp + sc * er_cpp * s, 2)",
+        "vars": {
+          "cpp": "@full-ee-cpp",
+          "sc": "@sw-cpp",
+          "er_cpp": "@cpp-rate",
+          "s": "@full-salary"
+        }
+      },
+      "illustrative": true
+    },
+    {
+      "id": "full-vs-div",
+      "kind": "calc",
+      "statement": "Full picture: salary cash minus dividend cash (a negative number means the dividend leaves more cash in hand; the salary's CPP contributions buy a pension instead).",
+      "on_screen": "",
+      "spoken": "",
+      "value": -561.79,
+      "unit": "CAD",
+      "year": null,
+      "jurisdiction": "CA",
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "CORP-04",
+      "status": "verified",
+      "note": "",
+      "section": "full",
+      "calc": {
+        "expr": "round(keep - div, 2)",
+        "vars": {
+          "keep": "@full-salary-keep",
+          "div": "@calc-div-keep"
+        }
+      },
+      "illustrative": true
+    }
+  ],
+  "sections": {
+    "full": "Full picture: the payroll costs the video leaves out (flip the switches to match the owner)"
+  }
+}

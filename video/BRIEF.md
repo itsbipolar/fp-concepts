@@ -1,6 +1,6 @@
 # Motion study 01: a longer view
 
-Status: rendered style calibration; pending user review. Branch: `codex-video`. This is a production proof for the requested video extension, not a finished financial lesson.
+Status: rendered style calibration; user responded “okay its good” and asked to integrate relevant work from the other video studio. Branch: `codex-video`. This is a production proof for the requested video extension, not a finished financial lesson.
 
 ## Intent and references
 
@@ -36,4 +36,4 @@ There is no salary/dividend selection, contribution transfer, pension balance, t
 - Rendering/bundling passed; no TypeScript typecheck is claimed. This is not a financial calculation test or user approval. Motion was inspected through a six-frame sequence decoded from the actual MP4. Native Chromium playback also reached the end: 270 frames, zero dropped frames, no media error (see `review/playback.json`). No audio listening test applies.
 - No new image-generation calls. One bounded Sol audit completed; an implementation delegate hit the earlier session limit before edits, and the main agent completed implementation after resumption. Exact token/cost figures were unavailable; no savings percentage is claimed.
 
-Next: review the motion language, then build a short financial film with a specific sourced question, a visual mechanism that explains its consequences, and a chosen delivery format. Add sound and narration only when they serve that brief.
+Next: use the positively reviewed motion language and the integrated editorial playbook to build a short financial film with a specific sourced question, a visual mechanism that explains its consequences, and a chosen delivery format. Add sound and narration only when they serve that brief.

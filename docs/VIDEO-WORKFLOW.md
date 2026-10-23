@@ -6,13 +6,19 @@ Use on `codex-video`. The interactive baseline remains on `codex`; its source sc
 
 Start with [the video brief](templates/VIDEO-BRIEF.md). Define audience, question, financial scope, output format, runtime range and the single change the viewer must understand. Research material connected consequences, including timing and types of value. Resolve comparison assumptions before animating amounts. Use current primary sources; record unavailable verification rather than inventing values.
 
+Use [the editorial playbook](VIDEO-EDITORIAL.md) to choose a documentary angle and story form. [The curated topic bank](../video/editorial/README.md) carries relevant questions from the user's other video studio. Pick one audience per cut; the existing motion study is now a positively reviewed starting point, not a complete financial film.
+
 Develop a few possible visual mechanisms internally, then choose the clearest. Record a short visual argument: what happens, why it happens, and what the final image reveals. Do not ask the owner to design the metaphor. A film need not reproduce the interactive screen or preserve its UI controls.
+
+For factual films, use [the evidence workflow](VIDEO-EVIDENCE.md): keep a per-film claims ledger, link both narration and shots to claim IDs, and reproduce calculations independently. Use the [script](templates/VIDEO-SCRIPT.md), [claims](templates/VIDEO-CLAIMS.json) and [delivery](templates/VIDEO-DELIVERY.json) templates as needed. These are authoring records; no automatic claims scanner or workbook generator is installed by the cross-repository transfer.
 
 ## 2. Reference lock and beat map
 
 View the master and relevant actual assets in the [video reference manifest](../design/within-reach/video-reference-manifest.json). Reuse them before requesting new art. For every beat, note seconds/frames, visible action, intended inference, source/assumption, camera, text, sound and what remains visible afterward. Storyboard opening, main event, connected effects, comparison if needed, and final hold.
 
 Write narration alongside the visual argument if it helps. If supplied narration must determine the timing, inspect its actual duration and align beats to it. Check approval/authorization for a paid service in the current task rather than assuming the attached guide itself grants access. The present workspace has no configured voice-generation provider.
+
+Keep legal sections and full formulas in the evidence/backup; the film explains what the mechanism does in plain words. A quantified financial example should include the source studio's useful one-sheet workbook with live formulas and source quotes. A silent style study does not need that financial deliverable.
 
 ## 3. Build one representative passage
 
@@ -32,6 +38,8 @@ The current tooling bundles and renders React/TypeScript. It does not perform a 
 ## 5. Deliver and resume
 
 Save source, brief/beat map, asset provenance, review stills, MP4 and validation evidence. Keep large intermediate render caches out of Git. Update `docs/PROJECT-STATE.md` and the film's brief with approval status, checks, limitations and next step. Commit and push authorized work on `codex-video`, supplying GitHub review/download links. Do not replace the `codex` baseline or the two archived style alternatives.
+
+Prepare applicable captions, sources, model/backup and version-specific platform copy using the delivery record. Separate creative, factual and publication review. The source studio records firm review before public posting; that concerns posting, not completion of authorized internal drafts. No posting or outreach is authorized merely by preparing a pack. Carry relevant claim subsets into recomposed shorter cuts, then track actual publication, freshness and corrections.
 
 ## Use the kit without spending context on the installer
 

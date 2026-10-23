@@ -5,7 +5,8 @@
 - [x] Create `codex-video` from the completed `codex` baseline.
 - [x] Preserve the uploaded motion kit and adapt the workflow to the existing Within reach references.
 - [x] Install an isolated Remotion workspace with pinned dependencies and a representative silent motion study.
-- [ ] Review the motion study, then develop a sourced short financial film with its own visual argument, beat map and delivery format.
+- [x] User responded positively to the motion study. Integrate relevant editorial structure, evidence/delivery templates and topic candidates from `fp-canada-vox-videos`, retaining Within reach as the visual foundation.
+- [ ] Develop a sourced short financial film with its own visual argument, beat map and delivery format.
 - [ ] Add narration/captions and sound when a film brief calls for them; optional kit tools remain reference material until needed.
 
 ## Within reach: selected direction

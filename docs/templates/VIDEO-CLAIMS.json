@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "slug": "replace-slug",
+  "as_of": null,
+  "tax_year": null,
+  "jurisdictions": [],
+  "comparison_basis": "",
+  "assumptions": [],
+  "parent": null,
+  "parent_version": null,
+  "claims": [
+    {
+      "id": "replace-claim-id",
+      "kind": "rule",
+      "statement": "",
+      "status": "needs-research",
+      "year": null,
+      "jurisdiction": null,
+      "authority_kind": "unclassified",
+      "treatment": "unresolved",
+      "source": {
+        "url": "",
+        "title": "",
+        "publisher": "",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": ""
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "",
+      "spoken_text": "",
+      "uses": [],
+      "depends_on": [],
+      "calculation": null,
+      "note": ""
+    }
+  ],
+  "factual_review": {
+    "status": "not-reviewed",
+    "by": "",
+    "on": null,
+    "artifact_version": "",
+    "evidence": ""
+  }
+}

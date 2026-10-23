@@ -1,0 +1,35 @@
+{
+  "slug": "REPLACE-with-the-slug",
+  "as_of": "YYYY-MM-DD",
+  "tax_year": 2026,
+  "jurisdictions": ["CA", "ON"],
+  "summit_refs": [],
+  "review": { "by": "", "credentials": "", "on": "", "note": "" },
+  "claims": [
+    {
+      "id": "example-rule",
+      "kind": "rule",
+      "statement": "REPLACE: exactly what the video says is true, in one sentence.",
+      "on_screen": "",
+      "spoken": "",
+      "value": null,
+      "unit": null,
+      "year": null,
+      "jurisdiction": "CA",
+      "tier": "T1",
+      "behaviour": "COMPUTE",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/",
+        "title": "REPLACE: Income Tax Act s. ___",
+        "publisher": "Justice Laws",
+        "retrieved_on": "YYYY-MM-DD",
+        "quote": "REPLACE with the exact words that carry the claim"
+      },
+      "supporting": [],
+      "pack_ref": null,
+      "summit_ref": "",
+      "status": "needs-review",
+      "note": ""
+    }
+  ]
+}

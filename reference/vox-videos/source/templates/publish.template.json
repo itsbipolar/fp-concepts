@@ -1,0 +1,16 @@
+{
+  "series": "The Receipt",
+  "keyword": "REPLACE: the plain words people search",
+  "audience": "families",
+  "titles": {
+    "youtube": "REPLACE: keyword early, ≤ 60 characters, no bait",
+    "shorts": "REPLACE: keyword + hook",
+    "linkedin_hook": "REPLACE: two lines for advisors"
+  },
+  "summary": "REPLACE: 2–3 sentences, the keyword in the first one.",
+  "hashtags": ["#canadiantax", "#financialplanning", "#estateplanning"],
+  "chapters": "auto",
+  "related": [],
+  "disclosures": [],
+  "firm_approval": { "submitted_on": "", "approved_on": "", "reference": "", "conditions": "" }
+}

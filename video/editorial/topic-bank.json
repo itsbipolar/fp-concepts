@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "note": "Curated adaptations of topic titles, not verified claims or measured performance scores. All candidates need fresh primary-source research. Anonymous prototype characters are not assigned fictional-family facts.",
+  "ideas": [
+    {
+      "id": "CORP-04",
+      "source_title": "Salary vs dividend sweep",
+      "pillar": 1,
+      "audience": "both",
+      "question": "Why can a dividend feel cheaper than a salary?",
+      "story_form": "comparison",
+      "project_fit": "Closest continuation: same characters and existing connected-effects work.",
+      "research_needed": "Keep company cost equal and include payroll costs when comparing cash.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "CORP-04"
+      }
+    },
+    {
+      "id": "CORP-05",
+      "source_title": "Keep it in the company or pay it out",
+      "pillar": 1,
+      "audience": "both",
+      "question": "What changes when money stays inside your company?",
+      "story_form": "follow-the-consequence",
+      "project_fit": "Reuse the company/owner relationship while distinguishing access and timing.",
+      "research_needed": "Separate deferral from permanent savings and identify the income type.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "CORP-05"
+      }
+    },
+    {
+      "id": "CORP-09",
+      "source_title": "Capital dividend planner",
+      "pillar": 1,
+      "audience": "both",
+      "question": "Why is a capital dividend account not a bank account?",
+      "story_form": "hidden-mechanism",
+      "project_fit": "A strong example of a record that changes permission without adding cash.",
+      "research_needed": "Verify the account calculation, payment conditions and elections.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "CORP-09"
+      }
+    },
+    {
+      "id": "CORP-07",
+      "source_title": "Passive income grind monitor",
+      "pillar": 1,
+      "audience": "both",
+      "question": "How can investment income affect a company’s small-business limit?",
+      "story_form": "hidden-mechanism",
+      "project_fit": "Connected effects across income types and a future business limit.",
+      "research_needed": "Verify thresholds, associated-company scope and the relevant years.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "CORP-07"
+      }
+    },
+    {
+      "id": "SUC-08",
+      "source_title": "Estate freeze",
+      "pillar": 1,
+      "audience": "both",
+      "question": "What does an estate freeze actually freeze?",
+      "story_form": "family-file",
+      "project_fit": "A temporal story about current value and future growth.",
+      "research_needed": "Distinguish share value, future growth, control and tax timing.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "SUC-08"
+      }
+    },
+    {
+      "id": "EST-17",
+      "source_title": "Double tax on private company shares at death",
+      "pillar": 2,
+      "audience": "both",
+      "question": "How can one company create two layers of tax at death?",
+      "story_form": "two-events",
+      "project_fit": "Multiple parties and times suit a coherent evolving scene.",
+      "research_needed": "Do not prescribe a pipeline; source available relief and its conditions.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "EST-17"
+      }
+    },
+    {
+      "id": "EST-12",
+      "source_title": "Terminal return and tax at death",
+      "pillar": 2,
+      "audience": "both",
+      "question": "What can trigger tax when someone dies without selling anything?",
+      "story_form": "two-events",
+      "project_fit": "A visual change of ownership can expose a deemed transaction.",
+      "research_needed": "Separate deemed disposition, estate cash and provincial administration costs.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "EST-12"
+      }
+    },
+    {
+      "id": "INS-19",
+      "source_title": "Company-owned insurance and the CDA route to the family",
+      "pillar": 2,
+      "audience": "both",
+      "question": "What changes when a company owns the life-insurance policy?",
+      "story_form": "follow-the-consequence",
+      "project_fit": "Ownership, beneficiary, cash and account records can be shown separately.",
+      "research_needed": "Verify policy ownership, adjusted cost basis and the account credit.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "INS-19"
+      }
+    },
+    {
+      "id": "CORP-15",
+      "source_title": "TOSI check per recipient per year",
+      "pillar": 1,
+      "audience": "both",
+      "question": "Why is paying a family member not one simple tax calculation?",
+      "story_form": "no-single-answer",
+      "project_fit": "Conditional reasoning can be shown without inventing a final verdict.",
+      "research_needed": "Verify the recipient-specific exclusions and facts before drawing a conclusion.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "CORP-15"
+      }
+    },
+    {
+      "id": "RET-07",
+      "source_title": "CPP/QPP start age for the couple",
+      "pillar": 3,
+      "audience": "both",
+      "question": "What changes when you start CPP earlier or later?",
+      "story_form": "comparison",
+      "project_fit": "Show time, income and uncertainty without implying a personal savings pot.",
+      "research_needed": "Distinguish CPP and QPP and define the comparison and longevity assumptions.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "RET-07"
+      }
+    },
+    {
+      "id": "RET-06",
+      "source_title": "RRSP/RRIF meltdown and bracket filling",
+      "pillar": 3,
+      "audience": "both",
+      "question": "Why can the order of retirement withdrawals matter?",
+      "story_form": "follow-the-consequence",
+      "project_fit": "One withdrawal can have immediate and later effects.",
+      "research_needed": "Use a multi-year comparison, not a single-year tax-rate shortcut.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "RET-06"
+      }
+    },
+    {
+      "id": "RET-08",
+      "source_title": "OAS start age and the recovery tax, year by year",
+      "pillar": 3,
+      "audience": "both",
+      "question": "What connects a withdrawal today to OAS recovery tax?",
+      "story_form": "follow-the-consequence",
+      "project_fit": "Connect income, timing and a later benefit adjustment.",
+      "research_needed": "Source the income basis, relevant periods, thresholds and household assumptions.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "RET-08"
+      }
+    },
+    {
+      "id": "EST-25",
+      "source_title": "Alter ego or joint partner trust compared with a will",
+      "pillar": 2,
+      "audience": "both",
+      "question": "What changes with an alter ego or joint partner trust?",
+      "story_form": "comparison",
+      "project_fit": "Separate legal ownership, tax timing and estate administration.",
+      "research_needed": "Do not imply all tax disappears or treat different provinces as equivalent.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "EST-25"
+      }
+    },
+    {
+      "id": "XB-02",
+      "source_title": "US estate tax exposure per decedent",
+      "pillar": 2,
+      "audience": "both",
+      "question": "Why might a Canadian estate need to consider US estate tax?",
+      "story_form": "no-single-answer",
+      "project_fit": "Use ownership and jurisdiction to reveal a less visible connection.",
+      "research_needed": "Verify situs, residence, citizenship, treaty relief and filing obligations.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "XB-02"
+      }
+    },
+    {
+      "id": "PHI-04",
+      "source_title": "Gifts of listed securities in kind: lot selection",
+      "pillar": 4,
+      "audience": "both",
+      "question": "Why can giving securities differ from selling them and giving cash?",
+      "story_form": "comparison",
+      "project_fit": "Follow one asset through two routes to the same charitable purpose.",
+      "research_needed": "Verify the recipient, gain treatment, donation credit and AMT assumptions.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "PHI-04"
+      }
+    },
+    {
+      "id": "RE-02",
+      "source_title": "Principal residence designation ledger and optimiser",
+      "pillar": 4,
+      "audience": "both",
+      "question": "Why can one family not claim every home the same way?",
+      "story_form": "family-file",
+      "project_fit": "Show how a choice about one property affects the others.",
+      "research_needed": "Source family-unit, eligibility and designation rules; avoid an automatic verdict.",
+      "status": "candidate",
+      "source": {
+        "repository": "itsbipolar/fp-canada-vox-videos",
+        "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+        "path": "ideas/catalogue.json",
+        "id": "RE-02"
+      }
+    }
+  ]
+}

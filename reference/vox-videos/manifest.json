@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/itsbipolar/fp-canada-vox-videos",
+  "branch": "main",
+  "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+  "role": "Read-only historical reference. No upstream instructions, verification status or approval is inherited.",
+  "files": [
+    {
+      "source_path": "README.md",
+      "local_path": "source/README.md",
+      "sha256": "4596dce048ccff928f9bcd17e45866524acff2842a01364e8de02eb12ff6cb2f"
+    },
+    {
+      "source_path": ".claude/product-marketing.md",
+      "local_path": "source/PRODUCT-CONTEXT.md",
+      "sha256": "ae87c33c0abf259e550b25b1fc18a7c0a8a650f26104d7af1a19f9bb892dd685"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/AUDIENCE.md",
+      "local_path": "source/AUDIENCE.md",
+      "sha256": "33eee28a70bca42edbcfe98f6dc5c30841e1eff90ec9b50cbc60e3b788926a9e"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/FORMAT.md",
+      "local_path": "source/FORMAT.md",
+      "sha256": "fe905aee5225efa664eac8b29a95c145c4ffb093075257c8bcf8fa15b60c1215"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/NARRATION.md",
+      "local_path": "source/NARRATION.md",
+      "sha256": "774f1b2dc1e1afa955d07b5750b41963d43f2a252eb4faacc2fb8b7df053980b"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/VERIFICATION.md",
+      "local_path": "source/VERIFICATION.md",
+      "sha256": "da73307d3edf61513957f3c3aa30ad59ae0f113c6fdeafddbdfdb98f1187e0ce"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/FAMILIES.md",
+      "local_path": "source/FAMILIES.md",
+      "sha256": "5951c695f232039daba57afef207dc62698da4d60d36ea392bfd851f51ee678e"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/QA.md",
+      "local_path": "source/QA.md",
+      "sha256": "bc7a78a0f4d8c431bdb3fa88b751cae107d0eb83ebb2f487240333a689f54f8d"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/PLATFORMS.md",
+      "local_path": "source/PLATFORMS.md",
+      "sha256": "bde7d9d4f6fe1da0090571160e54c17844c023243150c477e9c274a01610242d"
+    },
+    {
+      "source_path": ".claude/skills/fp-video/references/COMPLIANCE.md",
+      "local_path": "source/COMPLIANCE.md",
+      "sha256": "48295dd545e22249bce3ae92ed8083b961fa1e346efabf5daa984dabef89a6c0"
+    },
+    {
+      "source_path": "templates/fp/claims.template.json",
+      "local_path": "source/templates/claims.template.json",
+      "sha256": "7a3f3499d3d71342208943c9aff9bbcc303cd7faead28da716a2e018fada67d3"
+    },
+    {
+      "source_path": "templates/fp/publish.template.json",
+      "local_path": "source/templates/publish.template.json",
+      "sha256": "3e34f815e94cabc06a9292f72107e1dc4891a03d7b048b559367cfdb6cf447ff"
+    },
+    {
+      "source_path": "templates/fp/SCRIPT.template.md",
+      "local_path": "source/templates/SCRIPT.template.md",
+      "sha256": "10a111754d7c896c4812744b154f6d99d83f4a565e5f3e9253898c7aba7e67b2"
+    },
+    {
+      "source_path": "templates/fp/PLAN-FP.md",
+      "local_path": "source/templates/PLAN-FP.md",
+      "sha256": "7c953262050f1cc5620dbf0f11e52a65465485435ba4795f11760b12d7f6b7d9"
+    },
+    {
+      "source_path": "projects/salary-vs-dividend/PLAN.md",
+      "local_path": "source/salary-vs-dividend/PLAN.md",
+      "sha256": "85eb23553a00ba974832cab3fe426b8792b973e33ced4a0244c131d3524b072b"
+    },
+    {
+      "source_path": "projects/salary-vs-dividend/SCRIPT.md",
+      "local_path": "source/salary-vs-dividend/SCRIPT.md",
+      "sha256": "6f90bd943266ae60a703921331b2cec3b93ff3655429d82014218aa1fdf93a3a"
+    },
+    {
+      "source_path": "projects/salary-vs-dividend/RESEARCH.md",
+      "local_path": "source/salary-vs-dividend/RESEARCH.md",
+      "sha256": "ae00ed4814707a914502511443fd4bcbebe952c76d9567958e451a8d0af3ddac"
+    },
+    {
+      "source_path": "projects/salary-vs-dividend/claims.json",
+      "local_path": "source/salary-vs-dividend/claims.json",
+      "sha256": "78080438bb3c9509b4e831b98ba2b43850d1f3ce4d02f70c2e197e90ad1ed36d"
+    }
+  ]
+}

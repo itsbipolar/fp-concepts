@@ -43,4 +43,6 @@ This tests an editorial transition from today's action toward later consequences
 
 The actual opening, transfer, reframing and settled renders were inspected against the source art. Material, palette, complete silhouettes and original character identities are retained; code text is separate from the pixels. Output checks verify hashes, dimensions, 270 decoded frames, duration, silent stream and final hold. [Native browser playback](review/playback.json) reached the end with zero dropped frames and no media error. Detailed scope is in [the brief](BRIEF.md).
 
-The user has approved the underlying Within reach drawing direction, not this new motion study or a completed film. The interactive baseline remains on [`codex`](https://github.com/itsbipolar/fp-concepts/tree/codex). Both [alternative style frames](../explorations/style-frames/README.md) are preserved.
+The user responded positively to this motion study (“okay its good”). It is the current starting point for motion; a complete financial film needs its own factual and creative review. The interactive baseline remains on [`codex`](https://github.com/itsbipolar/fp-concepts/tree/codex). Both [alternative style frames](../explorations/style-frames/README.md) are preserved.
+
+The next film also uses the integrated [editorial playbook](../docs/VIDEO-EDITORIAL.md), [topic bank](editorial/README.md), and [evidence/delivery workflow](../docs/VIDEO-EVIDENCE.md), selectively adapted from the user's other video studio.

@@ -8,6 +8,12 @@
 
 **Selected direction:** [Within reach](explorations/within-reach/README.md), the cut-paper treatment of company ownership, now has a working interaction. [Download and try it](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/within-reach/within-reach.zip). **The colossus** and **Separate bodies** remain in the [style-frame archive](explorations/style-frames/README.md) for possible future use. [Download all three style frames](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip).
 
+## Editorial studio
+
+The relevant work from [`fp-canada-vox-videos`](reference/vox-videos/README.md) now informs this branch: advanced Canadian planning for business-owner families and advisors, documentary questions and reveals, objects acting out the mechanism, linked evidence, and delivery records. Our Within reach artwork and positively reviewed motion study remain the visual foundation.
+
+Start with the [editorial playbook](docs/VIDEO-EDITORIAL.md), [16 topic candidates](video/editorial/README.md), and [evidence/delivery workflow](docs/VIDEO-EVIDENCE.md). The transfer includes reusable [script](docs/templates/VIDEO-SCRIPT.md), [claims](docs/templates/VIDEO-CLAIMS.json) and [delivery](docs/templates/VIDEO-DELIVERY.json) templates. Original source files are pinned for reference; historical tax numbers and approvals are not inherited.
+
 ## Start a new chat
 
 Attach this repository and use branch `codex-video` for video work (`codex` retains the interactive baseline). The repository's [AGENTS.md](AGENTS.md) is the entry point; [project state](docs/PROJECT-STATE.md) carries the compact handoff. A useful opening instruction is:

@@ -21,6 +21,10 @@ REQUIRED = (
     ".agents/skills/fp-video-build/SKILL.md", "docs/VIDEO-DIRECTION.md",
     "docs/VIDEO-WORKFLOW.md", "docs/templates/VIDEO-BRIEF.md",
     "vendor/motion-kit/README.md", "video/README.md", "video/BRIEF.md",
+    "docs/VIDEO-EDITORIAL.md", "docs/VIDEO-EVIDENCE.md",
+    "docs/templates/VIDEO-SCRIPT.md", "docs/templates/VIDEO-CLAIMS.json",
+    "docs/templates/VIDEO-DELIVERY.json", "reference/vox-videos/README.md",
+    "video/editorial/README.md",
 )
 
 
@@ -69,6 +73,26 @@ def validate():
         if hashlib.sha256(checked_path(reference["path"]).read_bytes()).hexdigest() != reference["sha256"]:
             raise ValueError(f"Video reference changed: {reference['path']}")
 
+    imported = json.loads(checked_path("reference/vox-videos/manifest.json").read_text())
+    for entry in imported["files"]:
+        source = checked_path("reference/vox-videos/" + entry["local_path"])
+        if not source.is_relative_to(ROOT / "reference/vox-videos/source"):
+            raise ValueError("Imported reference must stay inside its source archive")
+        if hashlib.sha256(source.read_bytes()).hexdigest() != entry["sha256"]:
+            raise ValueError(f"Imported source changed: {entry['local_path']}")
+    topics = json.loads(checked_path("video/editorial/topic-bank.json").read_text())["ideas"]
+    topic_ids = [topic["id"] for topic in topics]
+    if len(topic_ids) != len(set(topic_ids)):
+        raise ValueError("Duplicate editorial topic IDs")
+    for topic in topics:
+        if topic["source"]["commit"] != imported["commit"] or topic["source"]["id"] != topic["id"]:
+            raise ValueError(f"Topic provenance differs from reviewed source: {topic['id']}")
+    for name in ("VIDEO-CLAIMS", "VIDEO-DELIVERY"):
+        template = json.loads(checked_path(f"docs/templates/{name}.json").read_text())
+        if template["schema_version"] != 1:
+            raise ValueError(f"Unknown template schema: {name}")
+    json.loads(checked_path("video/editorial/cast.json").read_text())
+
     # Tokens describe the actual approved prototype, not an invented new theme.
     prototype = checked_path("explorations/within-reach/index.html").read_text()
     for colour in tokens["colors"].values():
@@ -93,6 +117,7 @@ def validate():
 
     print(f"Visual kit OK: {len(assets)} protected PNGs, {len(tokens['colors'])} palette anchors.")
     print(f"Video continuity: {len(video_references['references'])} reference hashes verified.")
+    print(f"Editorial transfer: {len(imported['files'])} source hashes and {len(topics)} topic provenance records verified.")
     print("Startup documents, templates and local Markdown links resolve.")
     print("Integrity only: visual fidelity and financial correctness require their own review.")
 

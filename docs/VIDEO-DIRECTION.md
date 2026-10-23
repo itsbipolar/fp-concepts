@@ -7,7 +7,7 @@ This is the video direction for `codex-video`. The user wants to explore authore
 1. The user's current request and explicitly approved **Within reach** direction.
 2. The actual [master frame](../explorations/style-frames/assets/within-reach.png), [drawing system](STYLE-SYSTEM.md), [colour tokens](../design/within-reach/style-tokens.json), and protected production layers.
 3. The [latest connected-effects scene](../explorations/salary-or-dividend/README.md), including its older owner, paper record, prompt provenance and temporal relationships. These extend the working vocabulary; they are not a claim that every lesson mechanism has received final approval.
-4. This video direction and the [video workflow](VIDEO-WORKFLOW.md).
+4. This video direction, the [video workflow](VIDEO-WORKFLOW.md) and [editorial playbook](VIDEO-EDITORIAL.md). The user responded positively to the first motion study; use it as the current motion reference.
 5. Selected techniques from the uploaded kit, adapted to the above.
 
 The [video reference manifest](../design/within-reach/video-reference-manifest.json) records the actual files and hashes. Inspect the master, relevant components and latest scene before designing. The original **The colossus** and **Separate bodies** frames remain preserved alternatives, not ingredients to blend into this style.
@@ -62,3 +62,5 @@ The first calibration is landscape, 1280×720 at 30 fps, matching the existing w
 ## Visual acceptance
 
 Compare real rendered opening, action, transition and settled frames against the master and latest figure. Check paper texture, figure identity, palette, transparency, hand/face readability, uncut silhouettes, text placement, causal continuity and explicit timing. Then inspect temporal continuity, not just isolated attractive stills. Record what is verified and what remains a creative judgment. A successful render is not user approval of a new visual direction or proof of financial correctness.
+
+The [selective transfer from fp-canada-vox-videos](../reference/vox-videos/README.md) adds documentary structure, audience context and production records. It preserves the hierarchy above; story forms do not prescribe a replacement visual system.

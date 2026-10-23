@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "slug": "replace-slug",
+  "version": "draft-01",
+  "status": "draft",
+  "audience": "",
+  "question": "",
+  "story_form": "",
+  "parent": null,
+  "parent_version": null,
+  "claims_subset": [],
+  "has_audio": null,
+  "narration": {
+    "source": "undecided",
+    "disclosure": "",
+    "transcript": "",
+    "captions": ""
+  },
+  "files": {
+    "composition": "",
+    "mp4": "",
+    "brief": "",
+    "script": "",
+    "claims": "",
+    "calculation": "",
+    "workbook": "",
+    "sources": "",
+    "thumbnail": "",
+    "validation": ""
+  },
+  "platform_cuts": [],
+  "identity": {
+    "public_name": "",
+    "credentials": ""
+  },
+  "creative_review": {"status": "not-reviewed", "evidence": ""},
+  "factual_review": {"status": "not-reviewed", "evidence": ""},
+  "publication": {
+    "firm_review_required": true,
+    "submitted_on": null,
+    "approved_on": null,
+    "approval_reference": "",
+    "approved_artifact_version": "",
+    "conditions": [],
+    "posted_on": null,
+    "locations": []
+  },
+  "corrections": []
+}
