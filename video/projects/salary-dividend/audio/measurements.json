@@ -1,0 +1,8 @@
+{
+  "input_i": "-19.59",
+  "input_tp": "-1.76",
+  "input_lra": "9.90",
+  "input_thresh": "-30.39",
+  "method": "FFmpeg loudnorm analysis only; output_* measurements from the analysis filter are not claimed for this delivered mix.",
+  "listening_review": "Not performed; signal analysis and source transcript alignment only."
+}

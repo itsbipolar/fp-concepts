@@ -25,6 +25,10 @@ REQUIRED = (
     "docs/templates/VIDEO-SCRIPT.md", "docs/templates/VIDEO-CLAIMS.json",
     "docs/templates/VIDEO-DELIVERY.json", "reference/vox-videos/README.md",
     "video/editorial/README.md",
+    "video/projects/salary-dividend/README.md",
+    "video/projects/salary-dividend/BRIEF.md",
+    "video/projects/salary-dividend/SCRIPT.md",
+    "video/projects/salary-dividend/STORYBOARD.md",
 )
 
 

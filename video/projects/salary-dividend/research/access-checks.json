@@ -1,0 +1,61 @@
+{
+  "checked_on": "2026-10-23T02:59:37.741435+00:00",
+  "method": "Python urllib ordinary HTTPS requests through inherited proxy; TLS verification retained; no bypass or archived scripts.",
+  "sources": [
+    {
+      "id": "income-tax-act",
+      "publisher": "Justice Laws Website",
+      "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/FullText.html",
+      "attempted_at": "2026-10-23T02:59:37.713716+00:00",
+      "retrieved_on": null,
+      "effective_on": null,
+      "supporting_quote": null,
+      "status": "blocked",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "cpp",
+      "publisher": "Canada Revenue Agency",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp.html",
+      "attempted_at": "2026-10-23T02:59:37.714423+00:00",
+      "retrieved_on": null,
+      "effective_on": null,
+      "supporting_quote": null,
+      "status": "blocked",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "rrsp-limit",
+      "publisher": "Canada Revenue Agency",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/contributing-a-rrsp-prpp/rrsp-deduction-limit.html",
+      "attempted_at": "2026-10-23T02:59:37.714880+00:00",
+      "retrieved_on": null,
+      "effective_on": null,
+      "supporting_quote": null,
+      "status": "blocked",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "dividend-credit",
+      "publisher": "Canada Revenue Agency",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-40425-federal-dividend-tax-credit.html",
+      "attempted_at": "2026-10-23T02:59:37.715309+00:00",
+      "retrieved_on": null,
+      "effective_on": null,
+      "supporting_quote": null,
+      "status": "blocked",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "corporation-rates",
+      "publisher": "Canada Revenue Agency",
+      "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/corporation-tax-rates.html",
+      "attempted_at": "2026-10-23T02:59:37.715831+00:00",
+      "retrieved_on": null,
+      "effective_on": null,
+      "supporting_quote": null,
+      "status": "blocked",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}

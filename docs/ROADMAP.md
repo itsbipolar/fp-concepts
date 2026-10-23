@@ -6,7 +6,9 @@
 - [x] Preserve the uploaded motion kit and adapt the workflow to the existing Within reach references.
 - [x] Install an isolated Remotion workspace with pinned dependencies and a representative silent motion study.
 - [x] User responded positively to the motion study. Integrate relevant editorial structure, evidence/delivery templates and topic candidates from `fp-canada-vox-videos`, retaining Within reach as the visual foundation.
-- [ ] Develop a sourced short financial film with its own visual argument, beat map and delivery format.
+- [x] Develop the first salary/dividend film's visual argument, seven-beat illustrated storyboard and14-second narrated representative passage. Render/decode/native playback checks passed; original artwork preserved.
+- [ ] Resolve primary-source access and verify the full-film legal scope; no numerical comparison is currently computed.
+- [ ] Complete the remaining salary and future-effects animation after the representative passage is reviewed.
 - [ ] Add narration/captions and sound when a film brief calls for them; optional kit tools remain reference material until needed.
 
 ## Within reach: selected direction

@@ -11,13 +11,14 @@
       "story_form": "comparison",
       "project_fit": "Closest continuation: same characters and existing connected-effects work.",
       "research_needed": "Keep company cost equal and include payroll costs when comparing cash.",
-      "status": "candidate",
+      "status": "in-development",
       "source": {
         "repository": "itsbipolar/fp-canada-vox-videos",
         "commit": "7eee559f25f1f974b3fcd094814852b331d32610",
         "path": "ideas/catalogue.json",
         "id": "CORP-04"
-      }
+      },
+      "project": "video/projects/salary-dividend/README.md"
     },
     {
       "id": "CORP-05",

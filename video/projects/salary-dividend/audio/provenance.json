@@ -1,0 +1,52 @@
+{
+  "source_repository": "https://github.com/itsbipolar/fp-canada-vox-videos",
+  "source_commit": "7eee559f25f1f974b3fcd094814852b331d32610",
+  "source_path": "public/graphics/salary-vs-dividend/voice.wav",
+  "source_sha256": "b873d8cfb1bb447beac51728207c5f2e40562200c89d492c3e96a7f6d6f20982",
+  "upstream_provider_metadata": {
+    "provider": "Higgsfield",
+    "model": "seed_audio",
+    "preset": "Benji"
+  },
+  "disclosure": "AI-generated narration reused from the user's previous project; no new synthesis call.",
+  "edits": [
+    {
+      "source_start": 16.51,
+      "source_end": 19.56,
+      "target_start": 3.25,
+      "spoken_start": 3.3,
+      "spoken_end": 6.16,
+      "text": "Take it as a dividend, and the company pays its tax first."
+    },
+    {
+      "source_start": 19.73,
+      "source_end": 22.94,
+      "target_start": 8.25,
+      "spoken_start": 8.3,
+      "spoken_end": 11.3,
+      "text": "You get a tax break for that, but you still pay tax on the rest."
+    }
+  ],
+  "processing": "Two intact phrases, silent spacing, 5ms edge fades, stereo averaged to mono, 1.5x voice gain. No speed/pitch change.",
+  "paper_sound_cues": [
+    {
+      "start": 2.5,
+      "duration": 0.18,
+      "amplitude": 0.026
+    },
+    {
+      "start": 4.2,
+      "duration": 0.26,
+      "amplitude": 0.022
+    },
+    {
+      "start": 10.2,
+      "duration": 0.12,
+      "amplitude": 0.032
+    }
+  ],
+  "duration_seconds": 14,
+  "output_sha256": "833aff52f594be97ec198215b152479bba017315e204d888a21550aeb15e50e5",
+  "output_sample_peak_dbfs": -1.79,
+  "new_voice_calls": 0
+}

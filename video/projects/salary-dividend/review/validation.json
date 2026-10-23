@@ -1,0 +1,20 @@
+{
+  "checks_passed": [
+    "source/input/output SHA256 hashes",
+    "four preserved source/prepared assets",
+    "nine 1280x720 PNGs and contact sheet",
+    "byte-identical source hold frames359/419;61 decoded hold frames with bounded lossy drift",
+    "H264 4:2:0 1280x720 30fps 420 frames / 14 seconds",
+    "AAC 48kHz audio",
+    "complete FFmpeg audio/video decode"
+  ],
+  "movie_bytes": 2498228,
+  "pixel_format": "yuvj420p",
+  "decoded_hold_max_adjacent_difference": {
+    "YMAX": 7.0,
+    "YAVG": 0.00209418,
+    "UMAX": 2.0,
+    "VMAX": 2.0
+  },
+  "scope": "Artifact checks only. Not TypeScript typechecking, user approval or financial verification."
+}

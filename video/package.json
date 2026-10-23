@@ -9,7 +9,11 @@
     "studio": "remotion studio src/index.ts",
     "check": "node tools/review.mjs --stills",
     "render": "node tools/review.mjs",
-    "verify": "python3 tools/verify.py"
+    "verify": "python3 tools/verify.py",
+    "check:salary": "node tools/salary-review.mjs --stills",
+    "render:salary": "node tools/salary-review.mjs",
+    "verify:salary": "python3 tools/verify-salary.py",
+    "storyboard:salary": "python3 tools/storyboard-salary.py"
   },
   "dependencies": {
     "@remotion/bundler": "4.0.497",

@@ -1,0 +1,38 @@
+{
+  "composition": "SalaryDividendPassage",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "frames": 420,
+  "node": "v24.19.0",
+  "browser": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+  "inputs": {
+    "src/index.ts": "a58f804bf74bab68b4549aa5c715eb4a89ec5835206d198fc79b462b4fc71ef9",
+    "src/Root.tsx": "9a85f7c57b96a9515586661be4c3c993190af37463fedff629a1d5c0ad796504",
+    "src/salary-dividend/SalaryDividendPassage.tsx": "88fddc603a079ad09d487ae73f15e10ac148c26b77543776f2059517b8d84a66",
+    "tools/prepare-assets.mjs": "d4d85d531a5f5afbc92f2ae4cefdc5979447e14ef2116dd24fcbcbf67bcf8e7f",
+    "tools/salary-review.mjs": "b7422d8ece7e94f2bf31250725cb4297fa88b15a2914145af4159f388fe6acc9",
+    "tools/verify-salary.py": "6711a60645dd61eca1e53c6f34a7906a03f0fef1ca67bcda7e0c94ea1498df4e",
+    "package-lock.json": "296bab2ec8588175078cb585335c8799a083658f3788ff6fb414cf00b362de1c",
+    "asset-manifest.json": "83845ac3f17141d724dedd5880cb16c5fb164eeb22c1888a834c593b3d89a3a9",
+    "public/fonts/LiberationSans-Bold.ttf": "1b5f2da6f4cadce4c05b9ecebe3a6fcd374eb95ae443605e799f4c3287978939",
+    "projects/salary-dividend/audio/passage.wav": "833aff52f594be97ec198215b152479bba017315e204d888a21550aeb15e50e5",
+    "public/assets/salary-dividend-passage.wav": "833aff52f594be97ec198215b152479bba017315e204d888a21550aeb15e50e5"
+  },
+  "artifacts": {
+    "frame-057.png": "26fbf4c97e50c467632c439ba375be26a85d35548ba2c97280fc9500b0b3a536",
+    "frame-078.png": "9316aa0328594b6076d615414c9f95c07ca0a10e36fa9ad81a0bb61e6ad5cde0",
+    "frame-125.png": "f02a04cb79715309e9cff4e4a46d55fe3f48a47921f7b8bc72260ae1ca6f2d10",
+    "frame-156.png": "f294e17fd33f350b60221c8129ab26e3c3a44b2f2523c729ff0f97442c5d04d8",
+    "frame-204.png": "861ec75c269e5c1a088f9ad9b049a206b953b3d8df434c1bb481b847eb87a62b",
+    "frame-249.png": "75be529f75bedf9eafb06f574cc01f66b2c66066c5b9abbd4064b480dd75433b",
+    "frame-300.png": "6f6ea5a3cc337e5f2f7153c1bb6dce634da654bdb7e3bd1c19c6a9258df2fcb0",
+    "frame-359.png": "01b6a1720fb33140a157161e488b60b88ea7616a551dc2790163aa0f3285bc66",
+    "frame-419.png": "01b6a1720fb33140a157161e488b60b88ea7616a551dc2790163aa0f3285bc66",
+    "contact-sheet.png": "61d4ec85b98d7405ded24e62c9af8155ae79a4eb0c1cf8e0157ffc09f5a04b16",
+    "phone-opening.png": "3e834d45d4c41498a6ba89b1244330ffd6e46ab8be0a16928c9c571fc9caf4a5",
+    "phone-hold.png": "91012dea008db192e2cf847def1bafa6b837c71e3076ce14676dcb4ce2f1369e",
+    "decoded-contact-sheet.png": "1b59e6c760e99d2e81b8ca6f9d20168fdc111b4545d5c27af100234c28478eb1",
+    "salary-dividend-passage.mp4": "6c68557bff9c250e95edb5f714edd66e31b1914b3552e8668933b23a7d5d9886"
+  }
+}

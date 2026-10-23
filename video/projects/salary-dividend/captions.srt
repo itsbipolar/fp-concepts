@@ -1,0 +1,9 @@
+1
+00:00:03,300 --> 00:00:06,520
+Take it as a dividend,
+and the company pays its tax first.
+
+2
+00:00:08,300 --> 00:00:11,540
+You get a tax break for that,
+but you still pay tax on the rest.

@@ -1,0 +1,12 @@
+{
+  "ended": true,
+  "error": null,
+  "duration": 14,
+  "width": 1280,
+  "height": 720,
+  "totalVideoFrames": 420,
+  "droppedVideoFrames": 0,
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "movie_sha256": "6c68557bff9c250e95edb5f714edd66e31b1914b3552e8668933b23a7d5d9886",
+  "method": "Muted native HTML video over local HTTP, Playwright-controlled Chromium, awaited ended event. No listening review."
+}

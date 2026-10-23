@@ -1,0 +1,15 @@
+# Representative passage review
+
+Internal creative draft, research pending. Reviewed the approved master, the original `video/review/frame-269.png`, and company/owner/payment source layers before composing. No generated or repainted artwork; the shared 1536×1024 alignment plane and all four prepared assets remain intact. `WithinReach` retains its original component and composition settings.
+
+Inspected nine rendered stills, the contact sheet, actual MP4-decoded frames (57, 78, 84, 141, 156, 204, 249, 320, 419), and 390-pixel-wide opening/final previews.
+
+- Material/figure: pass. Original paper grain, blue/orange/ink roles and angular anatomy preserved. Face, receiving palm and note remain readable in the phone previews. Tight shots deliberately crop the lower body; the final company and owner silhouettes are complete.
+- Space/integration: pass after revision. Moved the company label off the blue silhouette and the final personal label beyond the hand; lowered interruption endpoint so a visible gap remains before contact. No matte rectangle or extra asset generation.
+- Motion/meaning: pass for this qualitative storyboard. Six-frame withdrawal precedes a hard cut and explicit “Before the dividend.” Whole symbolic tax note moves down-left, crosses behind the company foreground at the aperture jamb, exits the frame, and never returns. Baked notes stay static. After a pause and “Then, the dividend,” the opening camera and arrival position recur, then the note reaches the palm. One widening move settles at frame355.
+- Captions: the two reused phrases are captioned at frames99–195 and249–346. The second explicitly includes “You get a tax break for that,” preserving the credit context. No categorical cheaper-route kicker, rates, amounts, proportional tax areas or winner.
+- Final hold: source PNGs359/419 are byte-identical; all61 decoded final frames were checked for bounded compression drift. CRF18 H264 introduces tiny reconstruction changes (maximum adjacent luma7/255; maximum mean0.002095/255). These are not scene motion.
+
+Commands: `node tools/salary-review.mjs --stills`, then `node tools/salary-review.mjs`, then `python3 tools/verify-salary.py` from `video/`. The renderer prepares unchanged assets, restores runtime audio from the versioned WAV, creates nine PNGs/contact sheet/phone previews, renders MP4, trims AAC padding to14 seconds, extracts a decoded contact sheet, and records SHA256 hashes. `validation.json` records actual metadata and complete decode checks; `render-manifest.json` records inputs/artifacts.
+
+Limits: visual inspection of sampled decoded frames and phone stills is not continuous native-speed playback or listening. No TypeScript typecheck, new financial verification or user approval is claimed. Financial phrasing remains an internal research-pending draft; “first” shows the economic sequence, not a statutory remittance timetable. The symbolic qualifier is supporting text, not the main phone reading target. Final composition deliberately compares stages, not amounts.

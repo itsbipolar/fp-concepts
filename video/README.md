@@ -1,4 +1,8 @@
-# Within reach — motion study 01
+# Within reach — video workspace
+
+**Latest film development:** [The part before the handoff](projects/salary-dividend/README.md) includes a seven-beat illustrated storyboard and a 14-second passage with narration, captions and paper sounds. Use `npm run render:salary` / `npm run verify:salary` for that project; the commands below reproduce the original silent study.
+
+## Original motion study 01
 
 The established cut-paper artwork, now staged for a film. This is a **nine-second silent style calibration**, not a completed salary/dividend explainer. It tests continuity of the actual texture and figures, a payment's movement, and a wider view that introduces the older owner.
 

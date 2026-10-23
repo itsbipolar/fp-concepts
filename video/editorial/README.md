@@ -2,7 +2,7 @@
 
 The [topic bank](topic-bank.json) adapts 16 high-level questions from the user's `fp-canada-vox-videos` catalogue to this project's current progress. They are **candidates requiring research**, not verified rules, demand forecasts, ready scripts or a commitment to build all 16. Each record names its upstream ID/commit, story form, project fit and research work still needed.
 
-The closest continuation is **CORP-04: salary or dividend**. We already have the relevant figures and a qualitative connected-effects lesson. The other repo adds a useful question about the less visible company tax; its top-bracket numbers and simplified cost basis must not be silently adopted. First define the exact comparison and verify the sources.
+**CORP-04: salary or dividend is now in development** at [the first-film project](../projects/salary-dividend/README.md), with a storyboard and14-second representative passage. We already have the relevant figures and a qualitative connected-effects lesson. The other repo adds a useful question about the less visible company tax; its top-bracket numbers and simplified cost basis must not be silently adopted. First define the exact comparison and verify the sources.
 
 | ID | Question | Story form |
 | --- | --- | --- |

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "salary-dividend",
+  "version": "passage-01",
+  "status": "internal-creative-draft",
+  "audience": "incorporated Ontario business owners",
+  "question": "Why can a dividend feel cheaper than a salary?",
+  "story_form": "interrupted handoff and reconstruction",
+  "parent": null,
+  "parent_version": null,
+  "claims_subset": [
+    "dividend-after-corporate-tax",
+    "dividend-credit"
+  ],
+  "has_audio": true,
+  "narration": {
+    "source": "reused-generated-voice",
+    "disclosure": "AI-generated narration reused from the user’s previous project; no new synthesis.",
+    "transcript": "SCRIPT.md#actual-representative-passage-narration",
+    "captions": "captions.srt"
+  },
+  "files": {
+    "composition": "../../src/salary-dividend/SalaryDividendPassage.tsx",
+    "mp4": "review/salary-dividend-passage.mp4",
+    "brief": "BRIEF.md",
+    "script": "SCRIPT.md",
+    "claims": "research/claims.json",
+    "calculation": "",
+    "workbook": "",
+    "sources": "research/RESEARCH.md",
+    "thumbnail": "review/frame-419.png",
+    "validation": "review/validation.json"
+  },
+  "platform_cuts": [],
+  "identity": {
+    "public_name": "",
+    "credentials": ""
+  },
+  "creative_review": {
+    "status": "implemented-agent-reviewed-awaiting-user",
+    "evidence": "review/VISUAL-REVIEW.md"
+  },
+  "factual_review": {
+    "status": "blocked-primary-access",
+    "evidence": "research/access-checks.json"
+  },
+  "publication": {
+    "firm_review_required": true,
+    "submitted_on": null,
+    "approved_on": null,
+    "approval_reference": "",
+    "approved_artifact_version": "",
+    "conditions": [],
+    "posted_on": null,
+    "locations": []
+  },
+  "corrections": []
+}

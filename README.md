@@ -1,5 +1,7 @@
 # fp-concepts
 
+**Latest:** [The part before the handoff](video/projects/salary-dividend/README.md) — first-film visual argument, illustrated storyboard and a 14-second narrated passage. [Watch/download](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex-video/video/projects/salary-dividend/review/salary-dividend-passage.mp4) · [See the storyboard](video/projects/salary-dividend/storyboard.png). Internal qualitative draft; official-source verification remains pending.
+
 **Video branch:** [`codex-video`](https://github.com/itsbipolar/fp-concepts/tree/codex-video) carries Within reach into authored motion. [Review the nine-second study](video/README.md) · [Download the silent MP4](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex-video/video/review/within-reach-motion-study.mp4). The existing paper artwork is the foundation; [the supplied motion kit](vendor/motion-kit/README.md) adds production guidance.
 
 ![Within reach motion study](video/review/frame-269.png)

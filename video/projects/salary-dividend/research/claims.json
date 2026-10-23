@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "slug": "salary-dividend",
+  "as_of": "2026-10-22",
+  "tax_year": 2026,
+  "jurisdictions": [
+    "Canada federal",
+    "Ontario"
+  ],
+  "comparison_basis": "Same incremental pre-remuneration company profit/cost budget; no numeric comparison computed.",
+  "assumptions": [
+    "Illustrative Ontario resident age 40; works in and owns 100% voting control of a CCPC.",
+    "Reasonable salary for actual work versus ordinary non-eligible taxable dividend from active business profit eligible for small-business treatment.",
+    "Qualitative draft: no amounts, rates, contribution ceilings, tax winner or equivalence asserted.",
+    "CPP/RRSP salary effects use can and require headroom below annual ceilings and applicable adjustments.",
+    "Exclude capital dividends, loans, eligible dividends, refundable corporate tax and associated-company/passive-income complications.",
+    "All legal mechanisms remain pending successful current primary-source review."
+  ],
+  "parent": null,
+  "parent_version": null,
+  "access_evidence": "access-checks.json",
+  "claims": [
+    {
+      "id": "salary-deductible",
+      "kind": "rule",
+      "statement": "A reasonable salary for actual work can reduce corporate taxable income.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "legislation-target",
+      "treatment": "requires-caveat",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/FullText.html",
+        "title": "Income Tax Act",
+        "publisher": "Justice Laws Website",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "A reasonable salary for your work can reduce the company\u2019s taxable income.",
+      "spoken_text": "",
+      "uses": [
+        "salary branch"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "Check business-income computation, deductibility and reasonableness; no operative provision was retrieved."
+    },
+    {
+      "id": "dividend-after-corporate-tax",
+      "kind": "rule",
+      "statement": "For the stated ordinary active-business-income scenario, a non-eligible dividend is distributed from profit after corporate income tax; the distribution is not a salary expense deduction.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "administrative-position-target",
+      "treatment": "requires-caveat",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/corporation-tax-rates.html",
+        "title": "Corporation tax rates",
+        "publisher": "Canada Revenue Agency",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "A dividend reaches you after company tax.",
+      "spoken_text": "",
+      "uses": [
+        "representative passage",
+        "dividend branch"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "No rates used. Excludes capital dividends and refundable-tax complications; add statutory evidence for dividend non-deductibility."
+    },
+    {
+      "id": "dividend-credit",
+      "kind": "rule",
+      "statement": "An ordinary taxable non-eligible dividend has shareholder income-tax treatment that includes a gross-up and dividend tax credit.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "administrative-position-target",
+      "treatment": "requires-caveat",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-40425-federal-dividend-tax-credit.html",
+        "title": "Federal dividend tax credit",
+        "publisher": "Canada Revenue Agency",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "Then comes your personal tax\u2014with a dividend tax credit.",
+      "spoken_text": "",
+      "uses": [
+        "representative passage"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "Credit is not a claim that exact corporate tax is reimbursed or total salary/dividend tax is equal."
+    },
+    {
+      "id": "salary-cpp",
+      "kind": "rule",
+      "statement": "Ordinary pensionable salary can add CPP pensionable earnings and requires employee and employer contributions within applicable rules and annual ceilings.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "administrative-position-target",
+      "treatment": "depends-on-facts",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp.html",
+        "title": "Canada Pension Plan payroll contributions",
+        "publisher": "Canada Revenue Agency",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "Salary can add to your CPP earnings record.",
+      "spoken_text": "",
+      "uses": [
+        "salary later-effects beat"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "Age 40; assume pensionable employment and earnings below applicable ceilings. No guaranteed pension increment or amount."
+    },
+    {
+      "id": "salary-rrsp-next-year",
+      "kind": "rule",
+      "statement": "Salary included in earned income can create new RRSP room for the following year, subject to the dollar limit and adjustments.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "administrative-position-target",
+      "treatment": "requires-caveat",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/contributing-a-rrsp-prpp/rrsp-deduction-limit.html",
+        "title": "RRSP deduction limit",
+        "publisher": "Canada Revenue Agency",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "And create new RRSP room for next year.",
+      "spoken_text": "",
+      "uses": [
+        "salary later-effects beat"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "2026 earned income affects 2027 room; no 2027 cap is asserted. Room is not a deposit."
+    },
+    {
+      "id": "dividends-no-new-earnings",
+      "kind": "rule",
+      "statement": "Dividends themselves do not create CPP pensionable earnings or RRSP earned income.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "legislation-target",
+      "treatment": "requires-caveat",
+      "source": {
+        "url": "https://laws-lois.justice.gc.ca/eng/acts/I-3.3/FullText.html",
+        "title": "Income Tax Act",
+        "publisher": "Justice Laws Website",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "Dividends don\u2019t create those new earnings or new room.",
+      "spoken_text": "",
+      "uses": [
+        "dividend later-effects beat"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "Need separate CPP statutory/administrative evidence plus ITA 146 earned-income definition; none retrieved. Existing rights remain separate."
+    },
+    {
+      "id": "existing-rights",
+      "kind": "rule",
+      "statement": "Choosing a dividend does not itself erase prior CPP earnings records or unused RRSP room.",
+      "status": "pending-primary-verification",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "administrative-position-target",
+      "treatment": "depends-on-facts",
+      "source": {
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/contributing-a-rrsp-prpp/rrsp-deduction-limit.html",
+        "title": "RRSP deduction limit",
+        "publisher": "Canada Revenue Agency",
+        "retrieved_on": null,
+        "effective_on": null,
+        "quote": null,
+        "access_status": "blocked",
+        "attempted_on": "2026-10-23",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "Existing records and unused room stay visible.",
+      "spoken_text": "",
+      "uses": [
+        "continuity across branches"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "Visual continuity claim, not a promise that benefits/room never change for other reasons. Obtain separate CPP support."
+    },
+    {
+      "id": "no-winner",
+      "kind": "editorial-method",
+      "statement": "An amount comparison must start from the same company cost and include all material company and personal costs; this draft makes no cash or total-tax winner claim.",
+      "status": "scope-defined-no-calculation",
+      "year": 2026,
+      "jurisdiction": "Canada federal; Ontario scenario",
+      "authority_kind": "methodological",
+      "treatment": "comparison-not-computed",
+      "source": null,
+      "supporting": [],
+      "illustrative": false,
+      "value": null,
+      "unit": null,
+      "display_text": "Compare the same company cost\u2014and the consequences beyond today\u2019s cash.",
+      "spoken_text": "",
+      "uses": [
+        "closing beat"
+      ],
+      "depends_on": [],
+      "calculation": null,
+      "note": "Internal comparison discipline. No primary legal authority claimed; no assertion of exact tax integration."
+    }
+  ],
+  "quantification_status": {
+    "status": "not-computed",
+    "pending": [
+      "2026 corporate fiscal period/rates and eligibility",
+      "2026 federal/Ontario personal rates and credits, surtax and health premium",
+      "employee and employer CPP including both earnings bands and ceilings",
+      "controlling-shareholder EI rule",
+      "applicable EHT/WSIB or supported exclusions",
+      "RRSP earned-income definition and 2027-room timing/cap/adjustments"
+    ],
+    "workbook": null,
+    "independent_arithmetic": null
+  },
+  "factual_review": {
+    "status": "blocked-primary-access",
+    "by": "",
+    "on": null,
+    "artifact_version": "internal creative research draft 2026-10-23",
+    "evidence": "Five ordinary official HTTPS requests failed with proxy CONNECT 403; no official passages retrieved. See access-checks.json and RESEARCH.md."
+  }
+}
