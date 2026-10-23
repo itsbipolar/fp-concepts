@@ -1,5 +1,9 @@
 # Visual direction
 
+## Video extension on codex-video
+
+The user wants to explore videos beyond the interactive format while retaining all the Within reach drawing, texture and references. Follow [video direction](VIDEO-DIRECTION.md); the supplied motion kit is additive. The latest figure and original approved art remain the references. The interactive work below remains preserved.
+
 ## Selected direction: Within reach
 
 The owner selected **Within reach** and endorsed its visual design and drawing style after reviewing the first ownership interaction: expressive cut-paper illustration, recognisable stylised subjects, and behaviour that reveals financial relationships. The current prototype is at `explorations/within-reach/README.md`.

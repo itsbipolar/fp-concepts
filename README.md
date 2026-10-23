@@ -1,17 +1,22 @@
 # fp-concepts
 
-**Latest build:** [Salary or dividend](explorations/salary-or-dividend/README.md) — one payment changes tax treatment, the CPP earnings record and next year's RRSP room. [Download and try the visual prototype](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/salary-or-dividend/salary-or-dividend.zip). Quantified tax outcomes remain pending primary-source verification.
+**Video branch:** [`codex-video`](https://github.com/itsbipolar/fp-concepts/tree/codex-video) carries Within reach into authored motion. [Review the nine-second study](video/README.md) · [Download the silent MP4](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex-video/video/review/within-reach-motion-study.mp4). The existing paper artwork is the foundation; [the supplied motion kit](vendor/motion-kit/README.md) adds production guidance.
+
+![Within reach motion study](video/review/frame-269.png)
+
+**Preserved interactive build:** [Salary or dividend](explorations/salary-or-dividend/README.md) — one payment changes tax treatment, the CPP earnings record and next year's RRSP room. [Download and try the visual prototype](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/salary-or-dividend/salary-or-dividend.zip). Quantified tax outcomes remain pending primary-source verification.
 
 **Selected direction:** [Within reach](explorations/within-reach/README.md), the cut-paper treatment of company ownership, now has a working interaction. [Download and try it](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/within-reach/within-reach.zip). **The colossus** and **Separate bodies** remain in the [style-frame archive](explorations/style-frames/README.md) for possible future use. [Download all three style frames](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/style-frames/style-frames.zip).
 
 ## Start a new chat
 
-Attach this repository and use branch `codex`. The repository's [AGENTS.md](AGENTS.md) is the entry point; [project state](docs/PROJECT-STATE.md) carries the compact handoff. A useful opening instruction is:
+Attach this repository and use branch `codex-video` for video work (`codex` retains the interactive baseline). The repository's [AGENTS.md](AGENTS.md) is the entry point; [project state](docs/PROJECT-STATE.md) carries the compact handoff. A useful opening instruction is:
 
-> Use the fp-visual-build project skill on codex to build [financial concept]. Follow the approved Within reach references and the model-routing workflow. Develop the visual explanation from the financial relationships.
+> Use the fp-video-build project skill on codex-video to build a short film about [financial concept]. Follow the existing Within reach artwork and video direction. Use the motion kit as an additive guide, develop the visual explanation from the financial relationships, and follow the lean model-routing workflow.
 
 For unfinished work, replace “build [financial concept]” with “continue [lesson path] from its brief and project state.” A chat without repository access cannot retrieve this workflow automatically.
 
+- [Video direction](docs/VIDEO-DIRECTION.md), [video workflow](docs/VIDEO-WORKFLOW.md), [video skill](.agents/skills/fp-video-build/SKILL.md) and [video brief template](docs/templates/VIDEO-BRIEF.md).
 - [Drawing, texture and figure rules](docs/STYLE-SYSTEM.md), [reference assets](design/within-reach/asset-manifest.json) and [style tokens](design/within-reach/style-tokens.json).
 - [Build phases and model routing](docs/BUILD-WORKFLOW.md), [interaction principles](docs/INTERACTION-PRINCIPLES.md) and [project skill](.agents/skills/fp-visual-build/SKILL.md).
 - Templates for [lesson briefs](docs/templates/LESSON-BRIEF.md), [image prompts](docs/templates/IMAGE-PROMPT.md), [asset provenance](docs/templates/ASSET-RECORD.json) and [bounded agent tasks](docs/templates/AGENT-TASK.md).

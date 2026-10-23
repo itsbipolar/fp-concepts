@@ -9,7 +9,7 @@ Project-authored skill. Paths below are relative to the repository root. This sk
 
 ## Start with the smallest useful context
 
-1. Read `AGENTS.md`, `docs/PROJECT-STATE.md` and the target lesson's brief. Use the current checkout on `codex`.
+1. Read `AGENTS.md`, `docs/PROJECT-STATE.md` and the target lesson's brief. Use the current authorized branch. For videos on `codex-video`, use `.agents/skills/fp-video-build/SKILL.md`; do not switch to `codex` for an incidental interaction fix.
 2. For a new lesson, read `docs/INTERACTION-PRINCIPLES.md`, `docs/STYLE-SYSTEM.md` and `docs/BUILD-WORKFLOW.md`. For a narrow fix, read only the relevant guidance and files; do not reload history or unrelated lessons.
 3. Before artwork work, view the approved master and the relevant components listed in `design/within-reach/asset-manifest.json`. Inspect pictures, not filenames alone. Read `docs/templates/IMAGE-PROMPT.md` only when generating/editing assets.
 4. Use the installed `frontend-design` skill for a new or redesigned interface. Keep the approved drawing language fixed; routine implementation is not an invitation to reopen style selection.
@@ -34,4 +34,4 @@ If delegation helps, use a fresh agent with an explicit supported model/effort a
 2. Run `python3 scripts/check_visual_system.py` after changing this workflow, tokens or the reference catalog. This validates files and protected hashes, not aesthetic similarity or financial correctness.
 3. For the existing prototype, `python3 explorations/within-reach/package_review.py` rebuilds offline HTML and ZIP after source/asset changes. The style-frame archive has its own `package_review.py`; leave it alone unless it changed.
 4. Update the lesson brief and `docs/PROJECT-STATE.md` with the concrete result, checks, blockers and next action. Keep logs compact; record measured usage only when available.
-5. Commit and push completed authorized work on `codex`. Provide GitHub view/download links so review survives cloud resets. Preserve all original style frames.
+5. Commit and push completed work on the task's authorized branch (`codex` is the interactive baseline; `codex-video` is the video extension). Provide GitHub view/download links so review survives cloud resets. Preserve all original style frames.

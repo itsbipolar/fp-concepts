@@ -1,5 +1,7 @@
 # Financial illustration build workflow
 
+For authored videos on `codex-video`, use [the video workflow](VIDEO-WORKFLOW.md). This page retains the interactive process and shared model routing. Work on the branch authorized by the current task; its explicit branch choice takes precedence over the historical `codex` examples below.
+
 Build a reproducible lesson in the approved **Within reach** language: one learner decision, several connected consequences, and one coherent scene. The assistant researches the mechanism and invents its visual treatment. Follow [interaction principles](INTERACTION-PRINCIPLES.md) and [style system](STYLE-SYSTEM.md); preserve the existing ownership prototype and archived alternatives.
 
 ## 1. Brief and causal map

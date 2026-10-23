@@ -1,0 +1,22 @@
+{
+  "name": "fp-within-reach-video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Within reach editorial motion, adapted from the supplied Paper Collage Motion Kit",
+  "scripts": {
+    "prepare-assets": "node tools/prepare-assets.mjs",
+    "prestudio": "npm run prepare-assets",
+    "studio": "remotion studio src/index.ts",
+    "check": "node tools/review.mjs --stills",
+    "render": "node tools/review.mjs",
+    "verify": "python3 tools/verify.py"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.497",
+    "@remotion/cli": "4.0.497",
+    "@remotion/renderer": "4.0.497",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.497"
+  }
+}

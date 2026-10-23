@@ -1,5 +1,13 @@
 # Roadmap
 
+## Video branch
+
+- [x] Create `codex-video` from the completed `codex` baseline.
+- [x] Preserve the uploaded motion kit and adapt the workflow to the existing Within reach references.
+- [x] Install an isolated Remotion workspace with pinned dependencies and a representative silent motion study.
+- [ ] Review the motion study, then develop a sourced short financial film with its own visual argument, beat map and delivery format.
+- [ ] Add narration/captions and sound when a film brief calls for them; optional kit tools remain reference material until needed.
+
 ## Within reach: selected direction
 - [x] Research and install a pinned external frontend-design skill for Codex.
 - [x] Create three distinct company/owner/money style frames.

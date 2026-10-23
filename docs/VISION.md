@@ -1,5 +1,9 @@
 # Vision: FP Concepts
 
+## Current branch: authored visual stories
+
+On `codex-video`, extend Within reach into authored videos. Preserve the expressive paper artwork and connected financial consequences, using editing, camera and pacing to guide attention beyond the interactive format. The uploaded motion kit adds production techniques; the established visual identity remains the foundation. See [video direction](VIDEO-DIRECTION.md) and [video workflow](VIDEO-WORKFLOW.md). The interactive vision below remains the baseline preserved on `codex`.
+
 ## Current vision: interactive illustrated consequences
 
 Make complex Canadian financial decisions understandable through expressive illustrations that people can operate: **one choice reveals its connected consequences across the scene**.

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "company",
+      "source": "explorations/within-reach/assets/company.png",
+      "sha256": "42b86be12b496eb5e93783b65959f95776c9cf409c67f03c3588d3ee12549788",
+      "file": "company.png"
+    },
+    {
+      "id": "owner",
+      "source": "explorations/within-reach/assets/owner.png",
+      "sha256": "8627753b1493f5ecb0f4af362eab029f2829edc72120b9cffe4338eb1085ae1d",
+      "file": "owner.png"
+    },
+    {
+      "id": "payment",
+      "source": "explorations/within-reach/assets/payment.png",
+      "sha256": "93cb5b4422ad3e87d007af3373cac931769ec0d1132cbe90211a19faa3170e08",
+      "file": "payment.png"
+    },
+    {
+      "id": "future-owner",
+      "source": "explorations/salary-or-dividend/assets/future-owner.png",
+      "sha256": "d04b880f9e5ad3b2cca8108b6627064362a7bf157a644151b51f30734adfe4cc",
+      "file": "future-owner.png"
+    }
+  ]
+}

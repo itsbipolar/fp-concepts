@@ -1,0 +1,29 @@
+{
+  "composition": "WithinReach",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "frames": 270,
+  "node": "v24.19.0",
+  "browser": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+  "inputs": {
+    "src/index.ts": "a58f804bf74bab68b4549aa5c715eb4a89ec5835206d198fc79b462b4fc71ef9",
+    "src/Root.tsx": "072b66d9e7811715c3fe450dcae1fc9abc940051ac3573613002e325630c377f",
+    "src/WithinReach.tsx": "ac87f3650c063c38ab1bf607fdbf8a03582c6f45b0677a5041649a967f28aafa",
+    "tools/prepare-assets.mjs": "d4d85d531a5f5afbc92f2ae4cefdc5979447e14ef2116dd24fcbcbf67bcf8e7f",
+    "tools/review.mjs": "219a3c62e8236a0b18d50bccc4efd478ac38a91dce80db163325142427c0f1fa",
+    "package-lock.json": "296bab2ec8588175078cb585335c8799a083658f3788ff6fb414cf00b362de1c",
+    "asset-manifest.json": "83845ac3f17141d724dedd5880cb16c5fb164eeb22c1888a834c593b3d89a3a9",
+    "public/fonts/LiberationSans-Bold.ttf": "1b5f2da6f4cadce4c05b9ecebe3a6fcd374eb95ae443605e799f4c3287978939",
+    "../design/within-reach/style-tokens.json": "c956b60cf62729b46d164ccdeb085880dcb08a9d2c8046be4b6ea59ba8745313"
+  },
+  "artifacts": {
+    "frame-000.png": "e791139aeb30cfc8d79818611d8778466bdbc0ea16535dc7de0e83c958ee873b",
+    "frame-066.png": "848272e3e8e16a02dda104e8b098be0e65039982e52ffee870855a4b3b88fb72",
+    "frame-108.png": "d7aac0da24c7ae878421eca39bf55b4b44116bd90d2a119ee70b28b0210b020e",
+    "frame-156.png": "e0b995cd90ee2282758642bf91677b0a496a63cec09d4c542d5c8f1669a67981",
+    "frame-210.png": "788ebbd14c17da395a2d13f4703e40901fbf54d85c23b551957a9f969c9ba427",
+    "frame-269.png": "788ebbd14c17da395a2d13f4703e40901fbf54d85c23b551957a9f969c9ba427",
+    "within-reach-motion-study.mp4": "74d19cc672a64c255c4015d00bbd844756e0c7e7039b3ac917818187d207b097"
+  }
+}

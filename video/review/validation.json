@@ -1,0 +1,14 @@
+{
+  "checks_passed": [
+    "render inputs and output hashes",
+    "four source/prepared asset hashes",
+    "six 1280x720 stills",
+    "identical settled frames at 7s and 8.97s",
+    "H.264 4:2:0 1280x720 30fps 270 frames / 9 seconds",
+    "silent video stream",
+    "complete FFmpeg decode"
+  ],
+  "movie_bytes": 2353340,
+  "pixel_format": "yuvj420p",
+  "scope": "Artifact integrity/render checks. Not a TypeScript typecheck, visual approval or financial verification."
+}

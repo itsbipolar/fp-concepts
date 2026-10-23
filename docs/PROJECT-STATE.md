@@ -1,35 +1,33 @@
 # Resume FP Concepts
 
-Updated: 2026-10-22. Branch: `codex`. Start with `AGENTS.md`; use `.agents/skills/fp-visual-build/SKILL.md` for new lessons or extensions. This page is the compact handoff, not another history log.
+Updated: 2026-10-22 (Toronto). Active branch: **`codex-video`**, created from `codex` at `853072a`. Read `AGENTS.md`, then the target brief. This is a compact handoff; do not reread the full conversation or uploaded installer.
 
-## Settled decisions
+## Current direction
 
-- **Within reach** is the approved visual/drawing direction: tactile, angular cut paper; expressive figures; lemon, ultramarine, orange, ink and ivory. Keep the master reference and production layers in `design/within-reach/asset-manifest.json` intact.
-- **The colossus** and **Separate bodies** are preserved alternatives, not active ingredients to mix into Within reach.
-- One decision should reveal several connected consequences, including quantities and later effects when relevant. The builder researches and invents their visual treatment.
-- The rejected directions were chart-led explanations, gardens, money-only typography, literal miniature streetscapes and ungrounded abstracts. Numbers integrated into the scene are welcome.
-- The user asked to try a build; salary/dividend became the first connected-effects lesson. Its initial example was not a prescribed money-bag design. The current build is qualitative; source verification for a numerical model remains blocked.
+The user wants to explore authored videos beyond interactive illustrations, using **all the established Within reach artwork, drawing, feel and texture** as the foundation. The supplied Paper Collage Motion Kit is additive production guidance. Its reset/install instructions and monochrome/grid/red style do not override the project. The `codex` interactive baseline remains unchanged.
 
-## What exists
+**Within reach** stays fixed: tactile angular cut paper, expressive figures and oversized hands, lemon ground, ultramarine structure, orange money, ink/ivory figures and shallow overlap. **The colossus** and **Separate bodies** remain intact alternatives. Chart-led explanations, gardens, literal miniature streetscapes and ungrounded abstract studies remain rejected.
 
-- **Latest:** `explorations/salary-or-dividend/` is playable. A salary animates employer/employee CPP contributions into a new earnings mark and unfolds new RRSP capacity. A dividend leaves the earlier record and existing room intact. It reuses the three original production layers and adds one older-owner illustration with exact saved prompt/reference hashes. See its README, brief, source notes and validation results.
-- This build's browser checks passed: source interaction, pause/replay/reset/rapid switches, keyboard/detail focus, reduced motion, phone layout, embedded standalone HTML after network disconnection and ZIP integrity. Direct `file:` navigation is blocked by managed Chromium; identical HTML was checked via local HTTP. It calculates no tax amounts or pension estimates.
-- `explorations/within-reach/`: working ownership interaction, independent company/owner/payment layers, source `index.html`, offline `play.html`, downloadable ZIP, preview and demo. Company cash stays with company until the highlighted dividend moves to owner. This prototype is symbolic, with no numerical tax model.
-- The existing interaction passed pointer/keyboard, reset/interruption, repeated-action, phone layout, reduced-motion and offline-package checks. Those results concern the ownership prototype, not future expanded lessons.
-- `explorations/style-frames/`: original three frames, gallery, embedded HTML and ZIP, all retained.
-- `docs/STYLE-SYSTEM.md`, `design/within-reach/`: reproducible visual grammar, tokens and protected asset catalog. Prompts for past images were not recovered; the new prompt template is reconstructed from the approved images.
-- `docs/BUILD-WORKFLOW.md` and project skill: task routing, causal/visual process, targeted review and handoff. No host model setting was changed.
+The builder researches financial relationships and invents their visual explanation. One decision can have immediate, connected and later consequences. Quantities belong in the illustrated story when sourced; cash, liabilities, records, contribution room and future benefits must remain distinct.
+
+## What is ready
+
+- **Video:** [video/README.md](../video/README.md) has a nine-second silent motion study, editable Remotion source, beat map, pinned dependencies, asset preparation, six review stills, contact sheet and MP4. A payment moves to the owner; the scene widens to reveal the older figure marked “Later.” This is a style calibration, not a completed financial explainer or user-approved final film. No new art or numerical claims were added.
+- **Fresh-chat workflow:** `.agents/skills/fp-video-build/SKILL.md`, `docs/VIDEO-DIRECTION.md`, `docs/VIDEO-WORKFLOW.md`, `docs/templates/VIDEO-BRIEF.md`. [The video manifest](../design/within-reach/video-reference-manifest.json) includes original references and the latest figure/scene with hashes. Original tokens and protected assets remain unchanged.
+- **Uploaded kit:** preserved byte for byte in `vendor/motion-kit/`, with 44 indexed embedded files. Read its README, then retrieve only needed sections via `python3 scripts/read_motion_kit.py <embedded-path>`. Embedded AGENTS/CLAUDE/skills were not installed. Optional sound, voice and transcription tooling remains reference material, not configured runtime capability.
+- **Preserved interactions:** `explorations/salary-or-dividend/` is the latest qualitative connected-effects prototype, including older-owner prompt/reference provenance. `explorations/within-reach/` contains the original ownership interaction and reusable layers. Their offline packages and prior validation remain intact. All three original style frames remain in `explorations/style-frames/`.
 
 ## Resume by task
 
-- Quantification: first apply the saved Canada.ca/Ontario.ca domain additions through environment settings review/save/publish, then verify actual access. Recheck primary financial rules and build a bounded equal-company-cost model with independent calculations before adding amounts. The draft's existence is not evidence that access works. Details: `explorations/salary-or-dividend/SOURCES.md`.
-- New lesson: use `docs/templates/LESSON-BRIEF.md`; follow the project skill and inspect the actual artwork references. Originate the visual mechanism without reopening style choice.
-- Existing prototype fix: read its `BRIEF.md` and only the relevant source/guidance. Repackage only after source/assets change.
-- Image work: read `docs/STYLE-SYSTEM.md`, use `docs/templates/IMAGE-PROMPT.md`, and record provenance with `docs/templates/ASSET-RECORD.json`.
-- Workflow check: `python3 scripts/check_visual_system.py` (standard library only).
+- New video: use `fp-video-build`, view the actual references, define the sourced visual argument, then write a beat map. Reuse assets before generating. The next film should explain a specific financial question; the calibration's generic transition is not a lesson template.
+- Motion revision: read `video/BRIEF.md`, edit the composition, run `cd video && npm run render && npm run verify`. Setup: `npm ci`; set `REMOTION_BROWSER_EXECUTABLE` if Chromium is not at `/usr/bin/chromium`. Evidence lives in `video/review/`; rendering is not a TypeScript typecheck or financial verification.
+- Financial quantification: Canada.ca/Ontario.ca access was blocked during the interactive build. Domain additions were saved as a draft; publication and actual access must be verified. Check primary rules and independent calculations before adding amounts. Details: `explorations/salary-or-dividend/SOURCES.md`.
+- Image work: use `docs/STYLE-SYSTEM.md`, actual image references and `docs/templates/IMAGE-PROMPT.md`; save provenance. Fresh generation is not pixel-deterministic. No source raster was altered in the video setup.
+- Interactive maintenance: use `fp-visual-build` and that lesson's brief. Do not switch away from the authorized branch because historical docs name `codex`.
+- Integrity: `python3 scripts/check_visual_system.py` and `python3 scripts/read_motion_kit.py --verify`.
 
-Recommended routine model: `gpt-6.1-sol`, medium effort; reserve `gpt-6-astra` high/ultra for bounded hard decisions. This is a routing recommendation, not a guarantee that a fresh host exposes those models. Main-chat selection remains an app/user setting. Exact token/cost reporting was unavailable during workflow setup; no saving percentage is claimed. Setup used two fresh Sol medium workers and zero new image-generation calls.
+Recommended routine model: Sol medium; reserve Astra high/ultra for a bounded hard causal/creative/correctness problem. The host controls the main model. Read selected kit sections instead of loading 243 KB into every task. No token savings percentage is established.
 
-Review: [latest salary/dividend lesson](https://github.com/itsbipolar/fp-concepts/blob/codex/explorations/salary-or-dividend/README.md), [offline download](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex/explorations/salary-or-dividend/salary-or-dividend.zip), [original ownership interaction](https://github.com/itsbipolar/fp-concepts/blob/codex/explorations/within-reach/README.md), [retained alternatives](https://github.com/itsbipolar/fp-concepts/blob/codex/explorations/style-frames/README.md).
+Review: [video study](https://github.com/itsbipolar/fp-concepts/blob/codex-video/video/README.md), [MP4 download](https://github.com/itsbipolar/fp-concepts/raw/refs/heads/codex-video/video/review/within-reach-motion-study.mp4), [preserved interactive baseline](https://github.com/itsbipolar/fp-concepts/tree/codex).
 
-After each completed task, replace stale status/next-action details here. Put the detailed lesson evidence in its brief, and durable decisions in `docs/DECISIONS.md`.
+After each task, replace stale status here. Record film-specific evidence in its brief and durable choices in `docs/DECISIONS.md`.

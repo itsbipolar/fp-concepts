@@ -18,6 +18,9 @@ REQUIRED = (
     "docs/BUILD-WORKFLOW.md", "docs/INTERACTION-PRINCIPLES.md",
     "docs/templates/LESSON-BRIEF.md", "docs/templates/IMAGE-PROMPT.md",
     "docs/templates/AGENT-TASK.md", "docs/templates/ASSET-RECORD.json",
+    ".agents/skills/fp-video-build/SKILL.md", "docs/VIDEO-DIRECTION.md",
+    "docs/VIDEO-WORKFLOW.md", "docs/templates/VIDEO-BRIEF.md",
+    "vendor/motion-kit/README.md", "video/README.md", "video/BRIEF.md",
 )
 
 
@@ -59,6 +62,13 @@ def validate():
         if (colour_type in (4, 6)) != asset["has_alpha_channel"]:
             raise ValueError(f"Alpha-channel metadata mismatch: {asset['path']}")
 
+    video_references = json.loads(checked_path("design/within-reach/video-reference-manifest.json").read_text())
+    if video_references["style_id"] != manifest["style_id"]:
+        raise ValueError("Video direction differs from the approved style")
+    for reference in video_references["references"]:
+        if hashlib.sha256(checked_path(reference["path"]).read_bytes()).hexdigest() != reference["sha256"]:
+            raise ValueError(f"Video reference changed: {reference['path']}")
+
     # Tokens describe the actual approved prototype, not an invented new theme.
     prototype = checked_path("explorations/within-reach/index.html").read_text()
     for colour in tokens["colors"].values():
@@ -82,6 +92,7 @@ def validate():
                 raise ValueError(f"Broken local link in {name}: {target}")
 
     print(f"Visual kit OK: {len(assets)} protected PNGs, {len(tokens['colors'])} palette anchors.")
+    print(f"Video continuity: {len(video_references['references'])} reference hashes verified.")
     print("Startup documents, templates and local Markdown links resolve.")
     print("Integrity only: visual fidelity and financial correctness require their own review.")
 

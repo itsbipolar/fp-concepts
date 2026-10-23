@@ -1,0 +1,314 @@
+{
+  "kit_version": "1.0.0",
+  "archive_sha256": "c7bbbd7ef924931b6aae24e6ae189f2c5c9317dc2764632af25fcae317337aea",
+  "files": [
+    {
+      "path": ".claude/skills/kit-setup/SKILL.md",
+      "marker_line": 212,
+      "content_start_line": 214,
+      "content_end_line": 276,
+      "sha256": "6d1f17f98896dd462f0d86890c90f2d7dfd4e41fb7f01dbf974837acd36e7c41"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/SKILL.md",
+      "marker_line": 279,
+      "content_start_line": 281,
+      "content_end_line": 336,
+      "sha256": "0fa571d61b248cacc0700bc63f8a849f893a409961fcd9cb0e6a2f0e4367cec0"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/CHECKLIST.md",
+      "marker_line": 339,
+      "content_start_line": 341,
+      "content_end_line": 377,
+      "sha256": "3bf83a4cb7991e8201aabbe3fe3a87168f48ecbde93a52e41824d0184edd4d00"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/IMAGES.md",
+      "marker_line": 380,
+      "content_start_line": 382,
+      "content_end_line": 465,
+      "sha256": "dcac3762a8b6836b83679d0af2826d928a7f68aa7804a925ac323cbfc78a4abd"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/OUTPUT.md",
+      "marker_line": 468,
+      "content_start_line": 470,
+      "content_end_line": 498,
+      "sha256": "c7c7429b3203bdbce53107892d15d2d0d6cc16433a8e91af225325d57b48fa41"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/RECIPES.md",
+      "marker_line": 501,
+      "content_start_line": 503,
+      "content_end_line": 668,
+      "sha256": "4192a7684b737fd94117f0c42c13839e4415257de10097f1d48a1044fc710534"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/SOUND.md",
+      "marker_line": 671,
+      "content_start_line": 673,
+      "content_end_line": 751,
+      "sha256": "29598197a100ec96135b50042b691da9c3615eae27984bfaae6d94793e38e4c8"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/STYLE.md",
+      "marker_line": 754,
+      "content_start_line": 756,
+      "content_end_line": 940,
+      "sha256": "a7c5a87c5fe2f626abc59a5dccdec18cb6ae10cc3a0839d0398eff9ccd57dd5e"
+    },
+    {
+      "path": ".claude/skills/motion-graphic/references/VOICE.md",
+      "marker_line": 943,
+      "content_start_line": 945,
+      "content_end_line": 1035,
+      "sha256": "189df601b7461a5cab383dcda2bbcb9e4960252b4db733953a6e4e68dc18929e"
+    },
+    {
+      "path": ".claude/skills/style-note/SKILL.md",
+      "marker_line": 1038,
+      "content_start_line": 1040,
+      "content_end_line": 1073,
+      "sha256": "b772bf9e31fc8f941e1533b0a1ab54017bca578b14f48c9b76e8c4e2c426d4cb"
+    },
+    {
+      "path": ".gitignore",
+      "marker_line": 1076,
+      "content_start_line": 1078,
+      "content_end_line": 1080,
+      "sha256": "a74f9e00db2f10dd8b06d947911023e729c08eed37dac45ca1b6a805f0079969"
+    },
+    {
+      "path": "AGENTS.md",
+      "marker_line": 1083,
+      "content_start_line": 1085,
+      "content_end_line": 1093,
+      "sha256": "564d2ca1fa095243a5d17cdb5c6a868c109f5d8886aa74e10ea488ffbf161e17"
+    },
+    {
+      "path": "CLAUDE.md",
+      "marker_line": 1096,
+      "content_start_line": 1098,
+      "content_end_line": 1159,
+      "sha256": "6d19052fb1c1268e4d37ed98539c32f10f1f8f0483c6db099c032fd517f87eea"
+    },
+    {
+      "path": "README.md",
+      "marker_line": 1162,
+      "content_start_line": 1164,
+      "content_end_line": 1190,
+      "sha256": "561ececdff8282fc32a8ae62d540a8af7fe8a79fe1194ef642a554dbac86e9d2"
+    },
+    {
+      "path": "kit.config.example.json",
+      "marker_line": 1193,
+      "content_start_line": 1195,
+      "content_end_line": 1216,
+      "sha256": "7c0a91a850ef6016e562b0c09109a91d667245527f04ae5bfb41de028b8a012b"
+    },
+    {
+      "path": "package.json",
+      "marker_line": 1219,
+      "content_start_line": 1221,
+      "content_end_line": 1241,
+      "sha256": "a8d99fef89fa6f466f15cad5833fe9859f23df789c14c5f7a9188e8d5bbfc952"
+    },
+    {
+      "path": "public/library/INDEX.md",
+      "marker_line": 1244,
+      "content_start_line": 1246,
+      "content_end_line": 1252,
+      "sha256": "3d9820f951fe35a29583489ba32a429b2c3f8dd40bfd78e790122ce4d4a26dea"
+    },
+    {
+      "path": "remotion.config.ts",
+      "marker_line": 1255,
+      "content_start_line": 1257,
+      "content_end_line": 1260,
+      "sha256": "38e9e6394e32f151e454efdeb84da8bcc616da7550bc8ef52e1721a001745394"
+    },
+    {
+      "path": "src/Root.tsx",
+      "marker_line": 1263,
+      "content_start_line": 1265,
+      "content_end_line": 1281,
+      "sha256": "c06a73982cba2c06c92f8044922725b81c634a14c93c779f51145a82c8564579"
+    },
+    {
+      "path": "src/demo/Demo.tsx",
+      "marker_line": 1284,
+      "content_start_line": 1286,
+      "content_end_line": 1383,
+      "sha256": "4a872789b0eb06bc1d6fe3426a7c30bb5d5cc403be8b72ae1505a6aa5739fa97"
+    },
+    {
+      "path": "src/index.ts",
+      "marker_line": 1386,
+      "content_start_line": 1388,
+      "content_end_line": 1391,
+      "sha256": "957e481dd33a29b4a55ae0e95dbf763b7e48c37c427ca4bd1275faf34bc07a74"
+    },
+    {
+      "path": "src/kit/collage.tsx",
+      "marker_line": 1394,
+      "content_start_line": 1396,
+      "content_end_line": 1968,
+      "sha256": "0ddd5b0da4fc3c126ad8f257abda8f64ac6c1d55622229753d01db94048ac436"
+    },
+    {
+      "path": "src/kit/scenes.tsx",
+      "marker_line": 1971,
+      "content_start_line": 1973,
+      "content_end_line": 2663,
+      "sha256": "90394281518c045f5b9d37876d9dab04501d937d2b04357c1303147fa447964e"
+    },
+    {
+      "path": "src/kit/sound.tsx",
+      "marker_line": 2666,
+      "content_start_line": 2668,
+      "content_end_line": 2707,
+      "sha256": "240570b966752f68c84e6db27326859c8d45f9ce9ae6e8aae3b3c163db570791"
+    },
+    {
+      "path": "src/soundtracks.ts",
+      "marker_line": 2710,
+      "content_start_line": 2712,
+      "content_end_line": 2715,
+      "sha256": "7ca8e263db32be877c0e79e495f57d32c2566a9f5aa31835723af62a794db62c"
+    },
+    {
+      "path": "templates/Graphic.template.tsx",
+      "marker_line": 2718,
+      "content_start_line": 2720,
+      "content_end_line": 2773,
+      "sha256": "8a0e4ed343a9726bb9a86cc2f5a66675a5eb2ed087ac22cbadc3f68962a2016d"
+    },
+    {
+      "path": "tools/check.mjs",
+      "marker_line": 2776,
+      "content_start_line": 2778,
+      "content_end_line": 2802,
+      "sha256": "3e821f7326b50594243f926b4e9037baa3e99f1e69420444785e976c99b9677a"
+    },
+    {
+      "path": "tools/cutout.py",
+      "marker_line": 2805,
+      "content_start_line": 2807,
+      "content_end_line": 2892,
+      "sha256": "e0f3b06ca306a8cdc9cecae82f3546a8115e74c985912016c68f3e5dddf2c6c9"
+    },
+    {
+      "path": "tools/doctor.mjs",
+      "marker_line": 2895,
+      "content_start_line": 2897,
+      "content_end_line": 2953,
+      "sha256": "c3280a11d7ead7767dab7d73c681f0cccde52ae63b092361535ab255252adf1d"
+    },
+    {
+      "path": "tools/fw_transcribe.py",
+      "marker_line": 2956,
+      "content_start_line": 2958,
+      "content_end_line": 3013,
+      "sha256": "cb8b55245e5bd30270c514f5d69587944692a45cbed8363ba93ad0bb06a61f0a"
+    },
+    {
+      "path": "tools/halftone.py",
+      "marker_line": 3016,
+      "content_start_line": 3018,
+      "content_end_line": 3086,
+      "sha256": "2d9a6fa7268b3181de8579463997ce6f8bde20bc2d72a7d55038d9f49fc1d73d"
+    },
+    {
+      "path": "tools/lib.mjs",
+      "marker_line": 3089,
+      "content_start_line": 3091,
+      "content_end_line": 3190,
+      "sha256": "d702d3e6c3f749cb9ca1d587f1380161d4dfc6aef0aa541b7d3907cf33c2ded7"
+    },
+    {
+      "path": "tools/new-graphic.mjs",
+      "marker_line": 3193,
+      "content_start_line": 3195,
+      "content_end_line": 3338,
+      "sha256": "5a872c19534864b2ee165a937fa141c11ab3d86e14e54f2fc7098f3457347e49"
+    },
+    {
+      "path": "tools/render.mjs",
+      "marker_line": 3341,
+      "content_start_line": 3343,
+      "content_end_line": 3491,
+      "sha256": "26f00e392271f097b556e7409571b00a3338f53ddfc454aec524d9d6b8e72d30"
+    },
+    {
+      "path": "tools/sfx/build_kit.py",
+      "marker_line": 3494,
+      "content_start_line": 3496,
+      "content_end_line": 4187,
+      "sha256": "ec3d87e69d625cdaf6c784d7d218da21ea212f182278d399e2a35655850778a0"
+    },
+    {
+      "path": "tools/sfx/export-cues.mjs",
+      "marker_line": 4190,
+      "content_start_line": 4192,
+      "content_end_line": 4248,
+      "sha256": "4c4e4024b7b1301ede4b6300a376ad3046caf3faf2f2d92c852c2d5f17b3c968"
+    },
+    {
+      "path": "tools/sfx/mix.py",
+      "marker_line": 4251,
+      "content_start_line": 4253,
+      "content_end_line": 4416,
+      "sha256": "5b0731cd99a07c595a9980b164d5679642c7fb6466d521b2fddc3aa9ed07c37d"
+    },
+    {
+      "path": "tools/sheet.py",
+      "marker_line": 4419,
+      "content_start_line": 4421,
+      "content_end_line": 4473,
+      "sha256": "b91416a886ee792759fcf2d1f10403c9ebe9ad7e475907c6358405708161a2b6"
+    },
+    {
+      "path": "tools/stills.mjs",
+      "marker_line": 4476,
+      "content_start_line": 4478,
+      "content_end_line": 4539,
+      "sha256": "ea84243daa558df7ffba95e38488fc99a3226ad253dc34790ee1c2cc3cecd04a"
+    },
+    {
+      "path": "tools/textures.py",
+      "marker_line": 4542,
+      "content_start_line": 4544,
+      "content_end_line": 4626,
+      "sha256": "de0f8118755a0fda1a076571991d98cda156d9b005237dc65c87656ad7264274"
+    },
+    {
+      "path": "tools/tighten-voice.py",
+      "marker_line": 4629,
+      "content_start_line": 4631,
+      "content_end_line": 4727,
+      "sha256": "78c358deb8bafc21e2a4610150f147b4fe52fa4b2808e37beeea0836f30cdb72"
+    },
+    {
+      "path": "tools/transcribe.mjs",
+      "marker_line": 4730,
+      "content_start_line": 4732,
+      "content_end_line": 4868,
+      "sha256": "7e68389f90d049525c6b85a2eb826da10a9bbcfbb668b2e254a011e7e6a263bc"
+    },
+    {
+      "path": "tools/unpack.mjs",
+      "marker_line": 4871,
+      "content_start_line": 4873,
+      "content_end_line": 4905,
+      "sha256": "53119c9b618f4ba9b60959029518d52e6dcbaaad1edba01e7a470af37b233d4a"
+    },
+    {
+      "path": "tsconfig.json",
+      "marker_line": 4908,
+      "content_start_line": 4910,
+      "content_end_line": 4923,
+      "sha256": "e05763b99a75519bfbcbd00c84cd4b422a2b0df7b5eebf570058ecdb68a6229a"
+    }
+  ]
+}
